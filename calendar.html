@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>K-water연구원 데일리 브리핑 — 아카이브</title>
+<style>
+  body { font-family: 'Malgun Gothic', 'Noto Sans KR', sans-serif;
+         background:#f5f6f8; margin:0; padding:30px 20px; color:#333; }
+  .wrap { max-width:720px; margin:0 auto; background:#fff;
+          border-radius:12px; box-shadow:0 4px 20px rgba(0,0,0,0.08);
+          padding:32px; border-top:5px solid #002060; }
+  h1 { color:#002060; font-size:22px; margin:0 0 6px; }
+  .sub { color:#6b6b6b; font-size:13px; margin-bottom:24px; }
+  .controls { display:flex; justify-content:space-between; align-items:center;
+              margin-bottom:18px; }
+  .controls button { background:#002060; color:#fff; border:none;
+                     padding:8px 16px; border-radius:6px; cursor:pointer;
+                     font-size:14px; font-weight:600; }
+  .controls button:hover { background:#003a8c; }
+  #month-label { font-size:18px; font-weight:700; color:#1a3f7f; }
+  .grid { display:grid; grid-template-columns:repeat(7,1fr); gap:6px; }
+  .head { text-align:center; font-size:12px; color:#6b6b6b;
+          padding:6px 0; font-weight:600; }
+  .head.sun { color:#c0000a; } .head.sat { color:#1a73e8; }
+  .day { aspect-ratio:1; display:flex; align-items:center; justify-content:center;
+         border-radius:8px; font-size:14px; background:#f0f2f5;
+         color:#bbb; cursor:not-allowed; transition:transform 0.1s; }
+  .day.published { background:#1a73e8; color:#fff; cursor:pointer; font-weight:700; }
+  .day.published:hover { background:#0f5bd1; transform:scale(1.05); }
+  .day.today { outline:3px solid #c0000a; outline-offset:-3px; }
+  .day.empty-cell { background:transparent; }
+  .footer { margin-top:24px; padding-top:16px; border-top:1px solid #e5e7eb;
+            font-size:12px; color:#9ca3af; text-align:center; }
+  .home-btn { display:inline-block; margin-bottom:16px; color:#002060;
+              text-decoration:none; font-size:13px; }
+  .home-btn:hover { text-decoration:underline; }
+</style>
+</head>
+<body>
+  <div class="wrap">
+    <a class="home-btn" href="./">← 오늘의 브리핑</a>
+    <h1>📅 데일리 브리핑 아카이브</h1>
+    <div class="sub">날짜를 클릭하면 해당 일자 브리핑을 볼 수 있습니다.</div>
+    <div class="controls">
+      <button onclick="changeMonth(-1)">‹ 이전</button>
+      <span id="month-label"></span>
+      <button onclick="changeMonth(1)">다음 ›</button>
+    </div>
+    <div class="grid" id="head-row"></div>
+    <div class="grid" id="cal"></div>
+    <div class="footer">발행 · K-water연구원 경영연구소 / 개발 · K-water연구원 AI연구소</div>
+  </div>
+<script>
+(function(){
+  var publishedDates = new Set();
+  var today = new Date();
+  var viewY = today.getFullYear(), viewM = today.getMonth();
+  var labels = ['일','월','화','수','목','금','토'];
+
+  function pad(n){ return n<10 ? '0'+n : ''+n; }
+  function ymd(y,m,d){ return y+'-'+pad(m+1)+'-'+pad(d); }
+
+  function renderHead(){
+    var h = document.getElementById('head-row');
+    h.innerHTML = labels.map(function(l,i){
+      var cls = i===0 ? 'head sun' : (i===6 ? 'head sat' : 'head');
+      return '<div class="'+cls+'">'+l+'</div>';
+    }).join('');
+  }
+
+  function render(){
+    document.getElementById('month-label').textContent = viewY+'년 '+(viewM+1)+'월';
+    var first = new Date(viewY, viewM, 1).getDay();
+    var lastDay = new Date(viewY, viewM+1, 0).getDate();
+    var cal = document.getElementById('cal');
+    var html = '';
+    for (var i=0; i<first; i++) html += '<div class="day empty-cell"></div>';
+    for (var d=1; d<=lastDay; d++){
+      var key = ymd(viewY, viewM, d);
+      var cls = 'day';
+      var isToday = (viewY===today.getFullYear() && viewM===today.getMonth() && d===today.getDate());
+      if (publishedDates.has(key)) cls += ' published';
+      if (isToday) cls += ' today';
+      if (publishedDates.has(key)){
+        html += '<div class="'+cls+'" onclick="location.href=\'archive/'+key+'.html\'">'+d+'</div>';
+      } else {
+        html += '<div class="'+cls+'">'+d+'</div>';
+      }
+    }
+    cal.innerHTML = html;
+  }
+
+  window.changeMonth = function(diff){
+    viewM += diff;
+    if (viewM<0){ viewM=11; viewY--; }
+    if (viewM>11){ viewM=0; viewY++; }
+    render();
+  };
+
+  renderHead();
+  fetch('archive/index.json', {cache:'no-store'})
+    .then(function(r){ return r.json(); })
+    .then(function(data){
+      publishedDates = new Set(data.dates || []);
+      render();
+    })
+    .catch(function(){ render(); });
+})();
+</script>
+</body>
+</html>
