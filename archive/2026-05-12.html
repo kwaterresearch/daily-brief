@@ -13,7 +13,7 @@
         body {
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
             background: #f8f9fa;
-            color: #212529;
+            color: #3c3c3c;
             line-height: 1.6;
             padding: 20px;
         }
@@ -26,7 +26,7 @@
             overflow: hidden;
         }
         .header {
-            background: linear-gradient(135deg, #1a3f7f 0%, #2563a8 100%);
+            background: linear-gradient(135deg, #1a3f7f 0%, #2a5fa8 100%);
             color: white;
             padding: 32px 28px;
         }
@@ -36,30 +36,40 @@
             margin-bottom: 8px;
         }
         .header .subtitle {
-            font-size: 13px;
+            font-size: 14px;
             opacity: 0.95;
-            margin-bottom: 20px;
             line-height: 1.5;
         }
-        .header .meta {
+        .meta-info {
+            background: #eef2f9;
+            padding: 18px 28px;
+            border-bottom: 1px solid #dde3ed;
+        }
+        .meta-info p {
             font-size: 13px;
-            opacity: 0.9;
-            line-height: 1.7;
+            color: #555;
+            margin: 4px 0;
+        }
+        .meta-info strong {
+            color: #1a3f7f;
+            font-weight: 600;
         }
         .summary-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 10px;
-            margin-top: 18px;
+            gap: 12px;
+            padding: 20px 28px;
+            background: #fafbfc;
+            border-bottom: 2px solid #e8ecf1;
         }
         .summary-cell {
-            background: rgba(255,255,255,0.12);
-            border: 1px solid rgba(255,255,255,0.2);
+            padding: 10px 14px;
             border-radius: 8px;
-            padding: 10px 12px;
             display: flex;
             align-items: center;
             gap: 8px;
+            font-size: 13px;
+            font-weight: 600;
         }
         .summary-cell .dot {
             width: 7px;
@@ -67,108 +77,134 @@
             border-radius: 50%;
             flex-shrink: 0;
         }
-        .summary-cell.urgent .dot { background: #ff4757; }
-        .summary-cell.caution .dot { background: #ffa502; }
-        .summary-cell.reference .dot { background: #26de81; }
-        .summary-cell .label {
-            font-size: 12px;
-            font-weight: 600;
-            opacity: 0.95;
+        .summary-urgent {
+            background: #fff0f0;
+            border: 1px solid #f5b8bc;
+            color: #c0000a;
         }
-        .summary-cell .count {
-            margin-left: auto;
-            font-size: 15px;
-            font-weight: 700;
+        .summary-urgent .dot {
+            background: #c0000a;
+        }
+        .summary-watch {
+            background: #fff8e8;
+            border: 1px solid #f0d080;
+            color: #b06a00;
+        }
+        .summary-watch .dot {
+            background: #b06a00;
+        }
+        .summary-ref {
+            background: #f0faf0;
+            border: 1px solid #90d890;
+            color: #1a6e1a;
+        }
+        .summary-ref .dot {
+            background: #1a6e1a;
         }
         .content {
             padding: 28px;
         }
         .card {
             background: white;
-            border: 1px solid #e9ecef;
+            border: 1px solid #e8ecf1;
             border-radius: 10px;
             padding: 22px;
-            margin-bottom: 18px;
-            border-left: 5px solid;
+            margin-bottom: 20px;
+            position: relative;
         }
-        .card.urgent { border-left-color: #c0000a; }
-        .card.caution { border-left-color: #b06a00; }
-        .card.reference { border-left-color: #1a6e1a; }
-        .card-header {
+        .card-border-urgent {
+            border-left: 5px solid #c0000a;
+        }
+        .card-border-watch {
+            border-left: 5px solid #b06a00;
+        }
+        .card-border-ref {
+            border-left: 5px solid #1a6e1a;
+        }
+        .card-tags {
             display: flex;
             flex-wrap: wrap;
             gap: 7px;
             margin-bottom: 14px;
-            align-items: center;
         }
-        .badge {
+        .tag {
+            padding: 4px 10px;
+            border-radius: 4px;
+            font-size: 11px;
+            font-weight: 600;
             display: inline-flex;
             align-items: center;
-            padding: 4px 10px;
-            border-radius: 12px;
-            font-size: 11.5px;
-            font-weight: 600;
-            border: 1px solid;
-        }
-        .badge.number {
-            background: #eef2f9;
-            color: #1a3f7f;
-            border-color: #d0ddf0;
-        }
-        .badge.priority {
             gap: 5px;
         }
-        .badge.priority .dot {
+        .tag-number {
+            background: #eef2f9;
+            color: #1a3f7f;
+        }
+        .tag-priority {
+            border-radius: 12px;
+            padding: 4px 11px;
+        }
+        .tag-priority .dot {
             width: 7px;
             height: 7px;
             border-radius: 50%;
         }
-        .badge.urgent {
+        .tag-urgent {
             background: #fff0f0;
             color: #c0000a;
-            border-color: #f5b8bc;
+            border: 1px solid #f5b8bc;
         }
-        .badge.urgent .dot { background: #c0000a; }
-        .badge.caution {
+        .tag-urgent .dot {
+            background: #c0000a;
+        }
+        .tag-watch {
             background: #fff8e8;
             color: #b06a00;
-            border-color: #f0d080;
+            border: 1px solid #f0d080;
         }
-        .badge.caution .dot { background: #b06a00; }
-        .badge.reference {
+        .tag-watch .dot {
+            background: #b06a00;
+        }
+        .tag-ref {
             background: #f0faf0;
             color: #1a6e1a;
-            border-color: #90d890;
+            border: 1px solid #90d890;
         }
-        .badge.reference .dot { background: #1a6e1a; }
-        .badge.category {
+        .tag-ref .dot {
+            background: #1a6e1a;
+        }
+        .tag-category {
             background: #eef2f9;
             color: #3c3c3c;
-            border-color: #d0ddf0;
         }
-        .badge.region {
-            background: #f8f9fa;
-            color: #495057;
-            border-color: #dee2e6;
+        .tag-domestic {
+            background: #e8f4f8;
+            color: #0066cc;
+            border: 1px solid #b8dce8;
+        }
+        .tag-international {
+            background: #f0e8f8;
+            color: #6b2d9e;
+            border: 1px solid #d4b8e8;
         }
         .card-title {
             font-size: 17px;
             font-weight: 700;
-            color: #212529;
+            color: #1a1a1a;
             margin-bottom: 12px;
             line-height: 1.5;
         }
         .card-content {
             font-size: 14px;
-            color: #495057;
-            margin-bottom: 14px;
+            color: #444;
             line-height: 1.7;
+            margin-bottom: 14px;
         }
         .card-source {
             font-size: 12px;
-            color: #6c757d;
+            color: #777;
             padding-top: 12px;
-            border-top: 1px solid #f1f3f5;
+            border-top: 1px solid #f0f0f0;
             margin-bottom: 14px;
         }
         .card-source a {
@@ -183,47 +219,67 @@
             padding: 14px 16px;
             border-radius: 8px;
             font-size: 13px;
-            line-height: 1.7;
-            border-left: 2px solid;
+            line-height: 1.6;
+            position: relative;
+            padding-left: 20px;
         }
-        .insight-box.urgent {
+        .insight-box::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 3px;
+            border-radius: 2px;
+        }
+        .insight-urgent {
             background: #fff5f5;
-            border-left-color: #c0000a;
-            color: #5a0004;
+            color: #8b0000;
         }
-        .insight-box.caution {
+        .insight-urgent::before {
+            background: #c0000a;
+        }
+        .insight-watch {
             background: #fffbf0;
-            border-left-color: #b06a00;
-            color: #4a2d00;
+            color: #7d5a00;
         }
-        .insight-box.reference {
+        .insight-watch::before {
+            background: #b06a00;
+        }
+        .insight-ref {
             background: #f7fdf7;
-            border-left-color: #1a6e1a;
-            color: #0d3a0d;
+            color: #0d5a0d;
+        }
+        .insight-ref::before {
+            background: #1a6e1a;
         }
         .insight-label {
             font-weight: 700;
             margin-bottom: 6px;
-            font-size: 12px;
-            text-transform: uppercase;
-            letter-spacing: 0.3px;
+            display: block;
         }
         .monitoring-note {
             margin-top: 12px;
             padding: 10px 14px;
-            background: #f8f9fa;
+            background: #fff9e6;
+            border-left: 3px solid #ffb800;
             border-radius: 6px;
             font-size: 12px;
-            color: #495057;
-            border-left: 3px solid #6c757d;
+            color: #7d5a00;
+            font-weight: 600;
         }
         .footer {
             background: #f8f9fa;
-            padding: 20px 28px;
-            border-top: 1px solid #e9ecef;
-            font-size: 11.5px;
-            color: #6c757d;
+            padding: 24px 28px;
+            border-top: 2px solid #e8ecf1;
+            font-size: 12px;
+            color: #666;
             line-height: 1.7;
+        }
+        .footer-title {
+            font-weight: 700;
+            color: #1a3f7f;
+            margin-bottom: 8px;
         }
     </style>
 <script src="https://t1.kakaocdn.net/kakao_js_sdk/2.7.0/kakao.min.js"></script>
@@ -233,212 +289,229 @@
         <div class="header">
             <h1>K-water연구원 데일리 브리핑</h1>
             <div class="subtitle">매일 아침, 국내외 주요 이슈와 시사점을 간추려 전달합니다<br>본 자료는 생성형 AI를 통해 자동 작성되었습니다</div>
-            <div class="meta">
-                <div><strong>브리핑 생성:</strong> 2026년 5월 12일 화요일 오전 07:00</div>
-                <div><strong>수록 기간:</strong> 최근 24시간 (2026.05.11 07:00 ~ 2026.05.12 07:00)</div>
-                <div><strong>총 수록 건수:</strong> 8건 | 즉시주목 2건 · 주의요망 4건 · 동향참고 2건</div>
+        </div>
+
+        <div class="meta-info">
+            <p><strong>브리핑 생성:</strong> 2026년 5월 12일 화요일</p>
+            <p><strong>수록 기간:</strong> 최근 24시간 (2026.05.11 ~ 2026.05.12)</p>
+            <p><strong>총 수록 건수:</strong> 8건 | 즉시주목 2건 · 주의요망 4건 · 동향참고 2건</p>
+        </div>
+
+        <div class="summary-grid">
+            <div class="summary-cell summary-urgent">
+                <span class="dot"></span>
+                <span>즉시주목 2건</span>
             </div>
-            <div class="summary-grid">
-                <div class="summary-cell urgent">
-                    <div class="dot"></div>
-                    <div class="label">즉시주목</div>
-                    <div class="count">2</div>
-                </div>
-                <div class="summary-cell caution">
-                    <div class="dot"></div>
-                    <div class="label">주의요망</div>
-                    <div class="count">4</div>
-                </div>
-                <div class="summary-cell reference">
-                    <div class="dot"></div>
-                    <div class="label">동향참고</div>
-                    <div class="count">2</div>
-                </div>
+            <div class="summary-cell summary-watch">
+                <span class="dot"></span>
+                <span>주의요망 4건</span>
+            </div>
+            <div class="summary-cell summary-ref">
+                <span class="dot"></span>
+                <span>동향참고 2건</span>
             </div>
         </div>
 
         <div class="content">
-            <!-- 카드 1 -->
-            <div class="card urgent">
-                <div class="card-header">
-                    <span class="badge number">1</span>
-                    <span class="badge priority urgent"><span class="dot"></span>즉시주목</span>
-                    <span class="badge category">[C] 경제·금융</span>
-                    <span class="badge region">국외</span>
-                </div>
-                <div class="card-title">영국 30년물 국채 수익률, 1998년 이후 최고치 기록…스타머 총리 압박 심화</div>
-                <div class="card-content">
-                    영국 30년물 국채 수익률이 5월 12일 1998년 이후 최고 수준으로 급등했다. 키어 스타머 총리에 대한 정치적 압박이 심화되면서 재정 불안이 채권시장에 반영된 것으로 분석된다. 장기 국채 금리 상승은 정부 차입 비용 증가와 함께 민간 부문 금융 조달 비용에도 영향을 미칠 전망이다.
-                </div>
-                <div class="card-source">
-                    Bloomberg.com | 2026.05.12 10:12 | <a href="https://news.google.com/rss/articles/CBMitAFBVV95cUxNR1FNS2pZLXhMc2loVUtuM1Jpd3l4N0dOS0hRZkYxWDVmd0tWRTAyYU5Zbk12NDh6N0V4X1k3OS1sbnpMNGM3eWpxeHlVaV9GR2RfdzBQUDFYNW94ZklYdDJCUzJBbkhSb1NKUE1oM0Z2YnJPZ2s2SndReHFCS3RLNUVUU1ZLUFAwT0hYSUZFaUczN0VQdGl0eUVPZjJLSTBJVmEwQzB3X1VXdTJHZnIzeFhnLTk?oc=5" target="_blank">원문 보기</a>
-                </div>
-                <div class="insight-box urgent">
-                    <div class="insight-label">K-water 시사점</div>
-                    글로벌 주요국 장기 국채 금리 상승은 국제 금융시장 전반의 조달 비용 상승 압력으로 작용할 수 있다. K-water는 채권 발행을 통한 자금 조달 비중이 높아 해외 금리 동향이 국내 채권시장 및 조달 비용에 간접 영향을 미칠 가능성을 점검할 필요가 있다.
-                </div>
-                <div class="monitoring-note">
-                    <strong>후속 모니터링:</strong> 지속 모니터링 필요 (글로벌 금리 동향 및 국내 채권시장 파급 여부)
-                </div>
-            </div>
 
-            <!-- 카드 2 -->
-            <div class="card urgent">
-                <div class="card-header">
-                    <span class="badge number">2</span>
-                    <span class="badge priority urgent"><span class="dot"></span>즉시주목</span>
-                    <span class="badge category">[E] 기후·에너지·환경</span>
-                    <span class="badge region">국내</span>
+            <!-- 카드 1 -->
+            <div class="card card-border-urgent">
+                <div class="card-tags">
+                    <span class="tag tag-number">1</span>
+                    <span class="tag tag-priority tag-urgent">
+                        <span class="dot"></span>즉시주목
+                    </span>
+                    <span class="tag tag-category">[E] 기후·에너지·환경</span>
+                    <span class="tag tag-domestic">국내</span>
                 </div>
-                <div class="card-title">정부, 홍수 대비 '물그릇' 10억 4천만 톤 추가 확보…도시침수예보 첫 실시</div>
+                <div class="card-title">물그릇 10억4천만톤 비워 홍수 막는다... '도시침수예보' 첫 실시</div>
                 <div class="card-content">
-                    기후에너지환경부는 5월 12일 여름철 홍수 대비를 위해 댐·저수지 등 '물그릇' 10억 4천만 톤을 추가 확보한다고 발표했다. 또한 서울 6개 구를 대상으로 도시침수예보를 처음 실시하며, 홍수 '심각' 단계 시 최대 볼륨 알림을 발송하는 등 AI 기반 홍수 대응 체계를 강화한다.
+                    기후에너지환경부는 2026년 여름철 홍수 대비를 위해 댐·저수지 등에서 10억 4,000만 톤의 홍수 조절 용량을 확보하고, 서울 6개 구를 대상으로 '도시침수예보' 제도를 5월 15일부터 처음 시행한다고 5월 12일 발표했다. 도시침수예보는 AI 기반 침수 예측 시스템을 활용해 침수 위험을 4단계(관심·주의·경계·심각)로 구분하여 사전 경보를 발령하는 제도다.
                 </div>
                 <div class="card-source">
                     한겨레 | 2026.05.12 06:19 | <a href="https://news.google.com/rss/articles/CBMibEFVX3lxTFBBS1F0dzREMWxzTUUtVWctajRsRzBWUlhfdlo2bkpGYjN4N3lSX29TVlVQSmpReWhGM2Q0dEJYSUI4UEVVWVJDSGZtZWptS2VhUFBCNGkyYU4zT0FHWUN5NkJlTWg2a0h6OWhxaQ?oc=5" target="_blank">원문 보기</a>
                 </div>
-                <div class="insight-box urgent">
-                    <div class="insight-label">K-water 시사점</div>
-                    기후에너지환경부의 홍수 대비 물그릇 확보 및 도시침수예보 정책은 K-water가 운영하는 다목적댐 18개 및 홍수조절댐 2개의 운영 전략과 직결된다. AI·디지털트윈 기반 댐 자율운영 및 홍수 대응 체계 고도화 전략과의 연계성을 검토하고, 주무부처 정책 동향을 지속 모니터링할 필요가 있다.
+                <div class="insight-box insight-urgent">
+                    <span class="insight-label">K-water 시사점</span>
+                    K-water가 운영하는 다목적댐 18개와 홍수조절댐 2개의 홍수기 운영 계획이 기후에너지환경부 정책과 직결되는 사안이다. 도시침수예보 제도는 K-water의 3대 초격차 기술 중 하나인 디지털트윈 물관리 플랫폼(Digital GARAM+) 및 AI 기반 댐 자율운영 기술과 연계 가능성이 높다. 홍수 조절 용량 확보 및 AI 침수 예측 시스템 운영에 대한 기후에너지환경부 정책 동향 모니터링 권고.
                 </div>
                 <div class="monitoring-note">
-                    <strong>후속 모니터링:</strong> 지속 모니터링 필요 (기후에너지환경부 홍수 대응 정책 세부 지침 및 댐 운영 연계 방안)
+                    ⚠ 지속 모니터링 필요 — 여름철 홍수기 운영 전반에 영향
+                </div>
+            </div>
+
+            <!-- 카드 2 -->
+            <div class="card card-border-urgent">
+                <div class="card-tags">
+                    <span class="tag tag-number">2</span>
+                    <span class="tag tag-priority tag-urgent">
+                        <span class="dot"></span>즉시주목
+                    </span>
+                    <span class="tag tag-category">[C] 경제·금융</span>
+                    <span class="tag tag-international">국외</span>
+                </div>
+                <div class="card-title">UK 30-Year Yields Jump to Highest Since 1998 on Starmer Pressure</div>
+                <div class="card-content">
+                    영국 30년 만기 국채 수익률이 5월 12일 1998년 이후 최고치로 급등했다. 키어 스타머 총리에 대한 사임 압력이 커지면서 정치 불확실성이 채권 시장에 반영된 것으로 분석된다. 영국 정부 채권 시장의 변동성 확대는 글로벌 금리 동향에 영향을 미칠 수 있다.
+                </div>
+                <div class="card-source">
+                    Bloomberg.com | 2026.05.12 10:12 | <a href="https://news.google.com/rss/articles/CBMitAFBVV95cUxNR1FNS2pZLXhMc2loVUtuM1Jpd3l4N0dOS0hRZkYxWDVmd0tWRTAyYU5Zbk12NDh6N0V4X1k3OS1sbnpMNGM3eWpxeHlVaV9GR2RfdzBQUDFYNW94ZklYdDJCUzJBbkhSb1NKUE1oM0Z2YnJPZ2s2SndReHFCS3RLNUVUU1ZLUFAwT0hYSUZFaUczN0VQdGl0eUVPZjJLSTBJVmEwQzB3X1VXdTJHZnIzeFhnLTk?oc=5" target="_blank">원문 보기</a>
+                </div>
+                <div class="insight-box insight-urgent">
+                    <span class="insight-label">K-water 시사점</span>
+                    영국 국채 수익률 급등은 글로벌 금리 상승 압력으로 작용할 수 있으며, 한국 채권 시장에도 간접 영향을 미칠 가능성이 있다. K-water는 채권 발행을 통한 자금 조달 비중이 높아 글로벌 금리 동향이 조달 비용에 직접 영향을 미친다. 채권 조달 비용 상승 가능성 점검 권고.
+                </div>
+                <div class="monitoring-note">
+                    ⚠ 지속 모니터링 필요 — 글로벌 금리 동향 및 채권 시장 변동성 확대 가능
                 </div>
             </div>
 
             <!-- 카드 3 -->
-            <div class="card caution">
-                <div class="card-header">
-                    <span class="badge number">3</span>
-                    <span class="badge priority caution"><span class="dot"></span>주의요망</span>
-                    <span class="badge category">[B] 정치·정책</span>
-                    <span class="badge region">국내</span>
+            <div class="card card-border-watch">
+                <div class="card-tags">
+                    <span class="tag tag-number">3</span>
+                    <span class="tag tag-priority tag-watch">
+                        <span class="dot"></span>주의요망
+                    </span>
+                    <span class="tag tag-category">[A] 지정학·국제정세</span>
+                    <span class="tag tag-international">국외</span>
                 </div>
-                <div class="card-title">이재명 대통령, 역대급 '확장 재정' 강조…경기 부양 의지 표명</div>
+                <div class="card-title">Iran War Live Updates: Cease-Fire Hangs in Balance After Trump Rejects Iran Offer</div>
                 <div class="card-content">
-                    이재명 대통령이 5월 12일 역대급 규모의 확장 재정 정책을 강조하며 경기 부양 의지를 밝혔다. 정부 지출 확대를 통한 경제 활성화 방침이 공공기관 예산 및 사업 추진에 영향을 미칠 가능성이 있다.
+                    트럼프 대통령이 5월 12일 이란의 고농축우라늄 수거 제안을 거부하면서 이란 전쟁 휴전 협상이 교착 상태에 빠졌다. 트럼프는 이란이 이틀 전 합의했던 우라늄 수거 조항을 합의 초안에서 제외했다고 비판했다. 호르무즈 해협 긴장 지속 및 유가 변동성 확대 가능성이 제기된다.
                 </div>
                 <div class="card-source">
-                    한국경제 | 2026.05.12 08:51 | <a href="https://news.google.com/rss/articles/CBMiWkFVX3lxTE5WaVR5SlhJeGx4WVBjczlydUhzTjFNbTgxWW9SNXBOQmdTZjNfWVhFaHhfVXlpaTFpaTlQR3JJUXpiUWF3QkowX1Q1RG1vMlZPWFU4NVp3eFJFUdIBVEFVX3lxTFBnOGEtcEtCSVRlQ2JvN3dpb0p1Y3E1eDVZY3FCOEdUc2kzd0MxODluZlV4VWxIdUo4Sk1oZE1pTFdlT2hpOWdlb1dqaHI0aWRaSGo3aA?oc=5" target="_blank">원문 보기</a>
+                    The New York Times | 2026.05.12 10:16 | <a href="https://news.google.com/rss/articles/CBMigwFBVV95cUxPMXlNSERRU0xnN3FTTVppbW1ITWRjOXVROE1vNndNTXVocVdPVzljQ3Z6Y1pwRWFISm5QUVJocUtPYk5jNWRZdzBTU3pYcDVwdHBLcmV0Sm96MFo4Zm1Zd3ZQVHRiYVJWalg4TWk3a2ZUeUVMSmVfMDUyTUdLQW1GV3Zzaw?oc=5" target="_blank">원문 보기</a>
                 </div>
-                <div class="insight-box caution">
-                    <div class="insight-label">K-water 시사점</div>
-                    확장 재정 정책은 공공기관 사업 예산 확대 가능성을 시사하나, 구체적인 배분 방향은 추후 발표될 예산안에서 확인 가능하다. K-water 2026년 예산 7조 1,560억원 집행 및 중장기 사업 계획과의 연계성을 점검할 필요가 있다.
+                <div class="insight-box insight-watch">
+                    <span class="insight-label">K-water 시사점</span>
+                    호르무즈 해협 긴장 지속은 국제 유가 변동성 확대로 이어질 수 있으며, K-water의 댐·상수도 운영비 및 건설자재비에 간접 영향을 미칠 수 있다. 유가 변동이 조달 비용 및 운영비에 미치는 영향 점검 권고.
                 </div>
             </div>
 
             <!-- 카드 4 -->
-            <div class="card caution">
-                <div class="card-header">
-                    <span class="badge number">4</span>
-                    <span class="badge priority caution"><span class="dot"></span>주의요망</span>
-                    <span class="badge category">[A] 지정학·국제정세</span>
-                    <span class="badge region">국외</span>
+            <div class="card card-border-watch">
+                <div class="card-tags">
+                    <span class="tag tag-number">4</span>
+                    <span class="tag tag-priority tag-watch">
+                        <span class="dot"></span>주의요망
+                    </span>
+                    <span class="tag tag-category">[A] 지정학·국제정세</span>
+                    <span class="tag tag-international">국외</span>
                 </div>
-                <div class="card-title">트럼프, 이란 핵합의 초안 거부…"고농축우라늄 수거 조항 빠져" 비판</div>
+                <div class="card-title">Trump and Xi appear intent on keeping deep differences over Iran war from overshadowing China summit</div>
                 <div class="card-content">
-                    도널드 트럼프 미국 대통령이 5월 12일 이란과의 핵합의 초안을 거부하며 "이틀 전 이란이 고농축우라늄 공동 수거에 합의했으나 최종 초안에서 해당 조항이 제외됐다"고 비판했다. 이란 전쟁 휴전 협상이 난항을 겪으면서 중동 정세 불안이 지속될 전망이다.
-                </div>
-                <div class="card-source">
-                    조선일보 | 2026.05.12 08:09 | <a href="https://news.google.com/rss/articles/CBMingFBVV95cUxQUkw1bS1TYVJkRzJCU2NhRF9IOTBDdUhObWZLa3AwbWdWNzJjdlNORWRqZDBrVUJjTUJGa0Zjckx0NEJISWVHNUF3R2J3cE1Sd1ByWnVaZDh1X18xZ0JzQjJtbkFLSWgyMk1WVzFGSkVYZGpYejB3cjV2b3RLTVdGaFp4UUZGRXVSUjJ6bTdPcjB4QWZiOFNONmE5QTlXZw?oc=5" target="_blank">원문 보기</a>
-                </div>
-                <div class="insight-box caution">
-                    <div class="insight-label">K-water 시사점</div>
-                    중동 정세 불안 장기화는 국제 유가 및 원자재 가격 변동성 확대로 이어질 수 있다. K-water 댐·상수도 운영비 및 건설자재비에 간접 영향을 미칠 가능성을 점검할 필요가 있다.
-                </div>
-            </div>
-
-            <!-- 카드 5 -->
-            <div class="card caution">
-                <div class="card-header">
-                    <span class="badge number">5</span>
-                    <span class="badge priority caution"><span class="dot"></span>주의요망</span>
-                    <span class="badge category">[C] 경제·금융</span>
-                    <span class="badge region">국외</span>
-                </div>
-                <div class="card-title">미국 CEO들, 트럼프-시진핑 정상회담서 중국 사업 이익 모색</div>
-                <div class="card-content">
-                    미국 주요 기업 CEO들이 트럼프 대통령의 중국 방문에 동행하며 중국 시장 진출 및 사업 확대 기회를 모색하고 있다. 테슬라·애플 CEO가 수행단에 합류한 반면 엔비디아는 제외됐다. 미·중 경제 협력 재개 가능성이 글로벌 공급망 및 기술 산업에 영향을 미칠 전망이다.
-                </div>
-                <div class="card-source">
-                    Reuters | 2026.05.12 10:01 | <a href="https://news.google.com/rss/articles/CBMitgFBVV95cUxNZEMwaVFwS241U3kzWVcxMXZJTnhMdlBjUE9MQm11U0RtNXFJWXZ1VlVzTGNBZ215ZzQzM1phQWZoUHhBejN2YXVORE84dGhXNGxNRHhsT0lJNXFCYndMcmFHQXRqQzh5cEZjUm1Tb0k5cG1sSy1uU1lpa3pHY01DR0VPRjItV1Q1c0RQcVVfT0pPQWZMbkliel9ldXNWZURla19ya3ViSDB3X2RmanpPOUhwNGtrdw?oc=5" target="_blank">원문 보기</a>
-                </div>
-                <div class="insight-box caution">
-                    <div class="insight-label">K-water 시사점</div>
-                    미·중 경제 협력 재개는 글로벌 공급망 안정 및 기술 산업 투자 환경 개선으로 이어질 수 있다. K-water가 추진 중인 첨단산업(반도체·AI·데이터센터) 용수 공급 확대 및 초순수 사업과 간접 연관성이 있으나, 직접 시사점은 제한적이다. 동향 파악 차원에서 참고.
-                </div>
-            </div>
-
-            <!-- 카드 6 -->
-            <div class="card caution">
-                <div class="card-header">
-                    <span class="badge number">6</span>
-                    <span class="badge priority caution"><span class="dot"></span>주의요망</span>
-                    <span class="badge category">[D] 기술·혁신</span>
-                    <span class="badge region">국내</span>
-                </div>
-                <div class="card-title">삼성전자 "AI 데이터센터 시대, 메모리 수요 폭발할 것" 전망</div>
-                <div class="card-content">
-                    삼성전자가 5월 12일 'KIW 2026' 행사에서 AI 데이터센터 확산에 따른 메모리 반도체 수요 폭발을 전망했다. AI 인프라 투자 확대가 반도체 산업 전반에 미치는 영향이 주목받고 있다.
-                </div>
-                <div class="card-source">
-                    한국경제 | 2026.05.12 05:54 | <a href="https://news.google.com/rss/articles/CBMiWkFVX3lxTE1aWk5kZUdfVy1xbWMwY0VxZGNtaWFtRG5hSzhTVTZSNllKOGNmZ1VUcTQxVElKWU5ENThyanlpODlDNVFYd3Fkd0sxaGZ1TVNBSXpPZ1N2SEw5d9IBVEFVX3lxTE5MTGZWVkI5WlhpVzdlMkxJQ2pWRi0wTEtBaF83ZWQybFJyUDVpV1ctel91ekRQN1JPUkM1V0JnZ29kc2FKRmFjbmJTU2xLc0tJcjRhZQ?oc=5" target="_blank">원문 보기</a>
-                </div>
-                <div class="insight-box caution">
-                    <div class="insight-label">K-water 시사점</div>
-                    AI 데이터센터 확산은 전력 및 용수 수요 증가로 이어진다. K-water가 추진 중인 첨단산업 용수 공급 확대 및 초순수 사업 전략과 연계하여 반도체·데이터센터 산업 동향을 지속 모니터링할 필요가 있다.
-                </div>
-            </div>
-
-            <!-- 카드 7 -->
-            <div class="card reference">
-                <div class="card-header">
-                    <span class="badge number">7</span>
-                    <span class="badge priority reference"><span class="dot"></span>동향참고</span>
-                    <span class="badge category">[A] 지정학·국제정세</span>
-                    <span class="badge region">국외</span>
-                </div>
-                <div class="card-title">트럼프·시진핑, 이란 전쟁 이견 속에서도 중국 정상회담 추진</div>
-                <div class="card-content">
-                    도널드 트럼프 미국 대통령과 시진핑 중국 국가주석이 이란 전쟁을 둘러싼 깊은 이견에도 불구하고 정상회담을 추진하고 있다. 양국은 경제 협력 재개 가능성을 모색하면서도 중동 정세에 대한 입장 차이를 드러내고 있다.
+                    트럼프 대통령과 시진핑 주석이 5월 12일 중국 정상회담에서 이란 전쟁을 둘러싼 깊은 이견에도 불구하고 회담 성과를 우선시하는 모습을 보였다. 미국 CEO들이 트럼프의 방중에 동행하며 중국 시장 진출 확대를 모색하고 있다. 미·중 관계 개선 여부가 글로벌 경제 및 공급망에 영향을 미칠 전망이다.
                 </div>
                 <div class="card-source">
                     AP News | 2026.05.12 08:10 | <a href="https://news.google.com/rss/articles/CBMikwFBVV95cUxPTFZBVEVjTWR0WnJiM3ZLWnFId1B0eUNZMnFsYTNCdmNIV3hlc0FNdXdiUXBTOUVqTHRhSEhYYndlNHJtRGtzVEhvNE9uY0JvS0dMOExjazZsQ0tEUVA1Y2xoNEc1Y2p3dnpBeTVoc3VEVk9YTVU4RTZJSkhrTUlhOEtTdjVFRlFfdWczTmJ3QlhWX0k?oc=5" target="_blank">원문 보기</a>
                 </div>
-                <div class="insight-box reference">
-                    <div class="insight-label">K-water 시사점</div>
-                    미·중 정상회담은 글로벌 경제 및 지정학적 환경에 영향을 미치나, K-water 국내 사업·운영에 직접 시사점은 낮음. 동향 파악 차원에서 참고.
+                <div class="insight-box insight-watch">
+                    <span class="insight-label">K-water 시사점</span>
+                    미·중 관계 개선은 글로벌 공급망 안정화 및 원자재 가격 안정에 긍정적 영향을 미칠 수 있다. K-water의 건설자재 조달 및 해외사업(인도네시아·베트남 등) 환경에 간접 영향 가능. 글로벌 공급망 동향 모니터링 권고.
+                </div>
+            </div>
+
+            <!-- 카드 5 -->
+            <div class="card card-border-watch">
+                <div class="card-tags">
+                    <span class="tag tag-number">5</span>
+                    <span class="tag tag-priority tag-watch">
+                        <span class="dot"></span>주의요망
+                    </span>
+                    <span class="tag tag-category">[D] 기술·혁신</span>
+                    <span class="tag tag-domestic">국내</span>
+                </div>
+                <div class="card-title">삼성전자 "AI 데이터센터 시대, 메모리 수요 폭발할 것"[KIW 2026]</div>
+                <div class="card-content">
+                    삼성전자가 5월 12일 'KIW 2026' 행사에서 AI 데이터센터 시대에 메모리 반도체 수요가 폭발적으로 증가할 것이라고 전망했다. AI 데이터센터 확산은 전력 수요 급증으로 이어지며, 안정적인 용수 공급 및 냉각수 인프라 확보가 핵심 과제로 부상하고 있다.
+                </div>
+                <div class="card-source">
+                    한국경제 | 2026.05.12 05:54 | <a href="https://news.google.com/rss/articles/CBMiWkFVX3lxTE1aWk5kZUdfVy1xbWMwY0VxZGNtaWFtRG5hSzhTVTZSNllKOGNmZ1VUcTQxVElKWU5ENThyanlpODlDNVFYd3Fkd0sxaGZ1TVNBSXpPZ1N2SEw5d9IBVEFVX3lxTE5MTGZWVkI5WlhpVzdlMkxJQ2pWRi0wTEtBaF83ZWQybFJyUDVpV1ctel91ekRQN1JPUkM1V0JnZ29kc2FKRmFjbmJTU2xLc0tJcjRhZQ?oc=5" target="_blank">원문 보기</a>
+                </div>
+                <div class="insight-box insight-watch">
+                    <span class="insight-label">K-water 시사점</span>
+                    AI 데이터센터 확산은 첨단산업 용수 수요 증가로 직결된다. K-water는 반도체·AI·데이터센터 용수 공급 확대 및 초순수 사업을 추진 중이며, 이는 수도 사업부문(2026년 매출 목표 2조 7,913억원)의 핵심 성장 동력이다. 첨단산업 용수 공급 확대 전략과의 연계성 검토 권고.
+                </div>
+            </div>
+
+            <!-- 카드 6 -->
+            <div class="card card-border-watch">
+                <div class="card-tags">
+                    <span class="tag tag-number">6</span>
+                    <span class="tag tag-priority tag-watch">
+                        <span class="dot"></span>주의요망
+                    </span>
+                    <span class="tag tag-category">[C] 경제·금융</span>
+                    <span class="tag tag-international">국외</span>
+                </div>
+                <div class="card-title">Inflation Report Today: Dow Futures Slip, Oil Rises Amid Mideast Stalemate — Live Updates</div>
+                <div class="card-content">
+                    5월 12일 미국 인플레이션 보고서 발표를 앞두고 다우 선물이 하락하고 유가가 상승했다. 중동 정세 교착 상태가 유가 상승 압력으로 작용하고 있으며, 인플레이션 지표 발표 결과에 따라 연준의 금리 정책 방향이 영향을 받을 전망이다.
+                </div>
+                <div class="card-source">
+                    WSJ | 2026.05.12 12:06 | <a href="https://news.google.com/rss/articles/CBMigwFBVV95cUxNZVY1T1dESFdjQ1hPOFVGWFF4WmFUbThYdzUxa0xvdTdTV056a1VGVHRPa19ZWjZjT1d2aE5nclNjOUNEcGxxZ3U4ekpqSE5lc3o5dF83TjN3ZHVTYmV5MkdDanFGZ1k1VUwxaWVURWdORUNpYmhoREZ0MUFacGF0Y0ZyUQ?oc=5" target="_blank">원문 보기</a>
+                </div>
+                <div class="insight-box insight-watch">
+                    <span class="insight-label">K-water 시사점</span>
+                    미국 인플레이션 지표 및 연준 금리 정책은 글로벌 금리 동향에 영향을 미치며, 한국 채권 시장 및 환율에 간접 영향을 줄 수 있다. K-water의 채권 조달 비용 및 해외사업 환율 리스크 점검 권고.
+                </div>
+            </div>
+
+            <!-- 카드 7 -->
+            <div class="card card-border-ref">
+                <div class="card-tags">
+                    <span class="tag tag-number">7</span>
+                    <span class="tag tag-priority tag-ref">
+                        <span class="dot"></span>동향참고
+                    </span>
+                    <span class="tag tag-category">[B] 정치·정책</span>
+                    <span class="tag tag-domestic">국내</span>
+                </div>
+                <div class="card-title">김용범 '국민배당금' 언급 공방…국힘 "공산당"·與 "색깔론"</div>
+                <div class="card-content">
+                    김용범 대통령실 정책실장이 5월 12일 '국민배당금' 개념을 언급하면서 여야 간 공방이 벌어졌다. 국민의힘은 "공산당식 발상"이라고 비판했고, 여당은 "색깔론"이라고 반박했다. 청와대는 "정책실장 개인 의견"이라고 선을 그었다.
+                </div>
+                <div class="card-source">
+                    연합뉴스 | 2026.05.12 09:03 | <a href="https://news.google.com/rss/articles/CBMiW0FVX3lxTE1RdEhNZmp6UG1PVmRiNExKdmJ0LS1CM2htZG03TlY3VmJkMno0OXFhNUdmR0NkNm0zRERvd045TnVBbW9tV1Q2Tjh6MUtmU1RUd1BUb0dYZG0tNW_SAWBBVV95cUxNUkg1UzA4aWJuQnFSU1o5STA0ZEs5Qnp3NTV6WVc1dkhmVVZpRi1xWjJIcmw3bXNVbGt4ejJ6MlgyWXlFWmhDRDNRUllLb3FHZlh4d3QxbzhWWlpjSDcwUWQ?oc=5" target="_blank">원문 보기</a>
+                </div>
+                <div class="insight-box insight-ref">
+                    <span class="insight-label">K-water 시사점</span>
+                    직접 시사점 낮음. 정치적 공방 사안으로 K-water 경영에 즉각적 영향은 제한적. 동향 파악 차원에서 참고.
                 </div>
             </div>
 
             <!-- 카드 8 -->
-            <div class="card reference">
-                <div class="card-header">
-                    <span class="badge number">8</span>
-                    <span class="badge priority reference"><span class="dot"></span>동향참고</span>
-                    <span class="badge category">[D] 기술·혁신</span>
-                    <span class="badge region">국외</span>
+            <div class="card card-border-ref">
+                <div class="card-tags">
+                    <span class="tag tag-number">8</span>
+                    <span class="tag tag-priority tag-ref">
+                        <span class="dot"></span>동향참고
+                    </span>
+                    <span class="tag tag-category">[C] 경제·금융</span>
+                    <span class="tag tag-domestic">국내</span>
                 </div>
-                <div class="card-title">OpenAI CEO 샘 알트먼, 머스크와의 재판에서 증언 예정</div>
+                <div class="card-title">'8000피' 문턱서 급락한 코스피…'1만피' 전망 속 변동성도 극대화</div>
                 <div class="card-content">
-                    OpenAI CEO 샘 알트먼이 5월 12일 일론 머스크와의 재판에서 증언대에 선다. 머스크는 OpenAI가 초기 비영리 목적에서 벗어나 영리 기업으로 전환했다며 소송을 제기한 상태다. AI 산업 지배구조 및 기술 기업 간 법적 분쟁이 주목받고 있다.
+                    코스피가 5월 12일 8,000선 문턱에서 급락하며 변동성이 확대되고 있다. 일부 증권사는 '1만 포인트' 전망을 제시하고 있으나, 중동 정세 불확실성 및 글로벌 금리 동향이 변수로 작용하고 있다.
                 </div>
                 <div class="card-source">
-                    Reuters | 2026.05.12 10:41 | <a href="https://news.google.com/rss/articles/CBMirgFBVV95cUxQWWlDX29DYm9TTEdFcTFmSUYxbEd2eFlxd2FPSHg3NmRHS1lERlVFOERPWTBmM3FVRzM3V2pxUkk1UmNxQmRoY1FUaEczbnJFY1ctUllsNmF6a1dxSDFGUmVqS09wNld3M1Z6Z1J2X0xWRlo4RVJSSkhyY0E0SkpsX1VISzA3aDlDaDlUa1NjMGNiSkVUbHdfd093M25aNVB4enBsaVNrcGNvMFBuWGc?oc=5" target="_blank">원문 보기</a>
+                    경향신문 | 2026.05.12 08:00 | <a href="https://news.google.com/rss/articles/CBMiWkFVX3lxTE14N3BSck01d2hsRTJuSUYtcktTZ2stQjVpd0tfLWxKdlc2UFFMb2dpYzBuOG0wdEluQk1BeEY4ZUhndTFpMXFMM1dJYi1oTmZDdWR0VVZHQTNoZ9IBX0FVX3lxTE9xblc5TU5CQlJ5NXg2M0U2NWx3bUt4QWYtdENCY1ZIcy1YS1VrcGd0WEpCTDFGM1ladGNrS3ZpQVNRMzNobTlWTWNQelU0VzVURU1yTmg0eFdoYTdyeWR3?oc=5" target="_blank">원문 보기</a>
                 </div>
-                <div class="insight-box reference">
-                    <div class="insight-label">K-water 시사점</div>
-                    AI 산업 법적 분쟁은 글로벌 기술 생태계 동향을 반영하나, K-water 경영에 직접 시사점은 낮음. 동향 파악 차원에서 참고.
+                <div class="insight-box insight-ref">
+                    <span class="insight-label">K-water 시사점</span>
+                    직접 시사점 낮음. 주식 시장 변동성은 K-water 경영에 직접적 영향은 제한적이나, 금융 시장 전반의 불확실성 지표로 참고 가능. 동향 파악 차원에서 참고.
                 </div>
             </div>
 
         </div>
 
         <div class="footer">
-            <strong>우선순위 기준</strong> · 즉시주목 = 긴급도 높음·중요도 높음 / 주의요망 = 긴급도 높음·중요도 낮음 or 긴급도 낮음·중요도 높음 / 동향참고 = 긴급도 낮음·중요도 낮음<br><br>
-            본 브리핑은 Google Trends 기반 뉴스 수집 및 Claude AI 분석을 통해 자동 생성되었습니다.<br>
-            K-water 경영연구소 | 문의: briefing@kwater.or.kr
+            <div class="footer-title">우선순위 기준</div>
+            <p>즉시주목 = 긴급도 높음·중요도 높음 / 주의요망 = 긴급도 높음·중요도 낮음 or 긴급도 낮음·중요도 높음 / 동향참고 = 긴급도 낮음·중요도 낮음</p>
+            <p style="margin-top:12px; padding-top:12px; border-top:1px solid #ddd;">본 브리핑은 생성형 AI(Claude)를 활용하여 자동 생성되었습니다. 뉴스 수집은 Google Trends 기반 외부 프로그램이 수행하며, AI는 입력된 데이터를 바탕으로 K-water 경영 관련성을 판단하여 편집합니다. 브리핑 내용의 정확성은 원문 기사를 통해 확인하시기 바랍니다.</p>
         </div>
+
     </div>
 
 
@@ -482,7 +555,7 @@
       Kakao.Share.sendDefault({
         objectType: 'text',
         text: '[K-water 데일리 브리핑]\n오늘의 핵심 경영 이슈가 업데이트되었습니다.',
-        link: { mobileWebUrl: 'https://kwater-daily-brief.netlify.app', webUrl: 'https://kwater-daily-brief.netlify.app' },
+        link: { mobileWebUrl: 'https://kwaterresearch.github.io/daily-brief/', webUrl: 'https://kwaterresearch.github.io/daily-brief/' },
         buttonTitle: '브리핑 바로가기'
       });
     };
@@ -490,16 +563,17 @@
 </script>
 
 
+
 <!-- BRIEFING_MANIFEST_BEGIN
 {"cards": [
-  {"no": 1, "category": "즉시주목", "title": "영국 30년물 국채 수익률, 1998년 이후 최고치 기록…스타머 총리 압박 심화", "url": "https://news.google.com/rss/articles/CBMitAFBVV95cUxNR1FNS2pZLXhMc2loVUtuM1Jpd3l4N0dOS0hRZkYxWDVmd0tWRTAyYU5Zbk12NDh6N0V4X1k3OS1sbnpMNGM3eWpxeHlVaV9GR2RfdzBQUDFYNW94ZklYdDJCUzJBbkhSb1NKUE1oM0Z2YnJPZ2s2SndReHFCS3RLNUVUU1ZLUFAwT0hYSUZFaUczN0VQdGl0eUVPZjJLSTBJVmEwQzB3X1VXdTJHZnIzeFhnLTk?oc=5"},
-  {"no": 2, "category": "즉시주목", "title": "정부, 홍수 대비 '물그릇' 10억 4천만 톤 추가 확보…도시침수예보 첫 실시", "url": "https://news.google.com/rss/articles/CBMibEFVX3lxTFBBS1F0dzREMWxzTUUtVWctajRsRzBWUlhfdlo2bkpGYjN4N3lSX29TVlVQSmpReWhGM2Q0dEJYSUI4UEVVWVJDSGZtZWptS2VhUFBCNGkyYU4zT0FHWUN5NkJlTWg2a0h6OWhxaQ?oc=5"},
-  {"no": 3, "category": "주의요망", "title": "이재명 대통령, 역대급 '확장 재정' 강조…경기 부양 의지 표명", "url": "https://news.google.com/rss/articles/CBMiWkFVX3lxTE5WaVR5SlhJeGx4WVBjczlydUhzTjFNbTgxWW9SNXBOQmdTZjNfWVhFaHhfVXlpaTFpaTlQR3JJUXpiUWF3QkowX1Q1RG1vMlZPWFU4NVp3eFJFUdIBVEFVX3lxTFBnOGEtcEtCSVRlQ2JvN3dpb0p1Y3E1eDVZY3FCOEdUc2kzd0MxODluZlV4VWxIdUo4Sk1oZE1pTFdlT2hpOWdlb1dqaHI0aWRaSGo3aA?oc=5"},
-  {"no": 4, "category": "주의요망", "title": "트럼프, 이란 핵합의 초안 거부…\"고농축우라늄 수거 조항 빠져\" 비판", "url": "https://news.google.com/rss/articles/CBMingFBVV95cUxQUkw1bS1TYVJkRzJCU2NhRF9IOTBDdUhObWZLa3AwbWdWNzJjdlNORWRqZDBrVUJjTUJGa0Zjckx0NEJISWVHNUF3R2J3cE1Sd1ByWnVaZDh1X18xZ0JzQjJtbkFLSWgyMk1WVzFGSkVYZGpYejB3cjV2b3RLTVdGaFp4UUZGRXVSUjJ6bTdPcjB4QWZiOFNONmE5QTlXZw?oc=5"},
-  {"no": 5, "category": "주의요망", "title": "미국 CEO들, 트럼프-시진핑 정상회담서 중국 사업 이익 모색", "url": "https://news.google.com/rss/articles/CBMitgFBVV95cUxNZEMwaVFwS241U3kzWVcxMXZJTnhMdlBjUE9MQm11U0RtNXFJWXZ1VlVzTGNBZ215ZzQzM1phQWZoUHhBejN2YXVORE84dGhXNGxNRHhsT0lJNXFCYndMcmFHQXRqQzh5cEZjUm1Tb0k5cG1sSy1uU1lpa3pHY01DR0VPRjItV1Q1c0RQcVVfT0pPQWZMbkliel9ldXNWZURla19ya3ViSDB3X2RmanpPOUhwNGtrdw?oc=5"},
-  {"no": 6, "category": "주의요망", "title": "삼성전자 \"AI 데이터센터 시대, 메모리 수요 폭발할 것\" 전망", "url": "https://news.google.com/rss/articles/CBMiWkFVX3lxTE1aWk5kZUdfVy1xbWMwY0VxZGNtaWFtRG5hSzhTVTZSNllKOGNmZ1VUcTQxVElKWU5ENThyanlpODlDNVFYd3Fkd0sxaGZ1TVNBSXpPZ1N2SEw5d9IBVEFVX3lxTE5MTGZWVkI5WlhpVzdlMkxJQ2pWRi0wTEtBaF83ZWQybFJyUDVpV1ctel91ekRQN1JPUkM1V0JnZ29kc2FKRmFjbmJTU2xLc0tJcjRhZQ?oc=5"},
-  {"no": 7, "category": "동향참고", "title": "트럼프·시진핑, 이란 전쟁 이견 속에서도 중국 정상회담 추진", "url": "https://news.google.com/rss/articles/CBMikwFBVV95cUxPTFZBVEVjTWR0WnJiM3ZLWnFId1B0eUNZMnFsYTNCdmNIV3hlc0FNdXdiUXBTOUVqTHRhSEhYYndlNHJtRGtzVEhvNE9uY0JvS0dMOExjazZsQ0tEUVA1Y2xoNEc1Y2p3dnpBeTVoc3VEVk9YTVU4RTZJSkhrTUlhOEtTdjVFRlFfdWczTmJ3QlhWX0k?oc=5"},
-  {"no": 8, "category": "동향참고", "title": "OpenAI CEO 샘 알트먼, 머스크와의 재판에서 증언 예정", "url": "https://news.google.com/rss/articles/CBMirgFBVV95cUxQWWlDX29DYm9TTEdFcTFmSUYxbEd2eFlxd2FPSHg3NmRHS1lERlVFOERPWTBmM3FVRzM3V2pxUkk1UmNxQmRoY1FUaEczbnJFY1ctUllsNmF6a1dxSDFGUmVqS09wNld3M1Z6Z1J2X0xWRlo4RVJSSkhyY0E0SkpsX1VISzA3aDlDaDlUa1NjMGNiSkVUbHdfd093M25aNVB4enBsaVNrcGNvMFBuWGc?oc=5"}
+  {"no": 1, "category": "즉시주목", "title": "물그릇 10억4천만톤 비워 홍수 막는다... '도시침수예보' 첫 실시", "url": "https://news.google.com/rss/articles/CBMibEFVX3lxTFBBS1F0dzREMWxzTUUtVWctajRsRzBWUlhfdlo2bkpGYjN4N3lSX29TVlVQSmpReWhGM2Q0dEJYSUI4UEVVWVJDSGZtZWptS2VhUFBCNGkyYU4zT0FHWUN5NkJlTWg2a0h6OWhxaQ?oc=5"},
+  {"no": 2, "category": "즉시주목", "title": "UK 30-Year Yields Jump to Highest Since 1998 on Starmer Pressure", "url": "https://news.google.com/rss/articles/CBMitAFBVV95cUxNR1FNS2pZLXhMc2loVUtuM1Jpd3l4N0dOS0hRZkYxWDVmd0tWRTAyYU5Zbk12NDh6N0V4X1k3OS1sbnpMNGM3eWpxeHlVaV9GR2RfdzBQUDFYNW94ZklYdDJCUzJBbkhSb1NKUE1oM0Z2YnJPZ2s2SndReHFCS3RLNUVUU1ZLUFAwT0hYSUZFaUczN0VQdGl0eUVPZjJLSTBJVmEwQzB3X1VXdTJHZnIzeFhnLTk?oc=5"},
+  {"no": 3, "category": "주의요망", "title": "Iran War Live Updates: Cease-Fire Hangs in Balance After Trump Rejects Iran Offer", "url": "https://news.google.com/rss/articles/CBMigwFBVV95cUxPMXlNSERRU0xnN3FTTVppbW1ITWRjOXVROE1vNndNTXVocVdPVzljQ3Z6Y1pwRWFISm5QUVJocUtPYk5jNWRZdzBTU3pYcDVwdHBLcmV0Sm96MFo4Zm1Zd3ZQVHRiYVJWalg4TWk3a2ZUeUVMSmVfMDUyTUdLQW1GV3Zzaw?oc=5"},
+  {"no": 4, "category": "주의요망", "title": "Trump and Xi appear intent on keeping deep differences over Iran war from overshadowing China summit", "url": "https://news.google.com/rss/articles/CBMikwFBVV95cUxPTFZBVEVjTWR0WnJiM3ZLWnFId1B0eUNZMnFsYTNCdmNIV3hlc0FNdXdiUXBTOUVqTHRhSEhYYndlNHJtRGtzVEhvNE9uY0JvS0dMOExjazZsQ0tEUVA1Y2xoNEc1Y2p3dnpBeTVoc3VEVk9YTVU4RTZJSkhrTUlhOEtTdjVFRlFfdWczTmJ3QlhWX0k?oc=5"},
+  {"no": 5, "category": "주의요망", "title": "삼성전자 \"AI 데이터센터 시대, 메모리 수요 폭발할 것\"[KIW 2026]", "url": "https://news.google.com/rss/articles/CBMiWkFVX3lxTE1aWk5kZUdfVy1xbWMwY0VxZGNtaWFtRG5hSzhTVTZSNllKOGNmZ1VUcTQxVElKWU5ENThyanlpODlDNVFYd3Fkd0sxaGZ1TVNBSXpPZ1N2SEw5d9IBVEFVX3lxTE5MTGZWVkI5WlhpVzdlMkxJQ2pWRi0wTEtBaF83ZWQybFJyUDVpV1ctel91ekRQN1JPUkM1V0JnZ29kc2FKRmFjbmJTU2xLc0tJcjRhZQ?oc=5"},
+  {"no": 6, "category": "주의요망", "title": "Inflation Report Today: Dow Futures Slip, Oil Rises Amid Mideast Stalemate — Live Updates", "url": "https://news.google.com/rss/articles/CBMigwFBVV95cUxNZVY1T1dESFdjQ1hPOFVGWFF4WmFUbThYdzUxa0xvdTdTV056a1VGVHRPa19ZWjZjT1d2aE5nclNjOUNEcGxxZ3U4ekpqSE5lc3o5dF83TjN3ZHVTYmV5MkdDanFGZ1k1VUwxaWVURWdORUNpYmhoREZ0MUFacGF0Y0ZyUQ?oc=5"},
+  {"no": 7, "category": "동향참고", "title": "김용범 '국민배당금' 언급 공방…국힘 \"공산당\"·與 \"색깔론\"", "url": "https://news.google.com/rss/articles/CBMiW0FVX3lxTE1RdEhNZmp6UG1PVmRiNExKdmJ0LS1CM2htZG03TlY3VmJkMno0OXFhNUdmR0NkNm0zRERvd045TnVBbW9tV1Q2Tjh6MUtmU1RUd1BUb0dYZG0tNW_SAWBBVV95cUxNUkg1UzA4aWJuQnFSU1o5STA0ZEs5Qnp3NTV6WVc1dkhmVVZpRi1xWjJIcmw3bXNVbGt4ejJ6MlgyWXlFWmhDRDNRUllLb3FHZlh4d3QxbzhWWlpjSDcwUWQ?oc=5"},
+  {"no": 8, "category": "동향참고", "title": "'8000피' 문턱서 급락한 코스피…'1만피' 전망 속 변동성도 극대화", "url": "https://news.google.com/rss/articles/CBMiWkFVX3lxTE14N3BSck01d2hsRTJuSUYtcktTZ2stQjVpd0tfLWxKdlc2UFFMb2dpYzBuOG0wdEluQk1BeEY4ZUhndTFpMXFMM1dJYi1oTmZDdWR0VVZHQTNoZ9IBX0FVX3lxTE9xblc5TU5CQlJ5NXg2M0U2NWx3bUt4QWYtdENCY1ZIcy1YS1VrcGd0WEpCTDFGM1ladGNrS3ZpQVNRMzNobTlWTWNQelU0VzVURU1yTmg0eFdoYTdyeWR3?oc=5"}
 ]}
 BRIEFING_MANIFEST_END -->
 
