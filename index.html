@@ -15,32 +15,28 @@ body {
   background: #f4f6f9;
   word-break: keep-all;
   overflow-wrap: break-word;
-  padding-bottom: 80px;
-}
-.container {
   max-width: 480px;
   margin: 0 auto;
-  padding: 0 16px;
+  padding: 0 16px 80px;
 }
-.header {
+.header-card {
   background: linear-gradient(135deg, #1a56db, #1e3a8a);
   padding: 28px 20px;
   border-radius: 0 0 20px 20px;
+  margin: 0 -16px 16px;
   color: #fff;
-  margin-bottom: 16px;
 }
-.header h1 {
+.header-title {
   font-size: 26px;
   font-weight: 800;
   line-height: 1.3;
   letter-spacing: -0.5px;
-  margin-bottom: 8px;
 }
-.header .subtitle {
+.header-subtitle {
   font-size: 14px;
   color: rgba(255,255,255,0.85);
   line-height: 1.6;
-  margin-bottom: 16px;
+  margin-top: 8px;
 }
 .meta-grid {
   display: grid;
@@ -54,9 +50,11 @@ body {
   padding: 10px 14px;
   font-size: 13px;
 }
-.meta-cell strong {
-  display: block;
+.meta-label {
+  opacity: 0.8;
   margin-bottom: 4px;
+}
+.meta-value {
   font-weight: 600;
 }
 .summary-grid {
@@ -86,18 +84,18 @@ body {
   border-color: #90d890;
   color: #1a6e1a;
 }
-.summary-cell .label {
+.summary-label {
   font-size: 12px;
   font-weight: 600;
 }
-.summary-cell .count {
+.summary-count {
   font-size: 20px;
   font-weight: 800;
   display: block;
   margin-top: 2px;
 }
 .card {
-  background: #ffffff;
+  background: #fff;
   border-radius: 14px;
   box-shadow: 0 2px 8px rgba(0,0,0,0.08);
   padding: 18px 16px;
@@ -117,7 +115,7 @@ body {
 .card.urgent::before { background: #e74c3c; }
 .card.caution::before { background: #f39c12; }
 .card.reference::before { background: #27ae60; }
-.card-tags {
+.tag-row {
   display: flex;
   flex-wrap: wrap;
   gap: 6px;
@@ -131,45 +129,32 @@ body {
   font-weight: 600;
   white-space: nowrap;
 }
-.tag.no {
+.tag-no {
   background: #eef2f9;
   color: #1a3f7f;
 }
-.tag.priority {
+.tag-priority {
   display: flex;
   align-items: center;
   gap: 4px;
 }
-.tag.priority::before {
-  content: '';
+.priority-dot {
   width: 7px;
   height: 7px;
   border-radius: 50%;
   display: inline-block;
 }
-.tag.priority.urgent {
-  color: #c0000a;
-}
-.tag.priority.urgent::before {
-  background: #e74c3c;
-}
-.tag.priority.caution {
-  color: #b06a00;
-}
-.tag.priority.caution::before {
-  background: #f39c12;
-}
-.tag.priority.reference {
-  color: #1a6e1a;
-}
-.tag.priority.reference::before {
-  background: #27ae60;
-}
-.tag.category {
+.priority-dot.urgent { background: #e74c3c; }
+.priority-dot.caution { background: #f39c12; }
+.priority-dot.reference { background: #27ae60; }
+.tag-priority.urgent { color: #e74c3c; }
+.tag-priority.caution { color: #f39c12; }
+.tag-priority.reference { color: #27ae60; }
+.tag-category {
   background: #eef2f9;
   color: #3c3c3c;
 }
-.tag.region {
+.tag-region {
   background: #f3f4f6;
   color: #555;
 }
@@ -215,7 +200,7 @@ body {
   background: rgba(39, 174, 96, 0.1);
   border-left: 3px solid #27ae60;
 }
-.monitoring {
+.monitoring-note {
   font-size: 12px;
   color: #888;
   margin-top: 8px;
@@ -253,228 +238,174 @@ body {
   </div>
 </div>
 
-<div class="container">
 
-<div class="header">
-  <h1>K-water연구원<br>데일리 브리핑</h1>
-  <div class="subtitle">
-    국내외 주요 이슈와 시사점을 전달합니다<br>
-    본 자료는 생성형 AI를 통해 자동 작성되었습니다
-  </div>
+<div class="header-card">
+  <div class="header-title">K-water연구원<br>데일리 브리핑</div>
+  <div class="header-subtitle">국내외 주요 이슈와 시사점을 전달합니다<br>본 자료는 생성형 AI를 통해 자동 작성되었습니다</div>
   <div class="meta-grid">
     <div class="meta-cell">
-      <strong>브리핑 생성</strong>
-      2026년 5월 22일 목요일
+      <div class="meta-label">브리핑 생성</div>
+      <div class="meta-value">2026.05.22 (금)</div>
     </div>
     <div class="meta-cell">
-      <strong>수록 기간</strong>
-      최근 24시간
+      <div class="meta-label">수록 기간</div>
+      <div class="meta-value">최근 24시간</div>
     </div>
   </div>
 </div>
 
 <div class="summary-grid">
   <div class="summary-cell urgent">
-    <div class="label">즉시<br>주목</div>
-    <span class="count">2</span>
+    <div class="summary-label">즉시<br>주목</div>
+    <span class="summary-count">3</span>
   </div>
   <div class="summary-cell caution">
-    <div class="label">주의<br>요망</div>
-    <span class="count">4</span>
+    <div class="summary-label">주의<br>요망</div>
+    <span class="summary-count">3</span>
   </div>
   <div class="summary-cell reference">
-    <div class="label">동향<br>참고</div>
-    <span class="count">2</span>
+    <div class="summary-label">동향<br>참고</div>
+    <span class="summary-count">2</span>
   </div>
 </div>
 
-<!-- 즉시주목 1 -->
 <div class="card urgent">
-  <div class="card-tags">
-    <span class="tag no">1</span>
-    <span class="tag priority urgent">즉시주목</span>
-    <span class="tag category">[C] 경제·금융</span>
-    <span class="tag region">국외</span>
+  <div class="tag-row">
+    <span class="tag tag-no">01</span>
+    <span class="tag tag-priority urgent">
+      <span class="priority-dot urgent"></span>즉시주목
+    </span>
+    <span class="tag tag-category">경제·금융</span>
+    <span class="tag tag-region">🇺🇸 국외</span>
   </div>
-  <div class="card-title">
-    월마트, 유가 상승으로 미국 소비자 지출 감소 경고
-  </div>
-  <div class="card-content">
-    미국 최대 유통업체 월마트가 5월 21일 높은 휘발유 가격이 소비자 지출을 압박하고 있다고 경고했다. 월마트는 실적 발표에서 유가 상승이 가계 가처분소득을 감소시켜 소매 매출에 부정적 영향을 미치고 있다고 밝혔다. 이는 미국 소비 심리 위축과 글로벌 경기 둔화 우려를 반영하는 신호로 해석된다.
-  </div>
-  <div class="card-source">
-    BBC | 2026.05.21 15:42 | <a href="https://news.google.com/rss/articles/CBMiWkFVX3lxTE45SUE2dk9rbFRtS05fc0FOQ3lwaHZxaEpMT3gxWEZvUHBXbVEybGFmenRkejF4NTdxd3BfQnFHNGZvNnZkdXE0MUZsblgzcE42Yzd5YlBHbWVIdw?oc=5" target="_blank">원문 보기</a>
-  </div>
+  <div class="card-title">미국 모기지 금리 6.5%로 상승, 전쟁 이후 최고치 기록</div>
+  <div class="card-content">미국 모기지 금리가 6.5%로 상승하며 전쟁 개시 이후 최고 수준에 도달했다. 이는 주택시장 냉각과 함께 글로벌 금융시장 긴축 기조가 지속되고 있음을 시사한다.</div>
+  <div class="card-source">The New York Times | 2026.05.21 18:11 | <a href="https://news.google.com/rss/articles/CBMiggFBVV95cUxNb2JiMDZ2dEFxeHdjdE45eHBIT2lZYW10YXQ4REpERFhYRlJJeC1zRVVVYm9la3d6RWlQSUllaDNxV25QQjYxUUt2X2VNTzJtb0xYTWw0ZGx5SmVRQWRzeDExUHJJZENyWFNMdkFIblBIeGc4NjlNSE1MY0V5OEc1clBB?oc=5" target="_blank">원문 보기</a></div>
   <div class="insight-box urgent">
-    <strong>K-water 시사점:</strong> 유가 상승은 K-water 댐·상하수도 운영비 및 건설자재비 증가로 직결된다. 채권 발행을 통한 자금 조달 비중이 높은 K-water는 글로벌 경기 둔화가 금리 정책에 미치는 영향을 점검할 필요가 있다. 또한 유가 변동이 에너지 사업(수력·태양광 등) 수익성에 미치는 간접 영향도 모니터링 권고.
+    <strong>K-water 시사점:</strong> 미국 금리 상승은 국내 금리 정책과 환율에 간접 영향을 미치며, K-water의 채권 조달 비용 상승 가능성을 점검할 필요가 있다. 특히 채권 발행 비중이 높은 재무구조를 고려할 때, 향후 자금 조달 계획 재검토가 권고된다.
   </div>
-  <div class="monitoring">
-    ⚠️ 지속 모니터링 필요
-  </div>
+  <div class="monitoring-note">지속 모니터링 필요</div>
 </div>
 
-<!-- 즉시주목 2 -->
 <div class="card urgent">
-  <div class="card-tags">
-    <span class="tag no">2</span>
-    <span class="tag priority urgent">즉시주목</span>
-    <span class="tag category">[E] 기후·에너지·환경</span>
-    <span class="tag region">국내</span>
+  <div class="tag-row">
+    <span class="tag tag-no">02</span>
+    <span class="tag tag-priority urgent">
+      <span class="priority-dot urgent"></span>즉시주목
+    </span>
+    <span class="tag tag-category">경제·금융</span>
+    <span class="tag tag-region">🇰🇷 국내</span>
   </div>
-  <div class="card-title">
-    정부, '탈탄소 전기국가' 실현 가속화…에너지 대전환 기반 구축
-  </div>
-  <div class="card-content">
-    정부가 5월 21일 탈탄소 전기국가 실현을 위한 에너지 대전환 기반 구축 계획을 발표했다. 재생에너지 확대, 전력망 고도화, 에너지 효율 개선 등을 핵심 과제로 제시하며, 2030년까지 탄소중립 목표 달성을 위한 정책 로드맵을 구체화했다. 이는 기후위기 대응과 에너지 안보 강화를 동시에 추구하는 국가 전략이다.
-  </div>
-  <div class="card-source">
-    대한민국 정책브리핑 | 2026.05.21 08:22 | <a href="https://news.google.com/rss/articles/CBMibEFVX3lxTE9RNm9uSmlRX3pZaGRhb3FpQUJfcFJEamJZOHBIeEpJU3JWQ1doTVcxM0JURE9hR0o1TFFMU3dMZ3lSeXEwS1JaNTBBel8wU2M0cFhzU0RfZXgtaHNzSDBGWUhXU3dPOENONm9Xdg?oc=5" target="_blank">원문 보기</a>
-  </div>
+  <div class="card-title">IMF "에너지 가격상한제, 고소득층만 혜택…선별적 현금 지원 바람직"</div>
+  <div class="card-content">IMF가 석유 최고가격제에 대해 고소득층에게만 혜택이 집중된다며, 선별적 현금 지원이 더 효과적이라고 권고했다. 한국은 현재 에너지 최고가격제를 시행 중이다.</div>
+  <div class="card-source">뉴스1 | 2026.05.22 01:28 | <a href="https://news.google.com/rss/articles/CBMiVEFVX3lxTE9mSE13U1N4Zzd0dmFaWUlxc3QxUUR2Q0JsNnlfa2F4eWw3cFNrMFFBMWNKTlh5UnZVcHlvZnNFczZCcVlLSWpFU1BnVWt4VFBDdW10SQ?oc=5" target="_blank">원문 보기</a></div>
   <div class="insight-box urgent">
-    <strong>K-water 시사점:</strong> K-water는 2030년까지 태양광 7,227MW, 양수발전·새만금조력 신설을 추진 중이다. 정부의 탈탄소 정책 가속화는 K-water 에너지·도시 SBU 사업 확대 기회이자, 기후에너지환경부 정책 동향과 직결되는 사안이다. 재생에너지 사업 투자 계획 및 전력망 연계 전략 점검 권고.
+    <strong>K-water 시사점:</strong> 에너지 가격 정책 변화는 댐·상하수도 운영비 및 전력 조달 비용에 직접 영향을 미친다. IMF 권고가 국내 정책 전환으로 이어질 경우, 에너지 비용 구조 변화에 대한 선제적 검토가 필요하다.
   </div>
-  <div class="monitoring">
-    ⚠️ 지속 모니터링 필요
-  </div>
+  <div class="monitoring-note">지속 모니터링 필요</div>
 </div>
 
-<!-- 주의요망 1 -->
+<div class="card urgent">
+  <div class="tag-row">
+    <span class="tag tag-no">03</span>
+    <span class="tag tag-priority urgent">
+      <span class="priority-dot urgent"></span>즉시주목
+    </span>
+    <span class="tag tag-category">기후·에너지·환경</span>
+    <span class="tag tag-region">🇰🇷 국내</span>
+  </div>
+  <div class="card-title">정부, '탈탄소 전기국가' 실현 가속…에너지 대전환 기반 구축</div>
+  <div class="card-content">정부가 탈탄소 전기국가 실현을 위한 에너지 대전환 기반 구축에 속도를 내고 있다. 재생에너지 확대와 전력망 고도화가 핵심 과제로 제시됐다.</div>
+  <div class="card-source">대한민국 정책브리핑 | 2026.05.21 08:22 | <a href="https://news.google.com/rss/articles/CBMibEFVX3lxTE9RNm9uSmlRX3pZaGRhb3FpQUJfcFJEamJZOHBIeEpJU3JWQ1doTVcxM0JURE9hR0o1TFFMU3dMZ3lSeXEwS1JaNTBBel8wU2M0cFhzU0RfZXgtaHNzSDBGWUhXU3dPOENONm9Xdg?oc=5" target="_blank">원문 보기</a></div>
+  <div class="insight-box urgent">
+    <strong>K-water 시사점:</strong> 탈탄소 정책 가속화는 K-water의 수상태양광·조력발전 등 재생에너지 사업 확대 기회로 작용한다. 에너지·도시 SBU의 2030년 태양광 7,227MW 목표와 직접 연계되며, 정부 정책 동향을 면밀히 모니터링하여 사업 전략에 반영할 필요가 있다.
+  </div>
+  <div class="monitoring-note">지속 모니터링 필요</div>
+</div>
+
 <div class="card caution">
-  <div class="card-tags">
-    <span class="tag no">3</span>
-    <span class="tag priority caution">주의요망</span>
-    <span class="tag category">[A] 지정학·국제정세</span>
-    <span class="tag region">국외</span>
+  <div class="tag-row">
+    <span class="tag tag-no">04</span>
+    <span class="tag tag-priority caution">
+      <span class="priority-dot caution"></span>주의요망
+    </span>
+    <span class="tag tag-category">지정학·국제정세</span>
+    <span class="tag tag-region">🇺🇸 국외</span>
   </div>
-  <div class="card-title">
-    이란, 호르무즈 해협에 '통제해역' 선포…"사전 승인 필수"
-  </div>
-  <div class="card-content">
-    이란이 5월 21일 호르무즈 해협 일대를 통제해역으로 선포하고, 모든 선박의 통과에 사전 승인을 요구한다고 발표했다. 이는 미국의 이란 공격 이후 긴장이 고조되는 가운데 나온 조치로, 글로벌 에너지 공급망에 직접적인 영향을 미칠 수 있다. 호르무즈 해협은 전 세계 원유 수송의 약 20%가 통과하는 전략적 요충지다.
-  </div>
-  <div class="card-source">
-    Chosunbiz | 2026.05.21 01:47 | <a href="https://news.google.com/rss/articles/CBMingFBVV95cUxNZ0JMT3NKc1JmZ1FuRFlNV0dTNjZlbFJVUWgzdk5lU2xCZ2tEZ01OTkpYSGNyZ3duRktMdlp6NkRxOGVmT2VvYUNwSTBjT1JNVVoxMTBtT3lRd2g4M0dEcmJRbURGR3NwOHZiTjVjdDFZUnFrbW5iLWlyRGZEMnRZekNIZTlsNUFQZVhNb2xlWUxCNG1BUkJMQWk5N2Qxd9IBsgFBVV95cUxPc0lxdFY4QTg2ZWF2bkd3OS13UnBjcTcxWU9nWTljMTRHeTBOVF9IT3FQT1Q1bnpWN0VGOHdlNE1GdlpEc1QwM1Q1WlhxZm9IZ2ZUSVFsSE0tVlp3elpfNVlza0JUSkhDN1ZuVkhYRk43d1lwS1JkVmJPWTY2TkJfcl9TMUQ4VkctS3BncWx4MzBNN05CaTBqWG9wU0FZblRiaGxjZjdLeFNNNzc0dkFSbEVn?oc=5" target="_blank">원문 보기</a>
-  </div>
+  <div class="card-title">트럼프 "이란 고농축 우라늄 확보 후 파괴…전쟁 곧 끝날 것"</div>
+  <div class="card-content">트럼프 대통령이 이란의 고농축 우라늄을 확보한 뒤 파괴하겠다며 전쟁이 곧 종료될 것이라고 밝혔다. 중동 정세의 급격한 변화 가능성이 제기되고 있다.</div>
+  <div class="card-source">한국경제 | 2026.05.21 21:31 | <a href="https://news.google.com/rss/articles/CBMiWkFVX3lxTE9GSGtiSERCVjI0UkJSd1B2X3l2VFZ4NnUxN2tvSUE2OFplMUN2dFB5V1RIVFVLSnZ6am5PejV1a0hicjhEdFUwZ19Ldm5DWWRKU20yVFh2Q3RyZ9IBVEFVX3lxTFBBNkp4VjJQZmJsQ2dYUUVuanpHQzBrOHNlbTdvM1JPRmo2SnZUSlV5NXp6anQyVVhxNTdDWVJ6VENIbHVMTVNRcUpRZFNxQ0hHSFNJTg?oc=5" target="_blank">원문 보기</a></div>
   <div class="insight-box caution">
-    <strong>K-water 시사점:</strong> 호르무즈 해협 통제는 유가 급등 가능성을 높여 K-water 댐·상하수도 운영비 및 건설자재비 증가로 이어질 수 있다. 또한 글로벌 에너지 공급망 불안정은 K-water 에너지 사업(수력·태양광·조력) 전략에 간접 영향을 미칠 수 있어 동향 모니터링 권고.
+    <strong>K-water 시사점:</strong> 중동 정세 변화는 국제 유가 변동으로 이어질 가능성이 있으며, 이는 K-water의 댐·상하수도 운영비 및 건설자재비에 간접 영향을 미칠 수 있다. 유가 동향 모니터링 권고.
   </div>
 </div>
 
-<!-- 주의요망 2 -->
 <div class="card caution">
-  <div class="card-tags">
-    <span class="tag no">4</span>
-    <span class="tag priority caution">주의요망</span>
-    <span class="tag category">[E] 기후·에너지·환경</span>
-    <span class="tag region">국외</span>
+  <div class="tag-row">
+    <span class="tag tag-no">05</span>
+    <span class="tag tag-priority caution">
+      <span class="priority-dot caution"></span>주의요망
+    </span>
+    <span class="tag tag-category">지정학·국제정세</span>
+    <span class="tag tag-region">🇺🇸 국외</span>
   </div>
-  <div class="card-title">
-    에볼라 대응 인력, "서방 원조 삭감으로 장비 부족 겪어"
-  </div>
-  <div class="card-content">
-    에볼라 대응 현장 인력들이 5월 21일 서방 국가들의 원조 삭감으로 인해 장비와 자원 부족을 겪었다고 증언했다. 이는 글로벌 보건 위기 대응 체계의 취약성을 드러내며, 자국 우선주의가 팬데믹 위험을 키운다는 경고와 맞물린다. 국제 협력 약화가 기후·보건 위기 대응에 미치는 영향이 주목받고 있다.
-  </div>
-  <div class="card-source">
-    The Washington Post | 2026.05.21 18:52 | <a href="https://news.google.com/rss/articles/CBMivAFBVV95cUxOaC1ONmhxYXFvZU9sQVdmVEE2OUxQSzBjOWo4bTBXYmwtYUdtX3ZRRU1uZmJkZ1hSTllibFgwU0pqdnRDU0FrakpRazJaa294MkFxeEIxVDJ5T1paaFBvYlhPQkY4YzNibW9jZzZxLU5CYWU2bUVOUFBwdlVZUThYRks0LVViUENEYUVMampYSXM2XzhMQkFrUEF2cGljRnNqMFdOWVFJbVNGQkJTNVFzczBMUFU2SE5QNXlNdA?oc=5" target="_blank">원문 보기</a>
-  </div>
+  <div class="card-title">루비오 "이란, 호르무즈 통행료 추진 땐 외교 합의 불가능"</div>
+  <div class="card-content">미국 국무장관 루비오가 이란이 호르무즈 해협 통행료를 추진할 경우 외교적 합의가 불가능하다고 경고했다. 글로벌 에너지 공급망 불안 요인으로 작용할 전망이다.</div>
+  <div class="card-source">한겨레 | 2026.05.21 23:36 | <a href="https://news.google.com/rss/articles/CBMic0FVX3lxTE9ScjVadzJwa253S2RwYThlNDltVWp4QWpYYlFhWFNPbDc1dTN0R2Jhby03S1lkeTJXWW9yRzRZYjVsRTg5WjdjajZBTU43ZHB6TkpnVzViWm9UQVR0OFEyb0RSc2ZIYVNpb0RtQUpDd05pTms?oc=5" target="_blank">원문 보기</a></div>
   <div class="insight-box caution">
-    <strong>K-water 시사점:</strong> 글로벌 보건·기후 위기 대응 체계 약화는 K-water 해외사업(인도네시아·베트남 등) 현장 리스크 증가로 이어질 수 있다. 또한 기후위기 대응을 선도하는 글로벌 물기업 비전 달성을 위해 국제 협력 동향 파악 필요.
+    <strong>K-water 시사점:</strong> 호르무즈 해협 통행 제한은 글로벌 에너지 공급망 차질로 이어져 유가 급등 가능성이 있다. K-water의 에너지 조달 비용 및 운영비 증가 리스크를 점검할 필요가 있다.
   </div>
 </div>
 
-<!-- 주의요망 3 -->
 <div class="card caution">
-  <div class="card-tags">
-    <span class="tag no">5</span>
-    <span class="tag priority caution">주의요망</span>
-    <span class="tag category">[E] 기후·에너지·환경</span>
-    <span class="tag region">국외</span>
+  <div class="tag-row">
+    <span class="tag tag-no">06</span>
+    <span class="tag tag-priority caution">
+      <span class="priority-dot caution"></span>주의요망
+    </span>
+    <span class="tag tag-category">기술·혁신</span>
+    <span class="tag tag-region">🇺🇸 국외</span>
   </div>
-  <div class="card-title">
-    미국 반대에도 유엔총회, "기후변화 방치는 국제법 위반" 결의
-  </div>
-  <div class="card-content">
-    유엔총회가 5월 21일 미국의 반대에도 불구하고 기후변화 방치를 국제법 위반으로 규정하는 결의안을 채택했다. 이는 기후위기 대응을 국제 의무로 명확히 한 것으로, 각국 정부와 기업에 탄소감축 압력을 강화하는 계기가 될 전망이다. 미국의 반대는 트럼프 행정부의 기후 정책 후퇴를 반영한다.
-  </div>
-  <div class="card-source">
-    연합뉴스 | 2026.05.21 00:00 | <a href="https://news.google.com/rss/articles/CBMiYEFVX3lxTE1UbkZUOFlPTWg5dnpMQVZpaXhHY2ZpNkV4WGZCQzROdVJQV1p5b1g5T0QzWnhnZHk1UVo4Q05YWXdXUUl5RmhuTUk4Tm5WTXBocmJRbHpLUktBR1BIRVd6YtIBYEFVX3lxTE1UbkZUOFlPTWg5dnpMQVZpaXhHY2ZpNkV4WGZCQzROdVJQV1p5b1g5T0QzWnhnZHk1UVo4Q05YWXdXUUl5RmhuTUk4Tm5WTXBocmJRbHpLUktBR1BIRVd6Yg?oc=5" target="_blank">원문 보기</a>
-  </div>
+  <div class="card-title">미국, IBM 등 양자컴퓨팅 기업에 20억 달러 투자</div>
+  <div class="card-content">미국 정부가 IBM 등 양자컴퓨팅 기업에 20억 달러를 투자한다고 발표했다. 차세대 컴퓨팅 기술 경쟁에서 주도권 확보를 위한 전략적 투자로 평가된다.</div>
+  <div class="card-source">Reuters | 2026.05.21 19:35 | <a href="https://news.google.com/rss/articles/CBMiugFBVV95cUxPOVhYclhIYl9QU3VlMEl5ZjlMTVR3b2dBSEdrY1BRS1NSZFo4c3N0RXFtSHExR0FZa1QycDdBWHVtZDZ3eGdBZXF0ZVpYdkRxVFk5N2FzUzFhS2M0bndveUc3MGd5ZWdYTFUxQVpiS2VPdnpSYk94VnQ1MXVNMlk1alJVZFVpNm9veUpMbnFGN3lwTm1NbzJvSWp4MFFSTkE0MlROOWJ3WXdHQW9CNk9YbDVvYTVqOWZvNEE?oc=5" target="_blank">원문 보기</a></div>
   <div class="insight-box caution">
-    <strong>K-water 시사점:</strong> 기후변화 대응이 국제법 의무로 강화되면서 K-water의 탄소중립 목표(2030년 AI 물관리 세계 1위 기업) 달성 전략이 더욱 중요해졌다. 재생에너지 사업 확대, 그린수소·수열에너지 사업 추진 등 기후테크 전략 점검 권고.
+    <strong>K-water 시사점:</strong> 양자컴퓨팅 기술 발전은 K-water의 AI 물관리 및 디지털트윈 플랫폼 고도화에 중장기적 영향을 미칠 수 있다. 3대 초격차 기술 전략과의 연계성을 검토하고, 기술 동향을 지속 모니터링할 필요가 있다.
   </div>
 </div>
 
-<!-- 주의요망 4 -->
-<div class="card caution">
-  <div class="card-tags">
-    <span class="tag no">6</span>
-    <span class="tag priority caution">주의요망</span>
-    <span class="tag category">[D] 기술·혁신</span>
-    <span class="tag region">국외</span>
-  </div>
-  <div class="card-title">
-    미국 정부, IBM 등 양자컴퓨팅 기업에 20억 달러 투자
-  </div>
-  <div class="card-content">
-    미국 정부가 5월 21일 IBM을 비롯한 양자컴퓨팅 기업들에 20억 달러(약 2조 7천억 원)를 투자한다고 발표했다. 이는 양자컴퓨팅 기술 경쟁에서 중국에 대한 우위를 확보하기 위한 전략적 투자로, 차세대 컴퓨팅 기술 개발을 가속화할 전망이다. 양자컴퓨팅은 AI, 암호화, 신약 개발 등 다양한 분야에 혁신을 가져올 것으로 기대된다.
-  </div>
-  <div class="card-source">
-    Reuters | 2026.05.21 19:35 | <a href="https://news.google.com/rss/articles/CBMiugFBVV95cUxPOVhYclhIYl9QU3VlMEl5ZjlMTVR3b2dBSEdrY1BRS1NSZFo4c3N0RXFtSHExR0FZa1QycDdBWHVtZDZ3eGdBZXF0ZVpYdkRxVFk5N2FzUzFhS2M0bndveUc3MGd5ZWdYTFUxQVpiS2VPdnpSYk94VnQ1MXVNMlk1alJVZFVpNm9veUpMbnFGN3lwTm1NbzJvSWp4MFFSTkE0MlROOWJ3WXdHQW9CNk9YbDVvYTVqOWZvNEE?oc=5" target="_blank">원문 보기</a>
-  </div>
-  <div class="insight-box caution">
-    <strong>K-water 시사점:</strong> 양자컴퓨팅 기술 발전은 K-water의 3대 초격차 기술(디지털 트윈·AI 정수장·SWNM) 고도화에 장기적 영향을 미칠 수 있다. 특히 AI 기반 물관리 시스템의 연산 능력 향상 가능성을 염두에 두고 기술 동향 모니터링 권고.
-  </div>
-</div>
-
-<!-- 동향참고 1 -->
 <div class="card reference">
-  <div class="card-tags">
-    <span class="tag no">7</span>
-    <span class="tag priority reference">동향참고</span>
-    <span class="tag category">[F] 사회·제도</span>
-    <span class="tag region">국내</span>
+  <div class="tag-row">
+    <span class="tag tag-no">07</span>
+    <span class="tag tag-priority reference">
+      <span class="priority-dot reference"></span>동향참고
+    </span>
+    <span class="tag tag-category">사회·제도</span>
+    <span class="tag tag-region">🇰🇷 국내</span>
   </div>
-  <div class="card-title">
-    국토·행안부, 'GTX 삼성역 철근 누락' 구간 안전점검 실시
-  </div>
-  <div class="card-content">
-    국토교통부와 행정안전부가 5월 21일 GTX 삼성역 구간에서 발생한 철근 누락 사고에 대한 안전점검을 실시했다. 이는 대형 인프라 공사의 품질 관리 문제를 드러낸 사례로, 공공기관의 건설 사업 안전 관리 강화 필요성을 환기시킨다.
-  </div>
-  <div class="card-source">
-    연합뉴스TV | 2026.05.21 11:55 | <a href="https://news.google.com/rss/articles/CBMiZ0FVX3lxTFAwUG1ObTg0VFlaeTBhWHhJMHk1dS1MRlprcGlTWksxWjllWTgxbnJ6ei00R284N3plR0xGek9SaURVQWlMWnlIWnhuZVRrM2xxUjhPeHJuWEJudURQQUNubmxIQmxLZlE?oc=5" target="_blank">원문 보기</a>
-  </div>
+  <div class="card-title">구윤철 "내년까지 수도권 매입임대주택 9만호 공급…6만6000호는 규제지역에"</div>
+  <div class="card-content">정부가 내년까지 수도권에 매입임대주택 9만호를 공급하며, 이 중 6만6000호는 규제지역에 배치한다고 밝혔다. 주거 안정화 정책의 일환이다.</div>
+  <div class="card-source">조선일보 | 2026.05.21 23:42 | <a href="https://news.google.com/rss/articles/CBMijgFBVV95cUxPUnlPMlZpSnpJbjgxX0lXSDJwV1FSSTBjcldKN0U3blpsYlhoQ2pEVnBQRmozQk9nMER4MEtBUGVLaFdUM0YxTEFvMmlwc3kwZ2hkQTJLMEoyYUl2VXF2UmswTUJicWJOMHcyUWhjSGtEXzM3YlJ4VjF2OVhxbFZkSU1UdjIzRTJOOEVsYnVR?oc=5" target="_blank">원문 보기</a></div>
   <div class="insight-box reference">
-    <strong>K-water 시사점:</strong> K-water는 댐·상하수도·신도시 개발 등 대규모 건설 사업을 수행 중이다. 타 공공기관의 건설 품질 관리 사고는 K-water 사업 현장의 안전 관리 체계 점검 계기로 삼을 수 있다. 직접 시사점은 낮으나 동향 파악 차원에서 참고.
+    <strong>K-water 시사점:</strong> 직접 시사점 낮음. 주거 정책 동향 파악 차원에서 참고.
   </div>
 </div>
 
-<!-- 동향참고 2 -->
 <div class="card reference">
-  <div class="card-tags">
-    <span class="tag no">8</span>
-    <span class="tag priority reference">동향참고</span>
-    <span class="tag category">[B] 정치·정책</span>
-    <span class="tag region">국내</span>
+  <div class="tag-row">
+    <span class="tag tag-no">08</span>
+    <span class="tag tag-priority reference">
+      <span class="priority-dot reference"></span>동향참고
+    </span>
+    <span class="tag tag-category">기후·에너지·환경</span>
+    <span class="tag tag-region">🇺🇸 국외</span>
   </div>
-  <div class="card-title">
-    대법원, 노동조합법상 '사용자' 개념 기존 판례 유지
-  </div>
-  <div class="card-content">
-    대법원이 5월 21일 노동조합법상 '사용자' 개념에 대한 기존 판례를 유지한다고 밝혔다. 이는 노동법 해석의 연속성을 확인한 것으로, 공공기관을 포함한 사용자의 단체교섭 의무 범위에 영향을 미친다. 다만 이번 판결에서는 노란봉투법 적용은 배제되었다.
-  </div>
-  <div class="card-source">
-    경향신문 | 2026.05.21 06:29 | <a href="https://news.google.com/rss/articles/CBMiWkFVX3lxTE03b3NuRVhfMXllS3hLZjF3b0JhSnFmMjlxRXdGcHZwVUJaZFZBQ01WclRralAzZUVzeXVwcHdkNk4xcjZ5ZHYyVDZDSVpvcXk3Z29iQ0t6MWdHd9IBX0FVX3lxTFBlc05JOVY0djc1QTAtLWh0UHViZ0JvWEYzNEhmMGs1UXgxSmR6WVhaWVE0ZFR4aEU5YTVDS3JYRzBaaTd5dGdjTG1nU0kyNjFJUkQ4TGRkTlBGZzdNd3Y4?oc=5" target="_blank">원문 보기</a>
-  </div>
+  <div class="card-title">트럼프, 기후변화 주범 냉매 규제 완화…"생활비 절감" 명분</div>
+  <div class="card-content">트럼프 행정부가 기후변화의 주요 원인인 냉매에 대한 규제를 완화했다. 생활비 절감을 명분으로 내세웠으나, 환경단체의 반발이 예상된다.</div>
+  <div class="card-source">뉴시스 | 2026.05.21 17:59 | <a href="https://news.google.com/rss/articles/CBMiYEFVX3lxTFAwTTZPaWUzZFd0YmdBX01iNTJOa3pPQ3VYUV9mZmxBbXIyR0hNdm5IX2JkVWZwSU5heVA1MTJuRVBTeUNoeUdSaG1QRWJZeUstc2JnSDFvOWVCdG52ZnA0etIBeEFVX3lxTE8yYzJtc1Rjb01NVjhQU3ZkcFJHRUJKU2hvcjNac0F0aWRPWkVteW9CLWRCa3FQYkhaSFZINnRLbUNybG1sZE9sZk92OTJkSGNCWkJZdnVwOGhBb3VyNjE1QjZoZXVMcmZqdGFWSDNVall3LWRKZkczaQ?oc=5" target="_blank">원문 보기</a></div>
   <div class="insight-box reference">
-    <strong>K-water 시사점:</strong> K-water는 공공기관으로서 노동조합과의 단체교섭 의무를 지닌다. 대법원의 판례 유지는 기존 노사관계 틀이 유지됨을 의미하며, 직접적인 경영 변화는 제한적이다. 동향 파악 차원에서 참고.
+    <strong>K-water 시사점:</strong> 미국의 기후 정책 후퇴는 글로벌 탄소중립 기조에 역행하나, K-water의 국내 사업에 직접 영향은 제한적이다. 동향 파악 차원에서 참고.
   </div>
-</div>
-
-<div class="footer">
-  <strong>우선순위 기준</strong><br>
-  즉시주목 = 긴급도 높음·중요도 높음 / 주의요망 = 긴급도 높음·중요도 낮음 or 긴급도 낮음·중요도 높음 / 동향참고 = 긴급도 낮음·중요도 낮음
-</div>
-
 </div>
 
 
@@ -492,19 +423,23 @@ body {
 </div>
 
 
-
 <!-- BRIEFING_MANIFEST_BEGIN
 {"cards": [
-  {"no": 1, "category": "즉시주목", "title": "월마트, 유가 상승으로 미국 소비자 지출 감소 경고", "url": "https://news.google.com/rss/articles/CBMiWkFVX3lxTE45SUE2dk9rbFRtS05fc0FOQ3lwaHZxaEpMT3gxWEZvUHBXbVEybGFmenRkejF4NTdxd3BfQnFHNGZvNnZkdXE0MUZsblgzcE42Yzd5YlBHbWVIdw?oc=5"},
-  {"no": 2, "category": "즉시주목", "title": "정부, '탈탄소 전기국가' 실현 가속화…에너지 대전환 기반 구축", "url": "https://news.google.com/rss/articles/CBMibEFVX3lxTE9RNm9uSmlRX3pZaGRhb3FpQUJfcFJEamJZOHBIeEpJU3JWQ1doTVcxM0JURE9hR0o1TFFMU3dMZ3lSeXEwS1JaNTBBel8wU2M0cFhzU0RfZXgtaHNzSDBGWUhXU3dPOENONm9Xdg?oc=5"},
-  {"no": 3, "category": "주의요망", "title": "이란, 호르무즈 해협에 '통제해역' 선포…\"사전 승인 필수\"", "url": "https://news.google.com/rss/articles/CBMingFBVV95cUxNZ0JMT3NKc1JmZ1FuRFlNV0dTNjZlbFJVUWgzdk5lU2xCZ2tEZ01OTkpYSGNyZ3duRktMdlp6NkRxOGVmT2VvYUNwSTBjT1JNVVoxMTBtT3lRd2g4M0dEcmJRbURGR3NwOHZiTjVjdDFZUnFrbW5iLWlyRGZEMnRZekNIZTlsNUFQZVhNb2xlWUxCNG1BUkJMQWk5N2Qxd9IBsgFBVV95cUxPc0lxdFY4QTg2ZWF2bkd3OS13UnBjcTcxWU9nWTljMTRHeTBOVF9IT3FQT1Q1bnpWN0VGOHdlNE1GdlpEc1QwM1Q1WlhxZm9IZ2ZUSVFsSE0tVlp3elpfNVlza0JUSkhDN1ZuVkhYRk43d1lwS1JkVmJPWTY2TkJfcl9TMUQ4VkctS3BncWx4MzBNN05CaTBqWG9wU0FZblRiaGxjZjdLeFNNNzc0dkFSbEVn?oc=5"},
-  {"no": 4, "category": "주의요망", "title": "에볼라 대응 인력, \"서방 원조 삭감으로 장비 부족 겪어\"", "url": "https://news.google.com/rss/articles/CBMivAFBVV95cUxOaC1ONmhxYXFvZU9sQVdmVEE2OUxQSzBjOWo4bTBXYmwtYUdtX3ZRRU1uZmJkZ1hSTllibFgwU0pqdnRDU0FrakpRazJaa294MkFxeEIxVDJ5T1paaFBvYlhPQkY4YzNibW9jZzZxLU5CYWU2bUVOUFBwdlVZUThYRks0LVViUENEYUVMampYSXM2XzhMQkFrUEF2cGljRnNqMFdOWVFJbVNGQkJTNVFzczBMUFU2SE5QNXlNdA?oc=5"},
-  {"no": 5, "category": "주의요망", "title": "미국 반대에도 유엔총회, \"기후변화 방치는 국제법 위반\" 결의", "url": "https://news.google.com/rss/articles/CBMiYEFVX3lxTE1UbkZUOFlPTWg5dnpMQVZpaXhHY2ZpNkV4WGZCQzROdVJQV1p5b1g5T0QzWnhnZHk1UVo4Q05YWXdXUUl5RmhuTUk4Tm5WTXBocmJRbHpLUktBR1BIRVd6YtIBYEFVX3lxTE1UbkZUOFlPTWg5dnpMQVZpaXhHY2ZpNkV4WGZCQzROdVJQV1p5b1g5T0QzWnhnZHk1UVo4Q05YWXdXUUl5RmhuTUk4Tm5WTXBocmJRbHpLUktBR1BIRVd6Yg?oc=5"},
-  {"no": 6, "category": "주의요망", "title": "미국 정부, IBM 등 양자컴퓨팅 기업에 20억 달러 투자", "url": "https://news.google.com/rss/articles/CBMiugFBVV95cUxPOVhYclhIYl9QU3VlMEl5ZjlMTVR3b2dBSEdrY1BRS1NSZFo4c3N0RXFtSHExR0FZa1QycDdBWHVtZDZ3eGdBZXF0ZVpYdkRxVFk5N2FzUzFhS2M0bndveUc3MGd5ZWdYTFUxQVpiS2VPdnpSYk94VnQ1MXVNMlk1alJVZFVpNm9veUpMbnFGN3lwTm1NbzJvSWp4MFFSTkE0MlROOWJ3WXdHQW9CNk9YbDVvYTVqOWZvNEE?oc=5"},
-  {"no": 7, "category": "동향참고", "title": "국토·행안부, 'GTX 삼성역 철근 누락' 구간 안전점검 실시", "url": "https://news.google.com/rss/articles/CBMiZ0FVX3lxTFAwUG1ObTg0VFlaeTBhWHhJMHk1dS1MRlprcGlTWksxWjllWTgxbnJ6ei00R284N3plR0xGek9SaURVQWlMWnlIWnhuZVRrM2xxUjhPeHJuWEJudURQQUNubmxIQmxLZlE?oc=5"},
-  {"no": 8, "category": "동향참고", "title": "대법원, 노동조합법상 '사용자' 개념 기존 판례 유지", "url": "https://news.google.com/rss/articles/CBMiWkFVX3lxTE03b3NuRVhfMXllS3hLZjF3b0JhSnFmMjlxRXdGcHZwVUJaZFZBQ01WclRralAzZUVzeXVwcHdkNk4xcjZ5ZHYyVDZDSVpvcXk3Z29iQ0t6MWdHd9IBX0FVX3lxTFBlc05JOVI0djc1QTAtLWh0UHViZ0JvWEYzNEhmMGs1UXgxSmR6WVhaWVE0ZFR4aEU5YTVDS3JYRzBaaTd5dGdjTG1nU0kyNjFJUkQ4TGRkTlBGZzdNd3Y4?oc=5"}
+  {"no": 1, "category": "즉시주목", "title": "미국 모기지 금리 6.5%로 상승, 전쟁 이후 최고치 기록", "url": "https://news.google.com/rss/articles/CBMiggFBVV95cUxNb2JiMDZ2dEFxeHdjdE45eHBIT2lZYW10YXQ4REpERFhYRlJJeC1zRVVVYm9la3d6RWlQSUllaDNxV25QQjYxUUt2X2VNTzJtb0xYTWw0ZGx5SmVRQWRzeDExUHJJZENyWFNMdkFIblBIeGc4NjlNSE1MY0V5OEc1clBB?oc=5"},
+  {"no": 2, "category": "즉시주목", "title": "IMF \"에너지 가격상한제, 고소득층만 혜택…선별적 현금 지원 바람직\"", "url": "https://news.google.com/rss/articles/CBMiVEFVX3lxTE9mSE13U1N4Zzd0dmFaWUlxc3QxUUR2Q0JsNnlfa2F4eWw3cFNrMFFBMWNKTlh5UnZVcHlvZnNFczZCcVlLSWpFU1BnVWt4VFBDdW10SQ?oc=5"},
+  {"no": 3, "category": "즉시주목", "title": "정부, '탈탄소 전기국가' 실현 가속…에너지 대전환 기반 구축", "url": "https://news.google.com/rss/articles/CBMibEFVX3lxTE9RNm9uSmlRX3pZaGRhb3FpQUJfcFJEamJZOHBIeEpJU3JWQ1doTVcxM0JURE9hR0o1TFFMU3dMZ3lSeXEwS1JaNTBBel8wU2M0cFhzU0RfZXgtaHNzSDBGWUhXU3dPOENONm9Xdg?oc=5"},
+  {"no": 4, "category": "주의요망", "title": "트럼프 \"이란 고농축 우라늄 확보 후 파괴…전쟁 곧 끝날 것\"", "url": "https://news.google.com/rss/articles/CBMiWkFVX3lxTE9GSGtiSERCVjI0UkJSd1B2X3l2VFZ4NnUxN2tvSUE2OFplMUN2dFB5V1RIVFVLSnZ6am5PejV1a0hicjhEdFUwZ19Ldm5DWWRKU20yVFh2Q3RyZ9IBVEFVX3lxTFBBNkp4VjJQZmJsQ2dYUUVuanpHQzBrOHNlbTdvM1JPRmo2SnZUSlV5NXp6anQyVVhxNTdDWVJ6VENIbHVMTVNRcUpRZFNxQ0hHSFNJTg?oc=5"},
+  {"no": 5, "category": "주의요망", "title": "루비오 \"이란, 호르무즈 통행료 추진 땐 외교 합의 불가능\"", "url": "https://news.google.com/rss/articles/CBMic0FVX3lxTE9ScjVadzJwa253S2RwYThlNDltVWp4QWpYYlFhWFNPbDc1dTN0R2Jhby03S1lkeTJXWW9yRzRZYjVsRTg5WjdjajZBTU43ZHB6TkpnVzViWm9UQVR0OFEyb0RSc2ZIYVNpb0RtQUpDd05pTms?oc=5"},
+  {"no": 6, "category": "주의요망", "title": "미국, IBM 등 양자컴퓨팅 기업에 20억 달러 투자", "url": "https://news.google.com/rss/articles/CBMiugFBVV95cUxPOVhYclhIYl9QU3VlMEl5ZjlMTVR3b2dBSEdrY1BRS1NSZFo4c3N0RXFtSHExR0FZa1QycDdBWHVtZDZ3eGdBZXF0ZVpYdkRxVFk5N2FzUzFhS2M0bndveUc3MGd5ZWdYTFUxQVpiS2VPdnpSYk94VnQ1MXVNMlk1alJVZFVpNm9veUpMbnFGN3lwTm1NbzJvSWp4MFFSTkE0MlROOWJ3WXdHQW9CNk9YbDVvYTVqOWZvNEE?oc=5"},
+  {"no": 7, "category": "동향참고", "title": "구윤철 \"내년까지 수도권 매입임대주택 9만호 공급…6만6000호는 규제지역에\"", "url": "https://news.google.com/rss/articles/CBMijgFBVV95cUxPUnlPMlZpSnpJbjgxX0lXSDJwV1FSSTBjcldKN0U3blpsYlhoQ2pEVnBQRmozQk9nMER4MEtBUGVLaFdUM0YxTEFvMmlwc3kwZ2hkQTJLMEoyYUl2VXF2UmswTUJicWJOMHcyUWhjSGtEXzM3YlJ4VjF2OVhxbFZkSU1UdjIzRTJOOEVsYnVR?oc=5"},
+  {"no": 8, "category": "동향참고", "title": "트럼프, 기후변화 주범 냉매 규제 완화…\"생활비 절감\" 명분", "url": "https://news.google.com/rss/articles/CBMiYEFVX3lxTFAwTTZPaWUzZFd0YmdBX01iNTJOa3pPQ3VYUV9mZmxBbXIyR0hNdm5IX2JkVWZwSU5heVA1MTJuRVBTeUNoeUdSaG1QRWJZeUstc2JnSDFvOWVCdG52ZnA0etIBeEFVX3lxTE8yYzJtc1Rjb01NVjhQU3ZkcFJHRUJKU2hvcjNac0F0aWRPWkVteW9CLWRCa3FQYkhaSFZINnRLbUNybG1sZE9sZk92OTJkSGNCWkJZdnVwOGhBb3VyNjE1QjZoZXVMcmZqdGFWSDNVall3LWRKZkczaQ?oc=5"}
 ]}
 BRIEFING_MANIFEST_END -->
+
+<div class="footer">
+  <strong>우선순위 기준</strong><br>
+  즉시주목 = 긴급도 높음·중요도 높음 / 주의요망 = 긴급도 높음·중요도 낮음 or 긴급도 낮음·중요도 높음 / 동향참고 = 긴급도 낮음·중요도 낮음
+</div>
 
 </body>
 </html>
