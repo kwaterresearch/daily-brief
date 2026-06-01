@@ -53,10 +53,6 @@ body {
   padding: 10px 14px;
   font-size: 13px;
 }
-.meta-cell strong {
-  display: block;
-  margin-bottom: 4px;
-}
 .summary-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -84,11 +80,11 @@ body {
   border-color: #90d890;
   color: #1a6e1a;
 }
-.summary-cell .label {
+.summary-label {
   font-size: 12px;
   font-weight: 600;
 }
-.summary-cell .count {
+.summary-count {
   font-size: 20px;
   font-weight: 800;
   display: block;
@@ -115,7 +111,7 @@ body {
 .card.urgent::before { background: #e74c3c; }
 .card.caution::before { background: #f39c12; }
 .card.reference::before { background: #27ae60; }
-.tags {
+.tag-row {
   display: flex;
   flex-wrap: wrap;
   gap: 6px;
@@ -158,29 +154,29 @@ body {
   background: #f3f4f6;
   color: #555;
 }
-.card h2 {
+.card-title {
   font-size: 17px;
   font-weight: 700;
   line-height: 1.45;
   margin: 10px 0 8px;
   color: #1a1a2e;
 }
-.card .content {
+.card-content {
   font-size: 14px;
   line-height: 1.75;
   color: #444;
   margin-bottom: 8px;
 }
-.card .source {
+.card-source {
   font-size: 12px;
   color: #888;
   margin-top: 8px;
 }
-.card .source a {
+.card-source a {
   color: #2c5fcc;
   text-decoration: none;
 }
-.insight {
+.insight-box {
   margin-top: 12px;
   padding: 10px 12px;
   border-left: 3px solid;
@@ -189,15 +185,15 @@ body {
   line-height: 1.7;
   color: #1a5276;
 }
-.insight.urgent {
+.insight-box.urgent {
   background: rgba(231, 76, 60, 0.1);
   border-color: #e74c3c;
 }
-.insight.caution {
+.insight-box.caution {
   background: rgba(243, 156, 18, 0.1);
   border-color: #f39c12;
 }
-.insight.reference {
+.insight-box.reference {
   background: rgba(39, 174, 96, 0.1);
   border-color: #27ae60;
 }
@@ -242,195 +238,203 @@ body {
 <div class="container">
 
 <div class="header">
-<h1>K-water연구원<br>데일리 브리핑</h1>
-<div class="subtitle">국내외 주요 이슈와 시사점을 전달합니다<br>본 자료는 생성형 AI를 통해 자동 작성되었습니다</div>
-<div class="meta-grid">
-<div class="meta-cell">
-<strong>생성일시</strong>
-2026.06.01 (월) 07:00
-</div>
-<div class="meta-cell">
-<strong>수록 범위</strong>
-최근 72시간 (금~일)
-</div>
-</div>
+  <h1>K-water연구원<br>데일리 브리핑</h1>
+  <div class="subtitle">국내외 주요 이슈와 시사점을 전달합니다<br>본 자료는 생성형 AI를 통해 자동 작성되었습니다</div>
+  <div class="meta-grid">
+    <div class="meta-cell">
+      <div style="font-weight:600;">생성 일시</div>
+      <div>2026.06.01 (월) 07:00</div>
+    </div>
+    <div class="meta-cell">
+      <div style="font-weight:600;">수록 기간</div>
+      <div>최근 72시간</div>
+    </div>
+  </div>
 </div>
 
 <div class="summary-grid">
-<div class="summary-cell urgent">
-<div class="label">즉시<br>주목</div>
-<div class="count">2</div>
+  <div class="summary-cell urgent">
+    <div class="summary-label">즉시<br>주목</div>
+    <span class="summary-count">2</span>
+  </div>
+  <div class="summary-cell caution">
+    <div class="summary-label">주의<br>요망</div>
+    <span class="summary-count">3</span>
+  </div>
+  <div class="summary-cell reference">
+    <div class="summary-label">동향<br>참고</div>
+    <span class="summary-count">3</span>
+  </div>
 </div>
-<div class="summary-cell caution">
-<div class="label">주의<br>요망</div>
-<div class="count">3</div>
-</div>
-<div class="summary-cell reference">
-<div class="label">동향<br>참고</div>
-<div class="count">3</div>
-</div>
+
+<div style="margin-bottom:12px;font-size:13px;color:#666;text-align:center;">총 8건 | 즉시주목 2건 · 주의요망 3건 · 동향참고 3건</div>
+
+<!-- 즉시주목 -->
+<div class="card urgent">
+  <div class="tag-row">
+    <span class="tag number">1</span>
+    <span class="tag priority urgent">즉시주목</span>
+    <span class="tag category">[E] 기후·에너지·환경</span>
+    <span class="tag region">국내</span>
+  </div>
+  <div class="card-title">기후변화 없어도 2030년 물 부족…반영시 부족량 8배</div>
+  <div class="card-content">
+    한국환경연구원은 기후변화를 고려하지 않더라도 2030년 국내 물 부족량이 연간 2억 5천만 톤에 달하며, 기후변화를 반영할 경우 부족량이 8배 증가한 20억 톤 규모로 확대될 것이라는 연구 결과를 발표했다. 인구 증가와 산업 용수 수요 증가가 주요 원인으로 지목됐다.
+  </div>
+  <div class="card-source">
+    연합뉴스 | 2026.05.30 21:07 | <a href="https://news.google.com/rss/articles/CBMiYEFVX3lxTE5pRXdUMWloT2hwZmF4Q3lXeHRET2NsUWpsQ2ZFY3JMQW1yNHJPVm5XY2FEaVBrYnRtZlJBcnZVOHdxY1NmVzRJbUNweWRUM0kwdGJqSVBEbXJic1lXemduNNIBYEFVX3lxTE5pRXdUMWloT2hwZmF4Q3lXeHRET2NsUWpsQ2ZFY3JMQW1yNHJPVm5XY2FEaVBrYnRtZlJBcnZVOHdxY1NmVzRJbUNweWRUM0kwdGJqSVBEbXJic1lXemduNA?oc=5" target="_blank">원문 보기</a>
+  </div>
+  <div class="insight-box urgent">
+    <strong>K-water 시사점:</strong> 기후변화 시나리오 반영 시 2030년 물 부족량이 20억 톤 규모로 확대된다는 전망은 K-water의 [수자원·환경] 사업 전반, 특히 댐 운영·광역상수도 공급 계획에 직접 영향을 미친다. 다목적댐 18개 운영 및 광역상수도 전국 12개 권역 급수 체계의 중장기 수급 시나리오를 이번 연구 결과와 연계하여 재검토할 필요가 있다. 또한 첨단산업(반도체·AI·데이터센터) 용수 공급 확대 전략과 초순수 사업 추진 시 수요 증가 폭을 보수적으로 재산정하고, 기후에너지환경부의 물 수급 정책 동향을 긴밀히 모니터링해야 한다.
+  </div>
+  <div class="monitoring">후속 모니터링: 지속 모니터링 필요</div>
 </div>
 
 <div class="card urgent">
-<div class="tags">
-<span class="tag number">1</span>
-<span class="tag priority urgent">즉시주목</span>
-<span class="tag category">[E] 기후·에너지·환경</span>
-<span class="tag region">국내</span>
-</div>
-<h2>기후변화 없어도 2030년 물 부족…반영시 부족량 8배</h2>
-<div class="content">
-한국환경연구원이 기후변화를 고려하지 않은 상태에서도 2030년 국내 물 부족량이 연간 2억 7,000만 톤에 달할 것으로 전망했다. 기후변화 시나리오를 반영할 경우 부족량은 8배 증가한 21억 톤으로 급증한다. 연구진은 인구 증가와 산업 수요 확대가 주요 원인이며, 기후변화로 인한 강수 패턴 변화가 부족량을 가속화할 것으로 분석했다.
-</div>
-<div class="source">
-연합뉴스 | 2026.05.30 21:07 | <a href="https://news.google.com/rss/articles/CBMiYEFVX3lxTE5pRXdUMWloT2hwZmF4Q3lXeHRET2NsUWpsQ2ZFY3JMQW1yNHJPVm5XY2FEaVBrYnRtZlJBcnZVOHdxY1NmVzRJbUNweWRUM0kwdGJqSVBEbXJic1lXemduNNIBYEFVX3lxTE5pRXdUMWloT2hwZmF4Q3lXeHRET2NsUWpsQ2ZFY3JMQW1yNHJPVm5XY2FEaVBrYnRtZlJBcnZVOHdxY1NmVzRJbUNweWRUM0kwdGJqSVBEbXJic1lXemduNA?oc=5" target="_blank">원문 보기</a>
-</div>
-<div class="insight urgent">
-<strong>K-water 시사점:</strong> 기후변화 시나리오 반영 시 2030년 물 부족량이 21억 톤으로 급증한다는 전망은 K-water의 [수자원·환경] 사업 전반에 직접 영향을 미친다. 다목적댐 18개 운영 및 광역상수도 공급 체계가 기후 변동성 대응 능력을 갖추고 있는지 점검이 필요하다. 특히 AI·디지털트윈 기반 댐 자율운영 및 수요 예측 시스템이 극한 가뭄 시나리오를 충분히 반영하고 있는지 검토가 요구된다. 또한 [수도] 사업의 광역상수도 요금 현실화 논의 시 기후 리스크 대응 비용 반영 근거로 활용 가능하다.
-</div>
-<div class="monitoring">후속 모니터링: 지속 모니터링 필요</div>
+  <div class="tag-row">
+    <span class="tag number">2</span>
+    <span class="tag priority urgent">즉시주목</span>
+    <span class="tag category">[E] 기후·에너지·환경</span>
+    <span class="tag region">국내</span>
+  </div>
+  <div class="card-title">7~8월엔 어쩌려고... 강릉은 벌써 열대야</div>
+  <div class="card-content">
+    5월 31일 강릉에서 올해 첫 열대야가 관측됐다. 기상청에 따르면 강릉의 최저기온이 25도를 넘어 열대야 기준을 충족했으며, 이는 평년 대비 약 한 달 이상 빠른 시점이다. 전국적으로도 낮 최고기온이 32도까지 오르는 등 이상 고온 현상이 지속되고 있다.
+  </div>
+  <div class="card-source">
+    조선일보 | 2026.05.31 11:33 | <a href="https://news.google.com/rss/articles/CBMilwFBVV95cUxPaWdzM2NCeHlVaXhCVVdRN1VzVGhubTJiVDRwZ2FoZnhQbmgtUGxaVjZpbTJMNVNTTTVDaTg1VnFzb3RsR0UxcU5oYnhjUVVrU2NYS3Bia21FNzRMOFZvQ2t0OTd4dXdkQUhhaUZnbFd2ZDVKVEdsdWVyYWdKWHlBd25SUmdUQWZfaHRTSkJxSE1FdnZsQzlr?oc=5" target="_blank">원문 보기</a>
+  </div>
+  <div class="insight-box urgent">
+    <strong>K-water 시사점:</strong> 평년 대비 한 달 이상 빠른 열대야 발생은 여름철 용수 수요 급증 시점이 앞당겨질 가능성을 시사한다. [수자원·환경] 사업의 댐 운영 계획(홍수기 대비 수위 조절, 용수 공급 스케줄)과 [수도] 사업의 광역상수도 급수량 예측 모델을 조기 점검하고, 이상 고온이 지속될 경우 냉각수 수요 증가로 인한 첨단산업 용수 공급 압력도 함께 검토해야 한다. 기후에너지환경부의 가뭄·폭염 대응 정책 동향을 주시하며, 댐 저수율 관리 시나리오를 보수적으로 재조정할 필요가 있다.
+  </div>
+  <div class="monitoring">후속 모니터링: 지속 모니터링 필요</div>
 </div>
 
-<div class="card urgent">
-<div class="tags">
-<span class="tag number">2</span>
-<span class="tag priority urgent">즉시주목</span>
-<span class="tag category">[C] 경제·금융</span>
-<span class="tag region">국외</span>
-</div>
-<h2>이란전쟁에 가뭄까지 겹쳐…글로벌 밀 가격 20% 폭등</h2>
-<div class="content">
-이란-이스라엘 분쟁 장기화와 주요 곡창지대의 극심한 가뭄이 겹치면서 글로벌 밀 가격이 최근 한 달간 20% 급등했다. 시카고상품거래소(CBOT) 밀 선물 가격은 부셸당 7.2달러를 기록하며 2년 만에 최고치를 경신했다. 흑해 지역 수출 차질과 미국·캐나다 주요 산지의 가뭄이 공급 불안을 가중시키고 있다.
-</div>
-<div class="source">
-한국경제 | 2026.05.31 09:40 | <a href="https://news.google.com/rss/articles/CBMiWkFVX3lxTE1JMVo1R2hSanBOR0VGSGxVNDVtc2IxSDlRRFpiWnZ0VTNhZDE0NXNyMFJwa2tUUkZpelVXTlY3aW1lMVJtUVRSZWVnODZCdGV2RU9fYllsZU1vUdIBVEFVX3lxTE95Z0prSl9QZFpWQ1hmNEdLMlBPSTBKZF9oaEJ1NktwOS1FODRRMVpuRHJYYzRHRjRpTmRIRlRoQl9CNU5uTG5zVzBuNWhrbEw4YWU5Zg?oc=5" target="_blank">원문 보기</a>
-</div>
-<div class="insight urgent">
-<strong>K-water 시사점:</strong> 글로벌 밀 가격 20% 폭등은 원자재 가격 전반의 상승 압력으로 이어질 가능성이 높다. K-water의 댐·상하수도 운영비 및 건설자재비(시멘트·철강 등)가 연동 상승할 수 있어 [수자원·환경] 및 [수도] 사업의 비용 구조 점검이 필요하다. 특히 2026년 예산 7조 1,560억원 집행 과정에서 원자재 조달 비용 증가 가능성을 반영한 시나리오 대비가 요구된다. 또한 중동 정세 불안이 유가 상승으로 이어질 경우 [에너지·도시] 사업의 재생에너지(수상태양광·조력발전) 경쟁력 강화 기회로 작용할 수 있어 전략 연계성 검토가 필요하다.
-</div>
-<div class="monitoring">후속 모니터링: 지속 모니터링 필요</div>
+<!-- 주의요망 -->
+<div class="card caution">
+  <div class="tag-row">
+    <span class="tag number">3</span>
+    <span class="tag priority caution">주의요망</span>
+    <span class="tag category">[C] 경제·금융</span>
+    <span class="tag region">국외</span>
+  </div>
+  <div class="card-title">China's factory activity slows in May, raising questions over its economy</div>
+  <div class="card-content">
+    중국 국가통계국은 5월 제조업 구매관리자지수(PMI)가 49.5로 전월 대비 하락하며 경기 위축 국면에 진입했다고 발표했다. 이는 글로벌 수요 둔화와 내수 부진이 복합적으로 작용한 결과로 분석되며, 중국 정부의 추가 경기 부양책 필요성이 제기되고 있다.
+  </div>
+  <div class="card-source">
+    AP News | 2026.05.31 03:31 | <a href="https://news.google.com/rss/articles/CBMioAFBVV95cUxOQ1BjTnRETjc0MDNSamZ3bno4QklhS3BPQVpUVkNVSDN2MnlSUDN2UjJ0RXI0UHJ4VURkSEpXTkswYlAtTUlYM0NEb04wRDF2LXZtM2IxdzhMWW5sNlNTNWdidzlJX1VINjNZNHFLMXFoWFkwN2RrUHdKSGM5Sml0TDNYVnlOVWtWQjNJeFF3Mk9zQjR3dEJQSVV3azlLUmVL?oc=5" target="_blank">원문 보기</a>
+  </div>
+  <div class="insight-box caution">
+    <strong>K-water 시사점:</strong> 중국 제조업 위축은 글로벌 원자재 수요 감소로 이어져 유가·철강·시멘트 등 건설자재 가격에 하방 압력을 줄 가능성이 있다. 이는 K-water의 [에너지·도시] 사업 중 수변 신도시·산업단지 개발(부산 에코델타시티, 새만금 등) 및 [수자원·환경] 사업의 댐·하천 시설 유지보수 비용 측면에서 간접적 우호 요인이 될 수 있다. 다만 중국 경기 둔화가 장기화될 경우 [글로벌·기후테크] 사업의 해외 프로젝트 수주 환경에도 영향을 미칠 수 있어, 글로벌 경기 동향을 지속 모니터링할 필요가 있다.
+  </div>
 </div>
 
 <div class="card caution">
-<div class="tags">
-<span class="tag number">3</span>
-<span class="tag priority caution">주의요망</span>
-<span class="tag category">[B] 정치·정책</span>
-<span class="tag region">국내</span>
-</div>
-<h2>金총리 "탈탄소 전환, 국민 체감 변화 갈길 멀어…올해 로드맵 수립해야"</h2>
-<div class="content">
-김부겸 국무총리는 5월 29일 탈탄소 전환 정책 점검회의에서 "탈탄소 전환이 국민 체감 수준으로 이어지기까지 갈 길이 멀다"며 "올해 안에 구체적인 로드맵을 수립해야 한다"고 강조했다. 정부는 2030년 국가 온실가스 감축목표(NDC) 달성을 위해 재생에너지 확대, 산업 부문 전환, 탄소포집·활용·저장(CCUS) 기술 개발 등을 추진 중이다.
-</div>
-<div class="source">
-뉴스1 | 2026.05.29 10:19 | <a href="https://news.google.com/rss/articles/CBMiW0FVX3lxTE51S25ndW9yM0hvUEZJcVBPVVIwOEpoRm1GQUxqcUdtczZrdzFLN19fSXVCVFZ4UXI1TkFsem1LcTRCcDdFbzY2X0RMOW05dHJMUXZnejlsTlNwR1E?oc=5" target="_blank">원문 보기</a>
-</div>
-<div class="insight caution">
-<strong>K-water 시사점:</strong> 정부의 탈탄소 로드맵 수립은 K-water [에너지·도시] 사업의 재생에너지 확대 전략과 직접 연계된다. 2030년까지 태양광 7,227MW, 양수발전·새만금조력 신설 추진 계획이 정부 NDC 목표와 정합성을 갖추고 있는지 점검이 필요하다. 또한 그린수소·수열에너지 사업이 정부 로드맵에 포함될 경우 사업 기회 확대 가능성이 있어 기후에너지환경부 정책 동향 모니터링이 요구된다.
-</div>
-</div>
-
-<div class="card caution">
-<div class="tags">
-<span class="tag number">4</span>
-<span class="tag priority caution">주의요망</span>
-<span class="tag category">[D] 기술·혁신</span>
-<span class="tag region">국외</span>
-</div>
-<h2>中 나트륨이온 배터리, 테슬라 리튬이온 수준 성능 갖췄다</h2>
-<div class="content">
-중국 CATL이 개발한 나트륨이온 배터리가 테슬라의 리튬이온 배터리와 유사한 에너지 밀도(160Wh/kg)를 달성했다고 조선일보가 5월 31일 보도했다. CATL은 2026년 하반기부터 양산에 돌입할 계획이며, 리튬 대비 원가가 30% 저렴해 전기차 및 에너지저장장치(ESS) 시장 판도 변화가 예상된다.
-</div>
-<div class="source">
-조선일보 | 2026.05.31 03:00 | <a href="https://news.google.com/rss/articles/CBMigwFBVV95cUxPZkhsWTZXaDd3aGxMN1VwcWhWNGpGR0tRUldfbklxRGkteXBwNnQyTEE5Y0FYOGNBeERsMVhfTjYzRVNFLVF0R1lGN0QyMGYyZHRQUXp2M0J0d2dOU3UwV3VvZlo0aTFaYm5jaG5ZUzBBbVlSTDU0bGRDV2w2YWNhZFBTaw?oc=5" target="_blank">원문 보기</a>
-</div>
-<div class="insight caution">
-<strong>K-water 시사점:</strong> 나트륨이온 배터리 기술 발전은 K-water [에너지·도시] 사업의 에너지저장장치(ESS) 도입 비용 절감 기회로 작용할 수 있다. 수상태양광·조력발전 등 재생에너지 사업에서 ESS는 출력 안정화를 위한 핵심 설비이며, 원가 30% 절감 시 사업 수익성 개선이 가능하다. 다만 기술 성숙도 및 국내 도입 가능성을 점검한 후 중장기 전략 반영 여부를 검토할 필요가 있다.
-</div>
+  <div class="tag-row">
+    <span class="tag number">4</span>
+    <span class="tag priority caution">주의요망</span>
+    <span class="tag category">[A] 지정학·국제정세</span>
+    <span class="tag region">국외</span>
+  </div>
+  <div class="card-title">이란 협상대표 "권리 보장 없이 미국과 합의 불가"</div>
+  <div class="card-content">
+    이란 핵협상 대표는 5월 31일 성명을 통해 "이란의 핵 권리와 경제 제재 해제가 보장되지 않는 한 미국과의 합의는 불가능하다"고 밝혔다. 이는 트럼프 행정부가 제시한 조건에 대한 강경 대응으로, 중동 긴장 고조가 지속될 가능성을 시사한다.
+  </div>
+  <div class="card-source">
+    연합뉴스TV | 2026.05.31 20:50 | <a href="https://news.google.com/rss/articles/CBMiZ0FVX3lxTFAxT0Uwd1dILXlmS01adVc3NUhEWFhGUkZkbVZGNjZ0YnZIOWVfVEtMdDZybGFfZDcwNjJfRFhTNzUwZmFVWnl0ZnRndkJHVklIbHZ1cHA2YmlWVUk4aHhCX2xNXy1fMmM?oc=5" target="_blank">원문 보기</a>
+  </div>
+  <div class="insight-box caution">
+    <strong>K-water 시사점:</strong> 이란-미국 협상 교착은 중동 지정학 리스크를 지속시켜 국제 유가 변동성을 확대할 가능성이 있다. 유가 상승은 K-water의 [수자원·환경] 사업 중 댐 운영비(장비 연료비) 및 [에너지·도시] 사업의 건설자재 운송비 증가 요인으로 작용할 수 있다. 반면 [에너지·도시] 사업의 재생에너지(수력발전, 수상태양광, 조력발전) 경쟁력은 간접적으로 강화될 여지가 있다. 재무·조달 전반에서 유가 연동 비용 항목의 노출도를 점검하고, 중동 정세 동향을 지속 모니터링할 필요가 있다.
+  </div>
 </div>
 
 <div class="card caution">
-<div class="tags">
-<span class="tag number">5</span>
-<span class="tag priority caution">주의요망</span>
-<span class="tag category">[C] 경제·금융</span>
-<span class="tag region">국외</span>
+  <div class="tag-row">
+    <span class="tag number">5</span>
+    <span class="tag priority caution">주의요망</span>
+    <span class="tag category">[D] 기술·혁신</span>
+    <span class="tag region">국내</span>
+  </div>
+  <div class="card-title">한화그룹, 美 스페이스X 공급망 뚫었다</div>
+  <div class="card-content">
+    한화그룹이 미국 스페이스X의 우주발사체 부품 공급망에 진입했다. 한화에어로스페이스는 5월 31일 스페이스X와 발사체 핵심 부품 공급 계약을 체결했으며, 이는 국내 기업 최초로 스페이스X 1차 협력사로 선정된 사례다. 한화는 향후 우주산업 밸류체인 전반으로 사업을 확대할 계획이다.
+  </div>
+  <div class="card-source">
+    한국경제 | 2026.05.31 06:55 | <a href="https://news.google.com/rss/articles/CBMiWkFVX3lxTFA5anlKaEcta2k1WHRCd2RDZnRnTjhkay0wSmJNUzluOGhhd3RiWlBBOGZfR2RmdHV4MjVINHdWTWtPOTI1eDJZbWtVU2Jsam5NTFgtLWs3ZThZQdIBVEFVX3lxTE5SVzFycm00UzNqTWx4X3FXR0tWNEN0bDdVeXZhRDNTNWtwUmx0aHZvSW1xM3JRTkpORU9MSVBFeTBIcm43cTBaOWZqSmtRRVRUVFFCTA?oc=5" target="_blank">원문 보기</a>
+  </div>
+  <div class="insight-box caution">
+    <strong>K-water 시사점:</strong> 국내 대기업의 글로벌 첨단기술 공급망 진입은 국내 첨단산업 생태계 확장 신호로 해석된다. 이는 K-water [수도] 사업의 첨단산업 용수 공급 및 초순수 사업 수요 기반 확대 가능성을 시사한다. 특히 반도체·AI·데이터센터에 이어 우주산업 관련 제조시설이 국내에 추가 입지할 경우, 해당 지역 광역상수도 수요 증가 및 초순수 공급 계약 기회로 연결될 수 있다. [수도] 사업 중장기 수요 예측 시 첨단산업 확장 시나리오를 반영하고, 관련 산업단지 개발 동향을 모니터링할 필요가 있다.
+  </div>
 </div>
-<h2>China's factory activity slows in May, raising questions over its economy</h2>
-<div class="content">
-중국 국가통계국이 5월 31일 발표한 제조업 구매관리자지수(PMI)가 49.5를 기록하며 기준선(50) 아래로 하락했다. 이는 3개월 연속 위축을 의미하며, 글로벌 수요 둔화와 내수 부진이 주요 원인으로 지목됐다. AP통신은 중국 경제 회복세 둔화가 글로벌 공급망 및 원자재 시장에 영향을 미칠 것으로 전망했다.
-</div>
-<div class="source">
-AP News | 2026.05.31 03:31 | <a href="https://news.google.com/rss/articles/CBMioAFBVV95cUxOQ1BjTnRETjc0MDNSamZ3bno4QklhS3BPQVpUVkNVSDN2MnlSUDN2UjJ0RXI0UHJ4VURkSEpXTkswYlAtTUlYM0NEb04wRDF2LXZtM2IxdzhMWW5sNlNTNWdidzlJX1VINjNZNHFLMXFoWFkwN2RrUHdKSGM5Sml0TDNYVnlOVWtWQjNJeFF3Mk9zQjR3dEJQSVV3azlLUmVL?oc=5" target="_blank">원문 보기</a>
-</div>
-<div class="insight caution">
-<strong>K-water 시사점:</strong> 중국 제조업 위축은 글로벌 원자재 수요 감소로 이어져 철강·시멘트 등 건설자재 가격 하락 가능성을 시사한다. K-water [수자원·환경] 및 [에너지·도시] 사업의 댐·신도시 건설 프로젝트에서 자재 조달 비용 절감 기회가 될 수 있다. 다만 중국 경기 둔화가 글로벌 경기 침체로 확산될 경우 K-water 재무·조달 전반에 간접 영향(금리 변동, 환율 변동성 등)을 미칠 수 있어 동향 주시가 필요하다.
-</div>
+
+<!-- 동향참고 -->
+<div class="card reference">
+  <div class="tag-row">
+    <span class="tag number">6</span>
+    <span class="tag priority reference">동향참고</span>
+    <span class="tag category">[B] 정치·정책</span>
+    <span class="tag region">국내</span>
+  </div>
+  <div class="card-title">이 대통령 "불법투기·탈세 이제 안돼···망국적 부동산 불로소득 반드시 탈출"</div>
+  <div class="card-content">
+    이재명 대통령은 5월 31일 부동산 정책 관련 발언에서 "불법 투기와 탈세를 근절하고 부동산 불로소득 구조에서 탈피하겠다"고 밝혔다. 정부는 부동산 세제 강화 및 투기 단속을 강화할 방침이며, 이는 향후 공공기관 부동산 개발 사업에도 영향을 미칠 전망이다.
+  </div>
+  <div class="card-source">
+    경향신문 | 2026.05.31 23:00 | <a href="https://news.google.com/rss/articles/CBMiWkFVX3lxTE9YVFNBb1BNMS14U19kVUxqeXkxbC0zRy0wY25Pb25FTUZ1RkphTlRBbE56ZVVNTXhtSnYxVnpjZWpvRFRUOXd2QjBDY0hFbmxCOXd3eFU1MlVFZ9IBX0FVX3lxTFBWblZTYTRPeEVLaWtSNG9DSHpvQ21aV2IyN1AzMUMwc2FrREdpWDh6VkZVc3o1aXZadGNBTkNBNFlVZ3JwM0NHUjliYWFtejJGLTd4WEdRM3p2REhkOUlr?oc=5" target="_blank">원문 보기</a>
+  </div>
+  <div class="insight-box reference">
+    <strong>K-water 시사점:</strong> 부동산 세제 강화 및 투기 단속 정책은 K-water [에너지·도시] 사업의 수변 신도시·산업단지 개발(부산 에코델타시티, 새만금 등) 사업 추진 시 분양가 책정 및 수익성 구조에 간접 영향을 미칠 가능성이 있다. 다만 현 단계에서는 정책 구체화 이전이므로 직접 시사점은 제한적이다. 정부 부동산 정책 동향을 참고 수준에서 모니터링하며, 향후 세부 시행령 발표 시 사업 영향도를 재검토할 필요가 있다.
+  </div>
 </div>
 
 <div class="card reference">
-<div class="tags">
-<span class="tag number">6</span>
-<span class="tag priority reference">동향참고</span>
-<span class="tag category">[A] 지정학·국제정세</span>
-<span class="tag region">국외</span>
-</div>
-<h2>트럼프 이어 이란도 MOU 수정안 제시 예정…"노딜도 대비"</h2>
-<div class="content">
-이란 협상대표는 5월 31일 "미국이 제시한 핵합의 수정안을 검토 중이며, 이란의 권리가 보장되지 않으면 합의 불가"라고 밝혔다. CNN은 트럼프 행정부가 호르무즈 해협 통항권 보장을 조건으로 제재 완화를 제안했으나, 이란이 추가 수정안을 준비 중이라고 보도했다. 양측 모두 '노딜' 시나리오를 대비하고 있는 것으로 알려졌다.
-</div>
-<div class="source">
-경향신문 | 2026.05.31 21:24 | <a href="https://news.google.com/rss/articles/CBMiWkFVX3lxTE1OSlVGZWIzZDhCTHRnbmctUTBMb3hYMG8tbWZTTFJGSWdJdFowUWJpaEREb19kTXlTSVlvdFE0MWpVX1VzeHo0R2ZUM2RZb2dtbEh2a2pHRWRfd9IBX0FVX3lxTE9LMkhnaFJ0NUZkRWo1TVVYcnpZRk13eGJnX3JEdHdpMHFRQ2xrVzFibTVmSTRpQ0JVcHVmUGhDU1U0Y3NDZjNiZVoxZWtWNnFSOFdtZ1lJdDVweGtPbTQ0?oc=5" target="_blank">원문 보기</a>
-</div>
-<div class="insight reference">
-<strong>K-water 시사점:</strong> 이란 핵협상 교착은 중동 정세 불안 지속을 의미하며, 유가 변동성 확대 가능성이 있다. K-water 재무·조달 측면에서 유가 상승 시 댐·상하수도 운영비 증가 요인이 되나, 현 시점에서는 직접 시사점이 낮다. 동향 파악 차원에서 참고한다.
-</div>
-</div>
-
-<div class="card reference">
-<div class="tags">
-<span class="tag number">7</span>
-<span class="tag priority reference">동향참고</span>
-<span class="tag category">[D] 기술·혁신</span>
-<span class="tag region">국내</span>
-</div>
-<h2>한화그룹, 美 스페이스X 공급망 뚫었다</h2>
-<div class="content">
-한화그룹이 미국 스페이스X의 위성 발사체 부품 공급업체로 선정됐다고 한국경제가 5월 31일 보도했다. 한화에어로스페이스가 개발한 고강도 경량 소재가 스페이스X의 스타링크 위성 발사에 활용될 예정이며, 연간 공급 규모는 약 2억 달러로 추정된다. 이는 국내 기업이 글로벌 우주산업 공급망에 본격 진입한 첫 사례로 평가된다.
-</div>
-<div class="source">
-한국경제 | 2026.05.31 06:55 | <a href="https://news.google.com/rss/articles/CBMiWkFVX3lxTFA5anlKaEcta2k1WHRCd2RDZnRnTjhkay0wSmJNUzluOGhhd3RiWlBBOGZfR2RmdHV4MjVINHdWTWtPOTI1eDJZbWtVU2Jsam5NTFgtLWs3ZThZQdIBVEFVX3lxTE5SVzFycm00UzNqTWx4X3FXR0tWNEN0bDdVeXZhRDNTNWtwUmx0aHZvSW1xM3JRTkpORU9MSVBFeTBIcm43cTBaOWZqSmtRRVRUVFFCTA?oc=5" target="_blank">원문 보기</a>
-</div>
-<div class="insight reference">
-<strong>K-water 시사점:</strong> 한화그룹의 우주산업 진출은 국내 첨단기술 생태계 확장을 보여주는 사례이나, K-water 사업과의 직접 연관성은 낮다. 다만 첨단산업 용수 수요 증가 가능성을 간접적으로 시사하므로 [수도] 사업의 반도체·AI·데이터센터 용수 공급 전략 수립 시 참고할 수 있다.
-</div>
+  <div class="tag-row">
+    <span class="tag number">7</span>
+    <span class="tag priority reference">동향참고</span>
+    <span class="tag category">[F] 사회·제도</span>
+    <span class="tag region">국내</span>
+  </div>
+  <div class="card-title">코레일 "서소문 고가 붕괴 닷새 만에 열차 정상 운행"</div>
+  <div class="card-content">
+    코레일은 5월 31일 서소문 고가 붕괴 사고로 중단됐던 열차 운행을 닷새 만에 정상화했다고 밝혔다. 사고 원인은 고가 구조물 노후화로 추정되며, 국토교통부는 전국 노후 인프라 긴급 점검을 지시했다. 코레일은 향후 유사 사고 재발 방지를 위해 시설물 안전 점검 주기를 단축할 계획이다.
+  </div>
+  <div class="card-source">
+    경향신문 | 2026.05.31 12:16 | <a href="https://news.google.com/rss/articles/CBMiWkFVX3lxTE50RTVnUnYyclV0UjFrNHRFTzlBTXU1WGFvUVI3ZDRneVJJdW04M1EwTnZuaEU0RkI1TWpUaWMxU2YyRy1XRUtlelYyMXRXd0h0Vkt3UkV5S1BDUdIBX0FVX3lxTE1mNkp3LVdGbDVvb0RVcldzemwtcXJYYjlERWJZTGl5dEZscGgyZU5KV1E5TFhjbDJYazMtNmRscEdtT3J2ZzNxWklQbHVCVXRUUTJISTQxRkhDd083Zk1Z?oc=5" target="_blank">원문 보기</a>
+  </div>
+  <div class="insight-box reference">
+    <strong>K-water 시사점:</strong> 노후 인프라 안전 점검 강화 기조는 K-water가 운영하는 댐·보·하천·상하수도 시설의 안전관리 기준 강화로 이어질 가능성이 있다. 다만 현 단계에서는 타 공공기관 사례이므로 직접 시사점은 낮다. 기후에너지환경부 및 국토교통부의 공공 인프라 안전관리 정책 동향을 참고 수준에서 모니터링하며, 향후 K-water 시설물 안전점검 주기 조정 여부를 검토할 필요가 있다.
+  </div>
 </div>
 
 <div class="card reference">
-<div class="tags">
-<span class="tag number">8</span>
-<span class="tag priority reference">동향참고</span>
-<span class="tag category">[E] 기후·에너지·환경</span>
-<span class="tag region">국내</span>
-</div>
-<h2>7~8월엔 어쩌려고... 강릉은 벌써 열대야</h2>
-<div class="content">
-강릉시가 5월 31일 올해 첫 열대야를 기록했다. 기상청에 따르면 강릉의 최저기온이 25.3도를 기록하며 열대야 기준(최저 25도 이상)을 넘어섰다. 이는 평년 대비 약 한 달 빠른 것으로, 기상 전문가들은 올여름 폭염이 예년보다 심화될 가능성을 경고했다.
-</div>
-<div class="source">
-조선일보 | 2026.05.31 11:33 | <a href="https://news.google.com/rss/articles/CBMilwFBVV95cUxPaWdzM2NCeHlVaXhCVVdRN1VzVGhubTJiVDRwZ2FoZnhQbmgtUGxaVjZpbTJMNVNTTTVDaTg1VnFzb3RsR0UxcU5oYnhjUVVrU2NYS3Bia21FNzRMOFZvQ2t0OTd4dXdkQUhhaUZnbFd2ZDVKVEdsdWVyYWdKWHlBd25SUmdUQWZfaHRTSkJxSE1FdnZsQzlr?oc=5" target="_blank">원문 보기</a>
-</div>
-<div class="insight reference">
-<strong>K-water 시사점:</strong> 5월 열대야 발생은 여름철 폭염 심화 가능성을 시사하며, K-water [수자원·환경] 사업의 댐 용수 수요 증가 및 수질 관리(녹조 대응) 부담 증가 요인이 될 수 있다. 다만 현 시점에서는 단발 기상 현상으로 직접 시사점은 낮다. 여름철 기상 동향 모니터링 차원에서 참고한다.
-</div>
+  <div class="tag-row">
+    <span class="tag number">8</span>
+    <span class="tag priority reference">동향참고</span>
+    <span class="tag category">[D] 기술·혁신</span>
+    <span class="tag region">국외</span>
+  </div>
+  <div class="card-title">First Windows PC powered by Nvidia chips to debut next week, Axios reports</div>
+  <div class="card-content">
+    Axios는 엔비디아 칩을 탑재한 첫 윈도우 PC가 다음 주 공개될 예정이라고 보도했다. 엔비디아는 GPU뿐 아니라 CPU 시장에도 본격 진출하며, PC 시장 재편을 예고하고 있다. 이는 AI 연산 수요 증가에 따른 하드웨어 시장 변화의 일환으로 분석된다.
+  </div>
+  <div class="card-source">
+    Reuters | 2026.05.30 23:53 | <a href="https://news.google.com/rss/articles/CBMitgFBVV95cUxQWnVLOHBlWmZIZ3gyME1WZ3ZUY2VkU2VwdFYzR1FzNV9hTEM5bW16SUxrYmx5ZzdWSGxnSTRzeHJBOE5paGRWUnQ3QW1nYVBkYVY5OExaRlZoV0pMV1NVTDJTbGZTMFFjNzc0WWNhbVppaThrZUIzU1FmOVJBU1c4Q2NiSTVxeE1TRXM1VHp6YU15THBJR25KSloxZ3BhMDl6eElCdlc1U2lRM3dIVTdVclRZckhSUQ?oc=5" target="_blank">원문 보기</a>
+  </div>
+  <div class="insight-box reference">
+    <strong>K-water 시사점:</strong> 엔비디아의 PC 칩 시장 진출은 AI 연산 인프라 확산 가속화 신호로 해석된다. 이는 K-water [수도] 사업의 첨단산업(AI·데이터센터) 용수 수요 증가 및 [기술·전략] 측면에서 AI 물관리 기술(AI 정수장, 디지털트윈) 고도화 필요성을 간접적으로 뒷받침한다. 다만 현 단계에서는 글로벌 기술 트렌드 참고 수준이며, 직접 시사점은 제한적이다. AI 인프라 확산 동향을 참고하며, 국내 AI 산업 입지 확대 시 용수 수요 예측에 반영할 필요가 있다.
+  </div>
 </div>
 
 <div class="footer">
-<strong>우선순위 기준</strong><br>
-즉시주목 = 긴급도 높음·중요도 높음 / 주의요망 = 긴급도 높음·중요도 낮음 or 긴급도 낮음·중요도 높음 / 동향참고 = 긴급도 낮음·중요도 낮음
+  <strong>우선순위 기준</strong><br>
+  즉시주목 = 긴급도 높음·중요도 높음 / 주의요망 = 긴급도 높음·중요도 낮음 or 긴급도 낮음·중요도 높음 / 동향참고 = 긴급도 낮음·중요도 낮음
+  <br><br>
+  본 브리핑은 Google Trends 기반 자동 수집 뉴스를 Claude AI가 분석·편집한 자료입니다. 최종 의사결정 시 원문 및 추가 정보를 반드시 확인하시기 바랍니다.
 </div>
 
 </div>
+
 
 <div id="kw-credit-footer" style="
   text-align:center;padding:20px 16px;
@@ -446,17 +450,19 @@ AP News | 2026.05.31 03:31 | <a href="https://news.google.com/rss/articles/CBMio
 </div>
 
 
+
 <!-- BRIEFING_MANIFEST_BEGIN
 {"cards": [
   {"no": 1, "category": "즉시주목", "title": "기후변화 없어도 2030년 물 부족…반영시 부족량 8배", "url": "https://news.google.com/rss/articles/CBMiYEFVX3lxTE5pRXdUMWloT2hwZmF4Q3lXeHRET2NsUWpsQ2ZFY3JMQW1yNHJPVm5XY2FEaVBrYnRtZlJBcnZVOHdxY1NmVzRJbUNweWRUM0kwdGJqSVBEbXJic1lXemduNNIBYEFVX3lxTE5pRXdUMWloT2hwZmF4Q3lXeHRET2NsUWpsQ2ZFY3JMQW1yNHJPVm5XY2FEaVBrYnRtZlJBcnZVOHdxY1NmVzRJbUNweWRUM0kwdGJqSVBEbXJic1lXemduNA?oc=5"},
-  {"no": 2, "category": "즉시주목", "title": "이란전쟁에 가뭄까지 겹쳐…글로벌 밀 가격 20% 폭등", "url": "https://news.google.com/rss/articles/CBMiWkFVX3lxTE1JMVo1R2hSanBOR0VGSGxVNDVtc2IxSDlRRFpiWnZ0VTNhZDE0NXNyMFJwa2tUUkZpelVXTlY3aW1lMVJtUVRSZWVnODZCdGV2RU9fYllsZU1vUdIBVEFVX3lxTE95Z0prSl9QZFpWQ1hmNEdLMlBPSTBKZF9oaEJ1NktwOS1FODRRMVpuRHJYYzRHRjRpTmRIRlRoQl9CNU5uTG5zVzBuNWhrbEw4YWU5Zg?oc=5"},
-  {"no": 3, "category": "주의요망", "title": "金총리 \"탈탄소 전환, 국민 체감 변화 갈길 멀어…올해 로드맵 수립해야\"", "url": "https://news.google.com/rss/articles/CBMiW0FVX3lxTE51S25ndW9yM0hvUEZJcVBPVVIwOEpoRm1GQUxqcUdtczZrdzFLN19fSXVCVFZ4UXI1TkFsem1LcTRCcDdFbzY2X0RMOW05dHJMUXZnejlsTlNwR1E?oc=5"},
-  {"no": 4, "category": "주의요망", "title": "中 나트륨이온 배터리, 테슬라 리튬이온 수준 성능 갖췄다", "url": "https://news.google.com/rss/articles/CBMigwFBVV95cUxPZkhsWTZXaDd3aGxMN1VwcWhWNGpGR0tRUldfbklxRGkteXBwNnQyTEE5Y0FYOGNBeERsMVhfTjYzRVNFLVF0R1lGN0QyMGYyZHRQUXp2M0J0d2dOU3UwV3VvZlo0aTFaYm5jaG5ZUzBBbVlSTDU0bGRDV2w2YWNhZFBTaw?oc=5"},
-  {"no": 5, "category": "주의요망", "title": "China's factory activity slows in May, raising questions over its economy", "url": "https://news.google.com/rss/articles/CBMioAFBVV95cUxOQ1BjTnRETjc0MDNSamZ3bno4QklhS3BPQVpUVkNVSDN2MnlSUDN2UjJ0RXI0UHJ4VURkSEpXTkswYlAtTUlYM0NEb04wRDF2LXZtM2IxdzhMWW5sNlNTNWdidzlJX1VINjNZNHFLMXFoWFkwN2RrUHdKSGM5Sml0TDNYVnlOVWtWQjNJeFF3Mk9zQjR3dEJQSVV3azlLUmVL?oc=5"},
-  {"no": 6, "category": "동향참고", "title": "트럼프 이어 이란도 MOU 수정안 제시 예정…\"노딜도 대비\"", "url": "https://news.google.com/rss/articles/CBMiWkFVX3lxTE1OSlVGZWIzZDhCTHRnbmctUTBMb3hYMG8tbWZTTFJGSWdJdFowUWJpaEREb19kTXlTSVlvdFE0MWpVX1VzeHo0R2ZUM2RZb2dtbEh2a2pHRWRfd9IBX0FVX3lxTE9LMkhnaFJ0NUZkRWo1TVVYcnpZRk13eGJnX3JEdHdpMHFRQ2xrVzFibTVmSTRpQ0JVcHVmUGhDU1U0Y3NDZjNiZVoxZWtWNnFSOFdtZ1lJdDVweGtPbTQ0?oc=5"},
-  {"no": 7, "category": "동향참고", "title": "한화그룹, 美 스페이스X 공급망 뚫었다", "url": "https://news.google.com/rss/articles/CBMiWkFVX3lxTFA5anlKaEcta2k1WHRCd2RDZnRnTjhkay0wSmJNUzluOGhhd3RiWlBBOGZfR2RmdHV4MjVINHdWTWtPOTI1eDJZbWtVU2Jsam5NTFgtLWs3ZThZQdIBVEFVX3lxTE5SVzFycm00UzNqTWx4X3FXR0tWNEN0bDdVeXZhRDNTNWtwUmx0aHZvSW1xM3JRTkpORU9MSVBFeTBIcm43cTBaOWZqSmtRRVRUVFFCTA?oc=5"},
-  {"no": 8, "category": "동향참고", "title": "7~8월엔 어쩌려고... 강릉은 벌써 열대야", "url": "https://news.google.com/rss/articles/CBMilwFBVV95cUxPaWdzM2NCeHlVaXhCVVdRN1VzVGhubTJiVDRwZ2FoZnhQbmgtUGxaVjZpbTJMNVNTTTVDaTg1VnFzb3RsR0UxcU5oYnhjUVVrU2NYS3Bia21FNzRMOFZvQ2t0OTd4dXdkQUhhaUZnbFd2ZDVKVEdsdWVyYWdKWHlBd25SUmdUQWZfaHRTSkJxSE1FdnZsQzlr?oc=5"}
+  {"no": 2, "category": "즉시주목", "title": "7~8월엔 어쩌려고... 강릉은 벌써 열대야", "url": "https://news.google.com/rss/articles/CBMilwFBVV95cUxPaWdzM2NCeHlVaXhCVVdRN1VzVGhubTJiVDRwZ2FoZnhQbmgtUGxaVjZpbTJMNVNTTTVDaTg1VnFzb3RsR0UxcU5oYnhjUVVrU2NYS3Bia21FNzRMOFZvQ2t0OTd4dXdkQUhhaUZnbFd2ZDVKVEdsdWVyYWdKWHlBd25SUmdUQWZfaHRTSkJxSE1FdnZsQzlr?oc=5"},
+  {"no": 3, "category": "주의요망", "title": "China's factory activity slows in May, raising questions over its economy", "url": "https://news.google.com/rss/articles/CBMioAFBVV95cUxOQ1BjTnRETjc0MDNSamZ3bno4QklhS3BPQVpUVkNVSDN2MnlSUDN2UjJ0RXI0UHJ4VURkSEpXTkswYlAtTUlYM0NEb04wRDF2LXZtM2IxdzhMWW5sNlNTNWdidzlJX1VINjNZNHFLMXFoWFkwN2RrUHdKSGM5Sml0TDNYVnlOVWtWQjNJeFF3Mk9zQjR3dEJQSVV3azlLUmVL?oc=5"},
+  {"no": 4, "category": "주의요망", "title": "이란 협상대표 \"권리 보장 없이 미국과 합의 불가\"", "url": "https://news.google.com/rss/articles/CBMiZ0FVX3lxTFAxT0Uwd1dILXlmS01adVc3NUhEWFhGUkZkbVZGNjZ0YnZIOWVfVEtMdDZybGFfZDcwNjJfRFhTNzUwZmFVWnl0ZnRndkJHVklIbHZ1cHA2YmlWVUk4aHhCX2xNXy1fMmM?oc=5"},
+  {"no": 5, "category": "주의요망", "title": "한화그룹, 美 스페이스X 공급망 뚫었다", "url": "https://news.google.com/rss/articles/CBMiWkFVX3lxTFA5anlKaEcta2k1WHRCd2RDZnRnTjhkay0wSmJNUzluOGhhd3RiWlBBOGZfR2RmdHV4MjVINHdWTWtPOTI1eDJZbWtVU2Jsam5NTFgtLWs3ZThZQdIBVEFVX3lxTE5SVzFycm00UzNqTWx4X3FXR0tWNEN0bDdVeXZhRDNTNWtwUmx0aHZvSW1xM3JRTkpORU9MSVBFeTBIcm43cTBaOWZqSmtRRVRUVFFCTA?oc=5"},
+  {"no": 6, "category": "동향참고", "title": "이 대통령 \"불법투기·탈세 이제 안돼···망국적 부동산 불로소득 반드시 탈출\"", "url": "https://news.google.com/rss/articles/CBMiWkFVX3lxTE9YVFNBb1BNMS14U19kVUxqeXkxbC0zRy0wY25Pb25FTUZ1RkphTlRBbE56ZVVNTXhtSnYxVnpjZWpvRFRUOXd2QjBDY0hFbmxCOXd3eFU1MlVFZ9IBX0FVX3lxTFBWblZTYTRPeEVLaWtSNG9DSHpvQ21aV2IyN1AzMUMwc2FrREdpWDh6VkZVc3o1aXZadGNBTkNBNFlVZ3JwM0NHUjliYWFtejJGLTd4WEdRM3p2REhkOUlr?oc=5"},
+  {"no": 7, "category": "동향참고", "title": "코레일 \"서소문 고가 붕괴 닷새 만에 열차 정상 운행\"", "url": "https://news.google.com/rss/articles/CBMiWkFVX3lxTE50RTVnUnYyclV0UjFrNHRFTzlBTXU1WGFvUVI3ZDRneVJJdW04M1EwTnZuaEU0RkI1TWpUaWMxU2YyRy1XRUtlelYyMXRXd0h0Vkt3UkV5S1BDUdIBX0FVX3lxTE1mNkp3LVdGbDVvb0RVcldzemwtcXJYYjlERWJZTGl5dEZscGgyZU5KV1E5TFhjbDJYazMtNmRscEdtT3J2ZzNxWklQbHVCVXRUUTJISTQxRkhDd083Zk1Z?oc=5"},
+  {"no": 8, "category": "동향참고", "title": "First Windows PC powered by Nvidia chips to debut next week, Axios reports", "url": "https://news.google.com/rss/articles/CBMitgFBVV95cUxQWnVLOHBlWmZIZ3gyME1WZ3ZUY2VkU2VwdFYzR1FzNV9hTEM5bW16SUxrYmx5ZzdWSGxnSTRzeHJBOE5paGRWUnQ3QW1nYVBkYVY5OExaRlZoV0pMV1NVTDJTbGZTMFFjNzc0WWNhbVppaThrZUIzU1FmOVJBU1c4Q2NiSTVxeE1TRXM1VHp6YU15THBJR25KSloxZ3BhMDl6eElCdlc1U2lRM3dIVTdVclRZckhSUQ?oc=5"}
 ]}
 BRIEFING_MANIFEST_END -->
+
 </body>
 </html>
