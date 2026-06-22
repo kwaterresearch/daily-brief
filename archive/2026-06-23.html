@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>K-water연구원 데일리 브리핑</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;600;700;800&display=swap" rel="stylesheet">
 <style>
 * {
   margin: 0;
@@ -34,26 +35,33 @@ body {
   font-weight: 800;
   line-height: 1.3;
   letter-spacing: -0.5px;
+  margin-bottom: 8px;
+}
+.header-title-main {
+  display: block;
+  font-size: 28px;
 }
 .header-subtitle {
   font-size: 14px;
   color: rgba(255,255,255,0.85);
   line-height: 1.6;
-  margin-top: 8px;
+  margin-bottom: 4px;
 }
-.meta-grid {
+.header-meta {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 8px;
   margin-top: 16px;
 }
-.meta-cell {
+.meta-box {
   background: rgba(255,255,255,0.15);
   border-radius: 10px;
   padding: 10px 14px;
   font-size: 13px;
 }
 .meta-label {
+  display: block;
+  font-size: 11px;
   opacity: 0.8;
   margin-bottom: 4px;
 }
@@ -90,6 +98,7 @@ body {
 .summary-label {
   font-size: 12px;
   font-weight: 600;
+  line-height: 1.2;
 }
 .summary-count {
   font-size: 20px;
@@ -118,7 +127,7 @@ body {
 .card.urgent::before { background: #e74c3c; }
 .card.caution::before { background: #f39c12; }
 .card.reference::before { background: #27ae60; }
-.tag-row {
+.card-tags {
   display: flex;
   flex-wrap: wrap;
   gap: 6px;
@@ -132,12 +141,12 @@ body {
   font-weight: 600;
   white-space: nowrap;
 }
-.tag-no {
+.tag-number {
   background: #eef2f9;
   color: #1a3f7f;
 }
 .tag-priority {
-  display: flex;
+  display: inline-flex;
   align-items: center;
   gap: 4px;
 }
@@ -145,10 +154,14 @@ body {
   width: 7px;
   height: 7px;
   border-radius: 50%;
+  display: inline-block;
 }
-.priority-dot.urgent { background: #e74c3c; }
-.priority-dot.caution { background: #f39c12; }
-.priority-dot.reference { background: #27ae60; }
+.urgent .priority-dot { background: #e74c3c; }
+.caution .priority-dot { background: #f39c12; }
+.reference .priority-dot { background: #27ae60; }
+.urgent .tag-priority { color: #e74c3c; }
+.caution .tag-priority { color: #f39c12; }
+.reference .tag-priority { color: #27ae60; }
 .tag-category {
   background: #eef2f9;
   color: #3c3c3c;
@@ -168,6 +181,7 @@ body {
   font-size: 14px;
   line-height: 1.75;
   color: #444;
+  margin-bottom: 8px;
 }
 .card-source {
   font-size: 12px;
@@ -182,23 +196,24 @@ body {
   margin-top: 12px;
   padding: 10px 12px;
   border-radius: 0 8px 8px 0;
+  border-left: 3px solid;
   font-size: 13px;
   line-height: 1.7;
   color: #1a5276;
 }
-.insight-box.urgent {
+.urgent .insight-box {
   background: rgba(231,76,60,0.1);
-  border-left: 3px solid #e74c3c;
+  border-left-color: #e74c3c;
 }
-.insight-box.caution {
+.caution .insight-box {
   background: rgba(243,156,18,0.1);
-  border-left: 3px solid #f39c12;
+  border-left-color: #f39c12;
 }
-.insight-box.reference {
+.reference .insight-box {
   background: rgba(39,174,96,0.1);
-  border-left: 3px solid #27ae60;
+  border-left-color: #27ae60;
 }
-.monitoring {
+.monitoring-note {
   font-size: 12px;
   color: #888;
   margin-top: 8px;
@@ -239,15 +254,19 @@ body {
 <div class="container">
 
 <div class="header-card">
-  <div class="header-title">K-water연구원<br>데일리 브리핑</div>
-  <div class="header-subtitle">국내외 주요 이슈와 시사점을 전달합니다<br>본 자료는 생성형 AI를 통해 자동 작성되었습니다</div>
-  <div class="meta-grid">
-    <div class="meta-cell">
-      <div class="meta-label">브리핑 생성</div>
+  <div class="header-title">
+    <span class="header-title-main">K-water연구원</span><br>데일리 브리핑
+  </div>
+  <div class="header-subtitle">
+    국내외 주요 이슈와 시사점을 전달합니다<br>본 자료는 생성형 AI를 통해 자동 작성되었습니다
+  </div>
+  <div class="header-meta">
+    <div class="meta-box">
+      <span class="meta-label">생성일시</span>
       <div class="meta-value">2026.06.23 (화)</div>
     </div>
-    <div class="meta-cell">
-      <div class="meta-label">수록 기간</div>
+    <div class="meta-box">
+      <span class="meta-label">수록 기간</span>
       <div class="meta-value">최근 24시간</div>
     </div>
   </div>
@@ -268,197 +287,216 @@ body {
   </div>
 </div>
 
-<!-- 카드 1 -->
 <div class="card urgent">
-  <div class="tag-row">
-    <span class="tag tag-no">01</span>
-    <span class="tag tag-priority"><span class="priority-dot urgent"></span>즉시주목</span>
-    <span class="tag tag-category">[A] 지정학·국제정세</span>
-    <span class="tag tag-region">국외</span>
-  </div>
-  <div class="card-title">미·이란 협상 진전에 국제유가 하락…브렌트유 3.3%↓</div>
-  <div class="card-content">미국과 이란의 핵 협상 진전 소식에 국제유가가 급락했다. 6월 22일 브렌트유는 배럴당 3.3% 하락했으며, 미국은 이란 석유 수출 제재를 부분 완화하고 IAEA 핵사찰단 접근 허용에 합의했다. 트럼프 행정부는 이란과의 최종 평화협정 논의를 진행 중이다.</div>
-  <div class="card-source">연합뉴스 | 2026.06.22 19:36 | <a href="https://news.google.com/rss/articles/CBMiW0FVX3lxTFBQREdmZUlwX3ZCcmRaVU5MMTJRWWpreTZoYjN1X2ZDS2FXRXNlZjR4eXFEX0RpYmhZcmVEbTBkQTBZZnljSVh5RUk3OFpoOXZuVEk5ODN5Nk1ZcDjSAWBBVV95cUxOZGExUXBBNmRVZXFIWUhnalJiNHJTUzhIRmlYSWtNeFFfVHRoQlpWOVRLR0NybjJlcjNUMEkwbFhiZ1RmOEZBV1RNNUhWLU1EQVM4YS0tNVVQanVVcGdMZ3Q?oc=5" target="_blank">원문 보기</a></div>
-  <div class="insight-box urgent">
-    <strong>K-water 시사점:</strong> 유가 하락은 [수자원·환경] 댐 운영비 및 건설자재비 부담 완화 요인이나, [에너지·도시] 재생에너지 사업의 상대적 경쟁력 약화 가능성을 점검할 필요. 중동 정세 안정화가 지속될 경우 채권 발행 비중이 높은 K-water 재무·조달 전반의 글로벌 금리 환경 개선 여지 모니터링 권고.
-    <br><br>
-    <em>분석 메타:</em> ① 재무·조달+사업·운영 / ② 유가→운영비·자재비 / ③ 중장기 / ④ ± / ⑤ 직접 / ⑥ 외부환경 / ⑦ 수자원·환경(+), 에너지·도시(-) / ⑧ M / ⑨ B 점검형 / ⑩ 확정
-  </div>
-  <div class="monitoring">후속 모니터링: 지속 모니터링 필요</div>
-</div>
-
-<!-- 카드 2 -->
-<div class="card urgent">
-  <div class="tag-row">
-    <span class="tag tag-no">02</span>
-    <span class="tag tag-priority"><span class="priority-dot urgent"></span>즉시주목</span>
+  <div class="card-tags">
+    <span class="tag tag-number">01</span>
+    <span class="tag tag-priority"><span class="priority-dot"></span>즉시주목</span>
     <span class="tag tag-category">[C] 경제·금융</span>
     <span class="tag tag-region">국외</span>
   </div>
-  <div class="card-title">앨런 그린스펀 전 연준 의장 별세…향년 100세</div>
-  <div class="card-content">1987년부터 2006년까지 미국 연방준비제도 의장을 역임한 앨런 그린스펀이 6월 22일 별세했다. 그는 19년간 재임하며 글로벌 금융시장에 막대한 영향을 미쳤으며, 뉴욕증시는 추모 분위기 속에 나스닥 1.3% 하락 등 기술주 중심 조정을 보였다.</div>
-  <div class="card-source">AP News | 2026.06.22 19:42 | <a href="https://news.google.com/rss/articles/CBMilgFBVV95cUxNalBqeTVydzFhdkdETElZWW5ZZTRSM3ZsaUtCaVZSMGNCZTQ2dXNmMDdGQzBKUlphSDB0d21EanZqWmhqMmVKeUhiOWdtWS14akk1Z3lxTHBkTGc0SGZPQnhtX3MxazFQLVRaUFc4bFZudnJJdlAwTnRPZW9jVGswWmJrMDBxNUllSW9yT3cwcm8yTFZPMkE?oc=5" target="_blank">원문 보기</a></div>
-  <div class="insight-box urgent">
-    <strong>K-water 시사점:</strong> 그린스펀 별세 자체는 직접 시사점 낮으나, 뉴욕증시 기술주 조정은 글로벌 금융시장 변동성 확대 신호로 해석 가능. 채권 발행 비중이 높은 K-water 재무·조달 전반의 조달 비용 및 환율 변동 영향을 단기 점검 권고.
-    <br><br>
-    <em>분석 메타:</em> ① 재무·조달 / ② 증시 변동성→채권 금리·환율 / ③ 즉시 / ④ - / ⑤ 간접 / ⑥ 외부환경 / ⑦ 재무·조달 전반 / ⑧ S / ⑨ B 점검형 / ⑩ 확정
+  <div class="card-title">미·이란 협상 진전에 국제유가 하락…브렌트유 3.3%↓</div>
+  <div class="card-content">
+    미국과 이란의 핵협상 진전 소식에 국제유가가 급락했다. 6월 22일 브렌트유는 배럴당 3.3% 하락했으며, 미국은 이란의 달러 표시 원유 판매를 부분 허용했다. 밴스 부통령은 이란이 IAEA 핵사찰단 접근을 허용하기로 합의했다고 발표했다.
   </div>
-  <div class="monitoring">후속 모니터링: 1회성 이슈</div>
+  <div class="card-source">
+    Reuters | 2026.06.22 14:46 | <a href="https://news.google.com/rss/articles/CBMiogFBVV95cUxQYzdZaTNrdXFNYWlPV2hKM1g2TDZkUFRmM3pMTE5HZzc1NnRuY1Y1cEdkLWl4bWpWOWFHdmZnMDN0cS0zdFdOeVIzalM0cGN1Yk1PV1lmc0I1NElkUjI5cWtKQzVvdHVqZFFNUm9nT01BZDdlYXFJdnVPM2NiMF9mUFduSFhlcUZWUjV0RVJtY0NFcFVmSElZSXk0V1IxN3ZrLXc?oc=5" target="_blank">원문 보기</a>
+  </div>
+  <div class="insight-box">
+    <strong>K-water 시사점:</strong><br>
+    유가 하락은 댐·상하수도 운영비 및 건설자재비 측면에서 긍정 요인이나, 재생에너지 사업(수상태양광·조력발전 등) 경쟁력에는 간접적 부담 요인으로 작용할 수 있다. 중동 정세 안정화가 지속될 경우 에너지·도시 사업부문 매출 환경 변화 가능성을 점검할 필요가 있다.
+  </div>
+  <div class="monitoring-note">후속 모니터링: 지속 모니터링 필요</div>
 </div>
 
-<!-- 카드 3 -->
 <div class="card urgent">
-  <div class="tag-row">
-    <span class="tag tag-no">03</span>
-    <span class="tag tag-priority"><span class="priority-dot urgent"></span>즉시주목</span>
-    <span class="tag tag-category">[B] 정치·정책</span>
+  <div class="card-tags">
+    <span class="tag tag-number">02</span>
+    <span class="tag tag-priority"><span class="priority-dot"></span>즉시주목</span>
+    <span class="tag tag-category">[C] 경제·금융</span>
     <span class="tag tag-region">국외</span>
   </div>
-  <div class="card-title">스타머 영국 총리 '9월 이전 사임' 발표…차기 총리에 앤디 버넘 유력</div>
-  <div class="card-content">영국 키어 스타머 총리가 6월 22일 9월 이전 사임 의사를 밝혔다. 차기 총리로는 노동당 내 앤디 버넘이 유력하게 거론되고 있다. 브렉시트 이후 경제 침체와 정치 불안정이 지속되는 가운데 영국 정국의 추가 변동 가능성이 제기된다.</div>
-  <div class="card-source">한겨레 | 2026.06.22 11:54 | <a href="https://news.google.com/rss/articles/CBMibkFVX3lxTE9TZy00RGlMRDFkX2VwanJnRXZCUm9ncER6dUgzRjliZVY0RzJ5c2IyY0JIa0tkeF9kdGdCc0phaGU4aU5BUkJDTm8tdmlMSl9STkxxSERsc0RFZlBBS1ZBd3QwdzZFR1pLNVJSSC13?oc=5" target="_blank">원문 보기</a></div>
-  <div class="insight-box urgent">
-    <strong>K-water 시사점:</strong> 영국 정국 불안정은 [글로벌·기후테크] 해외사업 중 유럽 권역 리스크 요인. 브렉시트 이후 경제 침체가 지속될 경우 유럽 물산업 시장 진출 전략 재검토 필요. 환율 변동 및 글로벌 금융시장 불확실성 확대 가능성 모니터링 권고.
-    <br><br>
-    <em>분석 메타:</em> ① 사업·운영+재무·조달 / ② 정국 불안→해외사업 리스크·환율 / ③ 중장기 / ④ - / ⑤ 간접 / ⑥ 외부환경 / ⑦ 글로벌·기후테크 / ⑧ S / ⑨ A 모니터링형 / ⑩ 확정
+  <div class="card-title">Former Federal Reserve Chairman Alan Greenspan dies at 100</div>
+  <div class="card-content">
+    앨런 그린스펀 전 미국 연방준비제도 의장이 6월 22일 향년 100세로 별세했다. 그린스펀은 1987년부터 2006년까지 19년간 연준 의장을 역임하며 미국 통화정책을 주도했다. 그의 사망은 글로벌 금융시장에 상징적 영향을 미칠 전망이다.
   </div>
-  <div class="monitoring">후속 모니터링: 지속 모니터링 필요</div>
+  <div class="card-source">
+    AP News | 2026.06.22 19:42 | <a href="https://news.google.com/rss/articles/CBMilgFBVV95cUxNalBqeTVydzFhdkdETElZWW5ZZTRSM3ZsaUtCaVZSMGNCZTQ2dXNmMDdGQzBKUlphSDB0d21EanZqWmhqMmVKeUhiOWdtWS14akk1Z3lxTHBkTGc0SGZPQnhtX3MxazFQLVRaUFc4bFZudnJJdlAwTnRPZW9jVGswWmJrMDBxNUllSW9yT3cwcm8yTFZPMkE?oc=5" target="_blank">원문 보기</a>
+  </div>
+  <div class="insight-box">
+    <strong>K-water 시사점:</strong><br>
+    그린스펀 전 의장의 별세는 직접적 경영 영향은 제한적이나, 글로벌 금융시장 심리 및 통화정책 향방에 대한 회고적 논의가 활발해질 가능성이 있다. 채권 조달 비중이 높은 K-water 재무 구조상 향후 연준 정책 기조 변화 시그널을 동향 파악 차원에서 참고할 필요가 있다.
+  </div>
+  <div class="monitoring-note">후속 모니터링: 1회성 이슈</div>
 </div>
 
-<!-- 카드 4 -->
-<div class="card caution">
-  <div class="tag-row">
-    <span class="tag tag-no">04</span>
-    <span class="tag tag-priority"><span class="priority-dot caution"></span>주의요망</span>
+<div class="card urgent">
+  <div class="card-tags">
+    <span class="tag tag-number">03</span>
+    <span class="tag tag-priority"><span class="priority-dot"></span>즉시주목</span>
     <span class="tag tag-category">[A] 지정학·국제정세</span>
     <span class="tag tag-region">국외</span>
   </div>
   <div class="card-title">중국, 美 기업 46곳 정부조달 차단…방산·드론 제재 확대</div>
-  <div class="card-content">중국 정부가 6월 22일 미국 기업 46곳을 정부조달 대상에서 제외하는 제재를 발표했다. 방산·드론 분야 기업이 주 대상이며, 미·중 기술 갈등이 심화되는 양상이다. 글로벌 공급망 재편 압력이 가중되고 있다.</div>
-  <div class="card-source">한국경제 | 2026.06.22 01:39 | <a href="https://news.google.com/rss/articles/CBMiWkFVX3lxTE5XRkVvejNOdEUzVmczYmI1QjZKSUpSZUF4T2ZKMnhac1NxNDEzMWJ3SUwwSWZWdlNLOU1QQndpM3Frd0xGXzV4NWlxbk84cWUtaDZMeHBzYW5zZ9IBVEFVX3lxTE5NR05KUXhLU01vOXlWMm40WUxJalNTMzlSRWVnMXNfQVY1TVl4NGh4Mlh4MWZydEtla2QzTk9VMlZhOWFrTVVweFdRRHRxM01PdXFxTA?oc=5" target="_blank">원문 보기</a></div>
-  <div class="insight-box caution">
-    <strong>K-water 시사점:</strong> 미·중 기술 갈등 심화는 [글로벌·기후테크] 해외사업 및 3대 초격차 기술(AI 정수장·디지털트윈·SWNM) 관련 글로벌 공급망 영향 점검 필요. 특히 AI·IoT 기반 물관리 솔루션의 부품·소프트웨어 조달 경로 다변화 검토 권고.
-    <br><br>
-    <em>분석 메타:</em> ① 기술·전략+사업·운영 / ② 공급망 재편→기술 조달 / ③ 중장기 / ④ - / ⑤ 간접 / ⑥ 외부환경 / ⑦ 글로벌·기후테크, AI혁신처 / ⑧ M / ⑨ B 점검형 / ⑩ 확정
+  <div class="card-content">
+    중국 정부가 6월 22일 미국 기업 46곳을 정부조달 대상에서 배제하는 제재를 발표했다. 방산·드론 분야 기업이 주요 대상이며, 미·중 기술 갈등이 공공조달 영역으로 확대되는 양상이다. 이는 글로벌 공급망 재편 압력을 가중시킬 전망이다.
+  </div>
+  <div class="card-source">
+    한국경제 | 2026.06.22 01:39 | <a href="https://news.google.com/rss/articles/CBMiWkFVX3lxTE5XRkVvejNOdEUzVmczYmI1QjZKSUpSZUF4T2ZKMnhac1NxNDEzMWJ3SUwwSWZWdlNLOU1QQndpM3Frd0xGXzV4NWlxbk84cWUtaDZMeHBzYW5zZ9IBVEFVX3lxTE5NR05KUXhLU01vOXlWMm40WUxJalNTMzlSRWVnMXNfQVY1TVl4NGh4Mlh4MWZydEtla2QzTk9VMlZhOWFrTVVweFdRRHRxM01PdXFxTA?oc=5" target="_blank">원문 보기</a>
+  </div>
+  <div class="insight-box">
+    <strong>K-water 시사점:</strong><br>
+    미·중 기술 갈등 심화는 글로벌 공급망 불확실성을 높여 건설자재 및 첨단 설비 조달 비용 상승 가능성이 있다. 특히 수도 사업부문의 첨단산업 용수·초순수 사업 추진 시 관련 설비 공급망 리스크를 점검할 필요가 있다.
+  </div>
+  <div class="monitoring-note">후속 모니터링: 지속 모니터링 필요</div>
+</div>
+
+<div class="card caution">
+  <div class="card-tags">
+    <span class="tag tag-number">04</span>
+    <span class="tag tag-priority"><span class="priority-dot"></span>주의요망</span>
+    <span class="tag tag-category">[B] 정치·정책</span>
+    <span class="tag tag-region">국외</span>
+  </div>
+  <div class="card-title">스타머 영국 총리 '9월 이전 사임' 발표…차기 총리에 앤디 버넘 유력</div>
+  <div class="card-content">
+    키어 스타머 영국 총리가 6월 22일 9월 이전 사임 의사를 밝혔다. 차기 총리로는 앤디 버넘 맨체스터 시장이 유력하게 거론되고 있다. 영국 정치 불확실성 증대로 브렉시트 이후 경제 정책 방향에 변화가 예상된다.
+  </div>
+  <div class="card-source">
+    BBC | 2026.06.22 19:44 | <a href="https://news.google.com/rss/articles/CBMiWkFVX3lxTE94MlJmX1Y5WFpoWUlIZ2IyeGNBZnA0dWVqbTVLYkQ3alpsakJHbDZsdEtQTFlTcHZOZ2I1NFZMeXR4UXhQMjdFYVNWWFVUMERKbTJiLVk3SG1wZw?oc=5" target="_blank">원문 보기</a>
+  </div>
+  <div class="insight-box">
+    <strong>K-water 시사점:</strong><br>
+    영국 정치 불확실성은 글로벌·기후테크 사업부문의 유럽 진출 전략에 간접 영향을 미칠 수 있다. 현재 진행 중인 해외사업(14개국 30개 프로젝트) 중 유럽 지역 사업 동향을 점검할 필요가 있다.
   </div>
 </div>
 
-<!-- 카드 5 -->
 <div class="card caution">
-  <div class="tag-row">
-    <span class="tag tag-no">05</span>
-    <span class="tag tag-priority"><span class="priority-dot caution"></span>주의요망</span>
+  <div class="card-tags">
+    <span class="tag tag-number">05</span>
+    <span class="tag tag-priority"><span class="priority-dot"></span>주의요망</span>
+    <span class="tag tag-category">[D] 기술·혁신</span>
+    <span class="tag tag-region">국내</span>
+  </div>
+  <div class="card-title">LG·LG CNS 엔비디아 동맹 구체화에 '방긋'…삼성·현대 SI 기업은 '울상'</div>
+  <div class="card-content">
+    LG와 LG CNS가 엔비디아와의 AI 협력을 구체화하며 국내 SI 시장 경쟁 구도가 재편되고 있다. 6월 22일 발표에 따르면 LG CNS는 엔비디아 GPU 기반 AI 솔루션 개발을 가속화할 계획이다. 삼성SDS·현대오토에버 등 경쟁사는 대응 전략 마련에 나섰다.
+  </div>
+  <div class="card-source">
+    한국경제 | 2026.06.22 08:31 | <a href="https://news.google.com/rss/articles/CBMiWkFVX3lxTE9CTTMxZ19SbmdLREVjQndPc0ctNzVRSDEwVTdwd2dHeGllaktrOU91SXZaejJBd1NlRDE1R0FHVHMtVEhpWk84a1NBdF9iOHpiV21mcUwxcXM4UdIBVEFVX3lxTE5uSGF2bGFJLWtTbjVDbnNmNU1JR2NHSjhoemZWMW1WbVc2LXBqN3g1VzFCUm03Z2RnY3RxUG9vSzlZRF9mWVF0UTVRZHFCamhRZHV4UQ?oc=5" target="_blank">원문 보기</a>
+  </div>
+  <div class="insight-box">
+    <strong>K-water 시사점:</strong><br>
+    AI 기반 물관리 기술 고도화가 가속화되는 환경에서, K-water의 3대 초격차 기술(AI 정수장·디지털트윈·SWNM) 전략과 글로벌 AI 기술 동향 간 연계성을 검토할 필요가 있다. 2030년 AI 물관리 세계 1위 기업 목표 달성을 위한 기술 파트너십 전략 점검이 권고된다.
+  </div>
+</div>
+
+<div class="card caution">
+  <div class="card-tags">
+    <span class="tag tag-number">06</span>
+    <span class="tag tag-priority"><span class="priority-dot"></span>주의요망</span>
     <span class="tag tag-category">[D] 기술·혁신</span>
     <span class="tag tag-region">국외</span>
   </div>
   <div class="card-title">'제2의 딥시크'…중국 오픈소스 AI 'GLM-5.2'에 실리콘밸리 들썩</div>
-  <div class="card-content">중국 칭화대 연구팀이 개발한 오픈소스 AI 모델 'GLM-5.2'가 6월 22일 공개되며 실리콘밸리에 충격을 주고 있다. 딥시크에 이어 중국발 AI 기술이 글로벌 AI 시장 판도를 흔들 가능성이 제기되며, 미국 빅테크 기업들의 대응 전략이 주목받고 있다.</div>
-  <div class="card-source">매일경제 | 2026.06.22 04:40 | <a href="https://news.google.com/rss/articles/CBMiTkFVX3lxTE9oRC1LN0w1LXQya1FDVmRQcWp6OW9kNnVlX3ptckpwRWo3TllJTzBDbFlTbGF4WEwwbm51eHU1VG9aa3gwNlhGNnY2cGdVdw?oc=5" target="_blank">원문 보기</a></div>
-  <div class="insight-box caution">
-    <strong>K-water 시사점:</strong> 중국발 오픈소스 AI 확산은 K-water의 2030년 AI 물관리 세계 1위 전략 및 3대 초격차 기술(AI 정수장·디지털트윈) 경쟁 환경 변화 요인. 글로벌 AI 기술 동향과 K-water AI혁신처 전략의 정합성 검토 권고.
-    <br><br>
-    <em>분석 메타:</em> ① 기술·전략 / ② AI 기술 변화→전략 경쟁력 / ③ 중장기 / ④ - / ⑤ 간접 / ⑥ 외부환경 / ⑦ AI혁신처, 3대 초격차 기술 / ⑧ M / ⑨ C 연계검토형 / ⑩ 유력
+  <div class="card-content">
+    중국 칭화대 연구팀이 개발한 오픈소스 AI 모델 'GLM-5.2'가 6월 22일 공개되며 실리콘밸리에서 주목받고 있다. 딥시크에 이어 중국발 오픈소스 AI가 글로벌 기술 경쟁 구도를 흔들고 있으며, 미국 빅테크 기업들의 대응 전략이 주목된다.
+  </div>
+  <div class="card-source">
+    매일경제 | 2026.06.22 04:40 | <a href="https://news.google.com/rss/articles/CBMiTkFVX3lxTE9oRC1LN0w1LXQya1FDVmRQcWp6OW9kNnVlX3ptckpwRWo3TllJTzBDbFlTbGF4WEwwbm51eHU1VG9aa3gwNlhGNnY2cGdVdw?oc=5" target="_blank">원문 보기</a>
+  </div>
+  <div class="insight-box">
+    <strong>K-water 시사점:</strong><br>
+    오픈소스 AI 기술 발전은 K-water의 AI 물관리 플랫폼(Digital GARAM+) 및 AI 정수장 기술 고도화에 활용 가능한 기회 요인이다. 중국발 오픈소스 AI 모델의 기술적 성능 및 라이선스 조건을 검토하여 AI혁신처 주도 기술 전략에 반영할 여지를 탐색할 필요가 있다.
   </div>
 </div>
 
-<!-- 카드 6 -->
 <div class="card caution">
-  <div class="tag-row">
-    <span class="tag tag-no">06</span>
-    <span class="tag tag-priority"><span class="priority-dot caution"></span>주의요망</span>
+  <div class="card-tags">
+    <span class="tag tag-number">07</span>
+    <span class="tag tag-priority"><span class="priority-dot"></span>주의요망</span>
     <span class="tag tag-category">[D] 기술·혁신</span>
     <span class="tag tag-region">국외</span>
   </div>
-  <div class="card-title">Microsoft와 Chevron, 텍사스 데이터센터 20년 전력 공급 계약 체결</div>
-  <div class="card-content">마이크로소프트와 쉐브론이 6월 22일 텍사스 데이터센터 전력 공급을 위한 20년 장기 계약을 체결했다. 빅테크 기업의 AI 데이터센터 전력 수요 급증에 따른 에너지 확보 경쟁이 본격화되고 있다.</div>
-  <div class="card-source">Bloomberg | 2026.06.22 20:14 | <a href="https://news.google.com/rss/articles/CBMitAFBVV95cUxQclNiRlA2bGNnTUw3VnJneE84UGR6bGo4OHBpSmliN2pMOWhzbUZMZnFKQU5TaUhfQnE4T01ZaEkxd1JkOXJFd2haNVJuR3VlMmUxQ0QxMnBaS01Ha3Z3NkNkdGNQcmo1bTZkSXpnbFpwTjhjWF9CY2gzcWtSczFzVzhEUUtwc05OSW45YklTVWswN1dQWTdsSkdyT2pvZGV5RXAwNXo3dk9SNFZ5ejJvUXlsLTI?oc=5" target="_blank">원문 보기</a></div>
-  <div class="insight-box caution">
-    <strong>K-water 시사점:</strong> 빅테크 데이터센터 전력 수요 급증은 [수도] 첨단산업(반도체·AI·데이터센터) 용수 공급 및 초순수 사업 수요 확대 기회 요인. [에너지·도시] 수열에너지·재생에너지 사업과의 연계 가능성 탐색 권고.
-    <br><br>
-    <em>분석 메타:</em> ① 사업·운영 / ② 데이터센터 수요→용수·에너지 / ③ 중장기 / ④ + / ⑤ 간접 / ⑥ 외부환경 / ⑦ 수도, 에너지·도시 / ⑧ M / ⑨ E 기회포착형 / ⑩ 확정
+  <div class="card-title">Microsoft and Chevron Sign 20-Year Power Deal For Texas Data Center</div>
+  <div class="card-content">
+    마이크로소프트와 쉐브론이 6월 22일 텍사스 데이터센터 전력 공급을 위한 20년 장기 계약을 체결했다. 데이터센터 전력 수요 급증에 대응하기 위한 에너지 기업과 빅테크 간 협력 사례로, 글로벌 데이터센터 인프라 확대 추세를 반영한다.
+  </div>
+  <div class="card-source">
+    Bloomberg | 2026.06.22 20:14 | <a href="https://news.google.com/rss/articles/CBMitAFBVV95cUxQclNiRlA2bGNnTUw3VnJneE84UGR6bGo4OHBpSmliN2pMOWhzbUZMZnFKQU5TaUhfQnE4T01ZaEkxd1JkOXJFd2haNVJuR3VlMmUxQ0QxMnBaS01Ha3Z3NkNkdGNQcmo1bTZkSXpnbFpwTjhjWF9CY2gzcWtSczFzVzhEUUtwc05OSW45YklTVWswN1dQWTdsSkdyT2pvZGV5RXAwNXo3dk9SNFZ5ejJvUXlsLTI?oc=5" target="_blank">원문 보기</a>
+  </div>
+  <div class="insight-box">
+    <strong>K-water 시사점:</strong><br>
+    데이터센터 전력 수요 급증은 수도 사업부문의 첨단산업 용수 공급 확대 전략과 연계된다. 반도체·AI·데이터센터 용수 공급 및 초순수 사업 추진 시 전력 인프라와의 통합 공급 모델 검토 가능성을 탐색할 필요가 있다.
   </div>
 </div>
 
-<!-- 카드 7 -->
-<div class="card caution">
-  <div class="tag-row">
-    <span class="tag tag-no">07</span>
-    <span class="tag tag-priority"><span class="priority-dot caution"></span>주의요망</span>
+<div class="card reference">
+  <div class="card-tags">
+    <span class="tag tag-number">08</span>
+    <span class="tag tag-priority"><span class="priority-dot"></span>동향참고</span>
     <span class="tag tag-category">[E] 기후·에너지·환경</span>
     <span class="tag tag-region">국외</span>
   </div>
-  <div class="card-title">프랑스 폭염으로 최소 18명 사망…유럽 전역 기록적 고온</div>
-  <div class="card-content">6월 22일 프랑스에서 폭염으로 최소 18명이 사망했으며, 유럽 전역이 기록적 고온에 시달리고 있다. 기후변화로 인한 극한 기상 현상이 빈발하며 물 수요 급증 및 에너지 소비 증가가 우려된다.</div>
-  <div class="card-source">Reuters | 2026.06.22 18:38 | <a href="https://news.google.com/rss/articles/CBMitgFBVV95cUxNNDNHbXhwVFNxeVpCSkxPdjEyZ2pXQmpvMEZiNmpjQk40WklaellHZXBMNGFrQnkwLWlmMmZCcGI4amVtaTRnRVNwOXRLa05LQmN6czc5MFV3a1FyLXVXcUhmVWRiX3NONlgtTDNyN1hRVUxyTU1NMjUteGpjSlRrVTNLWERjcG81YXRtN2RHYUJROEZfOFN6amRVWVVlLTRnVG5hOWN3VmRpUmZBZjJ6Tkt0eTB4dw?oc=5" target="_blank">원문 보기</a></div>
-  <div class="insight-box caution">
-    <strong>K-water 시사점:</strong> 글로벌 극한 기상 빈발은 K-water의 기후위기 대응 선도 비전 및 [수자원·환경] 댐·하천 운영, 홍수·가뭄 대응 전략의 중요성 재확인. 디지털트윈 물관리 플랫폼 등 기후재해 대응 기술의 글로벌 수출 기회 탐색 권고.
-    <br><br>
-    <em>분석 메타:</em> ① 사업·운영+기술·전략 / ② 극한기상→물관리 수요·기술 수출 / ③ 중장기 / ④ + / ⑤ 간접 / ⑥ 외부환경 / ⑦ 수자원·환경, 글로벌·기후테크 / ⑧ M / ⑨ E 기회포착형 / ⑩ 확정
+  <div class="card-title">At least 18 dead in France, including two children in hot car, as Europe bakes</div>
+  <div class="card-content">
+    유럽 전역에 폭염이 지속되며 프랑스에서만 6월 22일까지 최소 18명이 사망했다. 차량 내 방치된 어린이 2명을 포함해 폭염 관련 사망자가 급증하고 있으며, 유럽 각국은 비상 대응 체계를 가동 중이다.
+  </div>
+  <div class="card-source">
+    Reuters | 2026.06.22 18:38 | <a href="https://news.google.com/rss/articles/CBMitgFBVV95cUxNNDNHbXhwVFNxeVpCSkxPdjEyZ2pXQmpvMEZiNmpjQk40WklaellHZXBMNGFrQnkwLWlmMmZCcGI4amVtaTRnRVNwOXRLa05LQmN6czc5MFV3a1FyLXVXcUhmVWRiX3NONlgtTDNyN1hRVUxyTU1NMjUteGpjSlRrVTNLWERjcG81YXRtN2RHYUJROEZfOFN6amRVWVVlLTRnVG5hOWN3VmRpUmZBZjJ6Tkt0eTB4dw?oc=5" target="_blank">원문 보기</a>
+  </div>
+  <div class="insight-box">
+    <strong>K-water 시사점:</strong><br>
+    직접 시사점 낮음. 유럽 폭염은 글로벌 기후변화 심화 추세를 보여주는 사례로, 국내 기후재해 대응 및 댐 운영 전략 수립 시 동향 파악 차원에서 참고할 수 있다.
   </div>
 </div>
 
-<!-- 카드 8 -->
 <div class="card reference">
-  <div class="tag-row">
-    <span class="tag tag-no">08</span>
-    <span class="tag tag-priority"><span class="priority-dot reference"></span>동향참고</span>
+  <div class="card-tags">
+    <span class="tag tag-number">09</span>
+    <span class="tag tag-priority"><span class="priority-dot"></span>동향참고</span>
     <span class="tag tag-category">[C] 경제·금융</span>
     <span class="tag tag-region">국내</span>
   </div>
   <div class="card-title">하이닉스, 시총 2080조원 사상 첫 1위…삼성전자, 25년 만에 밀려나</div>
-  <div class="card-content">SK하이닉스가 6월 22일 시가총액 2,080조 원을 기록하며 국내 증시 사상 처음으로 1위에 올랐다. 삼성전자는 25년 만에 2위로 밀려났으며, HBM 시장 주도권이 시총 역전의 주요 배경으로 분석된다.</div>
-  <div class="card-source">한겨레 | 2026.06.22 13:33 | <a href="https://news.google.com/rss/articles/CBMiZ0FVX3lxTE9TbGVvZnhmMHNVS1FkQTJuSkxkbWlxZFIwN1RiWjdGNFFyYWZmeTVSQnhhd25wT2tzZFg1dmpHcUhoZS12X2dxalFhRTl3QzZxMDFoNDh2WVNWRmU0Ymt1MHhGR1ltVVE?oc=5" target="_blank">원문 보기</a></div>
-  <div class="insight-box reference">
-    <strong>K-water 시사점:</strong> 직접 시사점 낮음. 동향 파악 차원에서 참고.
-    <br><br>
-    <em>분석 메타:</em> ① - / ② - / ③ - / ④ 0 / ⑤ 참고 / ⑥ - / ⑦ - / ⑧ S / ⑨ A 모니터링형 / ⑩ 확정
+  <div class="card-content">
+    SK하이닉스가 6월 22일 시가총액 2,080조원을 기록하며 국내 증시 시총 1위에 올랐다. 삼성전자는 25년 만에 1위 자리를 내줬다. HBM(고대역폭메모리) 시장 주도권 확보가 주가 상승을 견인했다.
+  </div>
+  <div class="card-source">
+    한겨레 | 2026.06.22 13:33 | <a href="https://news.google.com/rss/articles/CBMiZ0FVX3lxTE9TbGVvZnhmMHNVS1FkQTJuSkxkbWlxZFIwN1RiWjdGNFFyYWZmeTVSQnhhd25wT2tzZFg1dmpHcUhoZS12X2dxalFhRTl3QzZxMDFoNDh2WVNWRmU0Ymt1MHhGR1ltVVE?oc=5" target="_blank">원문 보기</a>
+  </div>
+  <div class="insight-box">
+    <strong>K-water 시사점:</strong><br>
+    직접 시사점 낮음. 반도체 산업 호황은 첨단산업 용수 수요 증가로 이어질 가능성이 있으나, 현 단계에서는 동향 파악 차원에서 참고한다.
   </div>
 </div>
 
-<!-- 카드 9 -->
 <div class="card reference">
-  <div class="tag-row">
-    <span class="tag tag-no">09</span>
-    <span class="tag tag-priority"><span class="priority-dot reference"></span>동향참고</span>
+  <div class="card-tags">
+    <span class="tag tag-number">10</span>
+    <span class="tag tag-priority"><span class="priority-dot"></span>동향참고</span>
     <span class="tag tag-category">[F] 사회·제도</span>
     <span class="tag tag-region">국내</span>
   </div>
-  <div class="card-title">서울시, 지하철 무임승차 70살로 상향 추진…노인 버스비 지원도 검토</div>
-  <div class="card-content">서울시가 6월 22일 지하철 무임승차 연령을 현행 65세에서 70세로 상향하는 방안을 추진한다고 밝혔다. 노인 버스비 지원 방안도 함께 검토 중이며, 고령화 사회 대응 정책의 일환으로 추진된다.</div>
-  <div class="card-source">한겨레 | 2026.06.22 13:33 | <a href="https://news.google.com/rss/articles/CBMiakFVX3lxTE5reU9BdFJyNEI2N3ZPbDV1QTBRbjUtQl9OeF85ZEJ0ZDNDMmsxaTZTX192YkpFU21wVmVhNml4c012M0dzSkRGVXpidmN0dVpJWDFYeUd2dTZoZEFwSWFXNk1lUHZnaFFFWkE?oc=5" target="_blank">원문 보기</a></div>
-  <div class="insight-box reference">
-    <strong>K-water 시사점:</strong> 직접 시사점 낮음. 동향 파악 차원에서 참고.
-    <br><br>
-    <em>분석 메타:</em> ① - / ② - / ③ - / ④ 0 / ⑤ 참고 / ⑥ - / ⑦ - / ⑧ S / ⑨ A 모니터링형 / ⑩ 확정
+  <div class="card-title">서울시 '지하철 무임승차 70세 상향' 공청회 예고…버스로 확대 추진도</div>
+  <div class="card-content">
+    서울시가 6월 22일 지하철 무임승차 연령을 현행 65세에서 70세로 상향하는 방안에 대한 공청회를 예고했다. 재정 부담 완화를 위해 버스로도 확대 추진할 계획이다. 고령화 사회 진입에 따른 복지 정책 조정 논의가 본격화되고 있다.
   </div>
-</div>
-
-<!-- 카드 10 -->
-<div class="card reference">
-  <div class="tag-row">
-    <span class="tag tag-no">10</span>
-    <span class="tag tag-priority"><span class="priority-dot reference"></span>동향참고</span>
-    <span class="tag tag-category">[E] 기후·에너지·환경</span>
-    <span class="tag tag-region">국내</span>
+  <div class="card-source">
+    연합뉴스TV | 2026.06.22 09:06 | <a href="https://news.google.com/rss/articles/CBMiZ0FVX3lxTE92S1F0TFlmSkhUSGp1THVOZ045UnNsR1hORHpXOVV2d2lWMW02em5UVTdxZXFtaGhNQVFZc0lYQnl1WWE2STB2T0Zxc21lZEN6QlFOQW1oOExhWkozRk00WXMxNnpMSTQ?oc=5" target="_blank">원문 보기</a>
   </div>
-  <div class="card-title">계절 넘어선 기후변화, 온대 생물종 내성은 없었다…25년간 절반 '국지적 멸종'</div>
-  <div class="card-content">국내 연구진이 6월 22일 발표한 연구에 따르면, 기후변화로 인해 온대 지역 생물종의 절반이 25년간 국지적 멸종을 겪은 것으로 나타났다. 생태계 변화가 예상보다 빠르게 진행되고 있어 수생태 관리 전략 재검토가 필요하다는 지적이다.</div>
-  <div class="card-source">경향신문 | 2026.06.22 12:25 | <a href="https://news.google.com/rss/articles/CBMiWkFVX3lxTFBDWWZOT1BoSG12dFl0Q2xHOG03WFpQbjNnbXNWRXgwdUl5bzdoQTRCdHkwb3J0RXBsX201Z012YTJ5Q1c5a1ZRbzRLejlWRVRMSE9hanM1NDh5QdIBX0FVX3lxTE0xbzlhVE9yN3c3U1k3ZFFrYnFjRUpFUlJ0c3RlblBsSGJfX1BjOVJ3emdVaW94SnZLOXlaOEExdjV6bmRtQXBDNlNoOXQtZ1NmZGFRelpCa1kzTkpyTks4?oc=5" target="_blank">원문 보기</a></div>
-  <div class="insight-box reference">
-    <strong>K-water 시사점:</strong> 생태계 급변은 [수자원·환경] 수질·수생태 관리 및 댐·하천 운영 전략에 간접 영향. 기후변화 대응 수생태 모니터링 강화 필요성 참고.
-    <br><br>
-    <em>분석 메타:</em> ① 사업·운영 / ② 생태계 변화→수생태 관리 / ③ 중장기 / ④ - / ⑤ 참고 / ⑥ 외부환경 / ⑦ 수자원·환경 / ⑧ S / ⑨ A 모니터링형 / ⑩ 확정
+  <div class="insight-box">
+    <strong>K-water 시사점:</strong><br>
+    직접 시사점 낮음. 지방상수도 위탁 운영 22개 지자체의 재정 여건 변화가 장기적으로 수도 요금 정책에 간접 영향을 미칠 가능성을 동향 파악 차원에서 참고한다.
   </div>
 </div>
 
 <div class="footer">
   <strong>우선순위 기준</strong><br>
   즉시주목 = 긴급도 높음·중요도 높음 / 주의요망 = 긴급도 높음·중요도 낮음 or 긴급도 낮음·중요도 높음 / 동향참고 = 긴급도 낮음·중요도 낮음
-  <br><br>
-  본 브리핑은 생성형 AI(Claude 3.7 Sonnet)를 통해 자동 작성되었습니다. 최종 판단은 담당자의 검토를 거쳐 이루어집니다.
 </div>
 
 </div>
+
 
 <div id="kw-credit-footer" style="
   text-align:center;padding:20px 16px;
@@ -474,19 +512,21 @@ body {
 </div>
 
 
+
 <!-- BRIEFING_MANIFEST_BEGIN
 {"cards": [
-  {"no": 1, "category": "즉시주목", "title": "미·이란 협상 진전에 국제유가 하락…브렌트유 3.3%↓", "url": "https://news.google.com/rss/articles/CBMiW0FVX3lxTFBQREdmZUlwX3ZCcmRaVU5MMTJRWWpreTZoYjN1X2ZDS2FXRXNlZjR4eXFEX0RpYmhZcmVEbTBkQTBZZnljSVh5RUk3OFpoOXZuVEk5ODN5Nk1ZcDjSAWBBVV95cUxOZGExUXBBNmRVZXFIWUhnalJiNHJTUzhIRmlYSWtNeFFfVHRoQlpWOVRLR0NybjJlcjNUMEkwbFhiZ1RmOEZBV1RNNUhWLU1EQVM4YS0tNVVQanVVcGdMZ3Q?oc=5"},
-  {"no": 2, "category": "즉시주목", "title": "앨런 그린스펀 전 연준 의장 별세…향년 100세", "url": "https://news.google.com/rss/articles/CBMilgFBVV95cUxNalBqeTVydzFhdkdETElZWW5ZZTRSM3ZsaUtCaVZSMGNCZTQ2dXNmMDdGQzBKUlphSDB0d21EanZqWmhqMmVKeUhiOWdtWS14akk1Z3lxTHBkTGc0SGZPQnhtX3MxazFQLVRaUFc4bFZudnJJdlAwTnRPZW9jVGswWmJrMDBxNUllSW9yT3cwcm8yTFZPMkE?oc=5"},
-  {"no": 3, "category": "즉시주목", "title": "스타머 영국 총리 '9월 이전 사임' 발표…차기 총리에 앤디 버넘 유력", "url": "https://news.google.com/rss/articles/CBMibkFVX3lxTE9TZy00RGlMRDFkX2VwanJnRXZCUm9ncER6dUgzRjliZVY0RzJ5c2IyY0JIa0tkeF9kdGdCc0phaGU4aU5BUkJDTm8tdmlMSl9STkxxSERsc0RFZlBBS1ZBd3QwdzZFR1pLNVJSSC13?oc=5"},
-  {"no": 4, "category": "주의요망", "title": "중국, 美 기업 46곳 정부조달 차단…방산·드론 제재 확대", "url": "https://news.google.com/rss/articles/CBMiWkFVX3lxTE5XRkVvejNOdEUzVmczYmI1QjZKSUpSZUF4T2ZKMnhac1NxNDEzMWJ3SUwwSWZWdlNLOU1QQndpM3Frd0xGXzV4NWlxbk84cWUtaDZMeHBzYW5zZ9IBVEFVX3lxTE5NR05KUXhLU01vOXlWMm40WUxJalNTMzlSRWVnMXNfQVY1TVl4NGh4Mlh4MWZydEtla2QzTk9VMlZhOWFrTVVweFdRRHRxM01PdXFxTA?oc=5"},
-  {"no": 5, "category": "주의요망", "title": "'제2의 딥시크'…중국 오픈소스 AI 'GLM-5.2'에 실리콘밸리 들썩", "url": "https://news.google.com/rss/articles/CBMiTkFVX3lxTE9oRC1LN0w1LXQya1FDVmRQcWp6OW9kNnVlX3ptckpwRWo3TllJTzBDbFlTbGF4WEwwbm51eHU1VG9aa3gwNlhGNnY2cGdVdw?oc=5"},
-  {"no": 6, "category": "주의요망", "title": "Microsoft와 Chevron, 텍사스 데이터센터 20년 전력 공급 계약 체결", "url": "https://news.google.com/rss/articles/CBMitAFBVV95cUxQclNiRlA2bGNnTUw3VnJneE84UGR6bGo4OHBpSmliN2pMOWhzbUZMZnFKQU5TaUhfQnE4T01ZaEkxd1JkOXJFd2haNVJuR3VlMmUxQ0QxMnBaS01Ha3Z3NkNkdGNQcmo1bTZkSXpnbFpwTjhjWF9CY2gzcWtSczFzVzhEUUtwc05OSW45YklTVWswN1dQWTdsSkdyT2pvZGV5RXAwNXo3dk9SNFZ5ejJvUXlsLTI?oc=5"},
-  {"no": 7, "category": "주의요망", "title": "프랑스 폭염으로 최소 18명 사망…유럽 전역 기록적 고온", "url": "https://news.google.com/rss/articles/CBMitgFBVV95cUxNNDNHbXhwVFNxeVpCSkxPdjEyZ2pXQmpvMEZiNmpjQk40WklaellHZXBMNGFrQnkwLWlmMmZCcGI4amVtaTRnRVNwOXRLa05LQmN6czc5MFV3a1FyLXVXcUhmVWRiX3NONlgtTDNyN1hRVUxyTU1NMjUteGpjSlRrVTNLWERjcG81YXRtN2RHYUJROEZfOFN6amRVWVVlLTRnVG5hOWN3VmRpUmZBZjJ6Tkt0eTB4dw?oc=5"},
-  {"no": 8, "category": "동향참고", "title": "하이닉스, 시총 2080조원 사상 첫 1위…삼성전자, 25년 만에 밀려나", "url": "https://news.google.com/rss/articles/CBMiZ0FVX3lxTE9TbGVvZnhmMHNVS1FkQTJuSkxkbWlxZFIwN1RiWjdGNFFyYWZmeTVSQnhhd25wT2tzZFg1dmpHcUhoZS12X2dxalFhRTl3QzZxMDFoNDh2WVNWRmU0Ymt1MHhGR1ltVVE?oc=5"},
-  {"no": 9, "category": "동향참고", "title": "서울시, 지하철 무임승차 70살로 상향 추진…노인 버스비 지원도 검토", "url": "https://news.google.com/rss/articles/CBMiakFVX3lxTE5reU9BdFJyNEI2N3ZPbDV1QTBRbjUtQl9OeF85ZEJ0ZDNDMmsxaTZTX192YkpFU21wVmVhNml4c012M0dzSkRGVXpidmN0dVpJWDFYeUd2dTZoZEFwSWFXNk1lUHZnaFFFWkE?oc=5"},
-  {"no": 10, "category": "동향참고", "title": "계절 넘어선 기후변화, 온대 생물종 내성은 없었다…25년간 절반 '국지적 멸종'", "url": "https://news.google.com/rss/articles/CBMiWkFVX3lxTFBDWWZOT1BoSG12dFl0Q2xHOG03WFpQbjNnbXNWRXgwdUl5bzdoQTRCdHkwb3J0RXBsX201Z012YTJ5Q1c5a1ZRbzRLejlWRVRMSE9hanM1NDh5QdIBX0FVX3lxTE0xbzlhVE9yN3c3U1k3ZFFrYnFjRUpFUlJ0c3RlblBsSGJfX1BjOVJ3emdVaW94SnZLOXlaOEExdjV6bmRtQXBDNlNoOXQtZ1NmZGFRelpCa1kzTkpyTks4?oc=5"}
+  {"no": 1, "category": "즉시주목", "title": "미·이란 협상 진전에 국제유가 하락…브렌트유 3.3%↓", "url": "https://news.google.com/rss/articles/CBMiogFBVV95cUxQYzdZaTNrdXFNYWlPV2hKM1g2TDZkUFRmM3pMTE5HZzc1NnRuY1Y1cEdkLWl4bWpWOWFHdmZnMDN0cS0zdFdOeVIzalM0cGN1Yk1PV1lmc0I1NElkUjI5cWtKQzVvdHVqZFFNUm9nT01BZDdlYXFJdnVPM2NiMF9mUFduSFhlcUZWUjV0RVJtY0NFcFVmSElZSXk0V1IxN3ZrLXc?oc=5"},
+  {"no": 2, "category": "즉시주목", "title": "Former Federal Reserve Chairman Alan Greenspan dies at 100", "url": "https://news.google.com/rss/articles/CBMilgFBVV95cUxNalBqeTVydzFhdkdETElZWW5ZZTRSM3ZsaUtCaVZSMGNCZTQ2dXNmMDdGQzBKUlphSDB0d21EanZqWmhqMmVKeUhiOWdtWS14akk1Z3lxTHBkTGc0SGZPQnhtX3MxazFQLVRaUFc4bFZudnJJdlAwTnRPZW9jVGswWmJrMDBxNUllSW9yT3cwcm8yTFZPMkE?oc=5"},
+  {"no": 3, "category": "즉시주목", "title": "중국, 美 기업 46곳 정부조달 차단…방산·드론 제재 확대", "url": "https://news.google.com/rss/articles/CBMiWkFVX3lxTE5XRkVvejNOdEUzVmczYmI1QjZKSUpSZUF4T2ZKMnhac1NxNDEzMWJ3SUwwSWZWdlNLOU1QQndpM3Frd0xGXzV4NWlxbk84cWUtaDZMeHBzYW5zZ9IBVEFVX3lxTE5NR05KUXhLU01vOXlWMm40WUxJalNTMzlSRWVnMXNfQVY1TVl4NGh4Mlh4MWZydEtla2QzTk9VMlZhOWFrTVVweFdRRHRxM01PdXFxTA?oc=5"},
+  {"no": 4, "category": "주의요망", "title": "스타머 영국 총리 '9월 이전 사임' 발표…차기 총리에 앤디 버넘 유력", "url": "https://news.google.com/rss/articles/CBMiWkFVX3lxTE94MlJmX1Y5WFpoWUlIZ2IyeGNBZnA0dWVqbTVLYkQ3alpsakJHbDZsdEtQTFlTcHZOZ2I1NFZMeXR4UXhQMjdFYVNWWFVUMERKbTJiLVk3SG1wZw?oc=5"},
+  {"no": 5, "category": "주의요망", "title": "LG·LG CNS 엔비디아 동맹 구체화에 '방긋'…삼성·현대 SI 기업은 '울상'", "url": "https://news.google.com/rss/articles/CBMiWkFVX3lxTE9CTTMxZ19SbmdLREVjQndPc0ctNzVRSDEwVTdwd2dHeGllaktrOU91SXZaejJBd1NlRDE1R0FHVHMtVEhpWk84a1NBdF9iOHpiV21mcUwxcXM4UdIBVEFVX3lxTE5uSGF2bGFJLWtTbjVDbnNmNU1JR2NHSjhoemZWMW1WbVc2LXBqN3g1VzFCUm03Z2RnY3RxUG9vSzlZRF9mWVF0UTVRZHFCamhRZHV4UQ?oc=5"},
+  {"no": 6, "category": "주의요망", "title": "'제2의 딥시크'…중국 오픈소스 AI 'GLM-5.2'에 실리콘밸리 들썩", "url": "https://news.google.com/rss/articles/CBMiTkFVX3lxTE9oRC1LN0w1LXQya1FDVmRQcWp6OW9kNnVlX3ptckpwRWo3TllJTzBDbFlTbGF4WEwwbm51eHU1VG9aa3gwNlhGNnY2cGdVdw?oc=5"},
+  {"no": 7, "category": "주의요망", "title": "Microsoft and Chevron Sign 20-Year Power Deal For Texas Data Center", "url": "https://news.google.com/rss/articles/CBMitAFBVV95cUxQclNiRlA2bGNnTUw3VnJneE84UGR6bGo4OHBpSmliN2pMOWhzbUZMZnFKQU5TaUhfQnE4T01ZaEkxd1JkOXJFd2haNVJuR3VlMmUxQ0QxMnBaS01Ha3Z3NkNkdGNQcmo1bTZkSXpnbFpwTjhjWF9CY2gzcWtSczFzVzhEUUtwc05OSW45YklTVWswN1dQWTdsSkdyT2pvZGV5RXAwNXo3dk9SNFZ5ejJvUXlsLTI?oc=5"},
+  {"no": 8, "category": "동향참고", "title": "At least 18 dead in France, including two children in hot car, as Europe bakes", "url": "https://news.google.com/rss/articles/CBMitgFBVV95cUxNNDNHbXhwVFNxeVpCSkxPdjEyZ2pXQmpvMEZiNmpjQk40WklaellHZXBMNGFrQnkwLWlmMmZCcGI4amVtaTRnRVNwOXRLa05LQmN6czc5MFV3a1FyLXVXcUhmVWRiX3NONlgtTDNyN1hRVUxyTU1NMjUteGpjSlRrVTNLWERjcG81YXRtN2RHYUJROEZfOFN6amRVWVVlLTRnVG5hOWN3VmRpUmZBZjJ6Tkt0eTB4dw?oc=5"},
+  {"no": 9, "category": "동향참고", "title": "하이닉스, 시총 2080조원 사상 첫 1위…삼성전자, 25년 만에 밀려나", "url": "https://news.google.com/rss/articles/CBMiZ0FVX3lxTE9TbGVvZnhmMHNVS1FkQTJuSkxkbWlxZFIwN1RiWjdGNFFyYWZmeTVSQnhhd25wT2tzZFg1dmpHcUhoZS12X2dxalFhRTl3QzZxMDFoNDh2WVNWRmU0Ymt1MHhGR1ltVVE?oc=5"},
+  {"no": 10, "category": "동향참고", "title": "서울시 '지하철 무임승차 70세 상향' 공청회 예고…버스로 확대 추진도", "url": "https://news.google.com/rss/articles/CBMiZ0FVX3lxTE92S1F0TFlmSkhUSGp1THVOZ045UnNsR1hORHpXOVV2d2lWMW02em5UVTdxZXFtaGhNQVFZc0lYQnl1WWE2STB2T0Zxc21lZEN6QlFOQW1oOExhWkozRk00WXMxNnpMSTQ?oc=5"}
 ]}
 BRIEFING_MANIFEST_END -->
+
 </body>
 </html>
