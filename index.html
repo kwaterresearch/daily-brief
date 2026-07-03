@@ -15,9 +15,12 @@ body {
   background: #f4f6f9;
   word-break: keep-all;
   overflow-wrap: break-word;
+  padding-bottom: 80px;
+}
+.container {
   max-width: 480px;
   margin: 0 auto;
-  padding: 0 16px 80px 16px;
+  padding: 0 16px;
 }
 .header-card {
   background: linear-gradient(135deg, #1a56db, #1e3a8a);
@@ -127,7 +130,7 @@ body {
   font-weight: 600;
   white-space: nowrap;
 }
-.tag.no {
+.tag.number {
   background: #eef2f9;
   color: #1a3f7f;
 }
@@ -157,25 +160,25 @@ body {
   background: #f3f4f6;
   color: #555;
 }
-.card h2 {
+.card-title {
   font-size: 17px;
   font-weight: 700;
   line-height: 1.45;
-  margin: 10px 0 8px 0;
+  margin: 10px 0 8px;
   color: #1a1a2e;
 }
-.card .content {
+.card-content {
   font-size: 14px;
   line-height: 1.75;
   color: #444;
   margin-bottom: 8px;
 }
-.card .source {
+.card-source {
   font-size: 12px;
   color: #888;
   margin-top: 8px;
 }
-.card .source a {
+.card-source a {
   color: #2c5fcc;
   text-decoration: none;
 }
@@ -183,38 +186,42 @@ body {
   margin-top: 12px;
   padding: 10px 12px;
   border-radius: 0 8px 8px 0;
-  border-left: 3px solid;
   font-size: 13px;
   line-height: 1.7;
   color: #1a5276;
 }
-.card.urgent .insight-box {
-  background: rgba(231,76,60,0.1);
-  border-left-color: #e74c3c;
+.insight-box.urgent {
+  background: rgba(231, 76, 60, 0.1);
+  border-left: 3px solid #e74c3c;
 }
-.card.caution .insight-box {
-  background: rgba(243,156,18,0.1);
-  border-left-color: #f39c12;
+.insight-box.caution {
+  background: rgba(243, 156, 18, 0.1);
+  border-left: 3px solid #f39c12;
 }
-.card.reference .insight-box {
-  background: rgba(39,174,96,0.1);
-  border-left-color: #27ae60;
+.insight-box.reference {
+  background: rgba(39, 174, 96, 0.1);
+  border-left: 3px solid #27ae60;
 }
-.monitoring {
+.insight-box strong {
+  display: block;
+  margin-bottom: 4px;
+  font-weight: 700;
+}
+.monitoring-note {
   font-size: 12px;
   color: #888;
   margin-top: 8px;
   padding-top: 8px;
   border-top: 1px solid #f0f0f0;
 }
-.footer {
-  margin-top: 24px;
-  padding: 16px;
-  background: #f8f9fa;
-  border-radius: 12px;
-  font-size: 12px;
-  color: #666;
+.footer-note {
+  font-size: 11px;
+  color: #999;
   line-height: 1.6;
+  padding: 16px;
+  text-align: center;
+  border-top: 1px solid #e0e0e0;
+  margin-top: 20px;
 }
 </style>
 <script src="https://t1.kakaocdn.net/kakao_js_sdk/2.7.0/kakao.min.js"></script>
@@ -238,13 +245,11 @@ body {
   </div>
 </div>
 
+<div class="container">
 
 <div class="header-card">
   <h1>K-water연구원<br>데일리 브리핑</h1>
-  <div class="subtitle">
-    국내외 주요 이슈와 시사점을 전달합니다<br>
-    본 자료는 생성형 AI를 통해 자동 작성되었습니다
-  </div>
+  <p class="subtitle">국내외 주요 이슈와 시사점을 전달합니다<br>본 자료는 생성형 AI를 통해 자동 작성되었습니다</p>
   <div class="meta-grid">
     <div class="meta-cell">
       <strong>생성 일시</strong>
@@ -260,7 +265,7 @@ body {
 <div class="summary-grid">
   <div class="summary-cell urgent">
     <div class="label">즉시<br>주목</div>
-    <span class="count">2</span>
+    <span class="count">3</span>
   </div>
   <div class="summary-cell caution">
     <div class="label">주의<br>요망</div>
@@ -268,169 +273,229 @@ body {
   </div>
   <div class="summary-cell reference">
     <div class="label">동향<br>참고</div>
-    <span class="count">2</span>
+    <span class="count">3</span>
   </div>
 </div>
 
-<div style="margin: 16px 0; padding: 12px; background: #fff; border-radius: 12px; text-align: center; font-size: 14px; font-weight: 600; color: #1a56db;">
-  총 8건 | 국내 4건 · 국외 4건
-</div>
-
-<!-- 즉시주목 -->
+<!-- 카드 1 -->
 <div class="card urgent">
   <div class="tag-row">
-    <span class="tag no">1</span>
+    <span class="tag number">01</span>
     <span class="tag priority urgent">즉시주목</span>
-    <span class="tag category">[C] 경제·금융</span>
-    <span class="tag region">🇰🇷 국내</span>
+    <span class="tag category">기후·에너지·환경</span>
+    <span class="tag region">국내</span>
   </div>
-  <h2>원·달러 환율 1,540원 돌파…예상 밑돈 미국 고용지표 여파</h2>
-  <div class="content">
-    7월 2일 서울 외환시장에서 원·달러 환율이 1,540원을 기록했다. 미국 6월 고용지표가 시장 예상을 하회하면서 달러 약세가 나타났고, 이에 따라 원화 강세가 발생했다.
+  <div class="card-title">6월 가장 뜨거웠던 전 세계 바다…전에 없던 고온과 '슈퍼 엘니뇨' 오나</div>
+  <div class="card-content">
+    2026년 6월 전 세계 해수면 온도가 관측 사상 최고치를 기록했으며, 기상학자들은 2026년 하반기 슈퍼 엘니뇨 발생 가능성을 경고하고 있다. 엘니뇨는 태평양 적도 해역 수온 상승으로 전 지구적 기상 이변을 유발하며, 슈퍼 엘니뇨 발생 시 극한 가뭄·홍수·폭염이 동시다발적으로 발생할 수 있다.
   </div>
-  <div class="source">
-    YTN | 2026.07.02 19:05 | <a href="https://news.google.com/rss/articles/CBMiXkFVX3lxTE42ZHB2Vmk1eTBFLTUxZnNtbGVmbnBJMUE0Q1d6M09ZZnhjajliZ3J5N21aWEtQcGpqb2xZSGJvc0RSYWNsYjZLWnR6anU1emFXV2hDM2NaYmNaOFEtSEE?oc=5" target="_blank">원문 보기</a>
+  <div class="card-source">
+    한겨레 | 2026.07.03 02:54 | <a href="https://news.google.com/rss/articles/CBMickFVX3lxTE5kbndiQk1ZS2xLRG1VOXVUSDE1dWdhY0Rha3FXRUg2T2J0MnA2UW40NHVqUzFkeXJfOU93MjE3dnFZS0FUQ1RtWFQxYXhYOHUzTm0ycXJRTnVhUVpkZ0RwZXByOEdoZElzWHk1ekcwc19wZw?oc=5" target="_blank">원문 보기</a>
   </div>
-  <div class="insight-box">
-    <strong>K-water 시사점:</strong> 환율 하락은 K-water의 해외사업(14개국 30개 프로젝트) 현지 수익의 원화 환산 가치를 감소시키는 요인이다. 또한 채권 발행 시 외화표시 부채의 원화 환산 부담이 줄어드는 긍정 요인이나, 단기 변동성이 큰 만큼 글로벌·기후테크 사업부의 환율 노출도 점검이 필요하다.
+  <div class="insight-box urgent">
+    <strong>K-water 시사점</strong>
+    슈퍼 엘니뇨 발생 시 K-water가 운영하는 18개 다목적댐과 홍수조절댐의 운영 난이도가 급격히 상승한다. 극한 가뭄과 집중호우가 단기간 교차 발생할 경우, 댐 용수 공급 안정성 확보와 홍수 조절 기능을 동시에 수행해야 하는 이중 부담이 발생한다. 디지털트윈 물관리 플랫폼(Digital GARAM+)과 AI 기반 댐 자율운영 시스템의 시나리오 대비 능력을 점검하고, 극한 기후 시나리오에 대한 사전 시뮬레이션 강화가 필요하다. 또한 광역상수도 12개 급수권의 용수 공급 안정성 점검과 비상 급수 체계 가동 준비를 권고한다.
   </div>
-  <div class="monitoring">후속 모니터링: 지속 모니터링 필요</div>
+  <div class="monitoring-note">후속 모니터링: 지속 모니터링 필요</div>
 </div>
 
+<!-- 카드 2 -->
 <div class="card urgent">
   <div class="tag-row">
-    <span class="tag no">2</span>
+    <span class="tag number">02</span>
     <span class="tag priority urgent">즉시주목</span>
-    <span class="tag category">[C] 경제·금융</span>
-    <span class="tag region">🌐 국외</span>
+    <span class="tag category">기후·에너지·환경</span>
+    <span class="tag region">국내</span>
   </div>
-  <h2>미국 6월 고용지표 둔화…다우 사상 최고치, 나스닥 반도체 약세</h2>
-  <div class="content">
-    미국 6월 고용 보고서가 시장 예상을 하회하며 노동시장 둔화 신호를 보냈다. 이에 따라 다우지수는 사상 최고치를 경신했으나, 나스닥은 반도체주 약세로 하락했다. 연준의 금리 인하 기대감이 높아지는 가운데 경기 둔화 우려도 동시에 부각되고 있다.
+  <div class="card-title">주말 전국에 장맛비...폭염 수준 더위도</div>
+  <div class="card-content">
+    기상청은 7월 3일 주말 전국에 장맛비가 내릴 것으로 예보했다. 장마 시작 전까지 30도 안팎의 폭염 수준 더위가 지속되며, 주말 강수 이후에도 고온다습한 날씨가 이어질 전망이다. 집중호우와 폭염이 교차하는 전형적인 여름철 기상 패턴이 예상된다.
   </div>
-  <div class="source">
-    Reuters | 2026.07.02 21:21 | <a href="https://news.google.com/rss/articles/CBMinAFBVV95cUxQNmlSQU1CX2FPdk85U1ZHQjBSbHFXZDZ3VjUxNDg3THFOeUFyM0tiQURWczlyLUVxYm9QR0g5ZW5mcVA2bXVEc2QydjlQdkpfNHkxeTFzbXdxRkZVQ21lS2lXVVJQSktrWUVrY1pqUXdRN2VJdmpyWnRhT0ZncG1MT1RvZmpOcF9QcV91RXJ2SzBiQmpHd0ZHbkZNQzE?oc=5" target="_blank">원문 보기</a>
+  <div class="card-source">
+    조선일보 | 2026.07.03 01:20 | <a href="https://news.google.com/rss/articles/CBMilwFBVV95cUxOZTFrMFlfVGI0XzNqbXV1ZHg2eVBMd3ZTOEN1Vk12eWptMlZDMGpIeTFVZE43YmtCSnZlU21Dc1JZWG5aY0F0MjFNUVJSeC05NkR4NEdXTFYwUTJEU013TFBCVjBhRUxXVjdhMUo4WDFuTC0zRFQtaUwxQlJQS2lLMnAyaDZFVXBxVEFualpic2VwX2pRamZV?oc=5" target="_blank">원문 보기</a>
   </div>
-  <div class="insight-box">
-    <strong>K-water 시사점:</strong> 미국 고용 둔화는 연준의 금리 인하 가능성을 높여 K-water의 채권 조달 비용 완화 요인으로 작용할 수 있다. 다만 글로벌 경기 둔화가 현실화될 경우 해외사업 수주 환경 악화 가능성도 있어, 재무·조달 전반과 글로벌·기후테크 사업부의 양면 영향을 점검할 필요가 있다.
+  <div class="insight-box urgent">
+    <strong>K-water 시사점</strong>
+    집중호우와 폭염이 단기간 교차하는 기상 패턴은 K-water 댐 운영과 광역상수도 수요 관리에 직접적인 영향을 미친다. 폭염 시 용수 수요가 급증하고, 집중호우 시 홍수 조절과 수질 관리(녹조 대응 포함) 부담이 동시에 발생한다. 한강홍수통제소 등 홍수 대응 체계의 실시간 모니터링 강화와 AI 기반 댐 자율운영 시스템의 단기 예측 정확도 점검이 필요하다. 또한 폭염 기간 광역상수도 12개 급수권의 수요 급증에 대비한 공급 여력 확인을 권고한다.
   </div>
-  <div class="monitoring">후속 모니터링: 지속 모니터링 필요</div>
+  <div class="monitoring-note">후속 모니터링: 지속 모니터링 필요</div>
 </div>
 
-<!-- 주의요망 -->
+<!-- 카드 3 -->
+<div class="card urgent">
+  <div class="tag-row">
+    <span class="tag number">03</span>
+    <span class="tag priority urgent">즉시주목</span>
+    <span class="tag category">경제·금융</span>
+    <span class="tag region">국외</span>
+  </div>
+  <div class="card-title">Canada unveils plans for new oil pipeline to break dependence on US</div>
+  <div class="card-content">
+    캐나다 정부가 7월 2일 미국 의존도를 낮추기 위한 신규 송유관 건설 계획을 발표했다. 이 계획은 캐나다산 원유를 태평양 연안으로 직접 수송해 아시아 시장 수출을 확대하려는 전략이다. 미국 트럼프 행정부의 에너지 정책 불확실성에 대응하기 위한 조치로 해석된다.
+  </div>
+  <div class="card-source">
+    Financial Times | 2026.07.03 02:01 | <a href="https://news.google.com/rss/articles/CBMicEFVX3lxTE5tZXY2a1Ntd0syQjhLVEk4VmZWSnd5bFFBOHRlSjFqYWk5LUJhQXpzV2ZwelhXdTFocnB4X0RZek5vZ0hNdkRXZzZGMnBTdVVyZHZVb3p1bTYxelhCRnJUS2VCdE1Qc2N4cnMwMEVwdGc?oc=5" target="_blank">원문 보기</a>
+  </div>
+  <div class="insight-box urgent">
+    <strong>K-water 시사점</strong>
+    캐나다의 송유관 건설은 글로벌 원유 공급망 재편 신호로, 중장기적으로 국제 유가 변동성에 영향을 미칠 수 있다. K-water는 댐·상하수도 운영에 필요한 전력·연료비와 건설자재비(아스팔트·화학약품 등)가 유가에 연동되는 구조다. 유가 안정화 시 운영비 부담이 완화되나, 공급망 재편 과정에서 단기 변동성이 확대될 가능성도 있다. 재무·조달 부문에서 유가 변동이 연간 운영비에 미치는 영향 범위를 점검하고, 에너지·도시 사업부문(수력발전·태양광 등 재생에너지)의 경쟁력 변화 추이를 모니터링할 필요가 있다.
+  </div>
+  <div class="monitoring-note">후속 모니터링: 지속 모니터링 필요</div>
+</div>
+
+<!-- 카드 4 -->
 <div class="card caution">
   <div class="tag-row">
-    <span class="tag no">3</span>
+    <span class="tag number">04</span>
     <span class="tag priority caution">주의요망</span>
-    <span class="tag category">[E] 기후·에너지·환경</span>
-    <span class="tag region">🇰🇷 국내</span>
+    <span class="tag category">정치·정책</span>
+    <span class="tag region">국내</span>
   </div>
-  <h2>장마 시작 후 소나기·폭우 반복…주말 남부, 다음 주 수도권 장맛비</h2>
-  <div class="content">
-    7월 2일 기상청은 장마 시작 이후 소나기와 폭우가 반복되고 있으며, 주말에는 남부지방, 다음 주에는 수도권에 집중호우가 예상된다고 발표했다. 9호 태풍 '바비'의 북상 경로도 변수로 작용할 전망이다.
+  <div class="card-title">靑 "호남 전력, 재생에너지 확대가능…탈탄소가 탈원전은 아냐"</div>
+  <div class="card-content">
+    청와대는 7월 2일 호남 지역 전력 공급 확대 방안을 발표하며, 재생에너지 확대와 탈탄소 정책이 탈원전을 의미하지 않는다고 강조했다. 정부는 원전과 재생에너지를 병행 확대하는 에너지 믹스 전략을 추진하며, 호남 지역을 재생에너지 거점으로 육성할 계획이다.
   </div>
-  <div class="source">
-    뉴스1 | 2026.07.02 02:36 | <a href="https://news.google.com/rss/articles/CBMiXEFVX3lxTFBQN3R6TzVPWkN3MzZzOGppa3U0S3Jqc2JWZWtXVlI5aVBreVVZNXhzTHNTTTBvRUJ6M2dzNnNUaVFPdk95d2g5emdCTjctYUxUSlBaTUwyRjFYcmda?oc=5" target="_blank">원문 보기</a>
+  <div class="card-source">
+    연합뉴스 | 2026.07.03 00:51 | <a href="https://news.google.com/rss/articles/CBMiW0FVX3lxTFBRUmI3NkxPZ1dGRXhpS1g5eFNkLUFjX2U0MURZNUpEOE9KT0o1c3JTd3R5YnpUakc5V0dJQS1vbi1kUDc4Ul95dGJfT19adlVPZXZqZW1tX2lUREnSAWBBVV95cUxORkw3Q3FhZEdmQTlOT2JETnBNc3ltbkJpNUdkLWp0TnB4WWt3cEJyVVRfeEQ3VV9mWnFHNHdJNlo1UGlkS0dkaXNsd21fOGoyX0VWSHhhVldXU1JNS29pRlk?oc=5" target="_blank">원문 보기</a>
   </div>
-  <div class="insight-box">
-    <strong>K-water 시사점:</strong> 집중호우는 K-water가 운영하는 18개 다목적댐과 2개 홍수조절댐의 수위 관리 및 방류 운영에 직접 영향을 미친다. 디지털트윈 물관리 플랫폼(Digital GARAM+)을 활용한 실시간 시뮬레이션 및 AI 기반 댐 자율운영 체계의 가동 준비 상태를 점검할 필요가 있다.
+  <div class="insight-box caution">
+    <strong>K-water 시사점</strong>
+    정부의 재생에너지 확대 정책은 K-water 에너지·도시 사업부문(2026년 매출 목표 1조 1,652억원)에 직접적인 기회 요인이다. K-water는 수력발전, 시화호 조력발전, 수상태양광을 운영 중이며, 2030년까지 태양광 7,227MW, 양수발전·새만금조력 신설을 추진하고 있다. 호남 지역 재생에너지 거점 육성 계획과 K-water의 새만금 사업, 수상태양광 확대 전략 간 연계성을 검토하고, 정부 정책 방향에 맞춘 사업 포트폴리오 조정 가능성을 점검할 필요가 있다.
   </div>
 </div>
 
+<!-- 카드 5 -->
 <div class="card caution">
   <div class="tag-row">
-    <span class="tag no">4</span>
+    <span class="tag number">05</span>
     <span class="tag priority caution">주의요망</span>
-    <span class="tag category">[A] 지정학·국제정세</span>
-    <span class="tag region">🌐 국외</span>
+    <span class="tag category">기술·혁신</span>
+    <span class="tag region">국외</span>
   </div>
-  <h2>이란, 호르무즈 해협 유조선에 승인 항로 사용 경고…'강력 대응' 예고</h2>
-  <div class="content">
-    이란 당국은 7월 2일 호르무즈 해협을 통과하는 유조선들에게 승인된 항로만 사용할 것을 경고하며, 이를 위반할 경우 '강력한 대응'을 할 것이라고 밝혔다. 호르무즈 해협은 전 세계 원유 수송의 약 20%가 통과하는 전략적 요충지다.
+  <div class="card-title">저커버그 "AI 에이전트, 기대만큼 안 나왔다"…메타 속도전 '경고등'</div>
+  <div class="card-content">
+    메타 CEO 마크 저커버그가 7월 2일 AI 에이전트 개발 속도가 기대에 미치지 못한다고 밝혔다. 메타는 AI 인프라에 대규모 투자를 진행 중이나, 실제 상용화 성과는 예상보다 더디게 나타나고 있다. 이는 글로벌 빅테크의 AI 투자 과열 우려를 키우는 신호로 해석된다.
   </div>
-  <div class="source">
-    AP News | 2026.07.02 20:30 | <a href="https://news.google.com/rss/articles/CBMiogFBVV95cUxQOEM2Y1VRaV9hZEpMWVFYU05hd2FsQjlnbDI5S2FvVmlJNVVjQi1hbTVVTWthM251SFpNcEFsb1ZRX2NuNmo2S3UyUXF3NlkzcHJXTlFGRlotQzR3bDBHSngwcUNYckFDY3VnWUgtRXI5cW9qd0tvUGFjb19kdTVIRXlyU3RkY05neGtOeWRXWmZPdmF0QlQyOG9FdGcxVkxEOWc?oc=5" target="_blank">원문 보기</a>
+  <div class="card-source">
+    매일경제 | 2026.07.02 23:10 | <a href="https://news.google.com/rss/articles/CBMiUkFVX3lxTE1ROUQ2WGI1eHphQW5uUFlaUHpvRXZRQnNRS0FIZzlrTGFQTTlxOXNYQUJrT2xoM1dtLVg3Z0VRSmgzeVd1QnJMS3p2M081MENvY0E?oc=5" target="_blank">원문 보기</a>
   </div>
-  <div class="insight-box">
-    <strong>K-water 시사점:</strong> 호르무즈 해협 긴장 고조는 국제 유가 상승 압력으로 이어질 수 있다. 유가 상승은 K-water의 댐·상하수도 운영비 및 건설자재비 증가 요인이며, 동시에 에너지·도시 사업부의 재생에너지(수력·태양광·조력) 사업 환경에는 간접적 우호 요인이다. 재무·조달 측면에서 유가 변동 노출도를 점검할 필요가 있다.
+  <div class="insight-box caution">
+    <strong>K-water 시사점</strong>
+    글로벌 빅테크의 AI 투자 속도 조정은 K-water의 AI 물관리 전략(2030년 AI 물관리 세계 1위 기업 목표)에 간접적인 시사점을 제공한다. K-water는 AI 정수장(2030년까지 44개 정수장 Level 3 목표), 디지털트윈 물관리 플랫폼(Digital GARAM+), 스마트 관망관리 솔루션(SWNM) 등 3대 초격차 기술을 추진 중이다. 글로벌 AI 기술 성숙도가 예상보다 느릴 경우, K-water의 AI 물관리 기술 개발 일정과 투자 우선순위를 재점검하고, 기술 도입 시기와 상용화 목표의 현실성을 검토할 필요가 있다.
   </div>
 </div>
 
+<!-- 카드 6 -->
 <div class="card caution">
   <div class="tag-row">
-    <span class="tag no">5</span>
+    <span class="tag number">06</span>
     <span class="tag priority caution">주의요망</span>
-    <span class="tag category">[A] 지정학·국제정세</span>
-    <span class="tag region">🌐 국외</span>
+    <span class="tag category">지정학·국제정세</span>
+    <span class="tag region">국외</span>
   </div>
-  <h2>러시아, 우크라이나 수도 키이우 대규모 공습…사상자 발생</h2>
-  <div class="content">
-    러시아군이 7월 2일 우크라이나 수도 키이우를 대규모 공습하여 다수의 사상자가 발생했다. 이번 공습은 최근 수개월 중 가장 강도 높은 공격으로 평가되며, 우크라이나 전쟁의 장기화 및 확전 우려가 커지고 있다.
+  <div class="card-title">Iran sends defiant message to Trump with colossal funeral for slain Supreme Leader Ali Khamenei</div>
+  <div class="card-content">
+    이란이 7월 3일 암살된 최고지도자 알리 하메네이의 대규모 장례식을 거행하며 트럼프 행정부에 강경 메시지를 전달했다. 이란은 이스라엘의 암살 배후를 지목하며 보복을 예고했고, 미국은 이란에 이스라엘의 추가 암살 계획을 사전 경고한 것으로 알려졌다. 중동 지역 긴장이 급격히 고조되고 있다.
   </div>
-  <div class="source">
-    The New York Times | 2026.07.02 21:50 | <a href="https://news.google.com/rss/articles/CBMifEFVX3lxTE9Na09GaG1jdW9YYjFYcFI4azA2MGdjaVMzVGhEdlZrUlBMNWQ1Y2YzZmo5dEtUeDhVUFUxaGFpZjJkSVJNM0FvYm03R1ZoQWxUV2N6VnhKQ3o2cVNYWldlcDgyNUh4YjJGTENLVVB0YkZqT01RaVpKdEpzRjY?oc=5" target="_blank">원문 보기</a>
+  <div class="card-source">
+    CNN | 2026.07.03 04:01 | <a href="https://news.google.com/rss/articles/CBMifEFVX3lxTE5fd2g0cHR0NG5PQWdlYkktNXdHQmczZEE2cW9mQUFZZGdZM1ZOZzNMeUFEOThEcTVUNDJKNDFWZm1tcFl3WTkxRUxvN3pjUEUxcjVScWoteUxlQVBhUzYtZFBIb3NFSzZ3dXNPMjF3SjNFd2dkSmFvVjBzclY?oc=5" target="_blank">원문 보기</a>
   </div>
-  <div class="insight-box">
-    <strong>K-water 시사점:</strong> 우크라이나 전쟁 확전은 글로벌 에너지·원자재 공급망 불안정을 심화시켜 유가 및 건설자재 가격 상승 압력으로 작용할 수 있다. K-water의 댐·상하수도 운영비 및 신규 건설사업(새만금, 에코델타시티 등) 자재비 증가 가능성을 점검할 필요가 있다.
+  <div class="insight-box caution">
+    <strong>K-water 시사점</strong>
+    중동 지역 긴장 고조는 국제 유가 변동성 확대로 이어질 가능성이 높다. K-water는 댐·상하수도 운영에 필요한 전력·연료비와 건설자재비가 유가에 연동되는 구조로, 유가 급등 시 운영비 증가 압력이 발생한다. 또한 K-water는 14개국 30개 해외사업을 진행 중이나, 현재 중동 지역 진행 사업은 없어 직접적인 현장 리스크는 제한적이다. 다만 글로벌 에너지 시장 변동이 재무·조달 전반에 미치는 영향을 모니터링하고, 유가 변동 시나리오별 운영비 영향 범위를 점검할 필요가 있다.
   </div>
 </div>
 
+<!-- 카드 7 -->
 <div class="card caution">
   <div class="tag-row">
-    <span class="tag no">6</span>
+    <span class="tag number">07</span>
     <span class="tag priority caution">주의요망</span>
-    <span class="tag category">[E] 기후·에너지·환경</span>
-    <span class="tag region">🌐 국외</span>
+    <span class="tag category">지정학·국제정세</span>
+    <span class="tag region">국외</span>
   </div>
-  <h2>미국 동부 폭염으로 교통·월드컵 행사 차질…에너지부, 데이터센터 백업전력 가동 명령</h2>
-  <div class="content">
-    미국 동부 지역에 극심한 폭염이 발생하여 교통 및 월드컵 관련 행사에 차질이 빚어지고 있다. 미국 에너지부는 전력망 안정을 위해 데이터센터에 백업 전력 가동을 명령했다. 폭염으로 인한 전력 수요 급증이 우려되는 상황이다.
+  <div class="card-title">Russia Hammers Ukraine's Capital in Deadly Attacks</div>
+  <div class="card-content">
+    러시아가 7월 2일 우크라이나 수도 키이우에 대규모 공습을 감행해 다수의 사상자가 발생했다. 이는 최근 수개월 중 가장 강력한 공격으로, 우크라이나 전쟁이 재확대 국면에 진입했다는 분석이 나온다. 국제사회는 러시아의 공세 강화에 우려를 표명하고 있다.
   </div>
-  <div class="source">
-    The New York Times | 2026.07.02 21:24 | <a href="https://news.google.com/rss/articles/CBMiaEFVX3lxTE9IOHZOVmFydVBscjI0TFlrdlkteGY3ZVpkUTZaUnY5RjN4TGQxWVQ0SndRdVpVQWhuSkltOTVPbk9KbHRYbzBaVkoxYUx1NXVVNm5QdnZwWmFXTkVHUEZxUm00VWw2em41?oc=5" target="_blank">원문 보기</a>
+  <div class="card-source">
+    The New York Times | 2026.07.03 02:52 | <a href="https://news.google.com/rss/articles/CBMifEFVX3lxTE9Na09GaG1jdW9YYjFYcFI4azA2MGdjaVMzVGhEdlZrUlBMNWQ1Y2YzZmo5dEtUeDhVUFUxaGFpZjJkSVJNM0FvYm03R1ZoQWxUV2N6VnhKQ3o2cVNYWldlcDgyNUh4YjJGTENLVVB0YkZqT01RaVpKdEpzRjY?oc=5" target="_blank">원문 보기</a>
   </div>
-  <div class="insight-box">
-    <strong>K-water 시사점:</strong> 극한 기후 현상은 K-water의 수자원·환경 사업부(댐·하천 운영, 가뭄 대응)와 수도 사업부(첨단산업 용수 공급, 특히 데이터센터·반도체 산업 대상 초순수 사업)에 직접 영향을 미친다. 기후 변동성 대응 전략 및 AI 물관리 시스템의 적용 범위 확대 검토가 필요하다.
+  <div class="insight-box caution">
+    <strong>K-water 시사점</strong>
+    우크라이나 전쟁 재확대는 글로벌 에너지·원자재 시장 변동성을 키우는 요인이다. 러시아산 천연가스·원유 공급 차질 우려가 재부상할 경우, 국제 유가와 원자재 가격 상승 압력이 발생한다. K-water는 댐·상하수도 운영비와 건설자재비가 유가·원자재 가격에 연동되는 구조로, 가격 급등 시 재무 부담이 증가한다. 글로벌 공급망 불안정성이 K-water 재무·조달 전반에 미치는 영향을 모니터링하고, 원자재 가격 변동 시나리오별 대응 방안을 점검할 필요가 있다.
   </div>
 </div>
 
-<!-- 동향참고 -->
+<!-- 카드 8 -->
 <div class="card reference">
   <div class="tag-row">
-    <span class="tag no">7</span>
+    <span class="tag number">08</span>
     <span class="tag priority reference">동향참고</span>
-    <span class="tag category">[D] 기술·혁신</span>
-    <span class="tag region">🇰🇷 국내</span>
+    <span class="tag category">경제·금융</span>
+    <span class="tag region">국외</span>
   </div>
-  <h2>부강테크, AI 기반 수처리 공정 자동설계 상용화…43억 국가과제 선정</h2>
-  <div class="content">
-    부강테크가 AI 기반 수처리 공정 자동설계 기술을 상용화하고, 43억 원 규모의 국가과제에 선정되었다. '워터 AI' 플랫폼 구축을 통해 수처리 설계 자동화 및 효율화를 추진한다.
+  <div class="card-title">Stock Market News, July 2, 2026: Dow Rises, Nasdaq Falls After June Jobs Report</div>
+  <div class="card-content">
+    7월 2일 미국 증시에서 다우지수는 상승했으나 나스닥은 하락했다. 6월 고용지표 발표 이후 금리 정책 전망이 엇갈리며 업종별 차별화가 나타났다. 전통 산업주는 강세를 보인 반면, 기술주는 AI 투자 과열 우려로 조정을 받았다.
   </div>
-  <div class="source">
-    매일경제 | 2026.07.02 05:05 | <a href="https://news.google.com/rss/articles/CBMiVkFVX3lxTE1aWVVFTDdOUFduTXI4VTBSakxwUWxPdWZVUjNpQS1qR2F1RzFxc2I0UjBrNDFvRGgyOHVidTk2SU1OeUtPeWlob0czSGtZa3RDbGlmZElB?oc=5" target="_blank">원문 보기</a>
+  <div class="card-source">
+    WSJ | 2026.07.03 01:22 | <a href="https://news.google.com/rss/articles/CBMifkFVX3lxTE5ERzdWcTBwekVjWjdVRzRseWxIZm9KZ0dPTk1yc2hDaHNXMm5nVTRLMzZVYlpfOW83LU9DdmlHTEJHTGpaZTNmUDJ2cTd2bmRSbUpvZUFZTi1kM2gzQUY5bWhLWTlaM1pMTGVUMjRTVDhGZ3duMFo0T2N4NWE5UQ?oc=5" target="_blank">원문 보기</a>
   </div>
-  <div class="insight-box">
-    <strong>K-water 시사점:</strong> 민간 기업의 AI 수처리 기술 발전은 K-water의 3대 초격차 기술(AI 정수장, 디지털트윈, SWNM) 전략과의 경쟁 및 협력 가능성을 동시에 내포한다. 기술 동향 파악 차원에서 참고할 필요가 있다.
+  <div class="insight-box reference">
+    <strong>K-water 시사점</strong>
+    미국 증시 업종별 차별화는 글로벌 금리 정책 방향에 대한 시장의 불확실성을 반영한다. K-water는 채권 발행을 통한 자금 조달 비중이 높아, 미국 금리 정책 변화가 국내 금리와 환율을 경유해 조달 비용에 간접 영향을 미친다. 직접 시사점은 낮으나, 글로벌 금리 동향 파악 차원에서 참고할 필요가 있다.
   </div>
 </div>
 
+<!-- 카드 9 -->
 <div class="card reference">
   <div class="tag-row">
-    <span class="tag no">8</span>
+    <span class="tag number">09</span>
     <span class="tag priority reference">동향참고</span>
-    <span class="tag category">[B] 정치·정책</span>
-    <span class="tag region">🌐 국외</span>
+    <span class="tag category">기술·혁신</span>
+    <span class="tag region">국내</span>
   </div>
-  <h2>독일 메르츠 총리, 대규모 개혁안 발표…감세·연금개혁·병가제도 개편</h2>
-  <div class="content">
-    독일 메르츠 총리가 7월 2일 감세, 연금 개혁, 병가 제도 개편을 포함한 대규모 개혁안을 발표했다. 독일 경제 활성화 및 재정 건전성 강화를 목표로 하는 정책 패키지다.
+  <div class="card-title">한국이 HBM에 취해 있을 때, 대만은 'AI 몸통'을 장악했다</div>
+  <div class="card-content">
+    한국이 HBM(고대역폭 메모리) 개발에 집중하는 동안, 대만은 AI 서버·네트워킹 장비 등 AI 인프라 핵심 부품 시장을 장악했다. 대만 TSMC와 폭스콘은 AI 서버 공급망에서 압도적 점유율을 확보하며, AI 산업 생태계의 중심축으로 자리잡았다. 한국의 메모리 중심 전략에 대한 재검토 필요성이 제기되고 있다.
   </div>
-  <div class="source">
-    AP News | 2026.07.02 16:53 | <a href="https://news.google.com/rss/articles/CBMilgFBVV95cUxPOTJJZFpiQng2TXJEbXlJYWpEMVFvNlZkdHZxSnBPeG5aSzVvQ01zVXdpNWJFWURnaDgxZzJwNWJjelhLS09nZ1ItWDFReEdUVmtXSkNNVHh0VWdLTEpPeTJmU3RmNDBuUFVPQVZEZ3lfM1FRLWFjZjVRWE8tOXFPTk0wNkU1cjZzbHVyRmcwYjRjQldOR3c?oc=5" target="_blank">원문 보기</a>
+  <div class="card-source">
+    조선일보 | 2026.07.02 18:07 | <a href="https://news.google.com/rss/articles/CBMihgFBVV95cUxQZEdoT1RXaHc2VjlzR1VpLUt3OGRXZlBsSWhTNEFNUVhNdThfcVdGQzM0VGVCQTJ6cjMtbDVNNGtyejNnMzh3dFJTVGJ6RFY4S0FWT0ZvTGpjcmVVenBUZEpBRXlEWjdGZTFrLWdYRUliMXczSkkzN2tCUl84QWYydmRpUk9Jdw?oc=5" target="_blank">원문 보기</a>
   </div>
-  <div class="insight-box">
-    <strong>K-water 시사점:</strong> 독일의 재정·경제 정책 변화는 유럽 경제 전반 및 글로벌 금융시장에 간접 영향을 미칠 수 있으나, K-water 경영에 대한 직접 시사점은 낮다. 동향 파악 차원에서 참고한다.
+  <div class="insight-box reference">
+    <strong>K-water 시사점</strong>
+    AI 인프라 공급망 재편은 K-water의 AI 물관리 전략(AI 정수장, 디지털트윈, SWNM)에 간접적인 영향을 미칠 수 있다. K-water가 도입하는 AI 서버·네트워킹 장비의 공급망 안정성과 가격 경쟁력이 대만 중심 공급망 구조에 의존할 가능성이 있다. 직접 시사점은 낮으나, AI 인프라 조달 전략 수립 시 글로벌 공급망 동향을 참고할 필요가 있다.
   </div>
+</div>
+
+<!-- 카드 10 -->
+<div class="card reference">
+  <div class="tag-row">
+    <span class="tag number">10</span>
+    <span class="tag priority reference">동향참고</span>
+    <span class="tag category">사회·제도</span>
+    <span class="tag region">국외</span>
+  </div>
+  <div class="card-title">Energy Dept. directs data centers to use backup generators during heat wave, freeing up power for AC</div>
+  <div class="card-content">
+    미국 에너지부가 7월 2일 폭염 기간 데이터센터에 백업 발전기 사용을 지시해, 전력망 부담을 줄이고 냉방용 전력을 확보하도록 했다. 이는 폭염으로 인한 전력 수요 급증에 대응하기 위한 긴급 조치다. 데이터센터의 전력 소비가 사회 전반의 전력 공급 안정성에 미치는 영향이 부각되고 있다.
+  </div>
+  <div class="card-source">
+    CNN | 2026.07.02 21:41 | <a href="https://news.google.com/rss/articles/CBMihgFBVV95cUxOS1k1ZFZSXzh4aTMwcU5QZUdta0VaOGE4aGRBMnVOLU4zU0tLbEdBdU1kV2VrUTdxRXNuZTlIbGt1RllRTmNWc2tfd2RrOTlPTXJDbjkyR2wxR2hOWFIyekZWVTlxMExjT21DMDdZMmFtNm5ZaW9BVlVBTmhQOW43WjNsRXg1QQ?oc=5" target="_blank">원문 보기</a>
+  </div>
+  <div class="insight-box reference">
+    <strong>K-water 시사점</strong>
+    폭염 기간 전력 수요 급증은 K-water 수도 사업부문(첨단산업 용수·초순수 공급)에 간접적인 시사점을 제공한다. K-water는 반도체·AI·데이터센터 용수 공급 확대를 추진 중이며, 데이터센터의 전력·용수 수요는 동시에 증가하는 경향이 있다. 폭염 시 데이터센터의 냉각수 수요 급증 가능성을 고려한 용수 공급 안정성 점검이 필요하다. 직접 시사점은 낮으나, 첨단산업 용수 사업 전략 수립 시 참고할 수 있다.
+  </div>
+</div>
+
+<div class="footer-note">
+  우선순위 기준 · 즉시주목 = 긴급도 높음·중요도 높음 / 주의요망 = 긴급도 높음·중요도 낮음 or 긴급도 낮음·중요도 높음 / 동향참고 = 길급도 낮음·중요도 낮음<br><br>
+  본 브리핑은 Google Trends 기반 뉴스 수집 및 Claude AI 분석을 통해 자동 생성되었습니다.<br>
+  K-water 경영연구소 | 생성일시: 2026.07.03 (금) 07:00
+</div>
+
 </div>
 
 
@@ -448,26 +513,21 @@ body {
 </div>
 
 
+
 <!-- BRIEFING_MANIFEST_BEGIN
 {"cards": [
-  {"no": 1, "category": "즉시주목", "title": "원·달러 환율 1,540원 돌파…예상 밑돈 미국 고용지표 여파", "url": "https://news.google.com/rss/articles/CBMiXkFVX3lxTE42ZHB2Vmk1eTBFLTUxZnNtbGVmbnBJMUE0Q1d6M09ZZnhjajliZ3J5N21aWEtQcGpqb2xZSGJvc0RSYWNsYjZLWnR6anU1emFXV2hDM2NaYmNaOFEtSEE?oc=5"},
-  {"no": 2, "category": "즉시주목", "title": "미국 6월 고용지표 둔화…다우 사상 최고치, 나스닥 반도체 약세", "url": "https://news.google.com/rss/articles/CBMinAFBVV95cUxQNmlSQU1CX2FPdk85U1ZHQjBSbHFXZDZ3VjUxNDg3THFOeUFyM0tiQURWczlyLUVxYm9QR0g5ZW5mcVA2bXVEc2QydjlQdkpfNHkxeTFzbXdxRkZVQ21lS2lXVVJQSktrWUVrY1pqUXdRN2VJdmpyWnRhT0ZncG1MT1RvZmpOcF9QcV91RXJ2SzBiQmpHd0ZHbkZNQzE?oc=5"},
-  {"no": 3, "category": "주의요망", "title": "장마 시작 후 소나기·폭우 반복…주말 남부, 다음 주 수도권 장맛비", "url": "https://news.google.com/rss/articles/CBMiXEFVX3lxTFBQN3R6TzVPWkN3MzZzOGppa3U0S3Jqc2JWZWtXVlI5aVBreVVZNXhzTHNTTTBvRUJ6M2dzNnNUaVFPdk95d2g5emdCTjctYUxUSlBaTUwyRjFYcmda?oc=5"},
-  {"no": 4, "category": "주의요망", "title": "이란, 호르무즈 해협 유조선에 승인 항로 사용 경고…'강력 대응' 예고", "url": "https://news.google.com/rss/articles/CBMiogFBVV95cUxQOEM2Y1VRaV9hZEpMWVFYU05hd2FsQjlnbDI5S2FvVmlJNVVjQi1hbTVVTWthM251SFpNcEFsb1ZRX2NuNmo2S3UyUXF3NlkzcHJXTlFGRlotQzR3bDBHSngwcUNYckFDY3VnWUgtRXI5cW9qd0tvUGFjb19kdTVIRXlyU3RkY05neGtOeWRXWmZPdmF0QlQyOG9FdGcxVkxEOWc?oc=5"},
-  {"no": 5, "category": "주의요망", "title": "러시아, 우크라이나 수도 키이우 대규모 공습…사상자 발생", "url": "https://news.google.com/rss/articles/CBMifEFVX3lxTE9Na09GaG1jdW9YYjFYcFI4azA2MGdjaVMzVGhEdlZrUlBMNWQ1Y2YzZmo5dEtUeDhVUFUxaGFpZjJkSVJNM0FvYm03R1ZoQWxUV2N6VnhKQ3o2cVNYWldlcDgyNUh4YjJGTENLVVB0YkZqT01RaVpKdEpzRjY?oc=5"},
-  {"no": 6, "category": "주의요망", "title": "미국 동부 폭염으로 교통·월드컵 행사 차질…에너지부, 데이터센터 백업전력 가동 명령", "url": "https://news.google.com/rss/articles/CBMiaEFVX3lxTE9IOHZOVmFydVBscjI0TFlrdlkteGY3ZVpkUTZaUnY5RjN4TGQxWVQ0SndRdVpVQWhuSkltOTVPbk9KbHRYbzBaVkoxYUx1NXVVNm5QdnZwWmFXTkVHUEZxUm00VWw2em41?oc=5"},
-  {"no": 7, "category": "동향참고", "title": "부강테크, AI 기반 수처리 공정 자동설계 상용화…43억 국가과제 선정", "url": "https://news.google.com/rss/articles/CBMiVkFVX3lxTE1aWVVFTDdOUFduTXI4VTBSakxwUWxPdWZVUjNpQS1qR2F1RzFxc2I0UjBrNDFvRGgyOHVidTk2SU1OeUtPeWlob0czSGtZa3RDbGlmZElB?oc=5"},
-  {"no": 8, "category": "동향참고", "title": "독일 메르츠 총리, 대규모 개혁안 발표…감세·연금개혁·병가제도 개편", "url": "https://news.google.com/rss/articles/CBMilgFBVV95cUxPOTJJZFpiQng2TXJEbXlJYWpEMVFvNlZkdHZxSnBPeG5aSzVvQ01zVXdpNWJFWURnaDgxZzJwNWJjelhLS09nZ1ItWDFReEdUVmtXSkNNVHh0VWdLTEpPeTJmU3RmNDBuUFVPQVZEZ3lfM1FRLWFjZjVRWE8tOXFPTk0wNkU1cjZzbHVyRmcwYjRjQldOR3c?oc=5"}
+  {"no": 1, "category": "즉시주목", "title": "6월 가장 뜨거웠던 전 세계 바다…전에 없던 고온과 '슈퍼 엘니뇨' 오나", "url": "https://news.google.com/rss/articles/CBMickFVX3lxTE5kbndiQk1ZS2xLRG1VOXVUSDE1dWdhY0Rha3FXRUg2T2J0MnA2UW40NHVqUzFkeXJfOU93MjE3dnFZS0FUQ1RtWFQxYXhYOHUzTm0ycXJRTnVhUVpkZ0RwZXByOEdoZElzWHk1ekcwc19wZw?oc=5"},
+  {"no": 2, "category": "즉시주목", "title": "주말 전국에 장맛비...폭염 수준 더위도", "url": "https://news.google.com/rss/articles/CBMilwFBVV95cUxOZTFrMFlfVGI0XzNqbXV1ZHg2eVBMd3ZTOEN1Vk12eWptMlZDMGpIeTFVZE43YmtCSnZlU21Dc1JZWG5aY0F0MjFNUVJSeC05NkR4NEdXTFYwUTJEU013TFBCVjBhRUxXVjdhMUo4WDFuTC0zRFQtaUwxQlJQS2lLMnAyaDZFVXBxVEFualpic2VwX2pRamZV?oc=5"},
+  {"no": 3, "category": "즉시주목", "title": "Canada unveils plans for new oil pipeline to break dependence on US", "url": "https://news.google.com/rss/articles/CBMicEFVX3lxTE5tZXY2a1Ntd0syQjhLVEk4VmZWSnd5bFFBOHRlSjFqYWk5LUJhQXpzV2ZwelhXdTFocnB4X0RZek5vZ0hNdkRXZzZGMnBTdVVyZHZVb3p1bTYxelhCRnJUS2VCdE1Qc2N4cnMwMEVwdGc?oc=5"},
+  {"no": 4, "category": "주의요망", "title": "靑 \"호남 전력, 재생에너지 확대가능…탈탄소가 탈원전은 아냐\"", "url": "https://news.google.com/rss/articles/CBMiW0FVX3lxTFBRUmI3NkxPZ1dGRXhpS1g5eFNkLUFjX2U0MURZNUpEOE9KT0o1c3JTd3R5YnpUakc5V0dJQS1vbi1kUDc4Ul95dGJfT19adlVPZXZqZW1tX2lUREnSAWBBVV95cUxORkw3Q3FhZEdmQTlOT2JETnBNc3ltbkJpNUdkLWp0TnB4WWt3cEJyVVRfeEQ3VV9mWnFHNHdJNlo1UGlkS0dkaXNsd21fOGoyX0VWSHhhVldXU1JNS29pRlk?oc=5"},
+  {"no": 5, "category": "주의요망", "title": "저커버그 \"AI 에이전트, 기대만큼 안 나왔다\"…메타 속도전 '경고등'", "url": "https://news.google.com/rss/articles/CBMiUkFVX3lxTE1ROUQ2WGI1eHphQW5uUFlaUHpvRXZRQnNRS0FIZzlrTGFQTTlxOXNYQUJrT2xoM1dtLVg3Z0VRSmgzeVd1QnJMS3p2M081MENvY0E?oc=5"},
+  {"no": 6, "category": "주의요망", "title": "Iran sends defiant message to Trump with colossal funeral for slain Supreme Leader Ali Khamenei", "url": "https://news.google.com/rss/articles/CBMifEFVX3lxTE5fd2g0cHR0NG5PQWdlYkktNXdHQmczZEE2cW9mQUFZZGdZM1ZOZzNMeUFEOThEcTVUNDJKNDFWZm1tcFl3WTkxRUxvN3pjUEUxcjVScWoteUxlQVBhUzYtZFBIb3NFSzZ3dXNPMjF3SjNFd2dkSmFvVjBzclY?oc=5"},
+  {"no": 7, "category": "주의요망", "title": "Russia Hammers Ukraine's Capital in Deadly Attacks", "url": "https://news.google.com/rss/articles/CBMifEFVX3lxTE9Na09GaG1jdW9YYjFYcFI4azA2MGdjaVMzVGhEdlZrUlBMNWQ1Y2YzZmo5dEtUeDhVUFUxaGFpZjJkSVJNM0FvYm03R1ZoQWxUV2N6VnhKQ3o2cVNYWldlcDgyNUh4YjJGTENLVVB0YkZqT01RaVpKdEpzRjY?oc=5"},
+  {"no": 8, "category": "동향참고", "title": "Stock Market News, July 2, 2026: Dow Rises, Nasdaq Falls After June Jobs Report", "url": "https://news.google.com/rss/articles/CBMifkFVX3lxTE5ERzdWcTBwekVjWjdVRzRseWxIZm9KZ0dPTk1yc2hDaHNXMm5nVTRLMzZVYlpfOW83LU9DdmlHTEJHTGpaZTNmUDJ2cTd2bmRSbUpvZUFZTi1kM2gzQUY5bWhLWTlaM1pMTGVUMjRTVDhGZ3duMFo0T2N4NWE5UQ?oc=5"},
+  {"no": 9, "category": "동향참고", "title": "한국이 HBM에 취해 있을 때, 대만은 'AI 몸통'을 장악했다", "url": "https://news.google.com/rss/articles/CBMihgFBVV95cUxQZEdoT1RXaHc2VjlzR1VpLUt3OGRXZlBsSWhTNEFNUVhNdThfcVdGQzM0VGVCQTJ6cjMtbDVNNGtyejNnMzh3dFJTVGJ6RFY4S0FWT0ZvTGpjcmVVenBUZEpBRXlEWjdGZTFrLWdYRUliMXczSkkzN2tCUl84QWYydmRpUk9Jdw?oc=5"},
+  {"no": 10, "category": "동향참고", "title": "Energy Dept. directs data centers to use backup generators during heat wave, freeing up power for AC", "url": "https://news.google.com/rss/articles/CBMihgFBVV95cUxOS1k1ZFZSXzh4aTMwcU5QZUdta0VaOGE4aGRBMnVOLU4zU0tLbEdBdU1kV2VrUTdxRXNuZTlIbGt1RllRTmNWc2tfd2RrOTlPTXJDbjkyR2wxR2hOWFIyekZWVTlxMExjT21DMDdZMmFtNm5ZaW9BVlVBTmhQOW43WjNsRXg1QQ?oc=5"}
 ]}
 BRIEFING_MANIFEST_END -->
-
-<div class="footer">
-  <strong>우선순위 기준</strong><br>
-  즉시주목 = 긴급도 높음·중요도 높음 / 주의요망 = 긴급도 높음·중요도 낮음 or 긴급도 낮음·중요도 높음 / 동향참고 = 긴급도 낮음·중요도 낮음
-  <br><br>
-  본 브리핑은 Google Trends 기반 뉴스 수집 및 Claude AI 분석을 통해 자동 생성되었습니다.<br>
-  K-water 경영연구소 | 문의: research@kwater.or.kr
-</div>
 
 </body>
 </html>
