@@ -5,16 +5,220 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>K-water연구원 데일리 브리핑</title>
 <style>
-  body { font-family:'Malgun Gothic','Noto Sans KR',sans-serif; background:#f5f6f8;
-          margin:0; padding:24px 16px 60px; color:#333; }
-  .wrap { max-width:720px; margin:0 auto; }
-  .header { background:#fff; border-radius:12px; padding:24px 28px; margin-bottom:16px;
-             box-shadow:0 2px 10px rgba(0,0,0,0.06); border-top:5px solid #002060; }
-  .header h1 { color:#002060; font-size:22px; margin:0 0 6px; }
-  .header .sub { color:#6b6b6b; font-size:12px; margin-bottom:16px; line-height:1.6; }
-  .header .meta { font-size:13px; color:#3c3c3c; line-height:1.9; }
-  .banner-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:8px; margin-top:14px; }
-  .footer { text-align:center; font-size:11px; color:#9ca3af; margin-top:20px; line-height:1.7; }
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: -apple-system, 'Noto Sans KR', sans-serif;
+  background: #f4f6f9;
+  word-break: keep-all;
+  overflow-wrap: break-word;
+  padding-bottom: 80px;
+}
+.container {
+  max-width: 480px;
+  margin: 0 auto;
+  padding: 0 16px;
+}
+.header-card {
+  background: linear-gradient(135deg, #1a56db, #1e3a8a);
+  padding: 28px 20px;
+  border-radius: 0 0 20px 20px;
+  color: #fff;
+  margin-bottom: 16px;
+}
+.header-title {
+  font-size: 26px;
+  font-weight: 800;
+  line-height: 1.3;
+  letter-spacing: -0.5px;
+  margin-bottom: 8px;
+}
+.header-subtitle {
+  font-size: 14px;
+  color: rgba(255,255,255,0.85);
+  line-height: 1.6;
+}
+.meta-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+  margin-top: 16px;
+}
+.meta-cell {
+  background: rgba(255,255,255,0.15);
+  border-radius: 10px;
+  padding: 10px 14px;
+  font-size: 13px;
+}
+.meta-label {
+  opacity: 0.9;
+  margin-bottom: 4px;
+}
+.meta-value {
+  font-weight: 600;
+}
+.summary-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+  margin: 16px 0;
+}
+.summary-cell {
+  border-radius: 12px;
+  padding: 10px 8px;
+  text-align: center;
+  border: 1px solid;
+}
+.summary-cell.urgent {
+  background: #fff0f0;
+  border-color: #f5b8bc;
+  color: #c0000a;
+}
+.summary-cell.caution {
+  background: #fff8e8;
+  border-color: #f0d080;
+  color: #b06a00;
+}
+.summary-cell.reference {
+  background: #f0faf0;
+  border-color: #90d890;
+  color: #1a6e1a;
+}
+.summary-label {
+  font-size: 12px;
+  font-weight: 600;
+}
+.summary-count {
+  font-size: 20px;
+  font-weight: 800;
+  display: block;
+  margin-top: 2px;
+}
+.card {
+  background: #ffffff;
+  border-radius: 14px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  padding: 18px 16px;
+  margin-bottom: 12px;
+  border-left: 4px solid;
+}
+.card.urgent {
+  border-left-color: #e74c3c;
+}
+.card.caution {
+  border-left-color: #f39c12;
+}
+.card.reference {
+  border-left-color: #27ae60;
+}
+.tag-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  align-items: center;
+  margin-bottom: 10px;
+}
+.tag {
+  border-radius: 20px;
+  padding: 4px 10px;
+  font-size: 12px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+.tag-number {
+  background: #eef2f9;
+  color: #1a3f7f;
+}
+.tag-priority {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+.priority-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  display: inline-block;
+}
+.priority-dot.urgent {
+  background: #e74c3c;
+}
+.priority-dot.caution {
+  background: #f39c12;
+}
+.priority-dot.reference {
+  background: #27ae60;
+}
+.tag-category {
+  background: #eef2f9;
+  color: #3c3c3c;
+}
+.tag-region {
+  background: #f3f4f6;
+  color: #555;
+}
+.card-title {
+  font-size: 17px;
+  font-weight: 700;
+  line-height: 1.45;
+  margin: 10px 0 8px;
+  color: #1a1a2e;
+}
+.card-content {
+  font-size: 14px;
+  line-height: 1.75;
+  color: #444;
+  margin-bottom: 8px;
+}
+.card-source {
+  font-size: 12px;
+  color: #888;
+  margin-top: 8px;
+}
+.card-source a {
+  color: #2c5fcc;
+  text-decoration: none;
+}
+.insight-box {
+  margin-top: 12px;
+  padding: 10px 12px;
+  border-left: 3px solid;
+  border-radius: 0 8px 8px 0;
+  font-size: 13px;
+  line-height: 1.7;
+  color: #1a5276;
+}
+.insight-box.urgent {
+  background: rgba(231, 76, 60, 0.1);
+  border-left-color: #e74c3c;
+}
+.insight-box.caution {
+  background: rgba(243, 156, 18, 0.1);
+  border-left-color: #f39c12;
+}
+.insight-box.reference {
+  background: rgba(39, 174, 96, 0.1);
+  border-left-color: #27ae60;
+}
+.monitoring-note {
+  font-size: 12px;
+  color: #888;
+  margin-top: 8px;
+  padding-top: 8px;
+  border-top: 1px solid #f0f0f0;
+}
+.footer {
+  margin-top: 24px;
+  padding: 16px;
+  background: #f8f9fa;
+  border-radius: 12px;
+  font-size: 12px;
+  color: #666;
+  line-height: 1.6;
+}
 </style>
 <script src="https://t1.kakaocdn.net/kakao_js_sdk/2.7.0/kakao.min.js"></script>
 </head>
@@ -28,7 +232,7 @@
   <div style="font-size:24px;">🎧</div>
   <div style="flex:1;">
     <div style="font-size:14px; font-weight:700; color:#002060; margin-bottom:6px;">
-      음성으로 듣기 (약 16분)
+      음성으로 듣기 (약 3분)
     </div>
     <audio controls preload="none" style="width:100%;">
       <source src="./audio/latest.mp3" type="audio/mpeg">
@@ -37,440 +241,200 @@
   </div>
 </div>
 
-  <div class="wrap">
-    <div class="header">
-      <h1>K-water연구원 데일리 브리핑</h1>
-      <div class="sub">매일 아침, 국내외 주요 이슈와 시사점을 간추려 전달합니다 본 자료는 생성형 AI를 통해 자동 작성되었습니다</div>
-      <div class="meta">
-        2026년 7월 13일 월요일 · 오전 01:02 생성<br>
-        수록 기간: 전주 금요일(2026-07-10) ~ 일요일(2026-07-12)<br>
-        총 15건 | 즉시주목 3건 · 주의요망 9건 · 동향참고 3건
-      </div>
-      <div class="banner-grid"><div style="background:#fff0f0;border:1px solid #f5b8bc;
-                     border-radius:8px;padding:6px 10px;display:flex;align-items:center;gap:6px;
-                     justify-content:center;font-size:12px;color:#c0000a;font-weight:600;">
-          <span style="width:7px;height:7px;border-radius:50%;background:#c0000a;display:inline-block;"></span>
-          즉시주목 3건
-        </div><div style="background:#fff8e8;border:1px solid #f0d080;
-                     border-radius:8px;padding:6px 10px;display:flex;align-items:center;gap:6px;
-                     justify-content:center;font-size:12px;color:#b06a00;font-weight:600;">
-          <span style="width:7px;height:7px;border-radius:50%;background:#b06a00;display:inline-block;"></span>
-          주의요망 9건
-        </div><div style="background:#f0faf0;border:1px solid #90d890;
-                     border-radius:8px;padding:6px 10px;display:flex;align-items:center;gap:6px;
-                     justify-content:center;font-size:12px;color:#1a6e1a;font-weight:600;">
-          <span style="width:7px;height:7px;border-radius:50%;background:#1a6e1a;display:inline-block;"></span>
-          동향참고 3건
-        </div></div>
+<div class="container">
+
+<div class="header-card">
+  <div class="header-title">K-water연구원<br>데일리 브리핑</div>
+  <div class="header-subtitle">국내외 주요 이슈와 시사점을 전달합니다<br>본 자료는 생성형 AI를 통해 자동 작성되었습니다</div>
+  <div class="meta-grid">
+    <div class="meta-cell">
+      <div class="meta-label">생성일시</div>
+      <div class="meta-value">2026.07.13 (월)</div>
     </div>
-    
-<div class="brief-card" style="
-    position:relative; background:#fff; border-radius:10px; margin-bottom:16px;
-    padding:18px 20px 18px 24px; box-shadow:0 2px 10px rgba(0,0,0,0.06);
-    border-left:5px solid #f5b8bc;">
-  <div style="display:flex; gap:8px; align-items:center; flex-wrap:wrap; margin-bottom:10px;">
-    <span style="background:#eef2f9;color:#1a3f7f;font-size:11px;font-weight:700;
-                 padding:3px 8px;border-radius:20px;">#1</span>
-    <span style="display:inline-flex;align-items:center;gap:5px;background:#fff0f0;
-                 color:#c0000a;border:1px solid #f5b8bc;font-size:11px;
-                 font-weight:700;padding:3px 10px;border-radius:20px;">
-      <span style="width:7px;height:7px;border-radius:50%;background:#c0000a;display:inline-block;"></span>
-      즉시주목
-    </span>
-    <span style="background:#eef2f9;color:#3c3c3c;font-size:11px;padding:3px 8px;border-radius:20px;">지정학·국제정세</span>
-    <span style="background:#f0f2f5;color:#555;font-size:11px;padding:3px 8px;border-radius:20px;">국내</span>
+    <div class="meta-cell">
+      <div class="meta-label">수록 기간</div>
+      <div class="meta-value">최근 72시간</div>
+    </div>
   </div>
-  <div style="font-size:16px;font-weight:700;color:#1a1a1a;margin-bottom:8px;line-height:1.5;">‘트럼프 우군’ 린지 그레이엄 미 상원의원 급사…향년 71 - 한겨레</div>
-  <div style="font-size:14px;color:#3c3c3c;line-height:1.7;margin-bottom:10px;">도널드 트럼프 대통령의 오랜 정치적 우군이자 공화당 외교·안보 강경파인 린지 그레이엄 상원의원이 7월 11일 심정지로 급사했다. 그레이엄 의원은 2003년부터 20년 넘게 상원에서 활동하며 상원 예산위원장을 맡고 있었으며, 사망 전날인 10일에는 우크라이나 키이우에서 젤렌스키 대통령을 만나는 등 외교 활동을 이어갔다. 구체적인 사인은 공개되지 않았다.</div>
-  <div style="font-size:12px;color:#8a8a8a;margin-bottom:12px;">
-    한겨레 | 2026.07.12 08:41 | <a href="https://news.google.com/rss/articles/CBMib0FVX3lxTE9wVGpETmp1VEhlOTlXdkdqTWVqZE51bnpxaW1jR0J2Qm9mdm9Fb2lvSXpyRWlDVjljeGhwdjlCaElKaVlaV2JHc1BQZTZrTmJ1eks3UFhMaFV6cEtONEtLaEFwZDBETnN4cUZNUERWcw?oc=5" target="_blank" rel="noopener" style="color:#1a73e8;text-decoration:none;">원문 보기</a>
-  </div>
-  <div style="background:#fff0f0;border-left:2px solid #c0000a;border-radius:4px;
-              padding:10px 14px;font-size:13px;color:#3c3c3c;line-height:1.6;">
-    <strong style="color:#c0000a;">K-water 시사점</strong> 그레이엄 의원은 트럼프 행정부의 핵심 의회 우군으로 외교·안보·예산 분야에서 강력한 영향력을 행사해왔다. 그의 급작스러운 사망은 미국 의회 내 공화당 외교 정책 라인에 공백을 초래하며, 향후 미국의 대외 정책 기조 변화 가능성을 열어둔다. K-water는 글로벌·기후테크 SBU를 통해 14개국 30개 해외사업을 진행 중이며, 2026년 매출 목표 715억원 규모의 사업을 추진하고 있다. 미국 정치 지형 변화가 국제 개발 금융·기후 협력 정책에 미치는 영향을 모니터링하고, 주요 해외사업 진행국(인도네시아·베트남 등)의 미국 관계 동향을 점검할 필요가 있다. 다만 이 사안은 K-water 국내 사업에 직접적 영향을 미치지 않으며, 동향 파악 차원에서 참고하는 수준이 적절하다.
-  </div>
-  <div style="margin-top:10px;font-size:12px;color:#c0000a;font-weight:600;">▶ 후속 모니터링: 지속 모니터링 필요</div>
 </div>
-<div class="brief-card" style="
-    position:relative; background:#fff; border-radius:10px; margin-bottom:16px;
-    padding:18px 20px 18px 24px; box-shadow:0 2px 10px rgba(0,0,0,0.06);
-    border-left:5px solid #f5b8bc;">
-  <div style="display:flex; gap:8px; align-items:center; flex-wrap:wrap; margin-bottom:10px;">
-    <span style="background:#eef2f9;color:#1a3f7f;font-size:11px;font-weight:700;
-                 padding:3px 8px;border-radius:20px;">#2</span>
-    <span style="display:inline-flex;align-items:center;gap:5px;background:#fff0f0;
-                 color:#c0000a;border:1px solid #f5b8bc;font-size:11px;
-                 font-weight:700;padding:3px 10px;border-radius:20px;">
-      <span style="width:7px;height:7px;border-radius:50%;background:#c0000a;display:inline-block;"></span>
-      즉시주목
-    </span>
-    <span style="background:#eef2f9;color:#3c3c3c;font-size:11px;padding:3px 8px;border-radius:20px;">지정학·국제정세</span>
-    <span style="background:#f0f2f5;color:#555;font-size:11px;padding:3px 8px;border-radius:20px;">국내</span>
+
+<div class="summary-grid">
+  <div class="summary-cell urgent">
+    <div class="summary-label">즉시<br>주목</div>
+    <span class="summary-count">3</span>
   </div>
-  <div style="font-size:16px;font-weight:700;color:#1a1a1a;margin-bottom:8px;line-height:1.5;">트럼프 “암살 시도 땐 궤멸”…이란에 수천발 미사일 경고 - 한겨레</div>
-  <div style="font-size:14px;color:#3c3c3c;line-height:1.7;margin-bottom:10px;">도널드 트럼프 대통령이 7월 10일 소셜미디어를 통해 이란이 자신을 암살하거나 암살을 시도할 경우 1천 기의 미사일로 이란을 초토화하겠다고 경고했다. 트럼프는 미군이 이란 전역을 완전히 파괴할 준비와 의지, 능력을 갖추고 있다고 밝혔으며, 같은 날 이란과의 휴전 종료를 공식 선언했다. 이는 최근 이란 내부에서 트럼프 암살 목소리가 공개적으로 나온 데 따른 대응이다.</div>
-  <div style="font-size:12px;color:#8a8a8a;margin-bottom:12px;">
-    한겨레 | 2026.07.11 22:07 | <a href="https://news.google.com/rss/articles/CBMia0FVX3lxTE1SZFhWSDFUY1BxTGx1bS1XcjBJdmpIRWNzQWV6eW5aNDRJR2dlMlJwQl85NXp2eWFWMElkN3Y1T25hRFIzNHFhYmMzWUU0dURRRzNkM3dNWkFtbVI4VzZiYUFWcXVJVkNkT0xn?oc=5" target="_blank" rel="noopener" style="color:#1a73e8;text-decoration:none;">원문 보기</a>
+  <div class="summary-cell caution">
+    <div class="summary-label">주의<br>요망</div>
+    <span class="summary-count">4</span>
   </div>
-  <div style="background:#fff0f0;border-left:2px solid #c0000a;border-radius:4px;
-              padding:10px 14px;font-size:13px;color:#3c3c3c;line-height:1.6;">
-    <strong style="color:#c0000a;">K-water 시사점</strong> 트럼프 대통령의 이란 강경 발언과 휴전 종료 선언은 중동 정세 불안을 심화시키며, 앞서 언급된 호르무즈 해협 분쟁(기사 ID 42)과 연계해 글로벌 에너지 시장 변동성을 확대할 수 있다. K-water는 에너지·도시 SBU에서 수력·조력·태양광 발전 사업을 운영하고 있으며, 중동 정세 악화로 국제 유가가 급등할 경우 댐·상하수도 운영에 필요한 전력 및 화학약품 조달 비용 상승 압력이 발생할 수 있다. 재무·기획 부서는 유가 변동 시나리오별 운영비 영향을 점검하고, 에너지 조달 다변화 방안을 검토할 필요가 있다. 다만 K-water는 현재 중동 지역 해외사업을 진행하고 있지 않아 현장 인력 안전 리스크는 제한적이며, 이 사안은 글로벌 에너지 시장 동향 파악 차원에서 참고하는 수준이 적절하다.
+  <div class="summary-cell reference">
+    <div class="summary-label">동향<br>참고</div>
+    <span class="summary-count">3</span>
   </div>
-  <div style="margin-top:10px;font-size:12px;color:#c0000a;font-weight:600;">▶ 후속 모니터링: 지속 모니터링 필요</div>
 </div>
-<div class="brief-card" style="
-    position:relative; background:#fff; border-radius:10px; margin-bottom:16px;
-    padding:18px 20px 18px 24px; box-shadow:0 2px 10px rgba(0,0,0,0.06);
-    border-left:5px solid #f5b8bc;">
-  <div style="display:flex; gap:8px; align-items:center; flex-wrap:wrap; margin-bottom:10px;">
-    <span style="background:#eef2f9;color:#1a3f7f;font-size:11px;font-weight:700;
-                 padding:3px 8px;border-radius:20px;">#3</span>
-    <span style="display:inline-flex;align-items:center;gap:5px;background:#fff0f0;
-                 color:#c0000a;border:1px solid #f5b8bc;font-size:11px;
-                 font-weight:700;padding:3px 10px;border-radius:20px;">
-      <span style="width:7px;height:7px;border-radius:50%;background:#c0000a;display:inline-block;"></span>
-      즉시주목
-    </span>
-    <span style="background:#eef2f9;color:#3c3c3c;font-size:11px;padding:3px 8px;border-radius:20px;">지정학·국제정세</span>
-    <span style="background:#f0f2f5;color:#555;font-size:11px;padding:3px 8px;border-radius:20px;">국외</span>
+
+<!-- 즉시주목 -->
+<div class="card urgent">
+  <div class="tag-row">
+    <span class="tag tag-number">01</span>
+    <span class="tag tag-priority"><span class="priority-dot urgent"></span>즉시주목</span>
+    <span class="tag tag-category">[A] 지정학·국제정세</span>
+    <span class="tag tag-region">국외</span>
   </div>
-  <div style="font-size:16px;font-weight:700;color:#1a1a1a;margin-bottom:8px;line-height:1.5;">US strikes Iran over latest ship attack and Tehran responds by hitting Arab states - AP News</div>
-  <div style="font-size:14px;color:#3c3c3c;line-height:1.7;margin-bottom:10px;">미국이 7월 12일 호르무즈 해협에서 이란의 컨테이너선 공격에 대응해 이란 내 140여 개 군사 목표를 타격했다. 이란은 바레인·쿠웨이트·카타르·요르단·오만 등 미군 주둔 중동 국가들에 보복 공격을 가했으며, 호르무즈 해협 폐쇄를 선언했다. 미·이란 60일 임시 휴전 협정이 중간 지점을 지나는 시점에서 전쟁 재개 위기가 고조되고 있다.</div>
-  <div style="font-size:12px;color:#8a8a8a;margin-bottom:12px;">
-    AP News | 2026.07.12 14:59 | <a href="https://news.google.com/rss/articles/CBMinAFBVV95cUxPZWNIZWpPMUROMXlXU0EwT1pjWWUycXFoTjBobEJLM0JpWGhjTWZwN0Q2RkxaY3N6cU9fNXZOT194MWFHYllDYUh4RWdEdmF3NVpGQ2tlOTl4dWI5VzVMWlgycVBYcmtSRDR6UV9lQmtoWkZMUWRvLUYwZXhIQzlGcVVpTGlMZElhRkxkT0pkMXlEZDJmSll0c2JsYkY?oc=5" target="_blank" rel="noopener" style="color:#1a73e8;text-decoration:none;">원문 보기</a>
+  <div class="card-title">美, 이란에 추가 공습… "호르무즈 상선 공격 역량 약화"</div>
+  <div class="card-content">미국이 7월 12일 이란에 대한 2차 공습을 개시했다. 트럼프 대통령은 이란을 "사악하고 정신 나간 사람들"이라 비난하며 호르무즈 해협 인근 이란 해군 시설과 미사일 기지를 타격했다고 밝혔다. 이란은 하메네이 최고지도자 복수 대상 13인을 지목하며 보복을 예고했다.</div>
+  <div class="card-source">조선일보 | 2026.07.12 21:38 | <a href="https://news.google.com/rss/articles/CBMihAFBVV95cUxNWlZZbXlJSHVWcTU4NU5qRzQ2NEE0Qy1YVFozdmN2TU9XLWQxdHpRMUdSYzEyS1dZVEpUS29VRzBGTHVmU1VzcmFYS3hDQUE3SzVLSFF0WGlEQzNSMDlIWFBxRTVNV2xRSi13Qlg2b3lGdkxHMVBjNmsxVE5oMjlOb0RieFQ?oc=5" target="_blank">원문 보기</a></div>
+  <div class="insight-box urgent">
+    <strong>K-water 시사점:</strong> 호르무즈 해협 긴장 고조는 글로벌 유가 급등으로 이어질 가능성이 높다. K-water 재무·조달 전반에서 유가 상승이 댐·상하수도 운영비 및 건설자재비 증가로 연결되는 경로를 점검할 필요가 있다. 또한 해외사업 진행 중인 14개국 중 중동 인접 지역(인도네시아·베트남 등) 현장의 물류·공급망 리스크 모니터링이 권고된다.
   </div>
-  <div style="background:#fff0f0;border-left:2px solid #c0000a;border-radius:4px;
-              padding:10px 14px;font-size:13px;color:#3c3c3c;line-height:1.6;">
-    <strong style="color:#c0000a;">K-water 시사점</strong> 호르무즈 해협은 전 세계 석유·천연가스 교역량의 약 5분의 1이 통과하는 전략적 요충지로, 이란의 해협 폐쇄 선언은 글로벌 에너지 공급망에 직접적 충격을 줄 수 있다. K-water는 에너지·도시 SBU에서 수력·조력·태양광 발전 사업을 운영하고 있으며, 2026년 매출 목표 1조 1,652억원 규모의 사업을 추진 중이다. 중동 정세 불안으로 국제 유가가 급등할 경우 댐·상하수도 운영에 필요한 전력 및 화학약품 조달 비용이 상승해 수자원·환경 SBU(2026년 매출 목표 6,557억원)와 수도 SBU(2조 7,913억원)의 운영비 증가 압력이 발생할 수 있다. 재무·기획 부서는 유가 변동 시나리오별 운영비 영향을 점검하고, 에너지 조달 다변화 방안을 검토할 필요가 있다. 다만 K-water는 현재 중동 지역 해외사업을 진행하고 있지 않아 현장 인력 안전 리스크는 제한적이다.
-  </div>
-  <div style="margin-top:10px;font-size:12px;color:#c0000a;font-weight:600;">▶ 후속 모니터링: 지속 모니터링 필요</div>
+  <div class="monitoring-note">후속 모니터링: 지속 모니터링 필요</div>
 </div>
-<div class="brief-card" style="
-    position:relative; background:#fff; border-radius:10px; margin-bottom:16px;
-    padding:18px 20px 18px 24px; box-shadow:0 2px 10px rgba(0,0,0,0.06);
-    border-left:5px solid #f0d080;">
-  <div style="display:flex; gap:8px; align-items:center; flex-wrap:wrap; margin-bottom:10px;">
-    <span style="background:#eef2f9;color:#1a3f7f;font-size:11px;font-weight:700;
-                 padding:3px 8px;border-radius:20px;">#4</span>
-    <span style="display:inline-flex;align-items:center;gap:5px;background:#fff8e8;
-                 color:#b06a00;border:1px solid #f0d080;font-size:11px;
-                 font-weight:700;padding:3px 10px;border-radius:20px;">
-      <span style="width:7px;height:7px;border-radius:50%;background:#b06a00;display:inline-block;"></span>
-      주의요망
-    </span>
-    <span style="background:#eef2f9;color:#3c3c3c;font-size:11px;padding:3px 8px;border-radius:20px;">지정학·국제정세</span>
-    <span style="background:#f0f2f5;color:#555;font-size:11px;padding:3px 8px;border-radius:20px;">국내</span>
+
+<div class="card urgent">
+  <div class="tag-row">
+    <span class="tag tag-number">02</span>
+    <span class="tag tag-priority"><span class="priority-dot urgent"></span>즉시주목</span>
+    <span class="tag tag-category">[C] 경제·금융</span>
+    <span class="tag tag-region">국외</span>
   </div>
-  <div style="font-size:16px;font-weight:700;color:#1a1a1a;margin-bottom:8px;line-height:1.5;">우크라이나, 러시아 유류시설→유조선으로 타격 확대 - 경향신문</div>
-  <div style="font-size:14px;color:#3c3c3c;line-height:1.7;margin-bottom:10px;">우크라이나가 7월 11일 아조프해에서 러시아 유조선 21척, 예인선 4척 등 총 28척을 드론으로 타격해 73차례 명중시켰다. 우크라이나군은 이들 선박이 국제 제재를 우회해 원유와 석유제품을 실어나르며 러시아의 전쟁 자금줄 역할을 해왔다고 밝혔다. 이번 타격으로 러시아가 돈강-아조프 운하 항행과 케르치해협 통과를 일시 중단하면서 유럽 증권시장에서 밀 선물 가격이 최대 4% 올라 6주 만에 최고치를 기록했다.</div>
-  <div style="font-size:12px;color:#8a8a8a;margin-bottom:12px;">
-    경향신문 | 2026.07.12 05:28 | <a href="https://news.google.com/rss/articles/CBMiWkFVX3lxTFBrT3lESmsyNlNFQmg0bm9iUHkyUVNfdHE5b3hWUldWSHRYRUZtY2ZHeGxqWVhBSThMWW45N0NCeWs5Q2R3Yno1aks1Yk9hM1JDMTQxUDNtVlo3UdIBX0FVX3lxTE45U1E0ZEZqcFhBOFhaMnpRNW1xM09jbVdQaG4zSWRYNElTT1plTVdjY1VWY3UxR01QRXlQcjBmMklYRlEzVGNSY2lsWjlsWnkwRU1kVzZxMTNsNzdBenE0?oc=5" target="_blank" rel="noopener" style="color:#1a73e8;text-decoration:none;">원문 보기</a>
+  <div class="card-title">Oil Climbs, US Futures Dip on Fresh Iran Strikes: Markets Wrap</div>
+  <div class="card-content">미국의 이란 추가 공습 소식에 국제 유가가 급등하고 아시아 증시가 하락했다. 브렌트유는 배럴당 85달러를 돌파했으며, 미국 선물지수는 하락 출발했다. 중동 지정학 리스크가 글로벌 금융시장 변동성을 확대하고 있다.</div>
+  <div class="card-source">Bloomberg | 2026.07.13 01:49 | <a href="https://news.google.com/rss/articles/CBMisAFBVV95cUxOQlZnMENNcXpBaThQdm1BZlAwLXpEOUxXUzJGWTVCemJLY01QRmF6ejRmb2hpSllOUllwRUlJSnRkWlBWczlXTWxGdmozU2ZpdXVLMlVRR244WUFZa1ZYLXBKTXdpaGtVTFdsZjJadzg1U21fbC1qQ3Ixc25oejB2dzQ0aVlIRTlGY0g3SDdJVUtiYno2OVhIQ1VRTVpiWjVqRWFmZTdLRk41TUttTWt3Ng?oc=5" target="_blank">원문 보기</a></div>
+  <div class="insight-box urgent">
+    <strong>K-water 시사점:</strong> 유가 급등은 K-water 재무·조달 구조에 이중 영향을 미친다. 댐·상하수도 운영비와 건설자재비 상승으로 비용 부담이 증가하는 반면, 에너지·도시 사업부문의 수상태양광·조력발전 등 재생에너지 사업 환경에는 간접적 우호 요인이 될 수 있다. 단기적으로는 2026년 예산 7조 1,560억원 집행 과정에서 유가 연동 비용 항목 점검이 필요하다.
   </div>
-  <div style="background:#fff8e8;border-left:2px solid #b06a00;border-radius:4px;
-              padding:10px 14px;font-size:13px;color:#3c3c3c;line-height:1.6;">
-    <strong style="color:#b06a00;">K-water 시사점</strong> 우크라이나의 러시아 유조선 타격은 흑해·아조프해 해상 물류망을 마비시키며 글로벌 곡물 공급망에 직접적 충격을 주고 있다. 러시아 밀 수출의 최대 4분의 1이 아조프해를 거치는 상황에서 밀 선물 가격 급등은 국제 곡물 가격 상승 압력으로 이어질 수 있다. K-water는 댐·상하수도 운영 과정에서 화학약품·건설자재 등을 조달하고 있으며, 글로벌 원자재 가격 변동이 조달 비용에 간접적 영향을 미칠 수 있다. 다만 이 사안은 K-water 국내 사업에 직접적 영향을 미치지 않으며, 글로벌 원자재 시장 동향 파악 차원에서 참고하는 수준이 적절하다. 재무·기획 부서는 국제 곡물·원자재 가격 동향을 모니터링하고, 필요 시 조달 비용 변동 시나리오를 점검할 필요가 있다.
-  </div>
-  
+  <div class="monitoring-note">후속 모니터링: 지속 모니터링 필요</div>
 </div>
-<div class="brief-card" style="
-    position:relative; background:#fff; border-radius:10px; margin-bottom:16px;
-    padding:18px 20px 18px 24px; box-shadow:0 2px 10px rgba(0,0,0,0.06);
-    border-left:5px solid #f0d080;">
-  <div style="display:flex; gap:8px; align-items:center; flex-wrap:wrap; margin-bottom:10px;">
-    <span style="background:#eef2f9;color:#1a3f7f;font-size:11px;font-weight:700;
-                 padding:3px 8px;border-radius:20px;">#5</span>
-    <span style="display:inline-flex;align-items:center;gap:5px;background:#fff8e8;
-                 color:#b06a00;border:1px solid #f0d080;font-size:11px;
-                 font-weight:700;padding:3px 10px;border-radius:20px;">
-      <span style="width:7px;height:7px;border-radius:50%;background:#b06a00;display:inline-block;"></span>
-      주의요망
-    </span>
-    <span style="background:#eef2f9;color:#3c3c3c;font-size:11px;padding:3px 8px;border-radius:20px;">기후·에너지·환경</span>
-    <span style="background:#f0f2f5;color:#555;font-size:11px;padding:3px 8px;border-radius:20px;">국내</span>
+
+<div class="card urgent">
+  <div class="tag-row">
+    <span class="tag tag-number">03</span>
+    <span class="tag tag-priority"><span class="priority-dot urgent"></span>즉시주목</span>
+    <span class="tag tag-category">[B] 정치·정책</span>
+    <span class="tag tag-region">국내</span>
   </div>
-  <div style="font-size:16px;font-weight:700;color:#1a1a1a;margin-bottom:8px;line-height:1.5;">스페인 남부 ‘역사상 최악’ 산불…사망 12명·23명 실종 - 한겨레</div>
-  <div style="font-size:14px;color:#3c3c3c;line-height:1.7;margin-bottom:10px;">스페인 남부 안달루시아 지방에서 7월 9일 발생한 대형 산불로 7월 11일 기준 12명이 사망하고 23명이 실종됐다. 산불 피해 면적은 4,000헥타르(40제곱킬로미터)에 달하며, 1,400명이 주거지를 떠났다. 이번 산불은 고속도로에서 전선이 끊어지면서 발생했으며, 유럽 전역의 기록적인 폭염이 산불 확산의 주된 원인으로 지목됐다.</div>
-  <div style="font-size:12px;color:#8a8a8a;margin-bottom:12px;">
-    한겨레 | 2026.07.12 03:31 | <a href="https://news.google.com/rss/articles/CBMibkFVX3lxTE83bENGcTlLTTNPbGdBUXJnNFI2SHplOFFBZUxpRkgwMjBNbkZCVTl1QUdKRzVjSWZwRTBBR29mdHNBQXo4bkxHZTZpWGVGNUV4eXdUTXZwdExodi14a0FqQzB6eUljc1JRaWZZTVRR?oc=5" target="_blank" rel="noopener" style="color:#1a73e8;text-decoration:none;">원문 보기</a>
+  <div class="card-title">[속보] 당정 "신규 원전 건설 배제하지 않겠다"</div>
+  <div class="card-content">정부와 여당이 7월 13일 신규 원전 건설을 배제하지 않겠다는 입장을 공식 발표했다. 반도체 등 첨단산업의 전력 수요 급증에 대응하기 위해 원전 정책 기조를 전환한 것으로 해석된다. 기후에너지환경부는 안정적 전기 공급이 국가 경쟁력의 핵심이라며 원전과 재생에너지를 함께 추진하겠다고 밝혔다.</div>
+  <div class="card-source">조선일보 | 2026.07.13 01:04 | <a href="https://news.google.com/rss/articles/CBMihgFBVV95cUxQbG9xY0R5TGQ2aEc2ZHdPLUZ3MWI2SkVyUEI0bGFqUHczUEZ6b1BidGJPc09QbUhrQl9jUEtJX3lrank0NkF1WXozSTRzLWhrRFV4a3dyZGlBdVM3MTF3NE9TSWlNZWswX25pa3dPa2hvRmQ5NllvMjJzTGZUeC1pWXFhZXAwdw?oc=5" target="_blank">원문 보기</a></div>
+  <div class="insight-box urgent">
+    <strong>K-water 시사점:</strong> 신규 원전 건설 방침은 K-water 에너지·도시 사업부문의 전략 재검토를 요구한다. 2030년까지 태양광 7,227MW, 양수발전·새만금조력 신설을 추진 중인 K-water는 원전 확대 기조 속에서 재생에너지 사업의 정책 우선순위 변화 가능성을 점검해야 한다. 동시에 첨단산업 용수 공급 확대 전략(반도체·AI·데이터센터 용수, 초순수 사업)과의 연계성을 검토할 필요가 있다.
   </div>
-  <div style="background:#fff8e8;border-left:2px solid #b06a00;border-radius:4px;
-              padding:10px 14px;font-size:13px;color:#3c3c3c;line-height:1.6;">
-    <strong style="color:#b06a00;">K-water 시사점</strong> 스페인 산불은 유럽 전역의 폭염과 기후 위기가 결합해 발생한 대형 재해로, 기후변화 대응의 시급성을 재확인시킨다. K-water는 수자원·환경 SBU를 통해 AI·디지털트윈 기반 기후재해 대응 체계를 구축하고 있으며, 2030년까지 AI 물관리 세계 1위 기업을 목표로 하고 있다. 유럽의 기후재해 대응 사례는 K-water의 3대 초격차 기술(디지털트윈 물관리 플랫폼 Digital GARAM+, AI 정수장, SWNM) 고도화 및 해외 수출 전략 수립에 참고할 수 있다. 글로벌·기후테크 SBU는 유럽 기후재해 대응 기술 동향을 모니터링하고, K-water 기술의 해외 시장 진출 기회를 검토할 필요가 있다. 다만 이 사안은 K-water 국내 사업에 직접적 영향을 미치지 않으며, 기술 벤치마킹 차원에서 참고하는 수준이 적절하다.
-  </div>
-  
+  <div class="monitoring-note">후속 모니터링: 지속 모니터링 필요</div>
 </div>
-<div class="brief-card" style="
-    position:relative; background:#fff; border-radius:10px; margin-bottom:16px;
-    padding:18px 20px 18px 24px; box-shadow:0 2px 10px rgba(0,0,0,0.06);
-    border-left:5px solid #f0d080;">
-  <div style="display:flex; gap:8px; align-items:center; flex-wrap:wrap; margin-bottom:10px;">
-    <span style="background:#eef2f9;color:#1a3f7f;font-size:11px;font-weight:700;
-                 padding:3px 8px;border-radius:20px;">#6</span>
-    <span style="display:inline-flex;align-items:center;gap:5px;background:#fff8e8;
-                 color:#b06a00;border:1px solid #f0d080;font-size:11px;
-                 font-weight:700;padding:3px 10px;border-radius:20px;">
-      <span style="width:7px;height:7px;border-radius:50%;background:#b06a00;display:inline-block;"></span>
-      주의요망
-    </span>
-    <span style="background:#eef2f9;color:#3c3c3c;font-size:11px;padding:3px 8px;border-radius:20px;">기후·에너지·환경</span>
-    <span style="background:#f0f2f5;color:#555;font-size:11px;padding:3px 8px;border-radius:20px;">국내</span>
+
+<!-- 주의요망 -->
+<div class="card caution">
+  <div class="tag-row">
+    <span class="tag tag-number">04</span>
+    <span class="tag tag-priority"><span class="priority-dot caution"></span>주의요망</span>
+    <span class="tag tag-category">[E] 기후·에너지·환경</span>
+    <span class="tag tag-region">국외</span>
   </div>
-  <div style="font-size:16px;font-weight:700;color:#1a1a1a;margin-bottom:8px;line-height:1.5;">펄펄 끓은 전국…“아침 7시에도 숨이 턱턱, 냉감조끼도 소용없어” - 한겨레</div>
-  <div style="font-size:14px;color:#3c3c3c;line-height:1.7;margin-bottom:10px;">7월 12일 경북 포항시와 경산시에 사상 처음으로 최상위 폭염특보인 &#x27;폭염중대경보&#x27;가 발령됐다. 포항의 낮 최고기온은 36.5도까지 올랐으며, 전국 대부분 지역에 폭염특보가 발령됐다. 7월 11일 발생한 온열질환자는 99명으로 전날보다 78명 증가했으며, 6월 15일부터 누적 온열질환자는 636명, 사망자는 2명으로 집계됐다. 기상청은 티베트고기압과 북태평양고기압의 이중 영향으로 당분간 폭염이 지속될 것으로 전망했다.</div>
-  <div style="font-size:12px;color:#8a8a8a;margin-bottom:12px;">
-    한겨레 | 2026.07.12 13:23 | <a href="https://news.google.com/rss/articles/CBMibEFVX3lxTE9na2JISTFQTnJMeUVXQVQ3N09MdmxFOGhBSHdkckxQQnJuS3RvbmlEOUtNTDZkSU03MUdRbTd5LWM4dEVtaVc3b1ZadGRDODhRZC0zcDlIbGNlRVFjdDktbUZlbGdhRmV6LXRyZg?oc=5" target="_blank" rel="noopener" style="color:#1a73e8;text-decoration:none;">원문 보기</a>
+  <div class="card-title">'올해 최강' 태풍 바비 中 강타…200만명 대피하고 교통 마비</div>
+  <div class="card-content">올해 최강 태풍 바비가 7월 12일 중국 동부 해안을 강타해 200만명이 대피하고 교통이 마비됐다. 중국 기상당국은 수일간 폭우가 지속될 것으로 전망했으며, 대만에서도 100여명이 부상했다. 슈퍼 엘니뇨 영향으로 극한 기상 현상이 빈발하고 있다.</div>
+  <div class="card-source">한국경제 | 2026.07.12 06:18 | <a href="https://news.google.com/rss/articles/CBMiWkFVX3lxTE5vWTJJNUxOM0UzZkZlZlU2UGFMUHJzSzJveU9lUFdPSFFsNzB3REVndmUwdGtIMlZrMVAzcDFyVjJFbjlQRm82NkNqbktkWGx5Mk5pLXVuNGIzUdIBVEFVX3lxTE1QaEhjTzZ4SlowYlpKVlZ3a1daTW53ZjE1UzJXWVd2emowbi11TjZTUmtmdFE3cmpGZEd2akhRRmpocllVSURXd1Z4MlNSd2VmNGE2Sg?oc=5" target="_blank">원문 보기</a></div>
+  <div class="insight-box caution">
+    <strong>K-water 시사점:</strong> 극한 기상 현상 빈발은 K-water 수자원·환경 사업부문의 댐 운영 및 홍수 대응 역량 점검을 요구한다. 다목적댐 18개, 홍수조절댐 2개 운영 중인 K-water는 AI·디지털트윈 기반 기후재해 대응 시스템의 실효성을 재점검하고, 슈퍼 엘니뇨 시나리오에 대비한 댐 자율운영 전략을 강화할 필요가 있다.
   </div>
-  <div style="background:#fff8e8;border-left:2px solid #b06a00;border-radius:4px;
-              padding:10px 14px;font-size:13px;color:#3c3c3c;line-height:1.6;">
-    <strong style="color:#b06a00;">K-water 시사점</strong> 폭염중대경보 발령은 K-water의 수자원·환경 SBU와 수도 SBU 운영에 직접적 영향을 미친다. 폭염으로 인한 용수 수요 급증은 다목적댐 18개와 광역상수도 12개 급수권의 저수율 및 공급 능력에 부담을 가중시킬 수 있다. 특히 경북 지역은 K-water가 운영하는 안동댐·임하댐이 위치한 곳으로, 폭염이 장기화될 경우 저수율 추가 하락 가능성을 점검해야 한다. 수자원·환경 SBU는 AI·디지털트윈 기반 댐 자율운영 시스템을 활용해 저수율 추이를 실시간 모니터링하고, 비상 급수 체계 가동 준비를 점검할 필요가 있다. 수도 SBU는 광역상수도 공급량 증가에 따른 정수장 운영 부하를 점검하고, AI 정수장 자율운영 시스템(2030년까지 44개 정수장 Level 3 완성 목표)의 폭염 대응 성능을 검증할 기회로 활용할 수 있다.
-  </div>
-  
 </div>
-<div class="brief-card" style="
-    position:relative; background:#fff; border-radius:10px; margin-bottom:16px;
-    padding:18px 20px 18px 24px; box-shadow:0 2px 10px rgba(0,0,0,0.06);
-    border-left:5px solid #f0d080;">
-  <div style="display:flex; gap:8px; align-items:center; flex-wrap:wrap; margin-bottom:10px;">
-    <span style="background:#eef2f9;color:#1a3f7f;font-size:11px;font-weight:700;
-                 padding:3px 8px;border-radius:20px;">#7</span>
-    <span style="display:inline-flex;align-items:center;gap:5px;background:#fff8e8;
-                 color:#b06a00;border:1px solid #f0d080;font-size:11px;
-                 font-weight:700;padding:3px 10px;border-radius:20px;">
-      <span style="width:7px;height:7px;border-radius:50%;background:#b06a00;display:inline-block;"></span>
-      주의요망
-    </span>
-    <span style="background:#eef2f9;color:#3c3c3c;font-size:11px;padding:3px 8px;border-radius:20px;">기후·에너지·환경</span>
-    <span style="background:#f0f2f5;color:#555;font-size:11px;padding:3px 8px;border-radius:20px;">국내</span>
+
+<div class="card caution">
+  <div class="tag-row">
+    <span class="tag tag-number">05</span>
+    <span class="tag tag-priority"><span class="priority-dot caution"></span>주의요망</span>
+    <span class="tag tag-category">[E] 기후·에너지·환경</span>
+    <span class="tag tag-region">국내</span>
   </div>
-  <div style="font-size:16px;font-weight:700;color:#1a1a1a;margin-bottom:8px;line-height:1.5;">방글라데시 폭우·산사태 사망자 최소 44명…100만명 이상 고립 - 연합뉴스</div>
-  <div style="font-size:14px;color:#3c3c3c;line-height:1.7;margin-bottom:10px;">방글라데시에서 7월 6일부터 폭우에 따른 홍수와 산사태로 7월 12일 기준 최소 44명이 사망하고 100만 명 이상이 고립됐다. 남동부 차토그람주를 중심으로 26만 7천여 가구가 고립됐으며, 도로·통신·전력이 두절되면서 구조·구호 활동이 지연되고 있다. 방글라데시 당국은 육·해군 병력을 투입해 보트를 이용한 구호품 배포 등 구호 활동을 강화하고 있다.</div>
-  <div style="font-size:12px;color:#8a8a8a;margin-bottom:12px;">
-    연합뉴스 | 2026.07.12 04:00 | <a href="https://news.google.com/rss/articles/CBMiYEFVX3lxTE5oR0k3NEpLZDBiTHRNbTA3WElaejI1amxSY3RiVjRFekNoMEppX2V0eTRZMV9HVWN2aTMyWWpEUzROS2Jfbm5CSm1YWVRGVjItaEduaUtjaGhnMXJlSmxRV9IBYEFVX3lxTE5oR0k3NEpLZDBiTHRNbTA3WElaejI1amxSY3RiVjRFekNoMEppX2V0eTRZMV9HVWN2aTMyWWpEUzROS2Jfbm5CSm1YWVRGVjItaEduaUtjaGhnMXJlSmxRVw?oc=5" target="_blank" rel="noopener" style="color:#1a73e8;text-decoration:none;">원문 보기</a>
+  <div class="card-title">상하층 '이중 열돔'에 습한 남풍 겹쳐… 일주일새 6.1도 올랐다</div>
+  <div class="card-content">한반도가 상하층 이중 열돔 현상과 습한 남풍이 겹치며 일주일 새 기온이 6.1도 급등했다. 7월 13일 낮 최고기온은 37도까지 오를 전망이며, 유럽 폭염이 한국에도 전염된 것 아니냐는 우려가 나온다. 기상청은 폭염 특보를 발령하고 건강 관리에 주의할 것을 당부했다.</div>
+  <div class="card-source">동아일보 | 2026.07.12 19:30 | <a href="https://news.google.com/rss/articles/CBMidkFVX3lxTFBOeUt2aUlsNWVOa1JqQmVkVzBmMXFsTUEzRWY5eUZFZWtKX2x2dUkwWnhlakR2RlptN2lGQjJqb0VMcUpqMFNaZVFVZktkNjRsSVVHc0NXdHo4dmZVbmdaU29vUTdRWW1xajJjNk5oRVlnbTBWVUHSAWZBVV95cUxNZGppZk9ZZGw1eW5LSHhpdjBLakxKRXFzWlNtUWJITVpEYVlmcThvUXkyUW5HNWc3N3ZxamdFeXBrT0lWSGplbG13LVAwREpYWDJCbk5vS1BOcThKTUUzUUM0WGxVMkE?oc=5" target="_blank">원문 보기</a></div>
+  <div class="insight-box caution">
+    <strong>K-water 시사점:</strong> 극한 폭염은 K-water 수도 사업부문의 용수 수요 급증과 수질 관리 부담 증가로 이어질 수 있다. 전국 12개 광역 급수권을 운영하는 K-water는 폭염 기간 용수 공급 안정성을 점검하고, 녹조 대응 및 수질·수생태 관리 역량을 강화할 필요가 있다. 또한 지방상수도 위탁 운영 중인 22개 지자체와의 비상 급수 협력 체계를 재점검해야 한다.
   </div>
-  <div style="background:#fff8e8;border-left:2px solid #b06a00;border-radius:4px;
-              padding:10px 14px;font-size:13px;color:#3c3c3c;line-height:1.6;">
-    <strong style="color:#b06a00;">K-water 시사점</strong> 방글라데시 홍수는 기후변화로 인한 극단적 폭우가 재해 규모를 키우는 사례로, K-water의 기후재해 대응 기술 수요를 재확인시킨다. K-water는 글로벌·기후테크 SBU를 통해 14개국 30개 해외사업을 진행 중이며, AI·디지털트윈 기반 K-물관리 기술 수출을 추진하고 있다. 방글라데시는 기후재해 취약국으로 물관리 인프라 수요가 높은 지역이나, 현재 K-water가 방글라데시에서 진행 중인 사업은 확인되지 않는다. 글로벌·기후테크 SBU는 남아시아 지역의 기후재해 대응 수요를 모니터링하고, 디지털트윈 물관리 플랫폼(Digital GARAM+) 등 K-water 기술의 해외 진출 기회를 중장기적으로 검토할 수 있다. 다만 이 사안은 K-water 국내 사업에 직접적 영향을 미치지 않으며, 해외사업 기회 탐색 차원에서 참고하는 수준이 적절하다.
-  </div>
-  
 </div>
-<div class="brief-card" style="
-    position:relative; background:#fff; border-radius:10px; margin-bottom:16px;
-    padding:18px 20px 18px 24px; box-shadow:0 2px 10px rgba(0,0,0,0.06);
-    border-left:5px solid #f0d080;">
-  <div style="display:flex; gap:8px; align-items:center; flex-wrap:wrap; margin-bottom:10px;">
-    <span style="background:#eef2f9;color:#1a3f7f;font-size:11px;font-weight:700;
-                 padding:3px 8px;border-radius:20px;">#8</span>
-    <span style="display:inline-flex;align-items:center;gap:5px;background:#fff8e8;
-                 color:#b06a00;border:1px solid #f0d080;font-size:11px;
-                 font-weight:700;padding:3px 10px;border-radius:20px;">
-      <span style="width:7px;height:7px;border-radius:50%;background:#b06a00;display:inline-block;"></span>
-      주의요망
-    </span>
-    <span style="background:#eef2f9;color:#3c3c3c;font-size:11px;padding:3px 8px;border-radius:20px;">기후·에너지·환경</span>
-    <span style="background:#f0f2f5;color:#555;font-size:11px;padding:3px 8px;border-radius:20px;">국내</span>
+
+<div class="card caution">
+  <div class="tag-row">
+    <span class="tag tag-number">06</span>
+    <span class="tag tag-priority"><span class="priority-dot caution"></span>주의요망</span>
+    <span class="tag tag-category">[C] 경제·금융</span>
+    <span class="tag tag-region">국내</span>
   </div>
-  <div style="font-size:16px;font-weight:700;color:#1a1a1a;margin-bottom:8px;line-height:1.5;">줄 서다 열병 날까봐…41도 폭염 프랑스, 에펠탑·루브르 단축 운영 - 한겨레</div>
-  <div style="font-size:14px;color:#3c3c3c;line-height:1.7;margin-bottom:10px;">프랑스에서 7월 11~12일 낮 기온이 41도까지 치솟으며 파리 에펠탑이 오후 4시에 조기 폐장하고, 루브르 박물관과 오르세 미술관도 단축 운영에 들어갔다. 세계적인 도로 사이클 대회 &#x27;투르 드 프랑스&#x27;는 폭염 때문에 7월 12일 경주로를 185.5킬로미터에서 155.5킬로미터로 30킬로미터 단축했으며, 이는 1903년 대회 시작 이래 처음이다. 프랑스 기상청은 전국 37개 데파르트망에 최고 단계 폭염 경보를 발령했다.</div>
-  <div style="font-size:12px;color:#8a8a8a;margin-bottom:12px;">
-    한겨레 | 2026.07.12 10:58 | <a href="https://news.google.com/rss/articles/CBMibkFVX3lxTE9kcTFKc3lhVVJuRkhDc2ZjZWh1ZWpZS3NhY25FSzBGaTFFdzZWMXZQUy1GZDNOWjJOVURZQVk3Z1ROdWRPVUJLcnBiN091SVJCVUlmV0VYa2lULXRuUDBRVVRnbWpUa2tCOUN5T0dn?oc=5" target="_blank" rel="noopener" style="color:#1a73e8;text-decoration:none;">원문 보기</a>
+  <div class="card-title">'나스닥 입성' 하이닉스 9% 폭락…코스피 매도 사이드카 발동</div>
+  <div class="card-content">SK하이닉스가 나스닥 상장 첫날인 7월 13일 9% 폭락하며 코스피 매도 사이드카가 발동됐다. 반도체 업황 개선 기대감에도 불구하고 차익 실현 매물이 쏟아지며 증시 전반이 충격을 받았다. 외국인 투자자들의 대규모 매도가 주가 급락의 주요 원인으로 지목됐다.</div>
+  <div class="card-source">한겨레 | 2026.07.13 02:33 | <a href="https://news.google.com/rss/articles/CBMiZ0FVX3lxTFBkMTJpOVVTQVp5OXFEVElwT3hGOGtONUxsVkpNNWItczlmYm5TYndienotX3hGSTJ3c3hCUkdEUHBSYXYyaFhOMUxwMDJqYkFrREF2UmZtWDNsNkZOa2MtNVhUcWppc1U?oc=5" target="_blank">원문 보기</a></div>
+  <div class="insight-box caution">
+    <strong>K-water 시사점:</strong> 증시 급락은 K-water 재무·조달 환경에 간접 영향을 미칠 수 있다. 채권 발행 비중이 높은 K-water는 금융시장 변동성 확대 시 조달 비용 상승 가능성을 점검해야 한다. 다만 직접적 연관성은 제한적이므로, 금융시장 동향 모니터링 차원에서 참고할 필요가 있다.
   </div>
-  <div style="background:#fff8e8;border-left:2px solid #b06a00;border-radius:4px;
-              padding:10px 14px;font-size:13px;color:#3c3c3c;line-height:1.6;">
-    <strong style="color:#b06a00;">K-water 시사점</strong> 프랑스 폭염은 유럽 전역의 기후 위기 심화를 보여주는 사례로, K-water의 기후재해 대응 기술 수요를 재확인시킨다. K-water는 수자원·환경 SBU를 통해 AI·디지털트윈 기반 기후재해 대응 체계를 구축하고 있으며, 글로벌·기후테크 SBU를 통해 K-물관리 기술 수출을 추진하고 있다. 유럽의 폭염 대응 사례는 K-water의 3대 초격차 기술(디지털트윈 물관리 플랫폼 Digital GARAM+, AI 정수장, SWNM) 고도화 및 해외 수출 전략 수립에 참고할 수 있다. 다만 이 사안은 K-water 국내 사업에 직접적 영향을 미치지 않으며, 기술 벤치마킹 및 해외사업 기회 탐색 차원에서 참고하는 수준이 적절하다.
-  </div>
-  
 </div>
-<div class="brief-card" style="
-    position:relative; background:#fff; border-radius:10px; margin-bottom:16px;
-    padding:18px 20px 18px 24px; box-shadow:0 2px 10px rgba(0,0,0,0.06);
-    border-left:5px solid #f0d080;">
-  <div style="display:flex; gap:8px; align-items:center; flex-wrap:wrap; margin-bottom:10px;">
-    <span style="background:#eef2f9;color:#1a3f7f;font-size:11px;font-weight:700;
-                 padding:3px 8px;border-radius:20px;">#9</span>
-    <span style="display:inline-flex;align-items:center;gap:5px;background:#fff8e8;
-                 color:#b06a00;border:1px solid #f0d080;font-size:11px;
-                 font-weight:700;padding:3px 10px;border-radius:20px;">
-      <span style="width:7px;height:7px;border-radius:50%;background:#b06a00;display:inline-block;"></span>
-      주의요망
-    </span>
-    <span style="background:#eef2f9;color:#3c3c3c;font-size:11px;padding:3px 8px;border-radius:20px;">기후·에너지·환경</span>
-    <span style="background:#f0f2f5;color:#555;font-size:11px;padding:3px 8px;border-radius:20px;">국내</span>
+
+<div class="card caution">
+  <div class="tag-row">
+    <span class="tag tag-number">07</span>
+    <span class="tag tag-priority"><span class="priority-dot caution"></span>주의요망</span>
+    <span class="tag tag-category">[C] 경제·금융</span>
+    <span class="tag tag-region">국내</span>
   </div>
-  <div style="font-size:16px;font-weight:700;color:#1a1a1a;margin-bottom:8px;line-height:1.5;">전국 곳곳 약한 가뭄…농업용수 저수율 예년 밑돌아 - KBS 뉴스</div>
-  <div style="font-size:14px;color:#3c3c3c;line-height:1.7;margin-bottom:10px;">행정안전부가 7월 10일 발표한 &#x27;7월 가뭄 예·경보&#x27;에 따르면, 7월 1일 기준 농업용 저수지의 전국 평균 저수율은 50.8%로 평년의 84.5% 수준이다. 전국 53개 지역 167개소에서 &#x27;관심&#x27; 단계의 약한 기상가뭄이 나타났으며, 운문댐·밀양댐·영천댐은 가뭄 &#x27;주의&#x27; 단계를, 안동댐·임하댐·보령댐은 &#x27;관심&#x27; 단계를 보이고 있다. 다목적댐 19곳의 저수량은 예년의 110.1%, 용수댐 12곳은 90.9% 수준을 유지하고 있어 전반적인 공급 여건은 안정적이다.</div>
-  <div style="font-size:12px;color:#8a8a8a;margin-bottom:12px;">
-    KBS 뉴스 | 2026.07.10 07:05 | <a href="https://news.google.com/rss/articles/CBMiW0FVX3lxTE50RnZmak1uRGZ4QlpwemNYUTBLSml3elBRZFo0cTNacW9nTkJLeGNNdUdRVVNHUjI1WlJlc0FHcFZTR3U5ckNpY0syRVlhdDhNbmRRQ3hZem9tQjQ?oc=5" target="_blank" rel="noopener" style="color:#1a73e8;text-decoration:none;">원문 보기</a>
+  <div class="card-title">7월 1~10일 수출 54%↑ 반도체는 193%↑</div>
+  <div class="card-content">7월 1~10일 수출이 전년 동기 대비 54% 증가했으며, 반도체 수출은 193% 급증했다. 반도체 업황 회복과 글로벌 수요 증가가 수출 호조를 견인했다. 정부는 하반기 수출 목표 달성에 청신호가 켜졌다고 평가했다.</div>
+  <div class="card-source">조선일보 | 2026.07.13 00:13 | <a href="https://news.google.com/rss/articles/CBMijgFBVV95cUxNQWo0TTcxX3gtLXYzVy11Y1YtWlhXUlZXV3RCXzVjT2xhVkQ3OUhlYk13UEdDdWlaQlBldHI2TWlsOGdweTQtV2pJellZME5NQndwQXVseHh2anAxd3RxX0M1cWJKT3FUMF83ZEJrVFIteXN2TE9uZGVrTHJsLVNsbEl1eExUdTZDUmdKUll3?oc=5" target="_blank">원문 보기</a></div>
+  <div class="insight-box caution">
+    <strong>K-water 시사점:</strong> 반도체 수출 급증은 K-water 수도 사업부문의 첨단산업 용수 공급 확대 전략과 직접 연결된다. 반도체·AI·데이터센터 용수 공급 확대 및 초순수 사업 추진 중인 K-water는 반도체 업황 회복 흐름을 수요 기반 확대 기회로 활용할 수 있다. 2026년 수도 사업 매출 목표 2조 7,913억원 달성에 긍정적 요인이 될 수 있다.
   </div>
-  <div style="background:#fff8e8;border-left:2px solid #b06a00;border-radius:4px;
-              padding:10px 14px;font-size:13px;color:#3c3c3c;line-height:1.6;">
-    <strong style="color:#b06a00;">K-water 시사점</strong> 농업용 저수지 저수율 저하와 일부 댐의 가뭄 단계 진입은 K-water의 수자원·환경 SBU 운영에 직접적 영향을 미친다. K-water는 다목적댐 18개(소양강·충주·대청·안동·합천 등)와 홍수조절댐 2개를 운영하고 있으며, 안동댐·임하댐이 가뭄 &#x27;관심&#x27; 단계에 진입한 상황이다. 수자원·환경 SBU는 AI·디지털트윈 기반 댐 자율운영 시스템을 활용해 저수율 추이를 면밀히 모니터링하고, 하천유지용수 및 농업용수 사용 조정, 하천수 대체 공급 등 비상 급수 체계를 사전 점검할 필요가 있다. 기상청 전망에 따르면 7월 강수량은 평년보다 많으나 9월은 평년보다 적을 것으로 예상되므로, 중장기 가뭄 대응 시나리오를 점검하고 댐 저수율 관리 전략을 수립할 필요가 있다. 다만 다목적댐 전체 저수량은 예년의 110.1% 수준으로 안정적이며, 현재 단계에서는 일부 댐에 대한 집중 모니터링이 적절하다.
-  </div>
-  
 </div>
-<div class="brief-card" style="
-    position:relative; background:#fff; border-radius:10px; margin-bottom:16px;
-    padding:18px 20px 18px 24px; box-shadow:0 2px 10px rgba(0,0,0,0.06);
-    border-left:5px solid #f0d080;">
-  <div style="display:flex; gap:8px; align-items:center; flex-wrap:wrap; margin-bottom:10px;">
-    <span style="background:#eef2f9;color:#1a3f7f;font-size:11px;font-weight:700;
-                 padding:3px 8px;border-radius:20px;">#10</span>
-    <span style="display:inline-flex;align-items:center;gap:5px;background:#fff8e8;
-                 color:#b06a00;border:1px solid #f0d080;font-size:11px;
-                 font-weight:700;padding:3px 10px;border-radius:20px;">
-      <span style="width:7px;height:7px;border-radius:50%;background:#b06a00;display:inline-block;"></span>
-      주의요망
-    </span>
-    <span style="background:#eef2f9;color:#3c3c3c;font-size:11px;padding:3px 8px;border-radius:20px;">정치·정책</span>
-    <span style="background:#f0f2f5;color:#555;font-size:11px;padding:3px 8px;border-radius:20px;">국내</span>
+
+<!-- 동향참고 -->
+<div class="card reference">
+  <div class="tag-row">
+    <span class="tag tag-number">08</span>
+    <span class="tag tag-priority"><span class="priority-dot reference"></span>동향참고</span>
+    <span class="tag tag-category">[D] 기술·혁신</span>
+    <span class="tag tag-region">국외</span>
   </div>
-  <div style="font-size:16px;font-weight:700;color:#1a1a1a;margin-bottom:8px;line-height:1.5;">“반도체 때문에” 탈원전→감축…기후부의 ‘원전 변심’ - 경향신문</div>
-  <div style="font-size:14px;color:#3c3c3c;line-height:1.7;margin-bottom:10px;">김성환 기후에너지환경부 장관이 7월 3일 라디오 인터뷰에서 반도체와 AI 산업단지 전력 공급을 이유로 추가 원자력발전소 건설 검토 필요성을 언급했다. 김 장관은 &#x27;재생에너지만으로 24시간 안정적 전력 공급이 어렵다&#x27;며 경북 영광군 2기, 울산 울주군 2기 등 총 4기의 대형 원전 추가 건설 가능성을 거론했다. 정부는 6월 17일 신규 대형 원전과 소형모듈원자로(SMR) 건설 후보 부지를 선정했으며, 제12차 전력수급기본계획에 원전 관련 내용이 포함될 것으로 전망된다.</div>
-  <div style="font-size:12px;color:#8a8a8a;margin-bottom:12px;">
-    경향신문 | 2026.07.12 12:21 | <a href="https://news.google.com/rss/articles/CBMiWkFVX3lxTFBNOE5aR0pmSkNIb0tiSVlSMGNLZWczWUN5RlR1VEQ2MnFiTnI2SUgyQThzbUN6ZXgtM2Fka0NFaFAyUHF3LW5RSlJyQXlpZzlSLUV3MWpSUEZrQdIBX0FVX3lxTFBuTGRacW9McVNqb2hOSHpRblIybDhNbF9HSUM5Y25qeUtJTHZlRWhpUDVRTGRBUHZVa2c5X1VlUEpiWWZfQzdDSmlzYmZIckN0S0RuOF9mVElOaVp3S1lF?oc=5" target="_blank" rel="noopener" style="color:#1a73e8;text-decoration:none;">원문 보기</a>
+  <div class="card-title">"스페이스X 기다려라" 그물로 로켓 잡은 중국, 수직 이착륙 성공한 일본</div>
+  <div class="card-content">중국이 그물을 이용한 로켓 회수 기술을 성공시켰고, 일본은 수직 이착륙 로켓 시험에 성공했다. 양국 모두 스페이스X를 추격하며 우주 발사 비용 절감 기술 개발에 박차를 가하고 있다. 글로벌 우주 산업 경쟁이 가속화되고 있다.</div>
+  <div class="card-source">조선일보 | 2026.07.12 21:53 | <a href="https://news.google.com/rss/articles/CBMigwFBVV95cUxNYlhaNDlLRVRFbnVOLXBPbUVQRUFjb0lfVC1yRG82VUw1VGhDSHdCTkJESTFQSDNKZ1Nyclh0N3BqaF9vbFdRMlhIWlJJTWFMM3E4X1BReXJicXl1LUZYU0gyQzExR25PVS10eU52VzFHdUx6N2duYWQySzNXRG9NaTBQTQ?oc=5" target="_blank">원문 보기</a></div>
+  <div class="insight-box reference">
+    <strong>K-water 시사점:</strong> 직접 시사점 낮음. 동향 파악 차원에서 참고.
   </div>
-  <div style="background:#fff8e8;border-left:2px solid #b06a00;border-radius:4px;
-              padding:10px 14px;font-size:13px;color:#3c3c3c;line-height:1.6;">
-    <strong style="color:#b06a00;">K-water 시사점</strong> 기후에너지환경부 장관의 추가 원전 건설 검토 발언은 K-water의 주무부처 정책 방향 변화를 시사하며, K-water의 에너지·도시 SBU 전략에 영향을 미칠 수 있다. K-water는 에너지·도시 SBU를 통해 수력발전·시화호 조력발전·수상태양광을 운영하고 있으며, 2030년까지 태양광 7,227메가와트, 양수발전·새만금조력 신설을 추진하고 있다. 기후에너지환경부가 원전 확대 기조를 강화할 경우, 재생에너지 중심 에너지 전환 정책이 후퇴하며 K-water의 재생에너지 사업 추진 동력이 약화될 가능성이 있다. 에너지·도시 SBU는 제12차 전력수급기본계획 수립 과정을 모니터링하고, 재생에너지 사업 계획(태양광·조력발전 등)에 대한 정부 정책 지원 동향을 점검할 필요가 있다. 다만 K-water의 재생에너지 사업은 이미 진행 중인 사업이 많아 단기적 영향은 제한적이며, 중장기 전략 조정 필요성을 검토하는 수준이 적절하다.
-  </div>
-  
 </div>
-<div class="brief-card" style="
-    position:relative; background:#fff; border-radius:10px; margin-bottom:16px;
-    padding:18px 20px 18px 24px; box-shadow:0 2px 10px rgba(0,0,0,0.06);
-    border-left:5px solid #f0d080;">
-  <div style="display:flex; gap:8px; align-items:center; flex-wrap:wrap; margin-bottom:10px;">
-    <span style="background:#eef2f9;color:#1a3f7f;font-size:11px;font-weight:700;
-                 padding:3px 8px;border-radius:20px;">#11</span>
-    <span style="display:inline-flex;align-items:center;gap:5px;background:#fff8e8;
-                 color:#b06a00;border:1px solid #f0d080;font-size:11px;
-                 font-weight:700;padding:3px 10px;border-radius:20px;">
-      <span style="width:7px;height:7px;border-radius:50%;background:#b06a00;display:inline-block;"></span>
-      주의요망
-    </span>
-    <span style="background:#eef2f9;color:#3c3c3c;font-size:11px;padding:3px 8px;border-radius:20px;">기술·혁신</span>
-    <span style="background:#f0f2f5;color:#555;font-size:11px;padding:3px 8px;border-radius:20px;">국내</span>
+
+<div class="card reference">
+  <div class="tag-row">
+    <span class="tag tag-number">09</span>
+    <span class="tag tag-priority"><span class="priority-dot reference"></span>동향참고</span>
+    <span class="tag tag-category">[F] 사회·제도</span>
+    <span class="tag tag-region">국내</span>
   </div>
-  <div style="font-size:16px;font-weight:700;color:#1a1a1a;margin-bottom:8px;line-height:1.5;">40조 쥔 하이닉스, 메모리 증설 속도…삼성·마이크론·CXMT·TSMC “더 빨리” - 한겨레</div>
-  <div style="font-size:14px;color:#3c3c3c;line-height:1.7;margin-bottom:10px;">SK하이닉스가 7월 10일 미국 나스닥 시장에 공식 상장하며 265억 710만 달러(약 40조원) 규모의 자금을 조달했다. 이는 미국 증시에 상장한 외국 기업 가운데 역대 최대 규모다. SK하이닉스는 조달 자금을 용인 반도체 클러스터 1기 팹 건설, 충북 청주 첨단 패키징 팹 건설, 극자외선(EUV) 노광장비 구매 등 메모리 설비 투자에 사용할 계획이다. 삼성전자는 용인 반도체 클러스터 첫 번째 팹 가동 시점을 2029년으로 조정해 기존 계획에서 최대 2년 앞당겼다.</div>
-  <div style="font-size:12px;color:#8a8a8a;margin-bottom:12px;">
-    한겨레 | 2026.07.12 15:30 | <a href="https://news.google.com/rss/articles/CBMiakFVX3lxTE8weW5YaUkyWDVXQThEbXN4VUN6Qmh2cndFSFIxMEs1SHZHbERCZGxTRjB0LURQYWljQUU2dUZlMVVlN0JXTlZVdGxsMHp5N1U2emlKWmc5VDZoVVVEVGpVRUUtWjFXbm5oWEE?oc=5" target="_blank" rel="noopener" style="color:#1a73e8;text-decoration:none;">원문 보기</a>
+  <div class="card-title">홈플러스, 오늘부터 대형마트 임시 휴업…"운영자금 고갈"</div>
+  <div class="card-content">홈플러스가 7월 13일부터 전국 대형마트를 임시 휴업한다고 발표했다. 운영자금 고갈이 주요 원인으로, 유통업계 전반의 경영난이 가시화되고 있다. 소비 위축과 온라인 쇼핑 확대가 오프라인 유통업체에 타격을 주고 있다.</div>
+  <div class="card-source">KBS 뉴스 | 2026.07.13 01:31 | <a href="https://news.google.com/rss/articles/CBMiW0FVX3lxTFAyNWZDZ3VYQ2JpeGd3SExhLUhxX0U2ZVBDTy1jYkgxeEZJSmdBcmdPUXFSREF3U25oMS15aUM5TGJsUnF4RFFSM2plTjk5NlVuOVNRSkVuUFQ0OEU?oc=5" target="_blank">원문 보기</a></div>
+  <div class="insight-box reference">
+    <strong>K-water 시사점:</strong> 직접 시사점 낮음. 동향 파악 차원에서 참고.
   </div>
-  <div style="background:#fff8e8;border-left:2px solid #b06a00;border-radius:4px;
-              padding:10px 14px;font-size:13px;color:#3c3c3c;line-height:1.6;">
-    <strong style="color:#b06a00;">K-water 시사점</strong> SK하이닉스와 삼성전자의 대규모 반도체 증설은 K-water의 수도 SBU에 직접적 영향을 미친다. K-water는 수도 SBU를 통해 광역상수도 12개 급수권을 운영하고 있으며, 첨단산업(반도체·AI·데이터센터) 용수 공급 확대 및 초순수 사업을 추진하고 있다. 용인 반도체 클러스터와 호남권 반도체 단지는 대규모 용수 수요를 창출하며, K-water의 광역상수도 공급량 증가 및 초순수 사업 확대 기회로 작용할 수 있다. 수도 SBU는 반도체 클러스터 용수 공급 계획을 점검하고, 광역상수도 공급 능력 확충 및 초순수 생산 설비 투자 계획을 구체화할 필요가 있다. 특히 반도체 산업은 24시간 안정적 용수 공급을 요구하므로, AI 정수장 자율운영 시스템(2030년까지 44개 정수장 Level 3 완성 목표) 고도화를 통해 공급 안정성을 확보하는 것이 중요하다. 수도 SBU는 2026년 매출 목표 2조 7,913억원으로 전체 사업 중 최대 규모이며, 반도체 증설은 중장기 매출 성장 동력으로 작용할 수 있다.
-  </div>
-  
 </div>
-<div class="brief-card" style="
-    position:relative; background:#fff; border-radius:10px; margin-bottom:16px;
-    padding:18px 20px 18px 24px; box-shadow:0 2px 10px rgba(0,0,0,0.06);
-    border-left:5px solid #f0d080;">
-  <div style="display:flex; gap:8px; align-items:center; flex-wrap:wrap; margin-bottom:10px;">
-    <span style="background:#eef2f9;color:#1a3f7f;font-size:11px;font-weight:700;
-                 padding:3px 8px;border-radius:20px;">#12</span>
-    <span style="display:inline-flex;align-items:center;gap:5px;background:#fff8e8;
-                 color:#b06a00;border:1px solid #f0d080;font-size:11px;
-                 font-weight:700;padding:3px 10px;border-radius:20px;">
-      <span style="width:7px;height:7px;border-radius:50%;background:#b06a00;display:inline-block;"></span>
-      주의요망
-    </span>
-    <span style="background:#eef2f9;color:#3c3c3c;font-size:11px;padding:3px 8px;border-radius:20px;">기후·에너지·환경</span>
-    <span style="background:#f0f2f5;color:#555;font-size:11px;padding:3px 8px;border-radius:20px;">국외</span>
+
+<div class="card reference">
+  <div class="tag-row">
+    <span class="tag tag-number">10</span>
+    <span class="tag tag-priority"><span class="priority-dot reference"></span>동향참고</span>
+    <span class="tag tag-category">[E] 기후·에너지·환경</span>
+    <span class="tag tag-region">국외</span>
   </div>
-  <div style="font-size:16px;font-weight:700;color:#1a1a1a;margin-bottom:8px;line-height:1.5;">Typhoon Bavi batters eastern China, threatens days of heavy rain - Reuters</div>
-  <div style="font-size:14px;color:#3c3c3c;line-height:1.7;margin-bottom:10px;">본문 크롤링 실패로 상세 내용을 확인할 수 없습니다. 제목과 매체명(Reuters)을 기준으로 판단하면, 태풍 바비(Typhoon Bavi)가 중국 동부를 강타하며 수일간 폭우 위협이 예상된다는 내용으로 추정됩니다. 상세 내용은 원문 참조가 필요합니다.</div>
-  <div style="font-size:12px;color:#8a8a8a;margin-bottom:12px;">
-    Reuters | 2026.07.12 02:22 | <a href="https://news.google.com/rss/articles/CBMitgFBVV95cUxNeWtNV1dZVG12dFREVVVYbGZsZWRjYmJQWHhWWHV3Wk9DUEpwb2kwaDhLZWNsNHZGOWZrN0F1YTBjVDRwbW1Vend0NkZRNU9qQUg1ZDNhZ3hzMzRWS2lyN2RqeEZKa0puc3FuTGM2cjg2UVF4eGFEem1LdmlUcDdILTYwM3dmM1ROczhwWThvMUgxX0VZQVhoMG4zWnZNSWJiM1dHd18zYmFWMWJRTGxpNXNyaWtvZw?oc=5" target="_blank" rel="noopener" style="color:#1a73e8;text-decoration:none;">원문 보기</a>
+  <div class="card-title">방글라데시 폭우에 44명 사망…100만여명 고립</div>
+  <div class="card-content">방글라데시에서 몬순 폭우로 인한 홍수와 산사태로 최소 44명이 사망하고 100만명 이상이 고립됐다. 극한 기상 현상이 남아시아 지역에서도 대규모 인명 피해를 초래하고 있다.</div>
+  <div class="card-source">연합뉴스 | 2026.07.12 09:35 | <a href="https://news.google.com/rss/articles/CBMiYEFVX3lxTE5jWkdRSDMxbVhjeGZSMk9mUm1TckNFS2c1UURUWmpLY0hRSU9WRnBqZjQwOWFtUzFWZEZGbjFtRExzaV81ODA4RnFYSnFEZjFiMWhEdkRSZk1aV2hCQnNMONIBYEFVX3lxTE5jWkdRSDMxbVhjeGZSMk9mUm1TckNFS2c1UURUWmpLY0hRSU9WRnBqZjQwOWFtUzFWZEZGbjFtRExzaV81ODA4RnFYSnFEZjFiMWhEdkRSZk1aV2hCQnNMOA?oc=5" target="_blank">원문 보기</a></div>
+  <div class="insight-box reference">
+    <strong>K-water 시사점:</strong> 직접 시사점 낮음. 동향 파악 차원에서 참고.
   </div>
-  <div style="background:#fff8e8;border-left:2px solid #b06a00;border-radius:4px;
-              padding:10px 14px;font-size:13px;color:#3c3c3c;line-height:1.6;">
-    <strong style="color:#b06a00;">K-water 시사점</strong> 본문이 제공되지 않아 구체적인 피해 규모·지역·K-water 연관성을 확인할 수 없습니다. 일반적으로 중국 동부 지역의 대형 태풍은 글로벌 공급망 차질을 초래할 수 있으나, K-water 국내 사업에 직접적 영향을 미치지 않습니다. 동향 파악 차원에서 참고하는 수준이 적절하며, 추가 정보 확보 시 재평가가 필요합니다.
-  </div>
-  
 </div>
-<div class="brief-card" style="
-    position:relative; background:#fff; border-radius:10px; margin-bottom:16px;
-    padding:18px 20px 18px 24px; box-shadow:0 2px 10px rgba(0,0,0,0.06);
-    border-left:5px solid #90d890;">
-  <div style="display:flex; gap:8px; align-items:center; flex-wrap:wrap; margin-bottom:10px;">
-    <span style="background:#eef2f9;color:#1a3f7f;font-size:11px;font-weight:700;
-                 padding:3px 8px;border-radius:20px;">#13</span>
-    <span style="display:inline-flex;align-items:center;gap:5px;background:#f0faf0;
-                 color:#1a6e1a;border:1px solid #90d890;font-size:11px;
-                 font-weight:700;padding:3px 10px;border-radius:20px;">
-      <span style="width:7px;height:7px;border-radius:50%;background:#1a6e1a;display:inline-block;"></span>
-      동향참고
-    </span>
-    <span style="background:#eef2f9;color:#3c3c3c;font-size:11px;padding:3px 8px;border-radius:20px;">사회·제도</span>
-    <span style="background:#f0f2f5;color:#555;font-size:11px;padding:3px 8px;border-radius:20px;">국내</span>
-  </div>
-  <div style="font-size:16px;font-weight:700;color:#1a1a1a;margin-bottom:8px;line-height:1.5;">‘눈물의 떨이 할인’ 홈플러스…파산 막을 길은 ‘깜깜’ - KBS 뉴스</div>
-  <div style="font-size:14px;color:#3c3c3c;line-height:1.7;margin-bottom:10px;">홈플러스가 7월 3일 법원의 회생 폐지 결정 이후 전 품목 50% 할인 등 대규모 할인 행사를 열고 있다. 물류센터 운영 중단으로 매장 물품 공급이 끊겼으며, 화장실 청소·폐기물 처리 등 외부업체 직원들도 발길을 끊었다. 일부 매장에는 한국전력이 &#x27;단전&#x27;을 예고했다. 홈플러스가 7월 20일까지 긴급 운영자금 2천억 원을 마련하지 못하면 회생 폐지가 확정되며, 폐점하지 않은 매장 67곳은 사실상 문을 닫을 가능성이 높다. 대주주 MBK파트너스와 최대 채권자 메리츠는 자금 지원을 두고 대립하고 있다.</div>
-  <div style="font-size:12px;color:#8a8a8a;margin-bottom:12px;">
-    KBS 뉴스 | 2026.07.11 22:01 | <a href="https://news.google.com/rss/articles/CBMiW0FVX3lxTE5WMnNKQ3lORkpIWURHM0Z0eTBxQ1JUalZFV3pGcHA4cy1ycmJsVlZPU3JNUVpVcmc2ZmhjOUIxUDdiUG5QeHZhcU9WRDItcVVnbjM2eW1iVVFFaU0?oc=5" target="_blank" rel="noopener" style="color:#1a73e8;text-decoration:none;">원문 보기</a>
-  </div>
-  <div style="background:#f0faf0;border-left:2px solid #1a6e1a;border-radius:4px;
-              padding:10px 14px;font-size:13px;color:#3c3c3c;line-height:1.6;">
-    <strong style="color:#1a6e1a;">K-water 시사점</strong> 홈플러스 파산 위기는 K-water와 직접적 연관성이 낮으나, 대형 유통업체 폐점이 지역 경제 및 고용에 미치는 영향을 참고할 수 있다. K-water는 에너지·도시 SBU를 통해 수변 신도시·산업단지 개발을 추진하고 있으며, 지역 경제 활성화가 사업 성과에 영향을 미칠 수 있다. 다만 홈플러스 사안은 K-water 사업과 직접적 연계가 없으며, 직접 시사점 낮음. 동향 파악 차원에서 참고.
-  </div>
-  
+
+<div class="footer">
+  <strong>우선순위 기준</strong><br>
+  즉시주목 = 긴급도 높음·중요도 높음 / 주의요망 = 긴급도 높음·중요도 낮음 or 긴급도 낮음·중요도 높음 / 동향참고 = 긴급도 낮음·중요도 낮음
 </div>
-<div class="brief-card" style="
-    position:relative; background:#fff; border-radius:10px; margin-bottom:16px;
-    padding:18px 20px 18px 24px; box-shadow:0 2px 10px rgba(0,0,0,0.06);
-    border-left:5px solid #90d890;">
-  <div style="display:flex; gap:8px; align-items:center; flex-wrap:wrap; margin-bottom:10px;">
-    <span style="background:#eef2f9;color:#1a3f7f;font-size:11px;font-weight:700;
-                 padding:3px 8px;border-radius:20px;">#14</span>
-    <span style="display:inline-flex;align-items:center;gap:5px;background:#f0faf0;
-                 color:#1a6e1a;border:1px solid #90d890;font-size:11px;
-                 font-weight:700;padding:3px 10px;border-radius:20px;">
-      <span style="width:7px;height:7px;border-radius:50%;background:#1a6e1a;display:inline-block;"></span>
-      동향참고
-    </span>
-    <span style="background:#eef2f9;color:#3c3c3c;font-size:11px;padding:3px 8px;border-radius:20px;">경제·금융</span>
-    <span style="background:#f0f2f5;color:#555;font-size:11px;padding:3px 8px;border-radius:20px;">국외</span>
-  </div>
-  <div style="font-size:16px;font-weight:700;color:#1a1a1a;margin-bottom:8px;line-height:1.5;">Volkswagen CEO looks to avoid plant closures as automaker moves to cut costs - AP News</div>
-  <div style="font-size:14px;color:#3c3c3c;line-height:1.7;margin-bottom:10px;">폭스바겐 CEO 올리버 블루메가 7월 12일 독일 일간지 인터뷰에서 공장 폐쇄를 피하려 노력하고 있다고 밝혔다. 폭스바겐은 지난주 모델 라인업을 최대 절반까지 간소화하는 &#x27;근본적 재편&#x27; 계획을 발표했으며, 독일 내 여러 공장의 미래에 대한 추측이 재개됐다. 블루메 CEO는 &#x27;공장 폐쇄보다 더 지능적인 해결책이 있다&#x27;며 독일 공장 비용을 지난해에만 평균 20% 개선했다고 강조했다.</div>
-  <div style="font-size:12px;color:#8a8a8a;margin-bottom:12px;">
-    AP News | 2026.07.12 08:07 | <a href="https://news.google.com/rss/articles/CBMilgFBVV95cUxPWG1UNGZhTlhMYS1rV0VvblhsZjZ5aVpxb1g2Z2JqWkNFdGdzUUNycWdhVTAzYXp6VHRFUkh2a0lyWDFVa0ZCTGFxcVdrb2djYjBZMEhKYzQzTElWSUJHSXNiVW00QkRZR2xwMnMzTjNuVFBvcWZtYlVVODlHcDczSGgzMm1EWEFHWHM0b2ZHNmFuZXZUc2c?oc=5" target="_blank" rel="noopener" style="color:#1a73e8;text-decoration:none;">원문 보기</a>
-  </div>
-  <div style="background:#f0faf0;border-left:2px solid #1a6e1a;border-radius:4px;
-              padding:10px 14px;font-size:13px;color:#3c3c3c;line-height:1.6;">
-    <strong style="color:#1a6e1a;">K-water 시사점</strong> 폭스바겐의 구조조정은 글로벌 자동차 산업의 비용 절감 압력을 보여주는 사례로, K-water와 직접적 연관성은 낮다. 다만 글로벌 제조업 구조조정이 국내 산업단지 수요에 간접적 영향을 미칠 가능성을 염두에 둘 필요가 있다. K-water는 에너지·도시 SBU를 통해 수변 신도시·산업단지 개발(부산 에코델타시티, 새만금 등)을 추진하고 있으나, 자동차 산업과의 직접적 연계는 제한적이다. 직접 시사점 낮음. 동향 파악 차원에서 참고.
-  </div>
-  
+
 </div>
-<div class="brief-card" style="
-    position:relative; background:#fff; border-radius:10px; margin-bottom:16px;
-    padding:18px 20px 18px 24px; box-shadow:0 2px 10px rgba(0,0,0,0.06);
-    border-left:5px solid #90d890;">
-  <div style="display:flex; gap:8px; align-items:center; flex-wrap:wrap; margin-bottom:10px;">
-    <span style="background:#eef2f9;color:#1a3f7f;font-size:11px;font-weight:700;
-                 padding:3px 8px;border-radius:20px;">#15</span>
-    <span style="display:inline-flex;align-items:center;gap:5px;background:#f0faf0;
-                 color:#1a6e1a;border:1px solid #90d890;font-size:11px;
-                 font-weight:700;padding:3px 10px;border-radius:20px;">
-      <span style="width:7px;height:7px;border-radius:50%;background:#1a6e1a;display:inline-block;"></span>
-      동향참고
-    </span>
-    <span style="background:#eef2f9;color:#3c3c3c;font-size:11px;padding:3px 8px;border-radius:20px;">지정학·국제정세</span>
-    <span style="background:#f0f2f5;color:#555;font-size:11px;padding:3px 8px;border-radius:20px;">국외</span>
-  </div>
-  <div style="font-size:16px;font-weight:700;color:#1a1a1a;margin-bottom:8px;line-height:1.5;">Mexico-US relations are already strained, but experts say they’re about to get worse - CNN</div>
-  <div style="font-size:14px;color:#3c3c3c;line-height:1.7;margin-bottom:10px;">멕시코 정부가 7월 12일 미국 이민세관단속국(ICE)의 멕시코인 사망 사건과 관련해 미국 내 민·형사 조사를 요청했다. 멕시코 클라우디아 셰인바움 대통령은 이민 단속 작전 또는 구금 시설에서 사망한 멕시코인 17명에 대한 조사를 요청하며, 미주인권위원회와 유엔 인권최고대표사무소에도 청원을 제출했다. 이는 지난주 텍사스에서 ICE 요원이 로렌조 살가도 아라우호를 총격 사망시킨 사건에 따른 것이다. 전문가들은 이번 사건이 미국-멕시코 관계의 주요 균열을 예고한다고 분석했다.</div>
-  <div style="font-size:12px;color:#8a8a8a;margin-bottom:12px;">
-    CNN | 2026.07.12 10:00 | <a href="https://news.google.com/rss/articles/CBMihAFBVV95cUxNUm1YWVRPZFVXMVJ6d2tVaXNuNnh5T2tnQlpUWlk4cGRHTmVlM2xhWFUyUzlrdmI5LWplZW9hWElNM2hpc0tZd0plN2o1OUplMTJQamw5SnFfVV82ekhKWkQ2enZHdmdCaG40bll2MXZpZUtsUWxUQzBTa0xRdFpIQU9rUWs?oc=5" target="_blank" rel="noopener" style="color:#1a73e8;text-decoration:none;">원문 보기</a>
-  </div>
-  <div style="background:#f0faf0;border-left:2px solid #1a6e1a;border-radius:4px;
-              padding:10px 14px;font-size:13px;color:#3c3c3c;line-height:1.6;">
-    <strong style="color:#1a6e1a;">K-water 시사점</strong> 미국-멕시코 관계 악화는 북미 지역 정치·경제 불안정성을 높이며, K-water의 글로벌·기후테크 SBU에 간접적 영향을 미칠 수 있다. K-water는 글로벌·기후테크 SBU를 통해 14개국 30개 해외사업을 진행 중이나, 현재 멕시코에서 진행 중인 사업은 확인되지 않는다. 미국-멕시코-캐나다 협정(USMCA) 재협상 등 북미 지역 통상 환경 변화가 글로벌 사업 환경에 미치는 영향을 모니터링할 필요가 있으나, K-water 국내 사업에 직접적 영향은 제한적이다. 직접 시사점 낮음. 동향 파악 차원에서 참고.
-  </div>
-  
-</div>
-    <div class="footer">우선순위 기준 · 즉시주목 = 긴급도 높음·중요도 높음 / 주의요망 = 긴급도 높음·중요도 낮음 or 긴급도 낮음·중요도 높음 / 동향참고 = 긴급도 낮음·중요도 낮음</div>
-  </div>
 
 <div id="kw-credit-footer" style="
   text-align:center;padding:20px 16px;
@@ -486,5 +450,19 @@
 </div>
 
 
+<!-- BRIEFING_MANIFEST_BEGIN
+{"cards": [
+  {"no": 1, "category": "즉시주목", "title": "美, 이란에 추가 공습… \"호르무즈 상선 공격 역량 약화\"", "url": "https://news.google.com/rss/articles/CBMihAFBVV95cUxNWlZZbXlJSHVWcTU4NU5qRzQ2NEE0Qy1YVFozdmN2TU9XLWQxdHpRMUdSYzEyS1dZVEpUS29VRzBGTHVmU1VzcmFYS3hDQUE3SzVLSFF0WGlEQzNSMDlIWFBxRTVNV2xRSi13Qlg2b3lGdkxHMVBjNmsxVE5oMjlOb0RieFQ?oc=5"},
+  {"no": 2, "category": "즉시주목", "title": "Oil Climbs, US Futures Dip on Fresh Iran Strikes: Markets Wrap", "url": "https://news.google.com/rss/articles/CBMisAFBVV95cUxOQlZnMENNcXpBaThQdm1BZlAwLXpEOUxXUzJGWTVCemJLY01QRmF6ejRmb2hpSllOUllwRUlJSnRkWlBWczlXTWxGdmozU2ZpdXVLMlVRR244WUFZa1ZYLXBKTXdpaGtVTFdsZjJadzg1U21fbC1qQ3Ixc25oejB2dzQ0aVlIRTlGY0g3SDdJVUtiYno2OVhIQ1VRTVpiWjVqRWFmZTdLRk41TUttTWt3Ng?oc=5"},
+  {"no": 3, "category": "즉시주목", "title": "[속보] 당정 \"신규 원전 건설 배제하지 않겠다\"", "url": "https://news.google.com/rss/articles/CBMihgFBVV95cUxQbG9xY0R5TGQ2aEc2ZHdPLUZ3MWI2SkVyUEI0bGFqUHczUEZ6b1BidGJPc09QbUhrQl9jUEtJX3lrank0NkF1WXozSTRzLWhrRFV4a3dyZGlBdVM3MTF3NE9TSWlNZWswX25pa3dPa2hvRmQ5NllvMjJzTGZUeC1pWXFhZXAwdw?oc=5"},
+  {"no": 4, "category": "주의요망", "title": "'올해 최강' 태풍 바비 中 강타…200만명 대피하고 교통 마비", "url": "https://news.google.com/rss/articles/CBMiWkFVX3lxTE5vWTJJNUxOM0UzZkZlZlU2UGFMUHJzSzJveU9lUFdPSFFsNzB3REVndmUwdGtIMlZrMVAzcDFyVjJFbjlQRm82NkNqbktkWGx5Mk5pLXVuNGIzUdIBVEFVX3lxTE1QaEhjTzZ4SlowYlpKVlZ3a1daTW53ZjE1UzJXWVd2emowbi11TjZTUmtmdFE3cmpGZEd2akhRRmpocllVSURXd1Z4MlNSd2VmNGE2Sg?oc=5"},
+  {"no": 5, "category": "주의요망", "title": "상하층 '이중 열돔'에 습한 남풍 겹쳐… 일주일새 6.1도 올랐다", "url": "https://news.google.com/rss/articles/CBMidkFVX3lxTFBOeUt2aUlsNWVOa1JqQmVkVzBmMXFsTUEzRWY5eUZFZWtKX2x2dUkwWnhlakR2RlptN2lGQjJqb0VMcUpqMFNaZVFVZktkNjRsSVVHc0NXdHo4dmZVbmdaU29vUTdRWW1xajJjNk5oRVlnbTBWVUHSAWZBVV95cUxNZGppZk9ZZGw1eW5LSHhpdjBLakxKRXFzWlNtUWJITVpEYVlmcThvUXkyUW5HNWc3N3ZxamdFeXBrT0lWSGplbG13LVAwREpYWDJCbk5vS1BOcThKTUUzUUM0WGxVMkE?oc=5"},
+  {"no": 6, "category": "주의요망", "title": "'나스닥 입성' 하이닉스 9% 폭락…코스피 매도 사이드카 발동", "url": "https://news.google.com/rss/articles/CBMiZ0FVX3lxTFBkMTJpOVVTQVp5OXFEVElwT3hGOGtONUxsVkpNNWItczlmYm5TYndienotX3hGSTJ3c3hCUkdEUHBSYXYyaFhOMUxwMDJqYkFrREF2UmZtWDNsNkZOa2MtNVhUcWppc1U?oc=5"},
+  {"no": 7, "category": "주의요망", "title": "7월 1~10일 수출 54%↑ 반도체는 193%↑", "url": "https://news.google.com/rss/articles/CBMijgFBVV95cUxNQWo0TTcxX3gtLXYzVy11Y1YtWlhXUlZXV3RCXzVjT2xhVkQ3OUhlYk13UEdDdWlaQlBldHI2TWlsOGdweTQtV2pJellZME5NQndwQXVseHh2anAxd3RxX0M1cWJKT3FUMF83ZEJrVFIteXN2TE9uZGVrTHJsLVNsbEl1eExUdTZDUmdKUll3?oc=5"},
+  {"no": 8, "category": "동향참고", "title": "\"스페이스X 기다려라\" 그물로 로켓 잡은 중국, 수직 이착륙 성공한 일본", "url": "https://news.google.com/rss/articles/CBMigwFBVV95cUxNYlhaNDlLRVRFbnVOLXBPbUVQRUFjb0lfVC1yRG82VUw1VGhDSHdCTkJESTFQSDNKZ1Nyclh0N3BqaF9vbFdRMlhIWlJJTWFMM3E4X1BReXJicXl1LUZYU0gyQzExR25PVS10eU52VzFHdUx6N2duYWQySzNXRG9NaTBQTQ?oc=5"},
+  {"no": 9, "category": "동향참고", "title": "홈플러스, 오늘부터 대형마트 임시 휴업…\"운영자금 고갈\"", "url": "https://news.google.com/rss/articles/CBMiW0FVX3lxTFAyNWZDZ3VYQ2JpeGd3SExhLUhxX0U2ZVBDTy1jYkgxeEZJSmdBcmdPUXFSREF3U25oMS15aUM5TGJsUnF4RFFSM2plTjk5NlVuOVNRSkVuUFQ0OEU?oc=5"},
+  {"no": 10, "category": "동향참고", "title": "방글라데시 폭우에 44명 사망…100만여명 고립", "url": "https://news.google.com/rss/articles/CBMiYEFVX3lxTE5jWkdRSDMxbVhjeGZSMk9mUm1TckNFS2c1UURUWmpLY0hRSU9WRnBqZjQwOWFtUzFWZEZGbjFtRExzaV81ODA4RnFYSnFEZjFiMWhEdkRSZk1aV2hCQnNMONIBYEFVX3lxTE5jWkdRSDMxbVhjeGZSMk9mUm1TckNFS2c1UURUWmpLY0hRSU9WRnBqZjQwOWFtUzFWZEZGbjFtRExzaV81ODA4RnFYSnFEZjFiMWhEdkRSZk1aV2hCQnNMOA?oc=5"}
+]}
+BRIEFING_MANIFEST_END -->
 </body>
 </html>
