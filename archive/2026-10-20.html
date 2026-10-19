@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light">
+<title>데일리 브리핑 · 10월 20일(화) | K-water연구원</title>
+<meta name="description" content="즉시주목 2건 · 주의요망 3건 · 동향참고 2건 | 후티 반군 &quot;사우디 아람코·리야드 공항 등 6곳 대규모 타격&quot;">
+<meta property="og:type" content="website">
+<meta property="og:title" content="데일리 브리핑 · 10월 20일(화) | K-water연구원">
+<meta property="og:description" content="즉시주목 2건 · 주의요망 3건 · 동향참고 2건 | 후티 반군 &quot;사우디 아람코·리야드 공항 등 6곳 대규모 타격&quot;">
+<meta property="og:url" content="https://kwaterresearch.github.io/daily-brief/archive/2026-10-20.html">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+<style>
+  /* 항상 밝은 테마(v4.9): 주요 독자가 고령층이라 OS 다크모드를 따라가지 않는다. color-scheme도 light로 고정해
+     오디오 컨트롤·버튼 같은 UA 위젯까지 밝게 그린다. 다크 변수 블록을 되살리지 말 것. */
+  :root { color-scheme:light; --bg:#ffffff; --surface:#ffffff; --ink:#16191d; --ink2:#333a43; --muted:#6e7681;
+          --line:#dcd9d3; --accent:#0b2a5b; --accent-soft:#e9eef7; --link:#1f5fbf; }
+  * { box-sizing:border-box; }
+  [hidden] { display:none !important; }
+  html { scroll-padding-top:64px; }
+  body { font-family:'Pretendard','Malgun Gothic','Noto Sans KR',sans-serif; background:var(--bg);
+         margin:0; color:var(--ink); -webkit-font-smoothing:antialiased; word-break:keep-all; }
+  a { color:var(--link); }
+  .bar { position:sticky; top:0; z-index:10; background:color-mix(in srgb, var(--surface) 88%, transparent);
+         backdrop-filter:saturate(1.4) blur(10px); border-bottom:1px solid var(--line); }
+  .bar-in { max-width:760px; margin:0 auto; padding:10px 20px; display:flex; align-items:center; gap:10px; }
+  .brand { color:var(--ink); text-decoration:none; font-size:17px; letter-spacing:-0.2px; }
+  .brand b { color:var(--accent); font-weight:800; }
+  .bar-tag { font-size:14px; color:var(--muted); border:1px solid var(--line); border-radius:999px; padding:2px 8px; }
+  .bar-nav { margin-left:auto; display:flex; gap:4px; align-items:center; }
+  .bar-nav a { font-size:17px; color:var(--ink2); text-decoration:none; padding:8px 12px; border-radius:999px; }
+  .bar-nav a:hover { background:var(--accent-soft); color:var(--accent); }
+  .bar-listen { display:none; }
+  body:has(.audio-player) .bar-listen { display:inline-block; color:var(--accent); font-weight:700; }
+  .wrap { max-width:760px; margin:0 auto; padding:28px 20px 56px; }
+  .masthead { padding:8px 4px 4px; }
+  .kicker { font-size:15px; font-weight:700; letter-spacing:1.6px; color:var(--accent); }
+  .mh-top { display:flex; justify-content:space-between; align-items:flex-start; gap:12px; }
+  .mh-credit { font-size:15px; line-height:1.5; font-weight:600; color:var(--ink2); text-align:right; }
+  .masthead h1 { font-size:40px; line-height:1.15; margin:6px 0 8px; letter-spacing:-1px; font-weight:800; }
+  .masthead h1 small { font-size:18px; font-weight:600; color:var(--muted); letter-spacing:0; margin-left:6px; }
+  .mh-meta { font-size:17px; color:var(--ink2); line-height:1.7; }
+  .mh-sub { font-size:16px; color:var(--muted); margin:6px 0 0; line-height:1.6; }
+  .mix { margin-top:22px; }
+  .mix-bar { display:flex; height:8px; border-radius:999px; overflow:hidden; gap:2px; background:var(--line); }
+  .mix-bar span { background:var(--pc); }
+  .mix-legend { display:flex; flex-wrap:wrap; gap:4px 16px; margin-top:10px; font-size:17px; color:var(--ink2); }
+  .mix-legend .dot { width:8px; height:8px; border-radius:50%; display:inline-block; background:var(--pc); margin-right:6px; }
+  .mix-legend b { color:var(--pc); }
+  .mix-legend .total { margin-left:auto; color:var(--muted); }
+  .gauges { display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:10px; margin-top:16px; }
+  .gauge { background:var(--surface); border:1px solid var(--line); border-radius:12px; padding:10px 14px; }
+  .g-top { display:flex; justify-content:space-between; align-items:baseline; gap:8px; font-size:16px; }
+  .g-label { font-weight:700; color:var(--ink2); }
+  .delta { font-size:15px; } .delta.up { color:#d23b3b; } .delta.down { color:#2f9455; } .delta.same { color:var(--muted); }
+  .g-num { display:flex; align-items:baseline; gap:6px; margin:4px 0 8px; }
+  .g-value { font-size:36px; font-weight:800; line-height:1; color:var(--bc); letter-spacing:-1px; }
+  .g-max { font-size:15px; color:var(--muted); }
+  .g-band { margin-left:auto; font-size:15px; font-weight:700; color:var(--bc);
+            border:1px solid var(--bc); border-radius:999px; padding:1px 8px; }
+  .g-track { position:relative; height:6px; border-radius:999px; background:var(--line); }
+  .g-fill { height:100%; border-radius:999px; background:var(--bc); }
+  .g-track i { position:absolute; top:-3px; width:1px; height:12px; background:var(--muted); opacity:0.45; }
+  .g-basis { font-size:16px; color:var(--muted); margin-top:8px; line-height:1.5; }
+  .audio-player { margin-top:14px; background:var(--accent); color:#fff; border-radius:14px;
+                  padding:14px 16px; display:flex; align-items:center; gap:14px; }
+  .ap-icon { font-size:22px; width:42px; height:42px; border-radius:50%; flex:none;
+             background:rgba(255,255,255,0.14); display:flex; align-items:center; justify-content:center; }
+  .ap-body { flex:1; min-width:0; }
+  .ap-title { font-size:18px; font-weight:700; margin-bottom:8px; }
+  .audio-player audio { width:100%; height:40px; }
+  .section-title { display:flex; align-items:baseline; gap:10px; margin:40px 4px 14px; font-size:24px;
+                   font-weight:800; letter-spacing:-0.4px; color:var(--pc); }
+  .st-count { font-size:16px; font-weight:700; color:var(--pc); background:var(--pbg);
+              border:1px solid var(--pbd); border-radius:999px; padding:1px 9px; }
+  .st-desc { font-size:16px; font-weight:500; color:var(--muted); letter-spacing:0; }
+  .brief-card { background:var(--surface); border:1px solid var(--line); border-top:3px solid var(--pc);
+                border-radius:14px; padding:20px 22px 16px; margin-bottom:14px; }
+  .card-head { display:flex; align-items:center; gap:6px; flex-wrap:wrap; margin-bottom:10px; }
+  .card-no { font-size:17px; font-weight:800; color:var(--pc); margin-right:4px; font-variant-numeric:tabular-nums; }
+  .badge { font-size:15px; padding:4px 12px; border-radius:999px; border:1px solid var(--line); color:var(--ink2); }
+  .badge-cat { background:var(--accent-soft); border-color:transparent; color:var(--accent); font-weight:600; }
+  .card-title { font-size:23px; line-height:1.45; margin:0 0 10px; font-weight:750; letter-spacing:-0.3px; }
+  .card-summary { font-size:19px; line-height:1.8; color:var(--ink2); margin:0 0 14px; }
+  .insight-box { background:var(--pbg); border-radius:10px; padding:12px 16px; border-left:3px solid var(--pc); }
+  .insight-label { font-size:16px; font-weight:800; color:var(--pc); letter-spacing:0.3px; margin-bottom:4px; }
+  .insight-box p { margin:0; font-size:19px; line-height:1.8; color:var(--ink); }
+  .follow-up { margin-top:10px; font-size:17px; color:var(--ink2); display:flex; gap:8px; align-items:center; }
+  .follow-up span { font-size:15px; font-weight:700; color:var(--pc); border:1px solid var(--pbd);
+                    border-radius:999px; padding:1px 8px; }
+  .card-meta { display:flex; align-items:center; gap:6px; flex-wrap:wrap; font-size:16px;
+               color:var(--muted); margin-top:14px; }
+  .card-meta .media { font-weight:700; color:var(--ink2); }
+  .src-link { margin-left:auto; text-decoration:none; font-weight:700; color:var(--accent);
+              background:var(--accent-soft); border-radius:999px; padding:10px 18px; }
+  .src-link:hover { filter:brightness(0.96); }
+  .fb-box { margin-top:12px; padding-top:12px; border-top:1px solid var(--line); display:flex;
+            gap:6px; align-items:center; flex-wrap:wrap; }
+  .fb-label { font-size:16px; color:var(--muted); margin-right:auto; }
+  .fb-btn { font-family:inherit; font-size:17px; padding:11px 18px; border-radius:999px;
+            border:1px solid var(--line); background:transparent; color:var(--ink2); cursor:pointer; }
+  .fb-btn:hover { background:var(--accent-soft); color:var(--accent); border-color:transparent; }
+  .footer { text-align:center; font-size:15px; color:var(--muted); margin-top:32px; line-height:1.7; }
+  #kw-credit-footer { text-align:center; padding:22px 16px 30px; border-top:1px solid var(--line);
+                      background:var(--surface); }
+  .cr-main { font-size:17px; color:var(--ink2); font-weight:600; }
+  .cr-main b { color:var(--accent); }
+  .cr-sub { font-size:15px; color:var(--muted); margin-top:6px; }
+  @media (max-width:520px) {
+    .bar-in { padding:8px 14px; }
+    .brand { font-size:16px; }
+    .bar-nav a { padding:6px 7px; }
+    .wrap { padding:20px 14px 40px; }
+    .masthead h1 { font-size:32px; }
+    .mh-credit { font-size:14px; }
+    .brief-card { padding:16px 16px 12px; }
+    .card-title { font-size:22px; }
+    .card-summary { font-size:19px; }
+    .insight-box p { font-size:19px; }
+    .fb-label { flex-basis:100%; }
+    .mix-legend .total { margin-left:0; }
+  }
+  @media print {
+    body { background:#fff; color:#000; }
+    .bar, .audio-player, .fb-box, #kw-credit-footer { display:none !important; }
+    .brief-card, .gauge { break-inside:avoid; page-break-inside:avoid; }
+    .section-title { break-after:avoid; page-break-after:avoid; }
+    .src-link { background:none; padding:0; }
+  }
+
+  .p1{--pc:#c4161c;--pbg:#fdf0f0;--pbd:#f2c4c6;}
+  .p2{--pc:#a86200;--pbg:#fdf6e7;--pbd:#efd6a0;}
+  .p3{--pc:#1d7a3a;--pbg:#eef8f1;--pbd:#b9e0c5;}
+  .b-calm{--bc:#6b7280;}
+  .b-normal{--bc:#1f4f99;}
+  .b-watch{--bc:#9a6b00;}
+  .b-alert{--bc:#b85300;}
+  .b-crit{--bc:#c4161c;}
+</style>
+</head>
+<body>
+  <header class="bar">
+    <div class="bar-in">
+      <a class="brand" href="../">K-water연구원 <b>Daily Brief</b></a><span class="bar-tag">지난 브리핑</span>
+      <nav class="bar-nav">
+        <a class="bar-listen" href="#listen">🎧 듣기</a>
+        <a id="nav-prev" title="이전 날" hidden>‹ 이전</a>
+        <a href="../calendar.html">달력</a>
+        <a id="nav-next" title="다음 날" hidden>다음 ›</a>
+      </nav>
+    </div>
+  </header>
+  <main class="wrap" data-fb-date="2026-10-20">
+    <section class="masthead">
+      <div class="mh-top">
+        <div class="kicker">DAILY BRIEF · K-water연구원</div>
+        <div class="mh-credit">경영연구소 발행<br>AI연구소 개발</div>
+      </div>
+      <h1>10월 20일 화요일<small>2026</small></h1>
+      <div class="mh-meta">오전 07:03 생성 · 수록 기간 어제(2026-10-19)</div>
+      <p class="mh-sub">매일 아침, 국내외 주요 이슈와 시사점을 간추려 전달합니다. 본 자료는 생성형 AI를 통해 자동 작성되었습니다.</p>
+      <div class="mix">
+        <div class="mix-bar"><span class="p1" style="flex:2"></span><span class="p2" style="flex:3"></span><span class="p3" style="flex:2"></span></div>
+        <div class="mix-legend"><span class="p1"><span class="dot"></span>즉시주목 <b>2</b></span><span class="p2"><span class="dot"></span>주의요망 <b>3</b></span><span class="p3"><span class="dot"></span>동향참고 <b>2</b></span><span class="total">총 7건</span></div>
+      </div>
+      <div class="gauges"><div class="gauge b-alert">
+              <div class="g-top"><span class="g-label">오늘의 이슈 강도</span><span class="delta up">전일 대비 ▲6</span></div>
+              <div class="g-num"><span class="g-value">79</span><span class="g-max">/100</span>
+                <span class="g-band">경계</span></div>
+              <div class="g-track"><div class="g-fill" style="width:79%"></div><i style="left:85%"></i><i style="left:65%"></i><i style="left:45%"></i><i style="left:25%"></i></div>
+              <div class="g-basis">근거 · 후티 사우디 대규모 공격·투자회의 연기</div>
+            </div><div class="gauge b-normal">
+              <div class="g-top"><span class="g-label">K-water 연관도</span><span class="delta same">전일과 같음</span></div>
+              <div class="g-num"><span class="g-value">40</span><span class="g-max">/100</span>
+                <span class="g-band">보통</span></div>
+              <div class="g-track"><div class="g-fill" style="width:40%"></div><i style="left:85%"></i><i style="left:65%"></i><i style="left:45%"></i><i style="left:25%"></i></div>
+              <div class="g-basis">근거 · 구리시 상수도 요금 22% 인상 추진</div>
+            </div></div>
+      <!--AUDIO_INJECT_HERE-->
+    </section>
+    <h2 class="section-title p1"><span class="st-name">즉시주목</span><span class="st-count">2</span><span class="st-desc">긴급도·중요도 모두 높음</span></h2>
+<article class="brief-card p1" data-fb-no="1" data-fb-cat="A" data-fb-tags="지정학·분쟁,유가·원자재">
+  <div class="card-head">
+    <span class="card-no">01</span>
+    <span class="badge badge-cat">지정학·국제정세</span>
+    <span class="badge badge-dom">국내</span>
+  </div>
+  <h3 class="card-title">후티 반군 &quot;사우디 아람코·리야드 공항 등 6곳 대규모 타격&quot;</h3>
+  <p class="card-summary">예멘 후티 반군이 19일 사우디아라비아의 석유 시설과 공항, 군사 기지 등 6곳을 탄도·순항 미사일과 무인기로 타격했다고 주장했다. 주요 표적에는 국영 석유기업 아람코의 얀부 시설과 샤이바 유전, 리야드 킹칼리드 국제공항, 아브하 국제공항, 카미스 무샤이트 공군기지 등이 포함됐다. 후티는 사우디의 48시간 200여 차례 공습에 대한 보복이라며 추가 확전 의지를 밝혔으나, 사우디는 아직 공격 사실을 확인하지 않고 있다.</p>
+  <div class="insight-box">
+    <div class="insight-label">K-water 시사점</div>
+    <p>사우디 석유 시설 타격 주장이 사실로 확인되면 국제 유가 급등과 중동 정세 불안이 심화될 수 있다. K-water는 부채 11조 9,639억원을 채권 발행으로 조달하는 구조에서 유가 상승이 물가 압력으로 이어지면 금리 인상 가능성이 커져 조달 비용 부담이 증가할 수 있다. 다만 최근 5일간 같은 중동 리스크 사안이 반복 수록되었고 이번에도 사우디 측 확인이 없어 실제 피해 규모는 불확실하다. 유가 변동과 금리 동향을 지속 참고할 필요가 있다.</p>
+  </div>
+  <div class="follow-up"><span>후속 모니터링</span>지속 모니터링 필요</div>
+  <div class="card-meta">
+    <span class="media">연합뉴스</span><span class="sep">·</span><span>2026.10.19 16:55</span>
+    <a class="src-link" href="https://news.google.com/rss/articles/CBMiW0FVX3lxTE02cmNwNEdtOVZsZWxNY3dpV0lBUXhDcmlQeHIzdDF5MkFES2J1LS05M1VTSmtFM3N2enJuRmtYMGJOSHViNm1KcXpKOHdLMzJYZzJpVzV5UmF4NUHSAWBBVV95cUxNNWc5ZGZPRmk2dUwyVG9DdlhQYUd4Q2k2R2p0S1BvUEF3dHJMbGFuWTI0SGxQTURaZXdvUlRMNEdRcVpQbHBseV9hZloyVUhxQkRqLUxfU3c3a1R5VkVqZU8?oc=5" target="_blank" rel="noopener">원문 보기 ↗</a>
+  </div>
+  <div class="fb-box">
+    <span class="fb-label">이 기사, 브리핑에 유용했나요?</span>
+    <button type="button" class="fb-btn" data-v="1">👍 더 보기</button>
+    <button type="button" class="fb-btn" data-v="0">보통</button>
+    <button type="button" class="fb-btn" data-v="-1">👎 그만</button>
+  </div>
+</article>
+<article class="brief-card p1" data-fb-no="2" data-fb-cat="A" data-fb-tags="지정학·분쟁">
+  <div class="card-head">
+    <span class="card-no">02</span>
+    <span class="badge badge-cat">지정학·국제정세</span>
+    <span class="badge badge-dom">국외</span>
+  </div>
+  <h3 class="card-title">French riots: Overnight curfews announced in parts of Paris and Nice</h3>
+  <p class="card-summary">프랑스 파리와 니스 일부 지역에 19일 야간 통행금지령이 발표됐다. 주말 동안 생활비 인상에 항의하는 시위가 폭력 사태로 번지면서 공공 안전 우려가 커졌다. 이탈리아·스페인·벨기에·포르투갈·알바니아 등 유럽 여러 국가에서도 유사한 물가 시위가 확산되고 있으며, 11월 대선을 앞둔 프랑스 정치권은 시위를 정치적으로 활용하려는 움직임을 보이고 있다.</p>
+  <div class="insight-box">
+    <div class="insight-label">K-water 시사점</div>
+    <p>프랑스를 포함한 유럽 주요국의 물가 시위 확산은 정부의 공공요금 동결 압력을 강화할 가능성이 있다. K-water가 진출한 14개국 30개 해외사업 중 유럽 지역 사업이 있다면 현지 정부의 요금 승인 지연이나 사업 환경 변화를 점검할 필요가 있다. 다만 K-water의 주요 해외사업은 동남아·중앙아시아에 집중되어 있어 직접 영향은 제한적이다.</p>
+  </div>
+  <div class="follow-up"><span>후속 모니터링</span>1회성 이슈</div>
+  <div class="card-meta">
+    <span class="media">BBC</span><span class="sep">·</span><span>2026.10.19 21:11</span>
+    <a class="src-link" href="https://news.google.com/rss/articles/CBMiVkFVX3lxTFBpZklSWldWXzY3TzVZLUFfRUtuZkZoZEFNTWhFVTVKV2VvRDJrcVF1LU00Njk5TkdCSlI3NWc5Y3l4cF9PbndBcXJWTGpmYzBXSmF3NlVn?oc=5" target="_blank" rel="noopener">원문 보기 ↗</a>
+  </div>
+  <div class="fb-box">
+    <span class="fb-label">이 기사, 브리핑에 유용했나요?</span>
+    <button type="button" class="fb-btn" data-v="1">👍 더 보기</button>
+    <button type="button" class="fb-btn" data-v="0">보통</button>
+    <button type="button" class="fb-btn" data-v="-1">👎 그만</button>
+  </div>
+</article><h2 class="section-title p2"><span class="st-name">주의요망</span><span class="st-count">3</span><span class="st-desc">긴급도 또는 중요도 높음</span></h2>
+<article class="brief-card p2" data-fb-no="3" data-fb-cat="B" data-fb-tags="수도요금·규제">
+  <div class="card-head">
+    <span class="card-no">03</span>
+    <span class="badge badge-cat">정치·정책</span>
+    <span class="badge badge-dom">국내</span>
+  </div>
+  <h3 class="card-title">구리시, 22년 만에 상수도 요금 평균 22% 인상 추진</h3>
+  <p class="card-summary">경기 구리시가 내년 1월부터 상수도 요금을 평균 22.2%, 하수도 요금을 평균 32.1% 인상하는 조례 개정안을 입법 예고했다. 상수도 요금은 2005년 이후 22년 만의 인상이며, 요금 현실화율을 상수도 90%, 하수도 70%로 맞춰 재정건전성을 확보하고 공공하수처리시설 현대화 사업 재원을 마련한다는 계획이다.</p>
+  <div class="insight-box">
+    <div class="insight-label">K-water 시사점</div>
+    <p>구리시는 K-water가 위탁운영하는 지자체가 아니지만, 22년 만의 대폭 인상은 전국 지자체의 요금 현실화 압력을 보여주는 사례다. K-water의 광역상수도 요금은 2012년 이후 9.8% 상승에 그쳐 같은 기간 소비자물가 27% 상승과 격차가 크며, 기후에너지환경부장관 승인 사항이라 단독 결정이 불가능하다. 지자체 요금 인상 사례가 누적되면 광역상수도 요금 현실화 논의에도 참고 자료로 활용될 수 있다.</p>
+  </div>
+  
+  <div class="card-meta">
+    <span class="media">연합뉴스</span><span class="sep">·</span><span>2026.10.19 05:56</span>
+    <a class="src-link" href="https://news.google.com/rss/articles/CBMiYEFVX3lxTFBLQ3d3LTJGZzE3OHVlc3didXZlbVVwSjdiTmFKUEJmcDNGM0UzUmZfNVRfU09qUTZRajZ0V3dGSVdVZEdBbDU4ei1QX1lxWWNiNmhOSThXaElGMU42RFdnVdIBYEFVX3lxTFBLQ3d3LTJGZzE3OHVlc3didXZlbVVwSjdiTmFKUEJmcDNGM0UzUmZfNVRfU09qUTZRajZ0V3dGSVdVZEdBbDU4ei1QX1lxWWNiNmhOSThXaElGMU42RFdnVQ?oc=5" target="_blank" rel="noopener">원문 보기 ↗</a>
+  </div>
+  <div class="fb-box">
+    <span class="fb-label">이 기사, 브리핑에 유용했나요?</span>
+    <button type="button" class="fb-btn" data-v="1">👍 더 보기</button>
+    <button type="button" class="fb-btn" data-v="0">보통</button>
+    <button type="button" class="fb-btn" data-v="-1">👎 그만</button>
+  </div>
+</article>
+<article class="brief-card p2" data-fb-no="4" data-fb-cat="B" data-fb-tags="물관리정책">
+  <div class="card-head">
+    <span class="card-no">04</span>
+    <span class="badge badge-cat">정치·정책</span>
+    <span class="badge badge-dom">국내</span>
+  </div>
+  <h3 class="card-title">정부, 카자흐스탄과 물산업 협력 확대…협력사절단 파견</h3>
+  <p class="card-summary">기후에너지환경부와 외교부가 19일부터 21일까지 카자흐스탄 아스타나에 물산업 협력사절단을 파견한다. 사절단에는 K-water, 한국환경공단, 국내 물기업 9개사가 참여하며, 현지 물관리 기관과의 기술교류, 상·하수도 시설 방문, 실증사업 점검을 통해 후속 사업화 및 신규 협력사업을 발굴한다.</p>
+  <div class="insight-box">
+    <div class="insight-label">K-water 시사점</div>
+    <p>카자흐스탄은 K-water가 해외사업을 추진 중인 중앙아시아 핵심 시장이다. 정부 주도 사절단 파견은 기존 실증사업의 제품 구매·수출 전환과 신규 사업 발굴 기회를 제공한다. 나자르바예프대학교와의 공동연구 협력도 디지털 물관리 기술의 현지 적용 가능성을 높일 수 있다. 이번 사절단 성과는 K-water의 해외사업 매출 목표 715억원 달성에 기여할 것으로 예상된다.</p>
+  </div>
+  
+  <div class="card-meta">
+    <span class="media">뉴시스</span><span class="sep">·</span><span>2026.10.19 04:00</span>
+    <a class="src-link" href="https://news.google.com/rss/articles/CBMieEFVX3lxTE1XbHhqNnNETW95VVQxNjdFSWZ2eTJXWkZydUhIMXlvTUcxZ3Z5d1BIRzk4QldRZENqTUM5ZDJJMWh1bXhjdEFyUzNFQkJrTjdYSHJVaWlyVmJtT3hKVXB3VzFIYkdia2JWSzBHZUZnNG5aX1RMZWNuRNIBeEFVX3lxTE1XbHhqNnNETW95VVQxNjdFSWZ2eTJXWkZydUhIMXlvTUcxZ3Z5d1BIRzk4QldRZENqTUM5ZDJJMWh1bXhjdEFyUzNFQkJrTjdYSHJVaWlyVmJtT3hKVXB3VzFIYkdia2JWSzBHZUZnNG5aX1RMZWNuRA?oc=5" target="_blank" rel="noopener">원문 보기 ↗</a>
+  </div>
+  <div class="fb-box">
+    <span class="fb-label">이 기사, 브리핑에 유용했나요?</span>
+    <button type="button" class="fb-btn" data-v="1">👍 더 보기</button>
+    <button type="button" class="fb-btn" data-v="0">보통</button>
+    <button type="button" class="fb-btn" data-v="-1">👎 그만</button>
+  </div>
+</article>
+<article class="brief-card p2" data-fb-no="5" data-fb-cat="A" data-fb-tags="지정학·분쟁">
+  <div class="card-head">
+    <span class="card-no">05</span>
+    <span class="badge badge-cat">지정학·국제정세</span>
+    <span class="badge badge-dom">국외</span>
+  </div>
+  <h3 class="card-title">EXCLUSIVE: Trump&#x27;s approval falls to record low of 31% as midterms near, Reuters/Ipsos poll finds</h3>
+  <p class="card-summary">트럼프 미국 대통령의 국정 지지율이 집권 1·2기 통틀어 최저인 33%까지 하락했다. 11월 3일 중간선거를 앞두고 민주당이 상·하원 모두에서 우위를 보이며, 상원 다수당 탈환 가능성이 56%로 나타났다. 공화당 내에서도 트럼프 핵심 지지층(마가)의 지지율은 95%이지만 비마가 공화당원은 47%에 그쳐 내부 분열이 심화되고 있다.</p>
+  <div class="insight-box">
+    <div class="insight-label">K-water 시사점</div>
+    <p>민주당이 상·하원을 장악하면 이란·우크라이나 전쟁 등 대외 정책 견제가 강화되고 행정부 예산·인사 승인이 지연될 가능성이 있다. 미국 인프라 투자 정책 변화는 K-water의 디지털 물관리 기술 수출과 해외 물시장 진출 여건에 간접 영향을 줄 수 있으나, 중간선거 결과가 즉각 사업 환경을 바꾸지는 않는다. 정책 방향성 변화를 참고할 수 있다.</p>
+  </div>
+  
+  <div class="card-meta">
+    <span class="media">Reuters</span><span class="sep">·</span><span>2026.10.19 20:34</span>
+    <a class="src-link" href="https://news.google.com/rss/articles/CBMiuAFBVV95cUxOT2FjX0hUODU4WlBWVWtBbDJwVTBPdHVBTFpGTEpTcDhUYjQyaEZ2aE1RQkE1YjZlREp5ZkRFMXU2czFFVFFaQWQ2NmlJNzJVNGtQM0R0YW5fWDZ1Xzh3b0FBWHBfWVA5UFkwRUFic0FMQWJRTnRmY2xuU3N2dXZFai1ydGtVTC13QjdVM2txNTIyN1UzaGhPMFA4OG80dl8xbHFsUE90bmViTkdtSVNtRFhWakZkWWtH?oc=5" target="_blank" rel="noopener">원문 보기 ↗</a>
+  </div>
+  <div class="fb-box">
+    <span class="fb-label">이 기사, 브리핑에 유용했나요?</span>
+    <button type="button" class="fb-btn" data-v="1">👍 더 보기</button>
+    <button type="button" class="fb-btn" data-v="0">보통</button>
+    <button type="button" class="fb-btn" data-v="-1">👎 그만</button>
+  </div>
+</article><h2 class="section-title p3"><span class="st-name">동향참고</span><span class="st-count">2</span><span class="st-desc">흐름 파악용</span></h2>
+<article class="brief-card p3" data-fb-no="6" data-fb-cat="E" data-fb-tags="극한기상·재해,홍수·치수">
+  <div class="card-head">
+    <span class="card-no">06</span>
+    <span class="badge badge-cat">기후·에너지·환경</span>
+    <span class="badge badge-dom">국내</span>
+  </div>
+  <h3 class="card-title">630㎜ 넘는 비에 다 잠겼다...스페인 동부 홍수 피해 속출</h3>
+  <p class="card-summary">스페인 동부 지역에 19일 폭풍우가 강타해 일부 지역은 36시간 동안 630mm 넘는 비가 내렸다. 발렌시아를 중심으로 침수 피해가 속출하고 사망자가 발생했으며, 80만 명을 상대로 대피령이 내려졌다. 2년 전 스페인 대홍수(사망 230여 명)가 재연되는 것 아니냐는 우려가 나온다.</p>
+  <div class="insight-box">
+    <div class="insight-label">K-water 시사점</div>
+    <p>스페인 홍수는 유럽 기후재해 빈도 증가를 보여주는 사례다. K-water는 디지털 트윈 물관리 플랫폼과 AI 기반 댐·하천 자율운영 기술을 보유하고 있어, 유럽 국가들의 홍수 대응 시스템 고도화 수요가 커지면 기술 수출 기회로 연결될 수 있다. 다만 현재 K-water의 해외사업은 동남아·중앙아시아에 집중되어 있어 단기 사업 영향은 제한적이다.</p>
+  </div>
+  
+  <div class="card-meta">
+    <span class="media">YTN</span><span class="sep">·</span><span>2026.10.19 21:37</span>
+    <a class="src-link" href="https://news.google.com/rss/articles/CBMiXkFVX3lxTFBGN2xWeC1KeGZKdTBFQ0o5VzQ0TVU4YndGMWRPSDFTN1NBZXRiVGxuRDFBVm1hT3VNRjhUWDlNWHhPWXhoYi1YRXdYbmpDR0tjM3pCNTI5ZkJNQllTZkE?oc=5" target="_blank" rel="noopener">원문 보기 ↗</a>
+  </div>
+  <div class="fb-box">
+    <span class="fb-label">이 기사, 브리핑에 유용했나요?</span>
+    <button type="button" class="fb-btn" data-v="1">👍 더 보기</button>
+    <button type="button" class="fb-btn" data-v="0">보통</button>
+    <button type="button" class="fb-btn" data-v="-1">👎 그만</button>
+  </div>
+</article>
+<article class="brief-card p3" data-fb-no="7" data-fb-cat="D" data-fb-tags="AI·디지털">
+  <div class="card-head">
+    <span class="card-no">07</span>
+    <span class="badge badge-cat">기술·혁신</span>
+    <span class="badge badge-dom">국내</span>
+  </div>
+  <h3 class="card-title">나라스페이스, 위성영상·AI로 네팔 홍수 분석…조사 우선 지역 9곳 제안</h3>
+  <p class="card-summary">국내 위성기업 나라스페이스가 네팔 홍수 피해 지역을 위성영상과 AI 기술로 분석한 보고서를 주한네팔대사관에 전달했다. 8월 26일 히말라야 지역 암반·빙하 붕괴로 발생한 홍수로 트리슐리강 유역 약 31.28㎢가 물과 토사로 덮였으며, AI 건물 탐지 기술로 침수·매몰 추정 면적 약 5만2,180㎡를 식별했다. 나라스페이스는 비두르 지역 정착지 9곳을 우선 조사 대상으로 제안했다.</p>
+  <div class="insight-box">
+    <div class="insight-label">K-water 시사점</div>
+    <p>위성영상과 AI 기반 재난 분석 기술은 산악 지역 홍수 피해 평가와 복구 계획 수립에 활용된다. K-water는 디지털 트윈 플랫폼과 AI 물관리 기술을 보유하고 있어, 위성 데이터와 결합한 재난 대응 솔루션 개발 가능성을 참고할 수 있다. 다만 현재 K-water의 AI 정수장·스마트 관망 기술은 시설 운영 중심이며, 위성 기반 재난 분석은 별도 협력이 필요한 영역이다.</p>
+  </div>
+  
+  <div class="card-meta">
+    <span class="media">DongA Science</span><span class="sep">·</span><span>2026.10.19 02:37</span>
+    <a class="src-link" href="https://news.google.com/rss/articles/CBMiVEFVX3lxTE5kMTVIdnJCUDZGMkhzNzBjVWl2dVdnRTF6OHdFTG9vQm9CUEZ5ZzFhZklvVVN1R1ZORjdXaFRNRU1KRkFOek8tcE43MnZkU202V05PZg?oc=5" target="_blank" rel="noopener">원문 보기 ↗</a>
+  </div>
+  <div class="fb-box">
+    <span class="fb-label">이 기사, 브리핑에 유용했나요?</span>
+    <button type="button" class="fb-btn" data-v="1">👍 더 보기</button>
+    <button type="button" class="fb-btn" data-v="0">보통</button>
+    <button type="button" class="fb-btn" data-v="-1">👎 그만</button>
+  </div>
+</article>
+    <div class="footer">우선순위 기준 · 즉시주목 = 긴급도 높음·중요도 높음 / 주의요망 = 긴급도 높음·중요도 낮음 or 긴급도 낮음·중요도 높음 / 동향참고 = 긴급도 낮음·중요도 낮음</div>
+  </main>
+<script>
+(function(){
+  try {
+    var DATE = "2026-10-20", JSON_URL = "./index.json", PREFIX = "./";
+    fetch(JSON_URL, {cache: 'no-store'}).then(function(r){ return r.json(); }).then(function(data){
+      var dates = (data.dates || []).slice().sort();
+      var prev = null, next = null;
+      for (var i = 0; i < dates.length; i++) {
+        if (dates[i] < DATE) { prev = dates[i]; }
+        if (dates[i] > DATE && next === null) { next = dates[i]; }
+      }
+      function fill(id, d){
+        var a = document.getElementById(id);
+        if (!a || !d) { return; }
+        a.href = PREFIX + d + '.html';
+        a.setAttribute('title', d);
+        a.hidden = false;
+      }
+      fill('nav-prev', prev);
+      fill('nav-next', next);
+    })['catch'](function(){});
+  } catch (e) {}
+})();
+</script>
+
+<div id="kw-credit-footer">
+  <div class="cr-main">📋 발행 · <b>K-water연구원 경영연구소</b></div>
+  <div class="cr-sub">개발 · K-water연구원 AI연구소</div>
+</div>
+
+
+<script>
+(function(){
+  try {
+    var EP = "https://script.google.com/macros/s/AKfycbzvRG44ieMtXA-9ZzN1nD_4MwXxK1rirbDTZCTQk14kq3Or2qfkDNYz_cfco-ri5iB5/exec";
+    var DATE = "2026-10-20";
+    function key(no){ return "kwfb:" + DATE + ":" + no; }
+    function mark(box){
+      box.innerHTML = '<span style="font-size:15px;color:#1a6e1a;">의견 감사합니다 &#10003;</span>';
+    }
+    function init(){
+      var cards = document.querySelectorAll('.brief-card');
+      for (var i = 0; i < cards.length; i++) {
+        var box = cards[i].querySelector('.fb-box');
+        if (!box) { continue; }
+        try {
+          if (localStorage.getItem(key(cards[i].getAttribute('data-fb-no')))) { mark(box); }
+        } catch (e) {}
+      }
+      document.addEventListener('click', function(ev){
+        var t = ev.target;
+        if (!t || !t.closest) { return; }
+        var btn = t.closest('.fb-btn');
+        if (!btn) { return; }
+        var card = btn.closest('.brief-card');
+        if (!card) { return; }
+        var payload = {
+          date: DATE,
+          no: card.getAttribute('data-fb-no'),
+          cat: card.getAttribute('data-fb-cat') || '',
+          tags: (card.getAttribute('data-fb-tags') || '').split(',').filter(Boolean),
+          v: parseInt(btn.getAttribute('data-v'), 10)
+        };
+        try { localStorage.setItem(key(payload.no), String(payload.v)); } catch (e) {}
+        var box = card.querySelector('.fb-box');
+        if (box) { mark(box); }
+        if (!EP) { return; }
+        try {
+          fetch(EP, {
+            method: 'POST',
+            mode: 'no-cors',
+            headers: {'Content-Type': 'text/plain;charset=UTF-8'},
+            body: JSON.stringify(payload)
+          })['catch'](function(){});
+        } catch (e) {}
+      }, false);
+    }
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', init);
+    } else {
+      init();
+    }
+  } catch (e) {}
+})();
+</script>
+</body>
+</html>
