@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light">
+<title>데일리 브리핑 · 10월 30일(금) | K-water연구원</title>
+<meta name="description" content="즉시주목 2건 · 주의요망 6건 · 동향참고 3건 | ‘평년 대비 48%’ 극심한 가뭄… 보현산댐 저수율 17.1% [뉴시스Pic]">
+<meta property="og:type" content="website">
+<meta property="og:title" content="데일리 브리핑 · 10월 30일(금) | K-water연구원">
+<meta property="og:description" content="즉시주목 2건 · 주의요망 6건 · 동향참고 3건 | ‘평년 대비 48%’ 극심한 가뭄… 보현산댐 저수율 17.1% [뉴시스Pic]">
+<meta property="og:url" content="https://kwaterresearch.github.io/daily-brief/archive/2026-10-30.html">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+<style>
+  /* 항상 밝은 테마(v4.9): 주요 독자가 고령층이라 OS 다크모드를 따라가지 않는다. color-scheme도 light로 고정해
+     오디오 컨트롤·버튼 같은 UA 위젯까지 밝게 그린다. 다크 변수 블록을 되살리지 말 것. */
+  :root { color-scheme:light; --bg:#ffffff; --surface:#ffffff; --ink:#16191d; --ink2:#333a43; --muted:#6e7681;
+          --line:#dcd9d3; --accent:#0b2a5b; --accent-soft:#e9eef7; --link:#1f5fbf; }
+  * { box-sizing:border-box; }
+  [hidden] { display:none !important; }
+  html { scroll-padding-top:64px; }
+  body { font-family:'Pretendard','Malgun Gothic','Noto Sans KR',sans-serif; background:var(--bg);
+         margin:0; color:var(--ink); -webkit-font-smoothing:antialiased; word-break:keep-all; }
+  a { color:var(--link); }
+  .bar { position:sticky; top:0; z-index:10; background:color-mix(in srgb, var(--surface) 88%, transparent);
+         backdrop-filter:saturate(1.4) blur(10px); border-bottom:1px solid var(--line); }
+  .bar-in { max-width:760px; margin:0 auto; padding:10px 20px; display:flex; align-items:center; gap:10px; }
+  .brand { color:var(--ink); text-decoration:none; font-size:17px; letter-spacing:-0.2px; }
+  .brand b { color:var(--accent); font-weight:800; }
+  .bar-tag { font-size:14px; color:var(--muted); border:1px solid var(--line); border-radius:999px; padding:2px 8px; }
+  .bar-nav { margin-left:auto; display:flex; gap:4px; align-items:center; }
+  .bar-nav a { font-size:17px; color:var(--ink2); text-decoration:none; padding:8px 12px; border-radius:999px; }
+  .bar-nav a:hover { background:var(--accent-soft); color:var(--accent); }
+  .bar-listen { display:none; }
+  body:has(.audio-player) .bar-listen { display:inline-block; color:var(--accent); font-weight:700; }
+  .wrap { max-width:760px; margin:0 auto; padding:28px 20px 56px; }
+  .masthead { padding:8px 4px 4px; }
+  .kicker { font-size:15px; font-weight:700; letter-spacing:1.6px; color:var(--accent); }
+  .mh-top { display:flex; justify-content:space-between; align-items:flex-start; gap:12px; }
+  .mh-credit { font-size:15px; line-height:1.5; font-weight:600; color:var(--ink2); text-align:right; }
+  .masthead h1 { font-size:40px; line-height:1.15; margin:6px 0 8px; letter-spacing:-1px; font-weight:800; }
+  .masthead h1 small { font-size:18px; font-weight:600; color:var(--muted); letter-spacing:0; margin-left:6px; }
+  .mh-meta { font-size:17px; color:var(--ink2); line-height:1.7; }
+  .mh-sub { font-size:16px; color:var(--muted); margin:6px 0 0; line-height:1.6; }
+  .mix { margin-top:22px; }
+  .mix-bar { display:flex; height:8px; border-radius:999px; overflow:hidden; gap:2px; background:var(--line); }
+  .mix-bar span { background:var(--pc); }
+  .mix-legend { display:flex; flex-wrap:wrap; gap:4px 16px; margin-top:10px; font-size:17px; color:var(--ink2); }
+  .mix-legend .dot { width:8px; height:8px; border-radius:50%; display:inline-block; background:var(--pc); margin-right:6px; }
+  .mix-legend b { color:var(--pc); }
+  .mix-legend .total { margin-left:auto; color:var(--muted); }
+  /* 일일 지수 2종을 한 칸에(v5.0 — 사용자 요청). 칸 하나 안에 지표가 한 줄씩 쌓이고 그 사이만 선으로 나눈다.
+     마크업(.gauges > .gauge > .g-top/.g-num/.g-track/.g-basis)은 v4.6과 같아서 --restyle-archive로
+     지난 페이지에도 그대로 적용된다 — 클래스 이름을 바꾸지 말 것. */
+  .gauges { margin-top:16px; background:var(--surface); border:1px solid var(--line); border-radius:12px;
+            padding:2px 16px; }
+  .gauge { display:grid; grid-template-columns:1fr auto; align-items:center; column-gap:10px; padding:10px 0; }
+  .gauge + .gauge { border-top:1px solid var(--line); }
+  .g-top { display:flex; flex-wrap:wrap; align-items:baseline; gap:2px 10px; font-size:16px; }
+  .g-label { font-weight:700; color:var(--ink2); }
+  .delta { font-size:14px; } .delta.up { color:#d23b3b; } .delta.down { color:#2f9455; } .delta.same { color:var(--muted); }
+  .g-num { display:flex; align-items:baseline; gap:4px; }
+  .g-value { font-size:22px; font-weight:800; line-height:1; color:var(--bc); letter-spacing:-0.5px; }
+  .g-max { font-size:13px; color:var(--muted); }
+  .g-band { margin-left:6px; font-size:14px; font-weight:700; color:var(--bc);
+            border:1px solid var(--bc); border-radius:999px; padding:0 8px; }
+  .g-track { grid-column:1 / -1; position:relative; height:5px; border-radius:999px; background:var(--line); margin-top:8px; }
+  .g-fill { height:100%; border-radius:999px; background:var(--bc); }
+  .g-track i { position:absolute; top:-2px; width:1px; height:9px; background:var(--muted); opacity:0.45; }
+  .g-basis { grid-column:1 / -1; font-size:15px; color:var(--muted); margin-top:6px; line-height:1.5; }
+  .audio-player { margin-top:14px; background:var(--accent); color:#fff; border-radius:14px;
+                  padding:14px 16px; display:flex; align-items:center; gap:14px; }
+  .ap-icon { font-size:22px; width:42px; height:42px; border-radius:50%; flex:none;
+             background:rgba(255,255,255,0.14); display:flex; align-items:center; justify-content:center; }
+  .ap-body { flex:1; min-width:0; }
+  .ap-title { font-size:18px; font-weight:700; margin-bottom:8px; }
+  .audio-player audio { width:100%; height:40px; }
+  .section-title { display:flex; align-items:baseline; gap:10px; margin:40px 4px 14px; font-size:24px;
+                   font-weight:800; letter-spacing:-0.4px; color:var(--pc); }
+  .st-count { font-size:16px; font-weight:700; color:var(--pc); background:var(--pbg);
+              border:1px solid var(--pbd); border-radius:999px; padding:1px 9px; }
+  .st-desc { font-size:16px; font-weight:500; color:var(--muted); letter-spacing:0; }
+  .brief-card { background:var(--surface); border:1px solid var(--line); border-top:3px solid var(--pc);
+                border-radius:14px; padding:20px 22px 16px; margin-bottom:14px; }
+  .card-head { display:flex; align-items:center; gap:6px; flex-wrap:wrap; margin-bottom:10px; }
+  .card-no { font-size:17px; font-weight:800; color:var(--pc); margin-right:4px; font-variant-numeric:tabular-nums; }
+  .badge { font-size:15px; padding:4px 12px; border-radius:999px; border:1px solid var(--line); color:var(--ink2); }
+  .badge-cat { background:var(--accent-soft); border-color:transparent; color:var(--accent); font-weight:600; }
+  .card-title { font-size:23px; line-height:1.45; margin:0 0 10px; font-weight:750; letter-spacing:-0.3px; }
+  .card-summary { font-size:19px; line-height:1.8; color:var(--ink2); margin:0 0 14px; }
+  .insight-box { background:var(--pbg); border-radius:10px; padding:12px 16px; border-left:3px solid var(--pc); }
+  .insight-label { font-size:16px; font-weight:800; color:var(--pc); letter-spacing:0.3px; margin-bottom:4px; }
+  .insight-box p { margin:0; font-size:19px; line-height:1.8; color:var(--ink); }
+  .follow-up { margin-top:10px; font-size:17px; color:var(--ink2); display:flex; gap:8px; align-items:center; }
+  .follow-up span { font-size:15px; font-weight:700; color:var(--pc); border:1px solid var(--pbd);
+                    border-radius:999px; padding:1px 8px; }
+  .card-meta { display:flex; align-items:center; gap:6px; flex-wrap:wrap; font-size:16px;
+               color:var(--muted); margin-top:14px; }
+  .card-meta .media { font-weight:700; color:var(--ink2); }
+  .src-link { margin-left:auto; text-decoration:none; font-weight:700; color:var(--accent);
+              background:var(--accent-soft); border-radius:999px; padding:10px 18px; }
+  .src-link:hover { filter:brightness(0.96); }
+  .fb-box { margin-top:12px; padding-top:12px; border-top:1px solid var(--line); display:flex;
+            gap:6px; align-items:center; flex-wrap:wrap; }
+  .fb-label { font-size:16px; color:var(--muted); margin-right:auto; }
+  .fb-btn { font-family:inherit; font-size:17px; padding:11px 18px; border-radius:999px;
+            border:1px solid var(--line); background:transparent; color:var(--ink2); cursor:pointer; }
+  .fb-btn:hover { background:var(--accent-soft); color:var(--accent); border-color:transparent; }
+  .footer { text-align:center; font-size:15px; color:var(--muted); margin-top:32px; line-height:1.7; }
+  #kw-credit-footer { text-align:center; padding:22px 16px 30px; border-top:1px solid var(--line);
+                      background:var(--surface); }
+  .cr-main { font-size:17px; color:var(--ink2); font-weight:600; }
+  .cr-main b { color:var(--accent); }
+  .cr-sub { font-size:15px; color:var(--muted); margin-top:6px; }
+  @media (max-width:520px) {
+    .bar-in { padding:8px 14px; }
+    .brand { font-size:16px; }
+    .bar-nav a { padding:6px 7px; }
+    .wrap { padding:20px 14px 40px; }
+    .masthead h1 { font-size:32px; }
+    .mh-credit { font-size:14px; }
+    .brief-card { padding:16px 16px 12px; }
+    .card-title { font-size:22px; }
+    .card-summary { font-size:19px; }
+    .insight-box p { font-size:19px; }
+    .fb-label { flex-basis:100%; }
+    .mix-legend .total { margin-left:0; }
+  }
+  @media print {
+    body { background:#fff; color:#000; }
+    .bar, .audio-player, .fb-box, #kw-credit-footer { display:none !important; }
+    .brief-card, .gauge { break-inside:avoid; page-break-inside:avoid; }
+    .section-title { break-after:avoid; page-break-after:avoid; }
+    .src-link { background:none; padding:0; }
+  }
+
+  .p1{--pc:#c4161c;--pbg:#fdf0f0;--pbd:#f2c4c6;}
+  .p2{--pc:#a86200;--pbg:#fdf6e7;--pbd:#efd6a0;}
+  .p3{--pc:#1d7a3a;--pbg:#eef8f1;--pbd:#b9e0c5;}
+  .b-calm{--bc:#6b7280;}
+  .b-normal{--bc:#1f4f99;}
+  .b-watch{--bc:#9a6b00;}
+  .b-alert{--bc:#b85300;}
+  .b-crit{--bc:#c4161c;}
+</style>
+</head>
+<body>
+  <header class="bar">
+    <div class="bar-in">
+      <a class="brand" href="../">K-water연구원 <b>Daily Brief</b></a><span class="bar-tag">지난 브리핑</span>
+      <nav class="bar-nav">
+        <a class="bar-listen" href="#listen">🎧 듣기</a>
+        <a id="nav-prev" title="이전 날" hidden>‹ 이전</a>
+        <a href="../calendar.html">달력</a>
+        <a id="nav-next" title="다음 날" hidden>다음 ›</a>
+      </nav>
+    </div>
+  </header>
+  <main class="wrap" data-fb-date="2026-10-30">
+    <section class="masthead">
+      <div class="mh-top">
+        <div class="kicker">DAILY BRIEF · K-water연구원</div>
+        <div class="mh-credit">경영연구소 발행<br>AI연구소 개발</div>
+      </div>
+      <h1>10월 30일 금요일<small>2026</small></h1>
+      <div class="mh-meta">오전 07:05 생성 · 수록 기간 어제(2026-10-29)</div>
+      <p class="mh-sub">매일 아침, 국내외 주요 이슈와 시사점을 간추려 전달합니다. 본 자료는 생성형 AI를 통해 자동 작성되었습니다.</p>
+      <div class="mix">
+        <div class="mix-bar"><span class="p1" style="flex:2"></span><span class="p2" style="flex:6"></span><span class="p3" style="flex:3"></span></div>
+        <div class="mix-legend"><span class="p1"><span class="dot"></span>즉시주목 <b>2</b></span><span class="p2"><span class="dot"></span>주의요망 <b>6</b></span><span class="p3"><span class="dot"></span>동향참고 <b>3</b></span><span class="total">총 11건</span></div>
+      </div>
+      <div class="gauges"><div class="gauge b-normal">
+              <div class="g-top"><span class="g-label">오늘의 이슈 강도</span><span class="delta same">전일과 같음</span></div>
+              <div class="g-num"><span class="g-value">40</span><span class="g-max">/100</span>
+                <span class="g-band">보통</span></div>
+              <div class="g-track"><div class="g-fill" style="width:40%"></div><i style="left:85%"></i><i style="left:65%"></i><i style="left:45%"></i><i style="left:25%"></i></div>
+              <div class="g-basis">근거 · 삼성전자 3분기 실적·삼전닉스 210조 주주환원</div>
+            </div><div class="gauge b-normal">
+              <div class="g-top"><span class="g-label">K-water 연관도</span><span class="delta same">전일과 같음</span></div>
+              <div class="g-num"><span class="g-value">40</span><span class="g-max">/100</span>
+                <span class="g-band">보통</span></div>
+              <div class="g-track"><div class="g-fill" style="width:40%"></div><i style="left:85%"></i><i style="left:65%"></i><i style="left:45%"></i><i style="left:25%"></i></div>
+              <div class="g-basis">근거 · 보현산댐 저수율 17.1%…경북 가뭄 심화</div>
+            </div></div>
+      <!--AUDIO_INJECT_HERE-->
+    </section>
+    <h2 class="section-title p1"><span class="st-name">즉시주목</span><span class="st-count">2</span><span class="st-desc">긴급도·중요도 모두 높음</span></h2>
+<article class="brief-card p1" data-fb-no="1" data-fb-cat="E" data-fb-tags="가뭄·저수">
+  <div class="card-head">
+    <span class="card-no">01</span>
+    <span class="badge badge-cat">기후·에너지·환경</span>
+    <span class="badge badge-dom">국내</span>
+  </div>
+  <h3 class="card-title">‘평년 대비 48%’ 극심한 가뭄… 보현산댐 저수율 17.1% [뉴시스Pic]</h3>
+  <p class="card-summary">경북 영천시 보현산댐의 저수율이 29일 17.1%까지 떨어지면서 평소 물에 잠겨 있던 댐 바닥 토사가 드러났다. 최근 6개월간 대구·경북 누적 강수량은 평년의 67.2%에 그쳤다. 영천은 평년의 절반 이하인 48.0%를 기록해 심한 가뭄 단계가 이어지고 있다.</p>
+  <div class="insight-box">
+    <div class="insight-label">K-water 시사점</div>
+    <p>최근 브리핑에서 다룬 가뭄 대응 경로가 이번에는 저수율 17.1%, 영천 강수량 평년 대비 48.0%라는 수치로 확인되며 심한 단계로 진입했다. 댐 저수량이 줄면 용수 배분 조정과 비상 공급 대책 부담이 커진다. 이에 따라 대구·경북 권역 광역상수도 급수권의 생활·공업용수 공급 안정성이 핵심 쟁점으로 부상할 가능성이 있다. 갈수기를 앞둔 시점이어서 추가 강수가 없으면 저수율 회복이 쉽지 않을 것으로 예상된다.</p>
+  </div>
+  <div class="follow-up"><span>후속 모니터링</span>지속 모니터링 필요</div>
+  <div class="card-meta">
+    <span class="media">뉴시스</span><span class="sep">·</span><span>2026.10.29 04:15</span>
+    <a class="src-link" href="https://news.google.com/rss/articles/CBMieEFVX3lxTE9rQkR4MksxZlBxam1jbjdUU3pqTnZ1dm0xaEtoMEM5MGZreVA2dFgzSlVKdWJvdDE3V3NxY2V2YWMwdk0tMnJXUFBGWV9mckRJVlV0bElHTlRrRE5FQlZsOFBiM1JnN3dSalQ0NW9PT1MxMDBfenR4VdIBeEFVX3lxTE9rQkR4MksxZlBxam1jbjdUU3pqTnZ1dm0xaEtoMEM5MGZreVA2dFgzSlVKdWJvdDE3V3NxY2V2YWMwdk0tMnJXUFBGWV9mckRJVlV0bElHTlRrRE5FQlZsOFBiM1JnN3dSalQ0NW9PT1MxMDBfenR4VQ?oc=5" target="_blank" rel="noopener">원문 보기 ↗</a>
+  </div>
+  <div class="fb-box">
+    <span class="fb-label">이 기사, 브리핑에 유용했나요?</span>
+    <button type="button" class="fb-btn" data-v="1">👍 더 보기</button>
+    <button type="button" class="fb-btn" data-v="0">보통</button>
+    <button type="button" class="fb-btn" data-v="-1">👎 그만</button>
+  </div>
+</article>
+<article class="brief-card p1" data-fb-no="2" data-fb-cat="C" data-fb-tags="경기·물가">
+  <div class="card-head">
+    <span class="card-no">02</span>
+    <span class="badge badge-cat">경제·금융</span>
+    <span class="badge badge-dom">국내</span>
+  </div>
+  <h3 class="card-title">삼전 3분기 반도체 106.5조원벌 때, 스마트폰·가전은 8000억원 적자</h3>
+  <p class="card-summary">삼성전자가 3분기 매출 195조2532억원, 영업이익 107조4405억원을 기록하며 글로벌 테크 기업 최초로 분기 영업이익 100조원을 넘어섰다. 반도체(DS) 부문이 영업이익 106조5000억원으로 전체의 99.2%를 차지한 반면, 완제품(DX) 부문은 8000억원 적자를 냈다. 회사는 메모리 공급 부족이 2028년까지 이어질 것으로 전망했으며, 대형 고객 10곳과 장기공급계약을 맺은 데 이어 신규 고객 10곳과 협상 중이라고 밝혔다.</p>
+  <div class="insight-box">
+    <div class="insight-label">K-water 시사점</div>
+    <p>최근 브리핑에서 다룬 반도체 산업용수 경로는 이번 확정 실적으로 수요 측 근거가 한층 강화됐다. 새로 확인된 것은 공급 부족이 2028년까지 지속되고 2027년 증설로도 곧바로 해소되기 어렵다는 회사 측 판단이다. 이는 반도체 증설 압력이 중기적으로 이어질 가능성을 시사한다. 신규 팹 건설과 가동이 이어지면 반도체 산업용수·초순수 수요가 단계적으로 늘어, 첨단산업 용수 공급 확대 계획의 수요 전망을 재점검할 근거가 될 수 있다.</p>
+  </div>
+  <div class="follow-up"><span>후속 모니터링</span>지속 모니터링 필요</div>
+  <div class="card-meta">
+    <span class="media">조선일보</span><span class="sep">·</span><span>2026.10.29 05:09</span>
+    <a class="src-link" href="https://news.google.com/rss/articles/CBMigwFBVV95cUxOdTMwWEdrdWd5QjJOXzhVMWYwREVpSEozZElsc25naUdHRUNJdE5JUF9Pb2FaMUtocVVHTndnWTJuaXFUTnZJV3BIcXcxcXg3d2EwNUs2OXlHMV9OdlhNMEw1YmswNmJnN185T1oxTDJVVzEwWGtFY0VzSEkwTVNqTndITQ?oc=5" target="_blank" rel="noopener">원문 보기 ↗</a>
+  </div>
+  <div class="fb-box">
+    <span class="fb-label">이 기사, 브리핑에 유용했나요?</span>
+    <button type="button" class="fb-btn" data-v="1">👍 더 보기</button>
+    <button type="button" class="fb-btn" data-v="0">보통</button>
+    <button type="button" class="fb-btn" data-v="-1">👎 그만</button>
+  </div>
+</article><h2 class="section-title p2"><span class="st-name">주의요망</span><span class="st-count">6</span><span class="st-desc">긴급도 또는 중요도 높음</span></h2>
+<article class="brief-card p2" data-fb-no="3" data-fb-cat="E" data-fb-tags="정부예산·공공기관">
+  <div class="card-head">
+    <span class="card-no">03</span>
+    <span class="badge badge-cat">기후·에너지·환경</span>
+    <span class="badge badge-dom">국내</span>
+  </div>
+  <h3 class="card-title">체코원전 건설사업 ‘팀 코리아’ 깨졌다</h3>
+  <p class="card-summary">한국수력원자력은 체코 두코바니 원전 건설사업과 관련해 대우건설·두산에너빌리티 컨소시엄과 진행해온 시공계약 협상을 공사비 등에 대한 이견으로 종료한다고 29일 밝혔다. 한수원은 공동협력협약 종료 절차와 함께 신규 시공사 선정을 위한 입찰을 준비한다. 시공사 선정 전 업무 공백에 대비해 필수 업무는 직접 수행할 예정이다.</p>
+  <div class="insight-box">
+    <div class="insight-label">K-water 시사점</div>
+    <p>주계약 체결 이후 공기업과 국내 시공사 간 공사비 산정 이견으로 &#x27;팀 코리아&#x27; 협력 구조가 깨진 사례로, 해외 인프라 사업에서 시공 단계의 원가 리스크가 표면화됐다. 14개국 30개 해외사업을 추진 중인 K-water도 이 사례를 참고할 수 있다. 해외 댐·상수도 사업에서 국내 시공·기자재 협력사와의 공사비 조건 조율이 사업 일정과 발주처 신뢰에 영향을 줄 수 있기 때문이다.</p>
+  </div>
+  
+  <div class="card-meta">
+    <span class="media">조선일보</span><span class="sep">·</span><span>2026.10.29 01:10</span>
+    <a class="src-link" href="https://news.google.com/rss/articles/CBMijwFBVV95cUxPVnhKTTgyeFB3U2VkaWFHYWU0ZUlpdldLV1JheThobkJJQnI4ZDJ6Y2xxaHlyOHdxZTA0bGp2OGdLZ2tuU0xlWTJOeURqNEZvVlBuRTF4bGxZQU9NdmNWM3lwUnQwMnVLMmhiUkh5X0pBSVVITWZiOVRCTnkxMUhIU2Zubl9rWlZrV2t1XzdPaw?oc=5" target="_blank" rel="noopener">원문 보기 ↗</a>
+  </div>
+  <div class="fb-box">
+    <span class="fb-label">이 기사, 브리핑에 유용했나요?</span>
+    <button type="button" class="fb-btn" data-v="1">👍 더 보기</button>
+    <button type="button" class="fb-btn" data-v="0">보통</button>
+    <button type="button" class="fb-btn" data-v="-1">👎 그만</button>
+  </div>
+</article>
+<article class="brief-card p2" data-fb-no="4" data-fb-cat="F" data-fb-tags="노동·임금,공공기관제도">
+  <div class="card-head">
+    <span class="card-no">04</span>
+    <span class="badge badge-cat">사회·제도</span>
+    <span class="badge badge-dom">국내</span>
+  </div>
+  <h3 class="card-title">2030년 퇴직금 제도 사라진다…&#x27;기금형 퇴직연금&#x27;도 도입</h3>
+  <p class="card-summary">정부가 2030년까지 퇴직금 제도를 없애고 기금형 퇴직연금을 도입하는 방안을 추진한다. 고용노동부·재정경제부·금융위원회는 최대 70%로 제한된 개인형퇴직연금(IRP)의 위험자산 편입 한도를 풀기로 했다. 근로복지공단이 운영하는 중소기업퇴직연금기금 &#x27;푸른씨앗&#x27;의 가입 대상도 50인 이하에서 300인 이하 사업장으로 확대한다.</p>
+  <div class="insight-box">
+    <div class="insight-label">K-water 시사점</div>
+    <p>2030년 퇴직금 제도 폐지와 기금형 퇴직연금 도입은 사업장 전반의 퇴직급여 운영 방식을 바꾸는 제도 변화다. 공공기관인 K-water도 퇴직급여 제도 전환 일정과 인건비·충당 관리 기준 변화의 적용 대상이 될 가능성이 있다. 기금형 퇴직연금의 운용 구조와 공공기관 적용 기준이 구체화되는 과정을 참고할 수 있다.</p>
+  </div>
+  
+  <div class="card-meta">
+    <span class="media">한국경제</span><span class="sep">·</span><span>2026.10.29 09:01</span>
+    <a class="src-link" href="https://news.google.com/rss/articles/CBMiWkFVX3lxTE85X21JZVdVRXRkQWZDMkt6c0tXcGI2WmdXVkhYakxwQ1hPSTk4d3IxVGVaQlpoM0JaLVR5a2hpN3dGdG94WUFHb2I5d2pqekFLRTVyUzVhTWJGQQ?oc=5" target="_blank" rel="noopener">원문 보기 ↗</a>
+  </div>
+  <div class="fb-box">
+    <span class="fb-label">이 기사, 브리핑에 유용했나요?</span>
+    <button type="button" class="fb-btn" data-v="1">👍 더 보기</button>
+    <button type="button" class="fb-btn" data-v="0">보통</button>
+    <button type="button" class="fb-btn" data-v="-1">👎 그만</button>
+  </div>
+</article>
+<article class="brief-card p2" data-fb-no="5" data-fb-cat="B" data-fb-tags="정부예산·공공기관">
+  <div class="card-head">
+    <span class="card-no">05</span>
+    <span class="badge badge-cat">정치·정책</span>
+    <span class="badge badge-dom">국내</span>
+  </div>
+  <h3 class="card-title">수도권에 신규택지 7만 6700호 추가…2030년까지 착공 추진</h3>
+  <p class="card-summary">국토교통부가 김포·구리·하남·의정부·고양 등 서울 경계 약 5㎞ 이내 수도권 6곳에 7만6700호 규모의 신규택지를 추가로 발표했다. 앞서 발표한 2만7200호를 더하면 수도권 신규 공공택지는 총 10만3900호다. 김포아라가 3만7000호로 가장 크며, &#x27;공공택지 최단기 착공모델&#x27;을 적용해 2030년 안에 착공하는 것이 목표다.</p>
+  <div class="insight-box">
+    <div class="insight-label">K-water 시사점</div>
+    <p>김포아라 3만7000호를 비롯해 수도권 6곳에 대규모 주거지가 2030년 착공을 목표로 조성되면, 해당 지역의 생활용수 수요가 늘어 광역상수도 공급 계획에 반영될 가능성이 있다. 전국 수도시설의 약 49%를 관리하는 K-water로서는 지구별 착공 일정과 인구 유입 규모에 따라 급수 수요 전망을 조정할 필요가 생길 수 있다. 구리건원의 용암천·왕숙천 수변생활권처럼 하천을 활용한 개발 계획도 함께 추진되고 있어 하천 주변 개발 동향을 참고할 수 있다.</p>
+  </div>
+  
+  <div class="card-meta">
+    <span class="media">정책브리핑</span><span class="sep">·</span><span>2026.10.29 19:32</span>
+    <a class="src-link" href="https://news.google.com/rss/articles/CBMibEFVX3lxTE1xNmhZOFdSN2hNaUtYY29LckRiejNHbUdoSnBRSVFGck5oNFFvNUpwZndiS0JHa2Rlc2dhTUg4S0RodU1nQ1NoTmIwMDlFaTVGNTc2SXV3UFhlNXZlb1NJRVI4VFc2OUxYdzNLMw?oc=5" target="_blank" rel="noopener">원문 보기 ↗</a>
+  </div>
+  <div class="fb-box">
+    <span class="fb-label">이 기사, 브리핑에 유용했나요?</span>
+    <button type="button" class="fb-btn" data-v="1">👍 더 보기</button>
+    <button type="button" class="fb-btn" data-v="0">보통</button>
+    <button type="button" class="fb-btn" data-v="-1">👎 그만</button>
+  </div>
+</article>
+<article class="brief-card p2" data-fb-no="6" data-fb-cat="E" data-fb-tags="에너지전환·재생에너지,탄소규제·ESG">
+  <div class="card-head">
+    <span class="card-no">06</span>
+    <span class="badge badge-cat">기후·에너지·환경</span>
+    <span class="badge badge-dom">국내</span>
+  </div>
+  <h3 class="card-title">산업용 히트펌프 R&amp;D 확대…기후부, 열에너지 탈탄소 전환 논의</h3>
+  <p class="card-summary">기후에너지환경부가 29일 산업계·연구기관·전문가와 함께 산업용 히트펌프 기술개발과 보급 확대 방안을 논의하는 토론회를 열었다. 기후부는 제지산업 폐열(약 38℃)로 100℃ 이상 고온수를 만드는 3.5MW급 히트펌프 실증을 지원하고 있다. 180℃ 이상 증기를 생산하는 기술 개발도 함께 추진 중이며, R&amp;D 이행안 보강과 연구개발 예산 확대 방침을 밝혔다.</p>
+  <div class="insight-box">
+    <div class="insight-label">K-water 시사점</div>
+    <p>3.5MW급 대용량 히트펌프 실증과 고온 증기 기술 개발, R&amp;D 예산 확대 방침은 산업공정 열에너지의 전기화가 탄소 감축 정책의 축으로 부상하고 있음을 보여준다. 히트펌프 원천기술 국산화와 제조산업 육성이 진행되면 열에너지 전환 시장이 커진다. 이는 수열에너지 사업의 설비 조달과 보급 여건에도 영향을 줄 수 있다. 산업단지 집단에너지 전환 지원방안이 구체화되는 과정을 참고할 수 있다.</p>
+  </div>
+  
+  <div class="card-meta">
+    <span class="media">뉴시스</span><span class="sep">·</span><span>2026.10.29 01:00</span>
+    <a class="src-link" href="https://news.google.com/rss/articles/CBMieEFVX3lxTFBSWC10N3dlcXJNQnpyMEJKdFlHbkJqWWpWSXJ5VVNsLWpHcEc3aTcyRlJNVVc0WUhxeDRNWDRTcjJydk41b3dYWUdRZk5HaWhqeURNeXJSdy03UzNDY2MxZ3hBN2J5RnJRejhrR2ZqbDJwSF9oZDl0Q9IBeEFVX3lxTFBSWC10N3dlcXJNQnpyMEJKdFlHbkJqWWpWSXJ5VVNsLWpHcEc3aTcyRlJNVVc0WUhxeDRNWDRTcjJydk41b3dYWUdRZk5HaWhqeURNeXJSdy03UzNDY2MxZ3hBN2J5RnJRejhrR2ZqbDJwSF9oZDl0Qw?oc=5" target="_blank" rel="noopener">원문 보기 ↗</a>
+  </div>
+  <div class="fb-box">
+    <span class="fb-label">이 기사, 브리핑에 유용했나요?</span>
+    <button type="button" class="fb-btn" data-v="1">👍 더 보기</button>
+    <button type="button" class="fb-btn" data-v="0">보통</button>
+    <button type="button" class="fb-btn" data-v="-1">👎 그만</button>
+  </div>
+</article>
+<article class="brief-card p2" data-fb-no="7" data-fb-cat="D" data-fb-tags="탄소규제·ESG">
+  <div class="card-head">
+    <span class="card-no">07</span>
+    <span class="badge badge-cat">기술·혁신</span>
+    <span class="badge badge-dom">국내</span>
+  </div>
+  <h3 class="card-title">정부, 2030년 기후테크 혁신기업 1천개·예비유니콘 30개 발굴</h3>
+  <p class="card-summary">중소벤처기업부와 기후에너지환경부가 2030년까지 기후테크 혁신기업을 564개사에서 1천개사 이상으로, 예비유니콘을 4개사에서 30개사로 늘리는 &#x27;기후테크 혁신기업 육성방향&#x27;을 발표했다. 약 6천억원 규모의 금융지원과 기업당 최대 100억원 묶음 지원이 추진된다. 83개 공공기관이 참여하는 K-테스트베드 실증 확대와 기후테크산업육성법 제정도 함께 추진한다.</p>
+  <div class="insight-box">
+    <div class="insight-label">K-water 시사점</div>
+    <p>기후테크 제품을 녹색제품 구매 대상에 포함하고 공공기관 경영평가에서 녹색제품 구매실적 비중을 높이는 방안은 K-water의 구매 운영과 경영평가 관리 기준에 직접 반영될 수 있다. 83개 공공기관이 참여하는 K-테스트베드와 공공시설 활용 실증 확대는 K-water가 추진 중인 기후테크 스타트업 육성과 연계될 수 있다. 공사 시설을 실증 무대로 활용하는 협업 기회도 넓어질 가능성이 있다. 6천억원 규모 금융지원이 더해져 기후테크 기업군이 커지면 AI·디지털 물관리 분야 협업 대상을 발굴하기도 수월해질 것으로 예상된다.</p>
+  </div>
+  
+  <div class="card-meta">
+    <span class="media">연합뉴스</span><span class="sep">·</span><span>2026.10.29 06:00</span>
+    <a class="src-link" href="https://news.google.com/rss/articles/CBMiYEFVX3lxTFBvejBMZzBOQU9HU0E3bW5QV1Rfa3phT1JVbkRDaUJwcmFBUUpkRDh5c3dwb3VrTlUxSFh1MUV3bjJsX1Z4Mm1meDNnamluUjFhOXJaRTk4bEJkT0R1Q3dtStIBYEFVX3lxTFBvejBMZzBOQU9HU0E3bW5QV1Rfa3phT1JVbkRDaUJwcmFBUUpkRDh5c3dwb3VrTlUxSFh1MUV3bjJsX1Z4Mm1meDNnamluUjFhOXJaRTk4bEJkT0R1Q3dtSg?oc=5" target="_blank" rel="noopener">원문 보기 ↗</a>
+  </div>
+  <div class="fb-box">
+    <span class="fb-label">이 기사, 브리핑에 유용했나요?</span>
+    <button type="button" class="fb-btn" data-v="1">👍 더 보기</button>
+    <button type="button" class="fb-btn" data-v="0">보통</button>
+    <button type="button" class="fb-btn" data-v="-1">👎 그만</button>
+  </div>
+</article>
+<article class="brief-card p2" data-fb-no="8" data-fb-cat="E" data-fb-tags="가뭄·저수">
+  <div class="card-head">
+    <span class="card-no">08</span>
+    <span class="badge badge-cat">기후·에너지·환경</span>
+    <span class="badge badge-dom">국내</span>
+  </div>
+  <h3 class="card-title">가뭄 피해 콩에서 녹두로 확산‥보험도 제외</h3>
+  <p class="card-summary">제주에서 올여름 50일간 이어진 가뭄으로 콩을 폐작한 농가가 대체 작물로 심은 녹두마저 싹을 틔우지 못하고 말라 죽어 밭을 갈아엎었다. 녹두는 농작물재해보험 대상이 전남 무안·신안으로 한정돼 제주 농가는 가입조차 할 수 없었다. 제주도는 최근 늘어난 재배면적도 정확히 파악하지 못하고 있다.</p>
+  <div class="insight-box">
+    <div class="insight-label">K-water 시사점</div>
+    <p>제주의 50일 가뭄이 콩에서 녹두로 피해가 번지면서, 기후변화로 일상화된 농업 가뭄에 대한 재배현황 파악과 재해 지원 제도의 공백이 드러났다. 이런 피해가 반복되면 가뭄 대응 체계 전반을 정비하자는 논의로 확대될 수 있다. 그 과정에서 물관리 정책상 기관별 역할 조정이 함께 다뤄질 가능성이 있다.</p>
+  </div>
+  
+  <div class="card-meta">
+    <span class="media">제주MBC</span><span class="sep">·</span><span>2026.10.29 08:21</span>
+    <a class="src-link" href="https://news.google.com/rss/articles/CBMiT0FVX3lxTE9XUDNmR3RsSXhHem1OdWUtdUJQbDFwR2RHMHRXNzUycWlkNFpmaGhjckNqbUMwMndKbHFIcmREX2VLUE5xTWlKTTVYSm1tdms?oc=5" target="_blank" rel="noopener">원문 보기 ↗</a>
+  </div>
+  <div class="fb-box">
+    <span class="fb-label">이 기사, 브리핑에 유용했나요?</span>
+    <button type="button" class="fb-btn" data-v="1">👍 더 보기</button>
+    <button type="button" class="fb-btn" data-v="0">보통</button>
+    <button type="button" class="fb-btn" data-v="-1">👎 그만</button>
+  </div>
+</article><h2 class="section-title p3"><span class="st-name">동향참고</span><span class="st-count">3</span><span class="st-desc">흐름 파악용</span></h2>
+<article class="brief-card p3" data-fb-no="9" data-fb-cat="A" data-fb-tags="지정학·분쟁">
+  <div class="card-head">
+    <span class="card-no">09</span>
+    <span class="badge badge-cat">지정학·국제정세</span>
+    <span class="badge badge-dom">국내</span>
+  </div>
+  <h3 class="card-title">한·독일, ‘강화된 전략적 동반자 관계’ 격상…“첨단산업·방산 협력 강화”</h3>
+  <p class="card-summary">이재명 대통령과 프리드리히 메르츠 독일 총리가 29일 정상회담을 열고 양국 관계를 &#x27;강화된 전략적 동반자 관계&#x27;로 격상했다. 양국은 AI·반도체·배터리 등 첨단산업 협력과 핵심광물·에너지 안보 협력을 강화하기로 했다. 이를 위해 이중과세방지협정 개정의정서, 에너지 파트너십 구축 공동의향서 등 문서 3건을 체결했다.</p>
+  <div class="insight-box">
+    <div class="insight-label">K-water 시사점</div>
+    <p>한·독 정상회담을 계기로 에너지 파트너십 구축 공동의향서가 체결돼, 향후 양국 에너지 협력의 세부 분야가 구체화될 예정이다. 협력 범위에 재생에너지가 포함될 경우 수력·수상태양광 등 재생에너지 사업의 기술·투자 협력 여지가 생길 수 있어 후속 논의를 참고할 수 있다.</p>
+  </div>
+  
+  <div class="card-meta">
+    <span class="media">경향신문</span><span class="sep">·</span><span>2026.10.29 12:30</span>
+    <a class="src-link" href="https://news.google.com/rss/articles/CBMiWkFVX3lxTE9YMjRacVhaVzJ2WlQyNzd0OGlBc3N2bHhkc0RlYW9NMm1wTnc2T1N1cGp1U190MUVKTlhuVzFXbkF0TUx0LUU1cWt6QUZNVEJpeFdQNXZoQVRId9IBX0FVX3lxTE5URzNGNG1mT3poZ2xnd3kwMHlFMmMyZmg4SXljR09IcHJPNkFMbTZRMHFoajN5cDhXNGstdDE3dVRQZWlWR3F0VFpWaGQ2d1BkUi1qZVlzd19aNF9UYzlF?oc=5" target="_blank" rel="noopener">원문 보기 ↗</a>
+  </div>
+  <div class="fb-box">
+    <span class="fb-label">이 기사, 브리핑에 유용했나요?</span>
+    <button type="button" class="fb-btn" data-v="1">👍 더 보기</button>
+    <button type="button" class="fb-btn" data-v="0">보통</button>
+    <button type="button" class="fb-btn" data-v="-1">👎 그만</button>
+  </div>
+</article>
+<article class="brief-card p3" data-fb-no="10" data-fb-cat="C" data-fb-tags="금리·통화">
+  <div class="card-head">
+    <span class="card-no">10</span>
+    <span class="badge badge-cat">경제·금융</span>
+    <span class="badge badge-dom">국내</span>
+  </div>
+  <h3 class="card-title">라가르드 ECB 총재, 내년 2월 조기 사임</h3>
+  <p class="card-summary">크리스틴 라가르드 ECB 총재가 2027년 10월 말 임기 종료를 앞두고 2027년 2월 7일 사임하겠다고 유럽이사회 의장에게 통보했다. 후임은 유럽이사회가 임명한다. 차기 후보는 클라스 크놋 전 네덜란드 중앙은행 총재와 파블로 에르난데스 데코스 전 스페인 중앙은행 총재로 좁혀진 상태다.</p>
+  <div class="insight-box">
+    <div class="insight-label">K-water 시사점</div>
+    <p>라가르드 총재의 조기 사임과 4월 프랑스 대선이 맞물리면서 ECB 통화정책 방향의 불확실성이 커질 수 있다. 유로존 금리 기대 변화가 글로벌 채권시장을 거쳐 국내 금리로 이어지면, 채권 발행 비중이 높은 K-water(부채비율 92.7%)의 조달 비용 여건에도 영향을 줄 가능성이 있다.</p>
+  </div>
+  
+  <div class="card-meta">
+    <span class="media">YTN</span><span class="sep">·</span><span>2026.10.29 13:03</span>
+    <a class="src-link" href="https://news.google.com/rss/articles/CBMiXkFVX3lxTE1hclhIR2VVdHdDRjhEWUNzX3hDUjZrR2pkMWstUWJ0WmNoT1BVcXJCNjYzWmV6SnhzZDJjX2VEem4tWU1yNEc5VnQwenBKYUlPcUNKcmZRZVlGQUJUbGc?oc=5" target="_blank" rel="noopener">원문 보기 ↗</a>
+  </div>
+  <div class="fb-box">
+    <span class="fb-label">이 기사, 브리핑에 유용했나요?</span>
+    <button type="button" class="fb-btn" data-v="1">👍 더 보기</button>
+    <button type="button" class="fb-btn" data-v="0">보통</button>
+    <button type="button" class="fb-btn" data-v="-1">👎 그만</button>
+  </div>
+</article>
+<article class="brief-card p3" data-fb-no="11" data-fb-cat="E" data-fb-tags="탄소규제·ESG">
+  <div class="card-head">
+    <span class="card-no">11</span>
+    <span class="badge badge-cat">기후·에너지·환경</span>
+    <span class="badge badge-dom">국내</span>
+  </div>
+  <h3 class="card-title">[단독] ‘저탄소 전환’ 위해 부분개수 한다던 포스코, 광양 2고로 전면개수로 원점 회귀…철강 탈탄소 지연 우려</h3>
+  <p class="card-summary">포스코가 저탄소 전환을 이유로 부분 개수하겠다던 광양 제2고로를 11월부터 전면 개수 방식으로 추진하는 것으로 확인됐다. 관련 공사 계약금액은 부분 개수 전환 당시 1000억원에서 3051억원으로 늘었다. 기후단체는 15년 추가 가동 시 최소 1억3702만t의 이산화탄소가 추가 배출될 것으로 전망했다.</p>
+  <div class="insight-box">
+    <div class="insight-label">K-water 시사점</div>
+    <p>철강산업은 산업 부문 온실가스 배출량의 약 39%를 차지하는데, 광양 제2고로의 15년 추가 가동으로 최소 1억3702만t의 추가 배출이 전망되면서 철강 탈탄소 지연 우려가 커졌다. 다배출 업종의 감축이 늦어지면 국가 감축 경로를 재조정하는 과정에서 다른 산업·공공 부문의 감축 부담 논의가 커질 수 있어 참고할 만하다.</p>
+  </div>
+  
+  <div class="card-meta">
+    <span class="media">경향신문</span><span class="sep">·</span><span>2026.10.29 21:00</span>
+    <a class="src-link" href="https://news.google.com/rss/articles/CBMiWkFVX3lxTFA5X0xVcWxmcndGRENwcW44bXRnX3VNY1AyMV95YkVIUEhrSGVBbmlTOE9XUVNwOTFTQUJKby1zOFc0aXZEbzZMaXM4OHdJUV92c1hqWm5SUU1ld9IBX0FVX3lxTE9MVmdMWTg4RlMxVjIzMjl1Uk5fUDZzZ1Y1UVRjTjRiV21vMnRpV2hYWDVTOU81N2MxZDZ5RFhkcG9ZV3hjS01NclBteWNacFFfOVNLbnUxVWhaaDBUSTVz?oc=5" target="_blank" rel="noopener">원문 보기 ↗</a>
+  </div>
+  <div class="fb-box">
+    <span class="fb-label">이 기사, 브리핑에 유용했나요?</span>
+    <button type="button" class="fb-btn" data-v="1">👍 더 보기</button>
+    <button type="button" class="fb-btn" data-v="0">보통</button>
+    <button type="button" class="fb-btn" data-v="-1">👎 그만</button>
+  </div>
+</article>
+    <div class="footer">우선순위 기준 · 즉시주목 = 긴급도 높음·중요도 높음 / 주의요망 = 긴급도 높음·중요도 낮음 or 긴급도 낮음·중요도 높음 / 동향참고 = 긴급도 낮음·중요도 낮음</div>
+  </main>
+<script>
+(function(){
+  try {
+    var DATE = "2026-10-30", JSON_URL = "./index.json", PREFIX = "./";
+    fetch(JSON_URL, {cache: 'no-store'}).then(function(r){ return r.json(); }).then(function(data){
+      var dates = (data.dates || []).slice().sort();
+      var prev = null, next = null;
+      for (var i = 0; i < dates.length; i++) {
+        if (dates[i] < DATE) { prev = dates[i]; }
+        if (dates[i] > DATE && next === null) { next = dates[i]; }
+      }
+      function fill(id, d){
+        var a = document.getElementById(id);
+        if (!a || !d) { return; }
+        a.href = PREFIX + d + '.html';
+        a.setAttribute('title', d);
+        a.hidden = false;
+      }
+      fill('nav-prev', prev);
+      fill('nav-next', next);
+    })['catch'](function(){});
+  } catch (e) {}
+})();
+</script>
+
+<div id="kw-credit-footer">
+  <div class="cr-main">📋 발행 · <b>K-water연구원 경영연구소</b></div>
+  <div class="cr-sub">개발 · K-water연구원 AI연구소</div>
+</div>
+
+
+<script>
+(function(){
+  try {
+    var EP = "https://script.google.com/macros/s/AKfycbzvRG44ieMtXA-9ZzN1nD_4MwXxK1rirbDTZCTQk14kq3Or2qfkDNYz_cfco-ri5iB5/exec";
+    var DATE = "2026-10-30";
+    function key(no){ return "kwfb:" + DATE + ":" + no; }
+    function mark(box){
+      box.innerHTML = '<span style="font-size:15px;color:#1a6e1a;">의견 감사합니다 &#10003;</span>';
+    }
+    function init(){
+      var cards = document.querySelectorAll('.brief-card');
+      for (var i = 0; i < cards.length; i++) {
+        var box = cards[i].querySelector('.fb-box');
+        if (!box) { continue; }
+        try {
+          if (localStorage.getItem(key(cards[i].getAttribute('data-fb-no')))) { mark(box); }
+        } catch (e) {}
+      }
+      document.addEventListener('click', function(ev){
+        var t = ev.target;
+        if (!t || !t.closest) { return; }
+        var btn = t.closest('.fb-btn');
+        if (!btn) { return; }
+        var card = btn.closest('.brief-card');
+        if (!card) { return; }
+        var payload = {
+          date: DATE,
+          no: card.getAttribute('data-fb-no'),
+          cat: card.getAttribute('data-fb-cat') || '',
+          tags: (card.getAttribute('data-fb-tags') || '').split(',').filter(Boolean),
+          v: parseInt(btn.getAttribute('data-v'), 10)
+        };
+        try { localStorage.setItem(key(payload.no), String(payload.v)); } catch (e) {}
+        var box = card.querySelector('.fb-box');
+        if (box) { mark(box); }
+        if (!EP) { return; }
+        try {
+          fetch(EP, {
+            method: 'POST',
+            mode: 'no-cors',
+            headers: {'Content-Type': 'text/plain;charset=UTF-8'},
+            body: JSON.stringify(payload)
+          })['catch'](function(){});
+        } catch (e) {}
+      }, false);
+    }
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', init);
+    } else {
+      init();
+    }
+  } catch (e) {}
+})();
+</script>
+</body>
+</html>
