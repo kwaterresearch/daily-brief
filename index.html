@@ -3,383 +3,330 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="color-scheme" content="light">
-<title>데일리 브리핑 · 11월 9일(월) | K-water연구원</title>
-<meta name="description" content="즉시주목 2건 · 주의요망 2건 · 동향참고 2건 | R]청도 운문댐 가뭄 &#x27;심각&#x27;..&quot;물 아껴 쓰자&quot; 호소까지">
-<meta property="og:type" content="website">
-<meta property="og:title" content="데일리 브리핑 · 11월 9일(월) | K-water연구원">
-<meta property="og:description" content="즉시주목 2건 · 주의요망 2건 · 동향참고 2건 | R]청도 운문댐 가뭄 &#x27;심각&#x27;..&quot;물 아껴 쓰자&quot; 호소까지">
-<meta property="og:url" content="https://kwaterresearch.github.io/daily-brief/">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+<title>K-water연구원 데일리 브리핑</title>
 <style>
-  /* 항상 밝은 테마(v4.9): 주요 독자가 고령층이라 OS 다크모드를 따라가지 않는다. color-scheme도 light로 고정해
-     오디오 컨트롤·버튼 같은 UA 위젯까지 밝게 그린다. 다크 변수 블록을 되살리지 말 것. */
-  :root { color-scheme:light; --bg:#ffffff; --surface:#ffffff; --ink:#16191d; --ink2:#333a43; --muted:#6e7681;
-          --line:#dcd9d3; --accent:#0b2a5b; --accent-soft:#e9eef7; --link:#1f5fbf; }
-  * { box-sizing:border-box; }
-  [hidden] { display:none !important; }
-  html { scroll-padding-top:64px; }
-  body { font-family:'Pretendard','Malgun Gothic','Noto Sans KR',sans-serif; background:var(--bg);
-         margin:0; color:var(--ink); -webkit-font-smoothing:antialiased; word-break:keep-all; }
-  a { color:var(--link); }
-  .bar { position:sticky; top:0; z-index:10; background:color-mix(in srgb, var(--surface) 88%, transparent);
-         backdrop-filter:saturate(1.4) blur(10px); border-bottom:1px solid var(--line); }
-  .bar-in { max-width:760px; margin:0 auto; padding:10px 20px; display:flex; align-items:center; gap:10px; }
-  .brand { color:var(--ink); text-decoration:none; font-size:17px; letter-spacing:-0.2px; }
-  .brand b { color:var(--accent); font-weight:800; }
-  .bar-tag { font-size:14px; color:var(--muted); border:1px solid var(--line); border-radius:999px; padding:2px 8px; }
-  .bar-nav { margin-left:auto; display:flex; gap:4px; align-items:center; }
-  .bar-nav a { font-size:17px; color:var(--ink2); text-decoration:none; padding:8px 12px; border-radius:999px; }
-  .bar-nav a:hover { background:var(--accent-soft); color:var(--accent); }
-  .bar-listen { display:none; }
-  body:has(.audio-player) .bar-listen { display:inline-block; color:var(--accent); font-weight:700; }
-  .wrap { max-width:760px; margin:0 auto; padding:28px 20px 56px; }
-  .masthead { padding:8px 4px 4px; }
-  .kicker { font-size:15px; font-weight:700; letter-spacing:1.6px; color:var(--accent); }
-  .mh-top { display:flex; justify-content:space-between; align-items:flex-start; gap:12px; }
-  .mh-credit { font-size:15px; line-height:1.5; font-weight:600; color:var(--ink2); text-align:right; }
-  .masthead h1 { font-size:40px; line-height:1.15; margin:6px 0 8px; letter-spacing:-1px; font-weight:800; }
-  .masthead h1 small { font-size:18px; font-weight:600; color:var(--muted); letter-spacing:0; margin-left:6px; }
-  .mh-meta { font-size:17px; color:var(--ink2); line-height:1.7; }
-  .mh-sub { font-size:16px; color:var(--muted); margin:6px 0 0; line-height:1.6; }
-  .mix { margin-top:22px; }
-  .mix-bar { display:flex; height:8px; border-radius:999px; overflow:hidden; gap:2px; background:var(--line); }
-  .mix-bar span { background:var(--pc); }
-  .mix-legend { display:flex; flex-wrap:wrap; gap:4px 16px; margin-top:10px; font-size:17px; color:var(--ink2); }
-  .mix-legend .dot { width:8px; height:8px; border-radius:50%; display:inline-block; background:var(--pc); margin-right:6px; }
-  .mix-legend b { color:var(--pc); }
-  .mix-legend .total { margin-left:auto; color:var(--muted); }
-  /* 일일 지수 2종을 한 칸에(v5.0 — 사용자 요청). 칸 하나 안에 지표가 한 줄씩 쌓이고 그 사이만 선으로 나눈다.
-     마크업(.gauges > .gauge > .g-top/.g-num/.g-track/.g-basis)은 v4.6과 같아서 --restyle-archive로
-     지난 페이지에도 그대로 적용된다 — 클래스 이름을 바꾸지 말 것. */
-  .gauges { margin-top:16px; background:var(--surface); border:1px solid var(--line); border-radius:12px;
-            padding:2px 16px; }
-  .gauge { display:grid; grid-template-columns:1fr auto; align-items:center; column-gap:10px; padding:10px 0; }
-  .gauge + .gauge { border-top:1px solid var(--line); }
-  .g-top { display:flex; flex-wrap:wrap; align-items:baseline; gap:2px 10px; font-size:16px; }
-  .g-label { font-weight:700; color:var(--ink2); }
-  .delta { font-size:14px; } .delta.up { color:#d23b3b; } .delta.down { color:#2f9455; } .delta.same { color:var(--muted); }
-  .g-num { display:flex; align-items:baseline; gap:4px; }
-  .g-value { font-size:22px; font-weight:800; line-height:1; color:var(--bc); letter-spacing:-0.5px; }
-  .g-max { font-size:13px; color:var(--muted); }
-  .g-band { margin-left:6px; font-size:14px; font-weight:700; color:var(--bc);
-            border:1px solid var(--bc); border-radius:999px; padding:0 8px; }
-  .g-track { grid-column:1 / -1; position:relative; height:5px; border-radius:999px; background:var(--line); margin-top:8px; }
-  .g-fill { height:100%; border-radius:999px; background:var(--bc); }
-  .g-track i { position:absolute; top:-2px; width:1px; height:9px; background:var(--muted); opacity:0.45; }
-  .g-basis { grid-column:1 / -1; font-size:15px; color:var(--muted); margin-top:6px; line-height:1.5; }
-  .audio-player { margin-top:14px; background:var(--accent); color:#fff; border-radius:14px;
-                  padding:14px 16px; display:flex; align-items:center; gap:14px; }
-  .ap-icon { font-size:22px; width:42px; height:42px; border-radius:50%; flex:none;
-             background:rgba(255,255,255,0.14); display:flex; align-items:center; justify-content:center; }
-  .ap-body { flex:1; min-width:0; }
-  .ap-title { font-size:18px; font-weight:700; margin-bottom:8px; }
-  .audio-player audio { width:100%; height:40px; }
-  .section-title { display:flex; align-items:baseline; gap:10px; margin:40px 4px 14px; font-size:24px;
-                   font-weight:800; letter-spacing:-0.4px; color:var(--pc); }
-  .st-count { font-size:16px; font-weight:700; color:var(--pc); background:var(--pbg);
-              border:1px solid var(--pbd); border-radius:999px; padding:1px 9px; }
-  .st-desc { font-size:16px; font-weight:500; color:var(--muted); letter-spacing:0; }
-  .brief-card { background:var(--surface); border:1px solid var(--line); border-top:3px solid var(--pc);
-                border-radius:14px; padding:20px 22px 16px; margin-bottom:14px; }
-  .card-head { display:flex; align-items:center; gap:6px; flex-wrap:wrap; margin-bottom:10px; }
-  .card-no { font-size:17px; font-weight:800; color:var(--pc); margin-right:4px; font-variant-numeric:tabular-nums; }
-  .badge { font-size:15px; padding:4px 12px; border-radius:999px; border:1px solid var(--line); color:var(--ink2); }
-  .badge-cat { background:var(--accent-soft); border-color:transparent; color:var(--accent); font-weight:600; }
-  .card-title { font-size:23px; line-height:1.45; margin:0 0 10px; font-weight:750; letter-spacing:-0.3px; }
-  .card-summary { font-size:19px; line-height:1.8; color:var(--ink2); margin:0 0 14px; }
-  .insight-box { background:var(--pbg); border-radius:10px; padding:12px 16px; border-left:3px solid var(--pc); }
-  .insight-label { font-size:16px; font-weight:800; color:var(--pc); letter-spacing:0.3px; margin-bottom:4px; }
-  .insight-box p { margin:0; font-size:19px; line-height:1.8; color:var(--ink); }
-  .follow-up { margin-top:10px; font-size:17px; color:var(--ink2); display:flex; gap:8px; align-items:center; }
-  .follow-up span { font-size:15px; font-weight:700; color:var(--pc); border:1px solid var(--pbd);
-                    border-radius:999px; padding:1px 8px; }
-  .card-meta { display:flex; align-items:center; gap:6px; flex-wrap:wrap; font-size:16px;
-               color:var(--muted); margin-top:14px; }
-  .card-meta .media { font-weight:700; color:var(--ink2); }
-  .src-link { margin-left:auto; text-decoration:none; font-weight:700; color:var(--accent);
-              background:var(--accent-soft); border-radius:999px; padding:10px 18px; }
-  .src-link:hover { filter:brightness(0.96); }
-  .fb-box { margin-top:12px; padding-top:12px; border-top:1px solid var(--line); display:flex;
-            gap:6px; align-items:center; flex-wrap:wrap; }
-  .fb-label { font-size:16px; color:var(--muted); margin-right:auto; }
-  .fb-btn { font-family:inherit; font-size:17px; padding:11px 18px; border-radius:999px;
-            border:1px solid var(--line); background:transparent; color:var(--ink2); cursor:pointer; }
-  .fb-btn:hover { background:var(--accent-soft); color:var(--accent); border-color:transparent; }
-  .footer { text-align:center; font-size:15px; color:var(--muted); margin-top:32px; line-height:1.7; }
-  #kw-credit-footer { text-align:center; padding:22px 16px 30px; border-top:1px solid var(--line);
-                      background:var(--surface); }
-  .cr-main { font-size:17px; color:var(--ink2); font-weight:600; }
-  .cr-main b { color:var(--accent); }
-  .cr-sub { font-size:15px; color:var(--muted); margin-top:6px; }
-  @media (max-width:520px) {
-    .bar-in { padding:8px 14px; }
-    .brand { font-size:16px; }
-    .bar-nav a { padding:6px 7px; }
-    .wrap { padding:20px 14px 40px; }
-    .masthead h1 { font-size:32px; }
-    .mh-credit { font-size:14px; }
-    .brief-card { padding:16px 16px 12px; }
-    .card-title { font-size:22px; }
-    .card-summary { font-size:19px; }
-    .insight-box p { font-size:19px; }
-    .fb-label { flex-basis:100%; }
-    .mix-legend .total { margin-left:0; }
-  }
-  @media print {
-    body { background:#fff; color:#000; }
-    .bar, .audio-player, .fb-box, #kw-credit-footer { display:none !important; }
-    .brief-card, .gauge { break-inside:avoid; page-break-inside:avoid; }
-    .section-title { break-after:avoid; page-break-after:avoid; }
-    .src-link { background:none; padding:0; }
-  }
-
-  .p1{--pc:#c4161c;--pbg:#fdf0f0;--pbd:#f2c4c6;}
-  .p2{--pc:#a86200;--pbg:#fdf6e7;--pbd:#efd6a0;}
-  .p3{--pc:#1d7a3a;--pbg:#eef8f1;--pbd:#b9e0c5;}
-  .b-calm{--bc:#6b7280;}
-  .b-normal{--bc:#1f4f99;}
-  .b-watch{--bc:#9a6b00;}
-  .b-alert{--bc:#b85300;}
-  .b-crit{--bc:#c4161c;}
+  body { font-family:'Malgun Gothic','Noto Sans KR',sans-serif; background:#f5f6f8;
+          margin:0; padding:24px 16px 60px; color:#333; }
+  .wrap { max-width:720px; margin:0 auto; }
+  .header { background:#fff; border-radius:12px; padding:24px 28px; margin-bottom:16px;
+             box-shadow:0 2px 10px rgba(0,0,0,0.06); border-top:5px solid #002060; }
+  .header h1 { color:#002060; font-size:22px; margin:0 0 6px; }
+  .header .sub { color:#6b6b6b; font-size:12px; margin-bottom:16px; line-height:1.6; }
+  .header .meta { font-size:13px; color:#3c3c3c; line-height:1.9; }
+  .banner-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:8px; margin-top:14px; }
+  .footer { text-align:center; font-size:11px; color:#9ca3af; margin-top:20px; line-height:1.7; }
 </style>
+<script src="https://t1.kakaocdn.net/kakao_js_sdk/2.7.0/kakao.min.js"></script>
 </head>
 <body>
-  <header class="bar">
-    <div class="bar-in">
-      <a class="brand" href="./">K-water연구원 <b>Daily Brief</b></a>
-      <nav class="bar-nav">
-        <a class="bar-listen" href="#listen">🎧 듣기</a>
-        <a id="nav-prev" title="이전 날" hidden>‹ 이전</a>
-        <a href="./calendar.html">달력</a>
-        <a id="nav-next" title="다음 날" hidden>다음 ›</a>
-      </nav>
+
+<div class="audio-player" style="
+    background:#f0f5ff; border:1px solid #c7d7f0; border-radius:10px;
+    padding:14px 16px; margin:16px auto; max-width:680px;
+    display:flex; align-items:center; gap:12px;
+    font-family:'Malgun Gothic','Noto Sans KR',sans-serif;">
+  <div style="font-size:24px;">🎧</div>
+  <div style="flex:1;">
+    <div style="font-size:14px; font-weight:700; color:#002060; margin-bottom:6px;">
+      음성으로 듣기 (약 6분)
     </div>
-  </header>
-  <main class="wrap" data-fb-date="2026-11-09">
-    <section class="masthead">
-      <div class="mh-top">
-        <div class="kicker">DAILY BRIEF · K-water연구원</div>
-        <div class="mh-credit">경영연구소 발행<br>AI연구소 개발</div>
-      </div>
-      <h1>11월 9일 월요일<small>2026</small></h1>
-      <div class="mh-meta">오전 07:05 생성 · 수록 기간 전주 금요일(2026-11-06) ~ 일요일(2026-11-08)</div>
-      <p class="mh-sub">매일 아침, 국내외 주요 이슈와 시사점을 간추려 전달합니다. 본 자료는 생성형 AI를 통해 자동 작성되었습니다.</p>
-      <div class="mix">
-        <div class="mix-bar"><span class="p1" style="flex:2"></span><span class="p2" style="flex:2"></span><span class="p3" style="flex:2"></span></div>
-        <div class="mix-legend"><span class="p1"><span class="dot"></span>즉시주목 <b>2</b></span><span class="p2"><span class="dot"></span>주의요망 <b>2</b></span><span class="p3"><span class="dot"></span>동향참고 <b>2</b></span><span class="total">총 6건</span></div>
-      </div>
-      <div class="gauges"><div class="gauge b-normal">
-              <div class="g-top"><span class="g-label">오늘의 이슈 강도</span><span class="delta down">전일 대비 ▼20</span></div>
-              <div class="g-num"><span class="g-value">40</span><span class="g-max">/100</span>
-                <span class="g-band">보통</span></div>
-              <div class="g-track"><div class="g-fill" style="width:40%"></div><i style="left:85%"></i><i style="left:65%"></i><i style="left:45%"></i><i style="left:25%"></i></div>
-              <div class="g-basis">근거 · 미 중간선거 후폭풍·코스피 외국인 매도</div>
-            </div><div class="gauge b-normal">
-              <div class="g-top"><span class="g-label">K-water 연관도</span><span class="delta same">전일과 같음</span></div>
-              <div class="g-num"><span class="g-value">40</span><span class="g-max">/100</span>
-                <span class="g-band">보통</span></div>
-              <div class="g-track"><div class="g-fill" style="width:40%"></div><i style="left:85%"></i><i style="left:65%"></i><i style="left:45%"></i><i style="left:25%"></i></div>
-              <div class="g-basis">근거 · 11월 비·첫눈, 경북 북부 영강 홍수경보</div>
-            </div></div>
-      <div class="audio-player" id="listen">
-  <div class="ap-icon">🎧</div>
-  <div class="ap-body">
-    <div class="ap-title">음성으로 듣기 (약 4분)</div>
-    <audio controls preload="none">
+    <audio controls preload="none" style="width:100%;">
       <source src="./audio/latest.mp3" type="audio/mpeg">
       브라우저가 오디오 재생을 지원하지 않습니다.
     </audio>
   </div>
 </div>
 
-    </section>
-    <h2 class="section-title p1"><span class="st-name">즉시주목</span><span class="st-count">2</span><span class="st-desc">긴급도·중요도 모두 높음</span></h2>
-<article class="brief-card p1" data-fb-no="1" data-fb-cat="E" data-fb-tags="가뭄·저수">
-  <div class="card-head">
-    <span class="card-no">01</span>
-    <span class="badge badge-cat">기후·에너지·환경</span>
-    <span class="badge badge-dom">국내</span>
+  <div class="wrap" data-fb-date="2026-11-09">
+    <div class="header">
+      <h1>K-water연구원 데일리 브리핑</h1>
+      <div class="sub">매일 아침, 국내외 주요 이슈와 시사점을 간추려 전달합니다 본 자료는 생성형 AI를 통해 자동 작성되었습니다</div>
+      <div class="meta">
+        2026년 11월 9일 월요일 · 오후 03:43 생성<br>
+        수록 기간: 전주 금요일(2026-11-06) ~ 일요일(2026-11-08)<br>
+        총 7건 | 즉시주목 1건 · 주의요망 3건 · 동향참고 3건
+      </div>
+      <div class="banner-grid"><div style="background:#fff0f0;border:1px solid #f5b8bc;
+                     border-radius:8px;padding:6px 10px;display:flex;align-items:center;gap:6px;
+                     justify-content:center;font-size:12px;color:#c0000a;font-weight:600;">
+          <span style="width:7px;height:7px;border-radius:50%;background:#c0000a;display:inline-block;"></span>
+          즉시주목 1건
+        </div><div style="background:#fff8e8;border:1px solid #f0d080;
+                     border-radius:8px;padding:6px 10px;display:flex;align-items:center;gap:6px;
+                     justify-content:center;font-size:12px;color:#b06a00;font-weight:600;">
+          <span style="width:7px;height:7px;border-radius:50%;background:#b06a00;display:inline-block;"></span>
+          주의요망 3건
+        </div><div style="background:#f0faf0;border:1px solid #90d890;
+                     border-radius:8px;padding:6px 10px;display:flex;align-items:center;gap:6px;
+                     justify-content:center;font-size:12px;color:#1a6e1a;font-weight:600;">
+          <span style="width:7px;height:7px;border-radius:50%;background:#1a6e1a;display:inline-block;"></span>
+          동향참고 3건
+        </div></div>
+    </div>
+    
+<div class="brief-card" data-fb-no="1" data-fb-cat="A" data-fb-tags="지정학·분쟁,유가·원자재" style="
+    position:relative; background:#fff; border-radius:10px; margin-bottom:16px;
+    padding:18px 20px 18px 24px; box-shadow:0 2px 10px rgba(0,0,0,0.06);
+    border-left:5px solid #f5b8bc;">
+  <div style="display:flex; gap:8px; align-items:center; flex-wrap:wrap; margin-bottom:10px;">
+    <span style="background:#eef2f9;color:#1a3f7f;font-size:11px;font-weight:700;
+                 padding:3px 8px;border-radius:20px;">#1</span>
+    <span style="display:inline-flex;align-items:center;gap:5px;background:#fff0f0;
+                 color:#c0000a;border:1px solid #f5b8bc;font-size:11px;
+                 font-weight:700;padding:3px 10px;border-radius:20px;">
+      <span style="width:7px;height:7px;border-radius:50%;background:#c0000a;display:inline-block;"></span>
+      즉시주목
+    </span>
+    <span style="background:#eef2f9;color:#3c3c3c;font-size:11px;padding:3px 8px;border-radius:20px;">지정학·국제정세</span>
+    <span style="background:#f0f2f5;color:#555;font-size:11px;padding:3px 8px;border-radius:20px;">국내</span>
   </div>
-  <h3 class="card-title">R]청도 운문댐 가뭄 &#x27;심각&#x27;..&quot;물 아껴 쓰자&quot; 호소까지</h3>
-  <p class="card-summary">청도 운문댐 수위가 131.9m로 예년보다 10m 낮고 저수율은 25.1%로 예년 대비 48%에 그쳐, 행정안전부가 전국 다목적댐 19곳과 용수댐 12곳 가운데 유일하게 가뭄 &#x27;심각&#x27; 단계로 분류했다. 이에 따라 대구 공급량을 하루 5만 8천 톤, 경산 공급량을 하루 6천 톤 줄였으며, 대구는 낙동강, 경산은 금호강에서 대체 원수를 받도록 했다. 경산시는 생활·농업용수 부족이 우려되자 대시민 물 절약 호소문을 발표했다.</p>
-  <div class="insight-box">
-    <div class="insight-label">K-water 시사점</div>
-    <p>운문댐 가뭄은 이미 &#x27;심각&#x27; 단계로 관리돼 온 사안이다. 이번에는 대구 하루 5만 8천 톤, 경산 하루 6천 톤의 공급 감량과 낙동강·금호강 대체 원수 전환이 실행 단계에 들어섰다는 점이 달라졌다. 공급 측 감량에 더해 경산시가 호소문으로 수요 절감에 나서면서, 댐 운영 주체와 수돗물을 공급받는 지자체 간 공급 조정과 수요관리 공조가 가뭄 대응의 핵심 축으로 이동하는 양상이다. 추가 감량 시 대체 수원 의존도가 커지고 2년 전 청도, 지난해 강릉과 같은 단수 우려도 제기되는 만큼, 공급 조정 단계별 지자체 소통 체계를 사전에 점검할 필요가 있다.</p>
+  <div style="font-size:16px;font-weight:700;color:#1a1a1a;margin-bottom:8px;line-height:1.5;">트럼프 “이란 재공격 가능성 매우 낮다”</div>
+  <div style="font-size:14px;color:#3c3c3c;line-height:1.7;margin-bottom:10px;">트럼프 미국 대통령은 8일 이란에 대한 군사 공격 재개 가능성이 매우 낮다고 밝혔다. 이란이 핵무기 보유 포기 및 호르무즈 해협 자유 통항 보장 등을 담은 강력한 합의에 서명하는 것을 전제로 한 발언이다. 트럼프 대통령은 미군의 공격 준비는 완료됐지만 이란 인프라 공격보다는 협상을 선호한다는 입장을 5차례 반복했다.</div>
+  <div style="font-size:12px;color:#8a8a8a;margin-bottom:12px;">
+    Chosunbiz | 2026.11.08 21:38 | <a href="https://news.google.com/rss/articles/CBMingFBVV95cUxNQ292MWNWTFRCV081Z084N25jSDl0M0hvSDNBOXZtMWJMWjlJXzV2cjJsSThBcm1RVU1sUzdBanNpNTdMa0xtRERVSFdrbERSRVY5OUVsWFhqcGhDZXRjek5QUnVrRjJzTjhuQjdDZ3VZWGNDY1dQWGQxWGp3eldCVGM0TG9lTXBJTEEwMmdkZ01RUjlFRE16MWtmRXlLd9IBsgFBVV95cUxPM2RVaml1Sk8yVHlwVHB5eTBhNnpGWlBmc3ZtWWluaUphVWtleWFwTVgzRlc3V214SGJzcUktQ3ZzSXpyY3oySmRxOHMwM09xZlU3MUtuWEJxWGl1eUh1b0pyNmRZSnFaeWRoX3hRVXdvRDJWclR2VHd5TFFUOEF2d2U5VGROdTZsSnpwUUNoR084czVFY2k2cF9OZThXX3hibkZuQzVrTzJ1M1hWNWtOZ1RR?oc=5" target="_blank" rel="noopener" style="color:#1a73e8;text-decoration:none;">원문 보기</a>
   </div>
-  <div class="follow-up"><span>후속 모니터링</span>지속 모니터링 필요</div>
-  <div class="card-meta">
-    <span class="media">안동MBC</span><span class="sep">·</span><span>2026.11.07 07:10</span>
-    <a class="src-link" href="https://news.google.com/rss/articles/CBMiqwFBVV95cUxORWVQdkpBVzdMVlBhTlEtS3pReUtaZTRJM3BfdF84aDd1MXJRdk5HMk5TczVBemUyWFotRzRqM0FZMkZGUjlkVkpIWlFCa3VqakV1MHFqbF90NnZ4cWY4SVhzRk12VlRNV3hLWGlDaWdETUdMSUI5ak44djl6ekxiM3lJTUp6NnJNR251ekVGR0FqMWFrYVlyRFZkYzlwdVp2QjMtYXR1eGxLMDQ?oc=5" target="_blank" rel="noopener">원문 보기 ↗</a>
+  <div style="background:#fff0f0;border-left:2px solid #c0000a;border-radius:4px;
+              padding:10px 14px;font-size:13px;color:#3c3c3c;line-height:1.6;">
+    <strong style="color:#c0000a;">K-water 시사점</strong> 호르무즈 해협은 전 세계 원유 수송량의 약 20퍼센트가 통과하는 전략적 요충지로, 이 지역의 긴장 완화는 국제 유가 안정으로 이어질 가능성이 있다. 트럼프 대통령의 협상 우선 입장은 8개월간 지속된 군사 충돌이 외교적 해법으로 전환될 수 있음을 시사한다. 유가 하락은 K-water의 댐·정수장 운영에 투입되는 에너지 비용 절감 요인으로 작용할 수 있으며, 건설 자재 및 화학 약품 조달 비용에도 긍정적 영향을 미칠 수 있다. 다만 이란이 핵 프로그램과 해협 장악을 포기할지는 불확실하므로, 유가 변동성은 당분간 지속될 것으로 예상된다.
   </div>
-  <div class="fb-box">
-    <span class="fb-label">이 기사, 브리핑에 유용했나요?</span>
-    <button type="button" class="fb-btn" data-v="1">👍 더 보기</button>
-    <button type="button" class="fb-btn" data-v="0">보통</button>
-    <button type="button" class="fb-btn" data-v="-1">👎 그만</button>
+  <div style="margin-top:10px;font-size:12px;color:#c0000a;font-weight:600;">▶ 후속 모니터링: 지속 모니터링 필요</div>
+  <div class="fb-box" style="margin-top:12px;padding-top:10px;
+              border-top:1px dashed #e8eaed;display:flex;gap:6px;align-items:center;flex-wrap:wrap;">
+    <span style="font-size:11px;color:#9aa0a6;margin-right:2px;">이 기사, 브리핑에 유용했나요?</span>
+    <button type="button" class="fb-btn" data-v="1" style="font-family:inherit;font-size:11px;padding:4px 10px;border-radius:20px;border:1px solid #d6dae0;background:#fff;color:#3c3c3c;cursor:pointer;">👍 더 보기</button>
+    <button type="button" class="fb-btn" data-v="0" style="font-family:inherit;font-size:11px;padding:4px 10px;border-radius:20px;border:1px solid #d6dae0;background:#fff;color:#3c3c3c;cursor:pointer;">보통</button>
+    <button type="button" class="fb-btn" data-v="-1" style="font-family:inherit;font-size:11px;padding:4px 10px;border-radius:20px;border:1px solid #d6dae0;background:#fff;color:#3c3c3c;cursor:pointer;">👎 그만</button>
   </div>
-</article>
-<article class="brief-card p1" data-fb-no="2" data-fb-cat="E" data-fb-tags="홍수·치수,극한기상·재해">
-  <div class="card-head">
-    <span class="card-no">02</span>
-    <span class="badge badge-cat">기후·에너지·환경</span>
-    <span class="badge badge-dom">국내</span>
+</div>
+<div class="brief-card" data-fb-no="2" data-fb-cat="E" data-fb-tags="물기술·스마트물관리" style="
+    position:relative; background:#fff; border-radius:10px; margin-bottom:16px;
+    padding:18px 20px 18px 24px; box-shadow:0 2px 10px rgba(0,0,0,0.06);
+    border-left:5px solid #f0d080;">
+  <div style="display:flex; gap:8px; align-items:center; flex-wrap:wrap; margin-bottom:10px;">
+    <span style="background:#eef2f9;color:#1a3f7f;font-size:11px;font-weight:700;
+                 padding:3px 8px;border-radius:20px;">#2</span>
+    <span style="display:inline-flex;align-items:center;gap:5px;background:#fff8e8;
+                 color:#b06a00;border:1px solid #f0d080;font-size:11px;
+                 font-weight:700;padding:3px 10px;border-radius:20px;">
+      <span style="width:7px;height:7px;border-radius:50%;background:#b06a00;display:inline-block;"></span>
+      주의요망
+    </span>
+    <span style="background:#eef2f9;color:#3c3c3c;font-size:11px;padding:3px 8px;border-radius:20px;">기후·에너지·환경</span>
+    <span style="background:#f0f2f5;color:#555;font-size:11px;padding:3px 8px;border-radius:20px;">국내</span>
   </div>
-  <h3 class="card-title">[아침R]경북 북부 많은 비..1명 실종·영강 &#x27;홍수 경보&#x27;</h3>
-  <p class="card-summary">경북 북부 호우로 문경 영강 김용리 지점 수위가 최고 6.75m까지 올라 홍수위를 넘어서면서 홍수경보가 발령됐고, 영주 풍기읍 남원천에서는 80대 남성이 급류에 휩쓸려 실종됐다. 누적 강수량은 봉화 180.5mm, 문경 동로면 176.5mm를 기록했으며, 문경 동로면에는 시간당 57mm의 호우가 쏟아졌다. 비는 잦아들었으나 상주에는 산사태 경보, 문경·봉화·영주·예천에는 산사태 주의보가 내려져 있다.</p>
-  <div class="insight-box">
-    <div class="insight-label">K-water 시사점</div>
-    <p>영강은 문경을 거쳐 낙동강으로 유입되는 지류로, 봉화 180.5mm 등 단기 집중호우는 낙동강 본류 수위와 보·하천 운영에 부담으로 작용할 수 있다. 같은 대구·경북권에서 운문댐이 가뭄 &#x27;심각&#x27; 단계에 있는 가운데 경북 북부에는 시간당 57mm의 호우가 내려, 한 권역 안에서 가뭄과 홍수가 동시에 나타나는 국지적 극한기상 양상이 확인된다. 이에 따라 댐 운영에서 저수 확보와 방류 판단을 권역 내 지역별 강우 편차에 맞춰 세분화하는 방안을 고려할 수 있다.</p>
+  <div style="font-size:16px;font-weight:700;color:#1a1a1a;margin-bottom:8px;line-height:1.5;">매일 바닷물 22만t 끌어와 10만t 민물로…공업용수로 활용 [환경 인사이드]</div>
+  <div style="font-size:14px;color:#3c3c3c;line-height:1.7;margin-bottom:10px;">충남 서산시 대산임해산업지역에서 해수 담수화 시설이 가동 중이다. 이 시설은 매일 바닷물 22만 톤을 끌어와 10만 톤의 민물로 전환해 공업용수로 공급한다.</div>
+  <div style="font-size:12px;color:#8a8a8a;margin-bottom:12px;">
+    동아일보 | 2026.11.09 04:37 | <a href="https://news.google.com/rss/articles/CBMidkFVX3lxTE1lVUhrUlpkbUNieGJGWHRNU3BJV3hQTi11ekZadnFFT2ZtY3JYUEJqTTJ1S0VpZHdFZWxoendZWE12ZjhFLW9iLTEydEsxa1oyeEVNaG5EaERRY2tadU1qY2htRGQ3Ylp0aWlqTUE2cEVUazJ4dUHSAWZBVV95cUxQcE5hczNJeXdkRndIcll3LUJlTjRxVzhGeFh2T3ZuVjFnTENDNVliY0pEcXVDaURCX3E5SGhSVG9IdjZ2WWFTbEF0N2lzZHNxZkVnZ2duYkpKTXIwNV82WFMtQWgxcnc?oc=5" target="_blank" rel="noopener" style="color:#1a73e8;text-decoration:none;">원문 보기</a>
   </div>
-  <div class="follow-up"><span>후속 모니터링</span>지속 모니터링 필요</div>
-  <div class="card-meta">
-    <span class="media">안동MBC</span><span class="sep">·</span><span>2026.11.08 08:59</span>
-    <a class="src-link" href="https://news.google.com/rss/articles/CBMiqwFBVV95cUxNNmp4M2RpbU8ycHBnLU1odUljNE4zeWJ2NVlHdzJXeTZfcE90ZTVPVEp0TFgtd3FSRUM5ejlKZG5YYjd5NUh3bWFmNmh0LUd5c3RRVVFWSlRMUmpJNnhEbXVieldjd0dYRTF5QlEtU2F3XzJ5UFVsNVpGaXpBanBqMDU3MEtFTklSYjhhZzA0TFdMTFliZHZXMHFwVHdKNFpxREVNU2JEcldFeVE?oc=5" target="_blank" rel="noopener">원문 보기 ↗</a>
-  </div>
-  <div class="fb-box">
-    <span class="fb-label">이 기사, 브리핑에 유용했나요?</span>
-    <button type="button" class="fb-btn" data-v="1">👍 더 보기</button>
-    <button type="button" class="fb-btn" data-v="0">보통</button>
-    <button type="button" class="fb-btn" data-v="-1">👎 그만</button>
-  </div>
-</article><h2 class="section-title p2"><span class="st-name">주의요망</span><span class="st-count">2</span><span class="st-desc">긴급도 또는 중요도 높음</span></h2>
-<article class="brief-card p2" data-fb-no="3" data-fb-cat="E" data-fb-tags="물관리정책">
-  <div class="card-head">
-    <span class="card-no">03</span>
-    <span class="badge badge-cat">기후·에너지·환경</span>
-    <span class="badge badge-dom">국내</span>
-  </div>
-  <h3 class="card-title">용담호 수돗물 필터 변색 확산…전북환경연합, 근본 대책 촉구</h3>
-  <p class="card-summary">용담댐 물을 공급받는 전주·완주·군산·익산에서 수돗물 필터 변색 민원이 잇따르자, 전북환경운동연합이 성명을 내고 근본 대책 마련을 촉구했다. 한국수자원공사와 전주시는 저수율이 39%까지 떨어지고 상하층 물이 섞이면서 하층부 망간이 유입됐을 가능성을 제기했다. 다만 수자원공사가 10월 28일 취수구를 아래쪽으로 옮기면서 정수장을 운영하는 전주시에 사전 통보하지 않은 것으로 드러났으며, 단체는 취수구 변경 경위와 49개 항목 수질검사 결과 공개 등을 요구했다.</p>
-  <div class="insight-box">
-    <div class="insight-label">K-water 시사점</div>
-    <p>망간 농도가 수질기준(0.05㎎/ℓ) 미만이었는데도 필터 변색과 흙냄새로 체감 민원이 4개 시·군으로 확산되면서, 기준 준수만으로는 수질 신뢰를 유지하기 어렵다는 점이 드러났다. 저수율이 39%까지 낮아진 상황에서 취수 위치 변경이 하층수 성분 유입으로 이어질 수 있어, 저수율 저하기의 취수 운영과 정수 공정 간 연계가 쟁점으로 떠올랐다. 특히 정수장 운영 주체인 전주시에 취수구 변경을 사전 통보하지 않은 점이 비판의 중심에 있어, 원수 공급 측 운영 변경 시 지자체와의 사전 정보공유 체계 마련이 요구될 가능성이 있다. 단체가 요구한 상수원 통합 정보공유 시스템 구축과 소독부산물 안전성 점검은 향후 대응 과정에서 주요 검토 대상이 될 것으로 예상된다.</p>
-  </div>
-  
-  <div class="card-meta">
-    <span class="media">연합뉴스</span><span class="sep">·</span><span>2026.11.06 06:44</span>
-    <a class="src-link" href="https://news.google.com/rss/articles/CBMiYEFVX3lxTE5wdW1PM2VudVpRNEdGd0Rja2tuV0dqQzM1QVN0ZkRpNUZpRVg3d3BpdHlValRqZlpLNzh2dk9za1pjcHBYR0hRNkVoUFBtZklVZzM5aVM3UmQ4QW03NmZmZNIBYEFVX3lxTE5wdW1PM2VudVpRNEdGd0Rja2tuV0dqQzM1QVN0ZkRpNUZpRVg3d3BpdHlValRqZlpLNzh2dk9za1pjcHBYR0hRNkVoUFBtZklVZzM5aVM3UmQ4QW03NmZmZA?oc=5" target="_blank" rel="noopener">원문 보기 ↗</a>
-  </div>
-  <div class="fb-box">
-    <span class="fb-label">이 기사, 브리핑에 유용했나요?</span>
-    <button type="button" class="fb-btn" data-v="1">👍 더 보기</button>
-    <button type="button" class="fb-btn" data-v="0">보통</button>
-    <button type="button" class="fb-btn" data-v="-1">👎 그만</button>
-  </div>
-</article>
-<article class="brief-card p2" data-fb-no="4" data-fb-cat="D" data-fb-tags="AI·디지털">
-  <div class="card-head">
-    <span class="card-no">04</span>
-    <span class="badge badge-cat">기술·혁신</span>
-    <span class="badge badge-dom">국내</span>
-  </div>
-  <h3 class="card-title">젠슨황, ’中스파이와 불륜설’ 시인…엔비디아, 독립 조사 착수</h3>
-  <p class="card-summary">엔비디아 이사회는 8일(현지시간) 젠슨 황 CEO가 외국 정보기관의 표적이 됐다는 보도와 관련해 독립 조사에 착수했으며, 외부 독립 변호사의 자문을 받는 독립 이사 위원회가 조사를 감독한다고 발표했다. 황 CEO는 중국 국가안전부 스파이로 지목된 중국 기업인 앨리스 황과의 불륜 사실을 사내 이메일로 시인하고 사과했다. 이사회는 국가 안보나 회사 기밀이 유출됐다고 볼 근거는 없다고 밝혔다.</p>
-  <div class="insight-box">
-    <div class="insight-label">K-water 시사점</div>
-    <p>엔비디아 독립 이사 위원회의 조사 결과에 따라 AI 반도체 공급망을 둘러싼 미·중 안보 쟁점이 다시 부각될 가능성이 있다. 반도체·AI 산업 동향이 경영 현안 논의에서 거론될 수 있는 만큼, 글로벌 AI 기업의 지배구조 리스크 흐름을 참고할 수 있다.</p>
-  </div>
-  
-  <div class="card-meta">
-    <span class="media">연합뉴스TV</span><span class="sep">·</span><span>2026.11.08 21:16</span>
-    <a class="src-link" href="https://news.google.com/rss/articles/CBMiZ0FVX3lxTE5EOVN6SGhKdk9NUGF2R3Z2SFl4bW9LTGl0SXhCQmQ2WDVuSUxCZXdiakJ6OVQyeWlDLXVFajBELW9YMXU2ZGczRTFYX0JHLUxNRVJ6X2p6YmowNUhuSGpzOURXakt4Yjg?oc=5" target="_blank" rel="noopener">원문 보기 ↗</a>
-  </div>
-  <div class="fb-box">
-    <span class="fb-label">이 기사, 브리핑에 유용했나요?</span>
-    <button type="button" class="fb-btn" data-v="1">👍 더 보기</button>
-    <button type="button" class="fb-btn" data-v="0">보통</button>
-    <button type="button" class="fb-btn" data-v="-1">👎 그만</button>
-  </div>
-</article><h2 class="section-title p3"><span class="st-name">동향참고</span><span class="st-count">2</span><span class="st-desc">흐름 파악용</span></h2>
-<article class="brief-card p3" data-fb-no="5" data-fb-cat="E" data-fb-tags="탄소규제·ESG,에너지전환·재생에너지">
-  <div class="card-head">
-    <span class="card-no">05</span>
-    <span class="badge badge-cat">기후·에너지·환경</span>
-    <span class="badge badge-dom">국내</span>
-  </div>
-  <h3 class="card-title">COP31 9일 개막…韓, &#x27;2035년 전력 비중 35%&#x27; 국제서약 동참</h3>
-  <p class="card-summary">기후에너지환경부는 제31차 유엔기후변화협약 당사국총회(COP31)가 9~20일 튀르키예 안탈리아에서 열리며, 한국이 2035년까지 최종에너지 소비 중 전력 비중을 35%로 높이는 &#x27;35 바이 35 글로벌 전기화 서약&#x27;에 동참한다고 밝혔다. 김성환 장관은 16~18일 고위급회의에서 한국형 녹색대전환(K-GX) 전략을 소개하고, 호주와 탈탄소 협력 MOU를 추진할 예정이다. 총회에서는 2035년까지 적응재원을 3배로 늘리는 협력 방안도 논의된다.</p>
-  <div class="insight-box">
-    <div class="insight-label">K-water 시사점</div>
-    <p>그간 탄소 규제 측면에서 다뤄온 COP31 사안이 한국의 &#x27;35 바이 35&#x27; 전기화 서약 동참으로 구체화됐다. 전력 비중 35% 목표는 전력 수요 확대와 전력망 확충을 전제로 하는 만큼, 수력·양수·수상태양광 등 재생에너지 발전의 계통 내 역할이 커질 가능성이 있다. 아울러 2035년까지 적응재원을 3배로 확대하는 논의는 개도국 물 인프라 수요와 맞물려 해외 물사업 여건에 영향을 줄 수 있다.</p>
+  <div style="background:#fff8e8;border-left:2px solid #b06a00;border-radius:4px;
+              padding:10px 14px;font-size:13px;color:#3c3c3c;line-height:1.6;">
+    <strong style="color:#b06a00;">K-water 시사점</strong> 해수 담수화는 수자원 부족 지역에서 안정적인 용수 공급을 위한 대안 기술로 주목받고 있다. 대산 사례는 산업단지 밀집 지역에서 담수화 시설이 상업적으로 운영 가능함을 보여주는 사례다. K-water는 다목적댐과 광역상수도를 통해 전국 용수 공급의 약 49퍼센트를 담당하고 있으며, 반도체·AI·데이터센터 등 첨단산업 용수 수요 증가에 대응하기 위해 초순수 사업을 추진 중이다. 해수 담수화 기술은 해안 산업단지나 수자원 부족 지역에서 용수 공급 다변화 수단으로 검토할 수 있으며, 해외사업 진출 시에도 기술 경쟁력 확보 차원에서 참고할 수 있다.
   </div>
   
-  <div class="card-meta">
-    <span class="media">뉴시스</span><span class="sep">·</span><span>2026.11.08 03:00</span>
-    <a class="src-link" href="https://news.google.com/rss/articles/CBMiYEFVX3lxTE55U3dWS1QtbS12LTJTbHN3S0JSQUlqOGNGVk1vQVlsbWpnemRyMWE5NjQ4VUJDU0RzSnI0ZUpSUk1xU3NMbm9VNzlwaTVjekxqWll3anc0RVlrcEdEVl9iRtIBeEFVX3lxTE1ieWVBYnBOWmU1NG9kSE1UaGx1a0w0OTRRWkxsMlBnMEdaVkRDTnJycU5uYmMwcjByc3FPeWFnUVJaaEtvQnZiZlFQUzBKQ3I1ZHNKU1RRRkpydlpMdDVCcUdWLXNQeTRDWk9xeXFubFFxazI0MGJsOQ?oc=5" target="_blank" rel="noopener">원문 보기 ↗</a>
+  <div class="fb-box" style="margin-top:12px;padding-top:10px;
+              border-top:1px dashed #e8eaed;display:flex;gap:6px;align-items:center;flex-wrap:wrap;">
+    <span style="font-size:11px;color:#9aa0a6;margin-right:2px;">이 기사, 브리핑에 유용했나요?</span>
+    <button type="button" class="fb-btn" data-v="1" style="font-family:inherit;font-size:11px;padding:4px 10px;border-radius:20px;border:1px solid #d6dae0;background:#fff;color:#3c3c3c;cursor:pointer;">👍 더 보기</button>
+    <button type="button" class="fb-btn" data-v="0" style="font-family:inherit;font-size:11px;padding:4px 10px;border-radius:20px;border:1px solid #d6dae0;background:#fff;color:#3c3c3c;cursor:pointer;">보통</button>
+    <button type="button" class="fb-btn" data-v="-1" style="font-family:inherit;font-size:11px;padding:4px 10px;border-radius:20px;border:1px solid #d6dae0;background:#fff;color:#3c3c3c;cursor:pointer;">👎 그만</button>
   </div>
-  <div class="fb-box">
-    <span class="fb-label">이 기사, 브리핑에 유용했나요?</span>
-    <button type="button" class="fb-btn" data-v="1">👍 더 보기</button>
-    <button type="button" class="fb-btn" data-v="0">보통</button>
-    <button type="button" class="fb-btn" data-v="-1">👎 그만</button>
+</div>
+<div class="brief-card" data-fb-no="3" data-fb-cat="D" data-fb-tags="AI·디지털" style="
+    position:relative; background:#fff; border-radius:10px; margin-bottom:16px;
+    padding:18px 20px 18px 24px; box-shadow:0 2px 10px rgba(0,0,0,0.06);
+    border-left:5px solid #f0d080;">
+  <div style="display:flex; gap:8px; align-items:center; flex-wrap:wrap; margin-bottom:10px;">
+    <span style="background:#eef2f9;color:#1a3f7f;font-size:11px;font-weight:700;
+                 padding:3px 8px;border-radius:20px;">#3</span>
+    <span style="display:inline-flex;align-items:center;gap:5px;background:#fff8e8;
+                 color:#b06a00;border:1px solid #f0d080;font-size:11px;
+                 font-weight:700;padding:3px 10px;border-radius:20px;">
+      <span style="width:7px;height:7px;border-radius:50%;background:#b06a00;display:inline-block;"></span>
+      주의요망
+    </span>
+    <span style="background:#eef2f9;color:#3c3c3c;font-size:11px;padding:3px 8px;border-radius:20px;">기술·혁신</span>
+    <span style="background:#f0f2f5;color:#555;font-size:11px;padding:3px 8px;border-radius:20px;">국내</span>
   </div>
-</article>
-<article class="brief-card p3" data-fb-no="6" data-fb-cat="B" data-fb-tags="정부예산·공공기관">
-  <div class="card-head">
-    <span class="card-no">06</span>
-    <span class="badge badge-cat">정치·정책</span>
-    <span class="badge badge-dom">국내</span>
+  <div style="font-size:16px;font-weight:700;color:#1a1a1a;margin-bottom:8px;line-height:1.5;">&quot;짓던 데이터센터 계속 짓게 해달라&quot;… AI업계, 美민주에 &#x27;간청&#x27;</div>
+  <div style="font-size:14px;color:#3c3c3c;line-height:1.7;margin-bottom:10px;">미국 중간선거에서 AI 데이터센터 반대 여론이 민주당 압승을 이끌자 업계가 정치적 리스크에 직면했다. 코어위브 등 기업들은 텍사스 주지사 당선인에게 기존 사업 완료를 요청하며 협력을 구하고 있다. 주민들은 소음, 전력·용수 소비 증가, 집값 하락 우려 등을 이유로 신규 인허가 중단과 법적 소송을 통해 개발 사업을 저지하고 있다.</div>
+  <div style="font-size:12px;color:#8a8a8a;margin-bottom:12px;">
+    매일경제 | 2026.11.08 08:38 | <a href="https://news.google.com/rss/articles/CBMiTkFVX3lxTFA5RXRqRTZhWV83N09DMktVMGdZa25OYTdTbzFFSXF3Mk4wZzZvay1JZjRzZGd1Uk1JZEszeG1DZ0FNVG8tV1ZlNUxfMHNmZw?oc=5" target="_blank" rel="noopener" style="color:#1a73e8;text-decoration:none;">원문 보기</a>
   </div>
-  <h3 class="card-title">당정, 소방 재정 최소 2조 지원···여당 ‘종부세 공제 14억 통일’ 요청</h3>
-  <p class="card-summary">더불어민주당과 정부는 8일 고위당정협의회에서 소방 필수 투자 분야에 최소 2조원 규모의 재정을 지원하기로 의견을 모았다. 소방안전교부세가 내년에 1조503억원에서 7605억원으로 27.6% 삭감될 예정인 가운데, 정부는 약 1조5000억원 규모의 담배소비세분 지방교육세를 소방분 지역자원시설세로 전환하기로 했다. 민주당은 종합부동산세 기본공제를 거주 여부와 관계없이 14억원으로 통일해 달라고 요청했다.</p>
-  <div class="insight-box">
-    <div class="insight-label">K-water 시사점</div>
-    <p>당정이 소방 재원으로 미래대응기금 일부와 약 1조5000억원 규모의 세원 전환을 검토하면서, 11월 국회 예산 심의에서 기금 배분 우선순위가 조정될 것으로 예상된다. 기금 배분 변화는 물 인프라 관련 수탁·대행 사업의 발주 여건과도 맞물릴 수 있어 예산 심의 결과를 참고할 수 있다.</p>
+  <div style="background:#fff8e8;border-left:2px solid #b06a00;border-radius:4px;
+              padding:10px 14px;font-size:13px;color:#3c3c3c;line-height:1.6;">
+    <strong style="color:#b06a00;">K-water 시사점</strong> AI 데이터센터는 막대한 전력과 용수를 소비하는 시설로, 지역 주민의 반발이 정치적 이슈로 확대되면서 신규 인허가가 중단되거나 기존 사업이 좌초되는 사례가 증가하고 있다. 미국 사례는 데이터센터 입지 선정 시 지역 수용성 확보가 사업 성패를 좌우하는 핵심 변수임을 보여준다. K-water는 수변 신도시 및 산업단지 개발 사업을 추진 중이며, 첨단산업 용수 공급 확대를 전략 목표로 설정하고 있다. 데이터센터 등 대규모 용수 수요 시설 유치 시 지역 주민과의 사전 소통, 용수 공급 안정성 확보, 환경 영향 최소화 방안 등을 종합적으로 고려할 필요가 있다. 해외 규제 동향과 주민 반발 사례는 국내 산업단지 개발 및 용수 공급 계획 수립 시 참고할 수 있다.
   </div>
   
-  <div class="card-meta">
-    <span class="media">경향신문</span><span class="sep">·</span><span>2026.11.08 11:57</span>
-    <a class="src-link" href="https://news.google.com/rss/articles/CBMiWkFVX3lxTE5VeWlnRXFPUF9TMmw4X0lPb0E3ejY0TmZ1THdXNUFkMHhDWTVWc1FHaG0yN2FJY3Y3UVJqNnVkR2ZzTXRUSURnWnJCVmRkUTVNQTZmYXNGWWJ1d9IBX0FVX3lxTE5DRzRXR08taWU1U3NUdVVwM2FwdC1TR0VDRmNqZDBVV0JWWTI1WTlWVVJET2ctdTh3SFNpV3lYaXRfWkRPbXIxc21jQ2xMMjZ6UUhmWnBUTy1QRW5NdHFJ?oc=5" target="_blank" rel="noopener">원문 보기 ↗</a>
+  <div class="fb-box" style="margin-top:12px;padding-top:10px;
+              border-top:1px dashed #e8eaed;display:flex;gap:6px;align-items:center;flex-wrap:wrap;">
+    <span style="font-size:11px;color:#9aa0a6;margin-right:2px;">이 기사, 브리핑에 유용했나요?</span>
+    <button type="button" class="fb-btn" data-v="1" style="font-family:inherit;font-size:11px;padding:4px 10px;border-radius:20px;border:1px solid #d6dae0;background:#fff;color:#3c3c3c;cursor:pointer;">👍 더 보기</button>
+    <button type="button" class="fb-btn" data-v="0" style="font-family:inherit;font-size:11px;padding:4px 10px;border-radius:20px;border:1px solid #d6dae0;background:#fff;color:#3c3c3c;cursor:pointer;">보통</button>
+    <button type="button" class="fb-btn" data-v="-1" style="font-family:inherit;font-size:11px;padding:4px 10px;border-radius:20px;border:1px solid #d6dae0;background:#fff;color:#3c3c3c;cursor:pointer;">👎 그만</button>
   </div>
-  <div class="fb-box">
-    <span class="fb-label">이 기사, 브리핑에 유용했나요?</span>
-    <button type="button" class="fb-btn" data-v="1">👍 더 보기</button>
-    <button type="button" class="fb-btn" data-v="0">보통</button>
-    <button type="button" class="fb-btn" data-v="-1">👎 그만</button>
+</div>
+<div class="brief-card" data-fb-no="4" data-fb-cat="E" data-fb-tags="홍수·치수,물관리정책" style="
+    position:relative; background:#fff; border-radius:10px; margin-bottom:16px;
+    padding:18px 20px 18px 24px; box-shadow:0 2px 10px rgba(0,0,0,0.06);
+    border-left:5px solid #f0d080;">
+  <div style="display:flex; gap:8px; align-items:center; flex-wrap:wrap; margin-bottom:10px;">
+    <span style="background:#eef2f9;color:#1a3f7f;font-size:11px;font-weight:700;
+                 padding:3px 8px;border-radius:20px;">#4</span>
+    <span style="display:inline-flex;align-items:center;gap:5px;background:#fff8e8;
+                 color:#b06a00;border:1px solid #f0d080;font-size:11px;
+                 font-weight:700;padding:3px 10px;border-radius:20px;">
+      <span style="width:7px;height:7px;border-radius:50%;background:#b06a00;display:inline-block;"></span>
+      주의요망
+    </span>
+    <span style="background:#eef2f9;color:#3c3c3c;font-size:11px;padding:3px 8px;border-radius:20px;">기후·에너지·환경</span>
+    <span style="background:#f0f2f5;color:#555;font-size:11px;padding:3px 8px;border-radius:20px;">국내</span>
   </div>
-</article>
+  <div style="font-size:16px;font-weight:700;color:#1a1a1a;margin-bottom:8px;line-height:1.5;">하천 넓히는 대신 저수지 손봤더니…경기도, 홍수예방비 225억 아꼈다</div>
+  <div style="font-size:14px;color:#3c3c3c;line-height:1.7;margin-bottom:10px;">경기도가 수원시 원천리천 홍수 예방사업에서 하천 확장 대신 상류 저수지 수문 개선 방식을 택해 225억 원을 절감했다. 광교호수공원 내 원천호수와 신대저수지의 고무보를 자동수문으로 교체하고 운영 지침을 마련해 방류량을 조절하는 방식으로 사업비를 당초 359억 원에서 134억 원으로 줄였다. 공사 기간도 6년에서 2년으로 단축됐다.</div>
+  <div style="font-size:12px;color:#8a8a8a;margin-bottom:12px;">
+    서울경제 | 2026.11.09 01:26 | <a href="https://news.google.com/rss/articles/CBMiU0FVX3lxTE9FRUFFNnU1Y1hjM3dhdVRiamU0cWN6YTRHbWJodVVVNklIYk51OU1uTG1TRjdUSVJWaHlBajZCTk5Vckt5dUlGREwyVkdfekNjMW9J0gFTQVVfeXFMT0VFQUU2dTVjWGMzd2F1VGJqZTRxY3phNEdtYmh1VVU2SUhiTnU5TW5MbVNGN1RJUlZoeUFqNkJOTlVyS3l1SUZETDJWR196Q2Mxb0k?oc=5" target="_blank" rel="noopener" style="color:#1a73e8;text-decoration:none;">원문 보기</a>
+  </div>
+  <div style="background:#fff8e8;border-left:2px solid #b06a00;border-radius:4px;
+              padding:10px 14px;font-size:13px;color:#3c3c3c;line-height:1.6;">
+    <strong style="color:#b06a00;">K-water 시사점</strong> 이 사례는 대규모 토목공사 대신 기존 수자원 시설의 운영 효율화를 통해 홍수 대응 능력을 높이고 예산을 대폭 절감한 모델이다. 하천 확장은 토지 보상, 도로 개량 등 복잡한 공정과 막대한 비용이 수반되지만, 상류 저수지의 저류·방류 기능 강화는 기존 인프라를 활용해 동일한 효과를 낼 수 있음을 보여준다. K-water는 18개 다목적댐과 2개 홍수조절댐을 운영하며 AI·디지털트윈 기반 댐 자율운영을 추진 중이다. 원천리천 사례는 댐 및 저수지 운영 최적화를 통해 하류 홍수 부담을 줄이고 건설 투자를 최소화하는 접근법이 실효성 있음을 입증한다. 디지털 물관리 플랫폼과 AI 기반 수문 자동화 기술을 활용하면 유사한 도심 하천 정비사업에서도 예산 효율성과 재해 예방 효과를 동시에 달성할 수 있을 것으로 예상된다.
+  </div>
+  
+  <div class="fb-box" style="margin-top:12px;padding-top:10px;
+              border-top:1px dashed #e8eaed;display:flex;gap:6px;align-items:center;flex-wrap:wrap;">
+    <span style="font-size:11px;color:#9aa0a6;margin-right:2px;">이 기사, 브리핑에 유용했나요?</span>
+    <button type="button" class="fb-btn" data-v="1" style="font-family:inherit;font-size:11px;padding:4px 10px;border-radius:20px;border:1px solid #d6dae0;background:#fff;color:#3c3c3c;cursor:pointer;">👍 더 보기</button>
+    <button type="button" class="fb-btn" data-v="0" style="font-family:inherit;font-size:11px;padding:4px 10px;border-radius:20px;border:1px solid #d6dae0;background:#fff;color:#3c3c3c;cursor:pointer;">보통</button>
+    <button type="button" class="fb-btn" data-v="-1" style="font-family:inherit;font-size:11px;padding:4px 10px;border-radius:20px;border:1px solid #d6dae0;background:#fff;color:#3c3c3c;cursor:pointer;">👎 그만</button>
+  </div>
+</div>
+<div class="brief-card" data-fb-no="5" data-fb-cat="A" data-fb-tags="지정학·분쟁" style="
+    position:relative; background:#fff; border-radius:10px; margin-bottom:16px;
+    padding:18px 20px 18px 24px; box-shadow:0 2px 10px rgba(0,0,0,0.06);
+    border-left:5px solid #90d890;">
+  <div style="display:flex; gap:8px; align-items:center; flex-wrap:wrap; margin-bottom:10px;">
+    <span style="background:#eef2f9;color:#1a3f7f;font-size:11px;font-weight:700;
+                 padding:3px 8px;border-radius:20px;">#5</span>
+    <span style="display:inline-flex;align-items:center;gap:5px;background:#f0faf0;
+                 color:#1a6e1a;border:1px solid #90d890;font-size:11px;
+                 font-weight:700;padding:3px 10px;border-radius:20px;">
+      <span style="width:7px;height:7px;border-radius:50%;background:#1a6e1a;display:inline-block;"></span>
+      동향참고
+    </span>
+    <span style="background:#eef2f9;color:#3c3c3c;font-size:11px;padding:3px 8px;border-radius:20px;">지정학·국제정세</span>
+    <span style="background:#f0f2f5;color:#555;font-size:11px;padding:3px 8px;border-radius:20px;">국내</span>
+  </div>
+  <div style="font-size:16px;font-weight:700;color:#1a1a1a;margin-bottom:8px;line-height:1.5;">트럼프-민주, 금주 &#x27;헤그세스 탄핵안&#x27; 1라운드 충돌…與반란표 주목</div>
+  <div style="font-size:14px;color:#3c3c3c;line-height:1.7;margin-bottom:10px;">미국 하원이 9일 소집되며 피트 헤그세스 국방부 장관에 대한 탄핵소추안 표결이 이번 주 초반 이뤄질 전망이다. 공화당 내 반트럼프 인사인 토머스 매시 의원이 발의한 이 안건은 하원에서 단순 과반으로 통과 가능성이 크다. 상원에서는 3분의 2 찬성이 필요해 가결 가능성이 낮지만, 트럼프 대통령의 당 장악력을 시험하는 계기가 될 것으로 보인다.</div>
+  <div style="font-size:12px;color:#8a8a8a;margin-bottom:12px;">
+    연합뉴스 | 2026.11.08 22:27 | <a href="https://news.google.com/rss/articles/CBMiW0FVX3lxTE9keV9BQkVIbEJkcTA0WWN4YVBFWE9SLVcweTFaNFc4X19VWl9TbnpzWUdKYV8xMU5yZTI3NUZiQUVsdDM3VVhINnFoMm9ueXp2Mm14ZzNRalZ2b0HSAWBBVV95cUxNUS0xNXA5U0Y4THhmd0R5XzlhOWtleVFENHQ4My1BZFh6dzI5RXFoN1FMOXlnTDNHT01oblFRb2lqLS03eTVud0lwX24tem9PVzY0YkV4YV9JVDM3dWJwcW8?oc=5" target="_blank" rel="noopener" style="color:#1a73e8;text-decoration:none;">원문 보기</a>
+  </div>
+  <div style="background:#f0faf0;border-left:2px solid #1a6e1a;border-radius:4px;
+              padding:10px 14px;font-size:13px;color:#3c3c3c;line-height:1.6;">
+    <strong style="color:#1a6e1a;">K-water 시사점</strong> 미국 정치권의 내부 갈등과 탄핵 절차는 K-water의 직접적인 사업 영역과 거리가 있는 사안이다.
+  </div>
+  
+  <div class="fb-box" style="margin-top:12px;padding-top:10px;
+              border-top:1px dashed #e8eaed;display:flex;gap:6px;align-items:center;flex-wrap:wrap;">
+    <span style="font-size:11px;color:#9aa0a6;margin-right:2px;">이 기사, 브리핑에 유용했나요?</span>
+    <button type="button" class="fb-btn" data-v="1" style="font-family:inherit;font-size:11px;padding:4px 10px;border-radius:20px;border:1px solid #d6dae0;background:#fff;color:#3c3c3c;cursor:pointer;">👍 더 보기</button>
+    <button type="button" class="fb-btn" data-v="0" style="font-family:inherit;font-size:11px;padding:4px 10px;border-radius:20px;border:1px solid #d6dae0;background:#fff;color:#3c3c3c;cursor:pointer;">보통</button>
+    <button type="button" class="fb-btn" data-v="-1" style="font-family:inherit;font-size:11px;padding:4px 10px;border-radius:20px;border:1px solid #d6dae0;background:#fff;color:#3c3c3c;cursor:pointer;">👎 그만</button>
+  </div>
+</div>
+<div class="brief-card" data-fb-no="6" data-fb-cat="E" data-fb-tags="탄소규제·ESG" style="
+    position:relative; background:#fff; border-radius:10px; margin-bottom:16px;
+    padding:18px 20px 18px 24px; box-shadow:0 2px 10px rgba(0,0,0,0.06);
+    border-left:5px solid #90d890;">
+  <div style="display:flex; gap:8px; align-items:center; flex-wrap:wrap; margin-bottom:10px;">
+    <span style="background:#eef2f9;color:#1a3f7f;font-size:11px;font-weight:700;
+                 padding:3px 8px;border-radius:20px;">#6</span>
+    <span style="display:inline-flex;align-items:center;gap:5px;background:#f0faf0;
+                 color:#1a6e1a;border:1px solid #90d890;font-size:11px;
+                 font-weight:700;padding:3px 10px;border-radius:20px;">
+      <span style="width:7px;height:7px;border-radius:50%;background:#1a6e1a;display:inline-block;"></span>
+      동향참고
+    </span>
+    <span style="background:#eef2f9;color:#3c3c3c;font-size:11px;padding:3px 8px;border-radius:20px;">기후·에너지·환경</span>
+    <span style="background:#f0f2f5;color:#555;font-size:11px;padding:3px 8px;border-radius:20px;">국내</span>
+  </div>
+  <div style="font-size:16px;font-weight:700;color:#1a1a1a;margin-bottom:8px;line-height:1.5;">선체 길이만 130m…매머드 전기 선박, ‘탈탄소’ 상업 운항</div>
+  <div style="font-size:14px;color:#3c3c3c;line-height:1.7;margin-bottom:10px;">호주 조선사 인캣이 제작한 길이 130미터, 배수량 1만4000톤급 전기선박 치나 소리야호가 남미에서 상업 운항을 시작했다. 이 선박은 배터리 250톤과 40메가와트시 에너지저장장치를 탑재해 연간 3만7000톤의 온실가스 저감 효과를 낸다.</div>
+  <div style="font-size:12px;color:#8a8a8a;margin-bottom:12px;">
+    경향신문 | 2026.11.08 11:43 | <a href="https://news.google.com/rss/articles/CBMiWkFVX3lxTFBYWDRhQU53LUNNYXQ0V0ZNQXBIT1FkQjVqaVJ0OWN1b0hrZGc3Vk1ON280aDN6LXRRV3FJRkg1bDgwa2pveE5wWERVYjE1Z09NR1BPbmZma1F5Z9IBX0FVX3lxTFBZT2M2OXNHd3EyYXlraXZjb0hQbVNCQnlwTlVLY2JueUhHUEdsenpDRkNoYTU3c2pCa3VRM3BfaFRoMlFuWFRnVHJlS2ZySnZLTjR3b1Y1WW5YWTJEZ1Jv?oc=5" target="_blank" rel="noopener" style="color:#1a73e8;text-decoration:none;">원문 보기</a>
+  </div>
+  <div style="background:#f0faf0;border-left:2px solid #1a6e1a;border-radius:4px;
+              padding:10px 14px;font-size:13px;color:#3c3c3c;line-height:1.6;">
+    <strong style="color:#1a6e1a;">K-water 시사점</strong> 대형 전기선박의 상업 운항은 해운 분야의 탈탄소 전환이 기술적으로 실현 가능함을 보여주는 사례다. K-water는 수력발전, 시화호 조력발전, 수상태양광 등 재생에너지 사업을 운영하며 2030년까지 태양광 7227메가와트 및 양수발전·새만금조력 신설을 추진 중이다. 전기선박 확산은 대용량 에너지저장장치 수요 증가로 이어질 수 있으며, 수상태양광 및 수열에너지 등 수자원 기반 재생에너지 기술과의 연계 가능성을 시사한다. 해외사업 진출 시 친환경 해운 인프라와 연계한 재생에너지 공급 모델을 검토할 수 있다.
+  </div>
+  
+  <div class="fb-box" style="margin-top:12px;padding-top:10px;
+              border-top:1px dashed #e8eaed;display:flex;gap:6px;align-items:center;flex-wrap:wrap;">
+    <span style="font-size:11px;color:#9aa0a6;margin-right:2px;">이 기사, 브리핑에 유용했나요?</span>
+    <button type="button" class="fb-btn" data-v="1" style="font-family:inherit;font-size:11px;padding:4px 10px;border-radius:20px;border:1px solid #d6dae0;background:#fff;color:#3c3c3c;cursor:pointer;">👍 더 보기</button>
+    <button type="button" class="fb-btn" data-v="0" style="font-family:inherit;font-size:11px;padding:4px 10px;border-radius:20px;border:1px solid #d6dae0;background:#fff;color:#3c3c3c;cursor:pointer;">보통</button>
+    <button type="button" class="fb-btn" data-v="-1" style="font-family:inherit;font-size:11px;padding:4px 10px;border-radius:20px;border:1px solid #d6dae0;background:#fff;color:#3c3c3c;cursor:pointer;">👎 그만</button>
+  </div>
+</div>
+<div class="brief-card" data-fb-no="7" data-fb-cat="D" data-fb-tags="AI·디지털" style="
+    position:relative; background:#fff; border-radius:10px; margin-bottom:16px;
+    padding:18px 20px 18px 24px; box-shadow:0 2px 10px rgba(0,0,0,0.06);
+    border-left:5px solid #90d890;">
+  <div style="display:flex; gap:8px; align-items:center; flex-wrap:wrap; margin-bottom:10px;">
+    <span style="background:#eef2f9;color:#1a3f7f;font-size:11px;font-weight:700;
+                 padding:3px 8px;border-radius:20px;">#7</span>
+    <span style="display:inline-flex;align-items:center;gap:5px;background:#f0faf0;
+                 color:#1a6e1a;border:1px solid #90d890;font-size:11px;
+                 font-weight:700;padding:3px 10px;border-radius:20px;">
+      <span style="width:7px;height:7px;border-radius:50%;background:#1a6e1a;display:inline-block;"></span>
+      동향참고
+    </span>
+    <span style="background:#eef2f9;color:#3c3c3c;font-size:11px;padding:3px 8px;border-radius:20px;">기술·혁신</span>
+    <span style="background:#f0f2f5;color:#555;font-size:11px;padding:3px 8px;border-radius:20px;">국외</span>
+  </div>
+  <div style="font-size:16px;font-weight:700;color:#1a1a1a;margin-bottom:8px;line-height:1.5;">Apple CEO Presses Software Chief to Pursue More Ambitious AI Strategy</div>
+  <div style="font-size:14px;color:#3c3c3c;line-height:1.7;margin-bottom:10px;">애플 CEO가 소프트웨어 책임자에게 더 야심찬 AI 전략을 추진하도록 압박하고 있다. 애플은 시리를 사용자를 위해 작업을 수행하는 자율 에이전트로 전환하려 한다.</div>
+  <div style="font-size:12px;color:#8a8a8a;margin-bottom:12px;">
+    Bloomberg | 2026.11.08 15:00 | <a href="https://news.google.com/rss/articles/CBMiyAFBVV95cUxNQjlhNk9NU1ZVZFo4UG9TR3FmcGxtMWhnY3o4R3dJNGxHc3E2QlR4cmlOSDBuU2JHLVFnMlpVYWtneGxacHhOZWM5bWNJWndxZndxdEstamJjenMwaFoxT3RHSXg3Q2E3cC1pdDM1bm16VkJPak43T2xLRkNvTE9QNHdTRjdfekNGbXJuMFNrcWJ5OGpxR0x3OEJPTll6bHNOaUwzc1E1OF9DQnRZdFZBRXgtN0VYeEhUTTVOa3RKdDlrVU9keXNDOA?oc=5" target="_blank" rel="noopener" style="color:#1a73e8;text-decoration:none;">원문 보기</a>
+  </div>
+  <div style="background:#f0faf0;border-left:2px solid #1a6e1a;border-radius:4px;
+              padding:10px 14px;font-size:13px;color:#3c3c3c;line-height:1.6;">
+    <strong style="color:#1a6e1a;">K-water 시사점</strong> 글로벌 기술 기업의 AI 전략 변화는 산업 전반의 디지털 전환 흐름을 반영하는 사안이다.
+  </div>
+  
+  <div class="fb-box" style="margin-top:12px;padding-top:10px;
+              border-top:1px dashed #e8eaed;display:flex;gap:6px;align-items:center;flex-wrap:wrap;">
+    <span style="font-size:11px;color:#9aa0a6;margin-right:2px;">이 기사, 브리핑에 유용했나요?</span>
+    <button type="button" class="fb-btn" data-v="1" style="font-family:inherit;font-size:11px;padding:4px 10px;border-radius:20px;border:1px solid #d6dae0;background:#fff;color:#3c3c3c;cursor:pointer;">👍 더 보기</button>
+    <button type="button" class="fb-btn" data-v="0" style="font-family:inherit;font-size:11px;padding:4px 10px;border-radius:20px;border:1px solid #d6dae0;background:#fff;color:#3c3c3c;cursor:pointer;">보통</button>
+    <button type="button" class="fb-btn" data-v="-1" style="font-family:inherit;font-size:11px;padding:4px 10px;border-radius:20px;border:1px solid #d6dae0;background:#fff;color:#3c3c3c;cursor:pointer;">👎 그만</button>
+  </div>
+</div>
     <div class="footer">우선순위 기준 · 즉시주목 = 긴급도 높음·중요도 높음 / 주의요망 = 긴급도 높음·중요도 낮음 or 긴급도 낮음·중요도 높음 / 동향참고 = 긴급도 낮음·중요도 낮음</div>
-  </main>
-<script>
-(function(){
-  try {
-    var DATE = "2026-11-09", JSON_URL = "./archive/index.json", PREFIX = "./archive/";
-    fetch(JSON_URL, {cache: 'no-store'}).then(function(r){ return r.json(); }).then(function(data){
-      var dates = (data.dates || []).slice().sort();
-      var prev = null, next = null;
-      for (var i = 0; i < dates.length; i++) {
-        if (dates[i] < DATE) { prev = dates[i]; }
-        if (dates[i] > DATE && next === null) { next = dates[i]; }
-      }
-      function fill(id, d){
-        var a = document.getElementById(id);
-        if (!a || !d) { return; }
-        a.href = PREFIX + d + '.html';
-        a.setAttribute('title', d);
-        a.hidden = false;
-      }
-      fill('nav-prev', prev);
-      fill('nav-next', next);
-    })['catch'](function(){});
-  } catch (e) {}
-})();
-</script>
+  </div>
 
-<div id="kw-credit-footer">
-  <div class="cr-main">📋 발행 · <b>K-water연구원 경영연구소</b></div>
-  <div class="cr-sub">개발 · K-water연구원 AI연구소</div>
+<div id="kw-credit-footer" style="
+  text-align:center;padding:20px 16px;
+  background:#fafbfc;border-top:1px solid #e5e7eb;
+  font-family:'Malgun Gothic','Noto Sans KR',sans-serif;
+">
+  <div style="font-size:13px;color:#3c3c3c;font-weight:600;letter-spacing:0.2px;">
+    📋 발행 · <span style="color:#002060;">K-water연구원 경영연구소</span>
+  </div>
+  <div style="font-size:11px;color:#9ca3af;margin-top:6px;letter-spacing:0.3px;">
+    개발 · K-water연구원 AI연구소
+  </div>
 </div>
 
 
 <script>
 (function(){
   try {
-    var EP = "https://script.google.com/macros/s/AKfycbzvRG44ieMtXA-9ZzN1nD_4MwXxK1rirbDTZCTQk14kq3Or2qfkDNYz_cfco-ri5iB5/exec";
+    var EP = "";
     var DATE = "2026-11-09";
     function key(no){ return "kwfb:" + DATE + ":" + no; }
     function mark(box){
-      box.innerHTML = '<span style="font-size:15px;color:#1a6e1a;">의견 감사합니다 &#10003;</span>';
+      box.innerHTML = '<span style="font-size:11px;color:#1a6e1a;">의견 감사합니다 &#10003;</span>';
     }
     function init(){
       var cards = document.querySelectorAll('.brief-card');
